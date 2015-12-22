@@ -1,2 +1,0 @@
-stat_log.o: stat_log.cpp proto/xseer_online.hpp proto/common.hpp \
- proto/xseer_online_enum.hpp common_def.hpp log_thread.hpp stat_log.hpp

@@ -1,6 +1,0 @@
-timer.o: timer.cpp proto/xseer_online.hpp proto/common.hpp \
- proto/xseer_online_enum.hpp timer.hpp common_def.hpp log_thread.hpp \
- player.hpp hero.hpp equipment.hpp btl_soul.hpp item.hpp restriction.hpp \
- instance.hpp soldier.hpp ten_even_draw.hpp horse.hpp treasure_risk.hpp \
- task.hpp shop.hpp adventure.hpp achievement.hpp common_fight.hpp \
- internal_affairs.hpp vip.hpp utils.hpp wheel_timer.h arena.hpp guild.hpp

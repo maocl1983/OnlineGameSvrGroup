@@ -1,1 +1,0 @@
-skill.o: skill.cpp skill.hpp common_def.hpp log_thread.hpp

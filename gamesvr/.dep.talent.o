@@ -1,1 +1,0 @@
-talent.o: talent.cpp talent.hpp common_def.hpp log_thread.hpp
