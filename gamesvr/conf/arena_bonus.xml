@@ -1,0 +1,34 @@
+<!-- 竞技场奖励配置表 -->
+<root>
+	<arena min_rank="1" max_rank="1" ranking_diamond="400.0" daily_diamond="550" daily_golds="100000" />
+	<arena min_rank="2" max_rank="2" ranking_diamond="300.0" daily_diamond="500" daily_golds="95000" />
+	<arena min_rank="3" max_rank="3" ranking_diamond="200.0" daily_diamond="470" daily_golds="90000" />
+	<arena min_rank="4" max_rank="4" ranking_diamond="150.0" daily_diamond="440" daily_golds="85000" />
+	<arena min_rank="5" max_rank="5" ranking_diamond="100.0" daily_diamond="410" daily_golds="80000" />
+	<arena min_rank="6" max_rank="6" ranking_diamond="50.0" daily_diamond="380" daily_golds="75000" />
+	<arena min_rank="7" max_rank="7" ranking_diamond="40.0" daily_diamond="350" daily_golds="70000" />
+	<arena min_rank="8" max_rank="8" ranking_diamond="30.0" daily_diamond="320" daily_golds="65000" />
+	<arena min_rank="9" max_rank="9" ranking_diamond="20.0" daily_diamond="290" daily_golds="60000" />
+	<arena min_rank="20" max_rank="10" ranking_diamond="18.0" daily_diamond="260" daily_golds="55000" />
+	<arena min_rank="30" max_rank="21" ranking_diamond="17.0" daily_diamond="240" daily_golds="50000" />
+	<arena min_rank="40" max_rank="31" ranking_diamond="16.0" daily_diamond="220" daily_golds="48000" />
+	<arena min_rank="50" max_rank="41" ranking_diamond="15.0" daily_diamond="200" daily_golds="46000" />
+	<arena min_rank="60" max_rank="51" ranking_diamond="14.0" daily_diamond="180" daily_golds="44000" />
+	<arena min_rank="70" max_rank="61" ranking_diamond="13.0" daily_diamond="160" daily_golds="42000" />
+	<arena min_rank="80" max_rank="71" ranking_diamond="12.0" daily_diamond="140" daily_golds="40000" />
+	<arena min_rank="90" max_rank="81" ranking_diamond="11.0" daily_diamond="120" daily_golds="38000" />
+	<arena min_rank="100" max_rank="91" ranking_diamond="10.0" daily_diamond="100" daily_golds="36000" />
+	<arena min_rank="200" max_rank="101" ranking_diamond="5.0" daily_diamond="90" daily_golds="34000" />
+	<arena min_rank="300" max_rank="201" ranking_diamond="4.0" daily_diamond="80" daily_golds="32000" />
+	<arena min_rank="400" max_rank="301" ranking_diamond="3.0" daily_diamond="70" daily_golds="30000" />
+	<arena min_rank="500" max_rank="401" ranking_diamond="2.0" daily_diamond="60" daily_golds="28000" />
+	<arena min_rank="1000" max_rank="501" ranking_diamond="1.0" daily_diamond="55" daily_golds="26000" />
+	<arena min_rank="2000" max_rank="1001" ranking_diamond="0.3" daily_diamond="50" daily_golds="24000" />
+	<arena min_rank="5000" max_rank="2001" ranking_diamond="0.2" daily_diamond="50" daily_golds="22000" />
+	<arena min_rank="10000" max_rank="5001" ranking_diamond="0.02" daily_diamond="50" daily_golds="20000" />
+	<arena min_rank="20000" max_rank="10001" ranking_diamond="0.0" daily_diamond="45" daily_golds="18000" />
+	<arena min_rank="40000" max_rank="20001" ranking_diamond="0.0" daily_diamond="45" daily_golds="16000" />
+	<arena min_rank="60000" max_rank="40001" ranking_diamond="0.0" daily_diamond="45" daily_golds="14000" />
+	<arena min_rank="80000" max_rank="60001" ranking_diamond="0.0" daily_diamond="40" daily_golds="12000" />
+	<arena min_rank="1000000" max_rank="80001" ranking_diamond="0.0" daily_diamond="40" daily_golds="10000" />
+</root>

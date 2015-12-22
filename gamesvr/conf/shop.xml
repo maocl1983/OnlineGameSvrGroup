@@ -1,0 +1,35 @@
+<!-- 商城配置表 -->
+<root>
+	<shop type="1" id="1" item_id="801000" item_cnt="1" prob="10" cost_type="1" cost="20000" />
+	<shop type="1" id="2" item_id="801001" item_cnt="1" prob="10" cost_type="1" cost="10000" />
+	<shop type="1" id="3" item_id="801002" item_cnt="1" prob="10" cost_type="1" cost="10000" />
+	<shop type="1" id="4" item_id="801003" item_cnt="1" prob="10" cost_type="1" cost="10000" />
+	<shop type="1" id="5" item_id="801004" item_cnt="1" prob="10" cost_type="1" cost="20000" />
+	<shop type="1" id="6" item_id="801005" item_cnt="1" prob="10" cost_type="1" cost="20000" />
+	<shop type="1" id="7" item_id="502101" item_cnt="1" prob="1" cost_type="3" cost="50" />
+	<shop type="1" id="8" item_id="502102" item_cnt="1" prob="1" cost_type="3" cost="50" />
+	<shop type="1" id="9" item_id="502103" item_cnt="1" prob="1" cost_type="3" cost="50" />
+	<shop type="2" id="10" item_id="551001" item_cnt="1" prob="100" cost_type="2" cost="100" />
+	<shop type="2" id="11" item_id="551003" item_cnt="1" prob="100" cost_type="2" cost="100" />
+	<shop type="2" id="12" item_id="551004" item_cnt="1" prob="100" cost_type="2" cost="100" />
+	<shop type="2" id="13" item_id="551005" item_cnt="1" prob="100" cost_type="2" cost="100" />
+	<shop type="2" id="14" item_id="551006" item_cnt="1" prob="100" cost_type="2" cost="100" />
+	<shop type="2" id="15" item_id="551007" item_cnt="1" prob="100" cost_type="2" cost="100" />
+	<shop type="2" id="16" item_id="551008" item_cnt="1" prob="100" cost_type="2" cost="100" />
+	<shop type="2" id="17" item_id="551009" item_cnt="1" prob="100" cost_type="2" cost="100" />
+	<shop type="2" id="18" item_id="551010" item_cnt="1" prob="100" cost_type="2" cost="100" />
+	<shop type="2" id="19" item_id="551001" item_cnt="10" prob="10" cost_type="2" cost="100" />
+	<shop type="2" id="20" item_id="551003" item_cnt="10" prob="10" cost_type="2" cost="100" />
+	<shop type="2" id="21" item_id="551004" item_cnt="10" prob="10" cost_type="2" cost="100" />
+	<shop type="2" id="22" item_id="551005" item_cnt="10" prob="10" cost_type="2" cost="100" />
+	<shop type="2" id="23" item_id="551006" item_cnt="10" prob="10" cost_type="2" cost="100" />
+	<shop type="2" id="24" item_id="551007" item_cnt="10" prob="10" cost_type="2" cost="100" />
+	<shop type="2" id="25" item_id="551008" item_cnt="10" prob="10" cost_type="2" cost="100" />
+	<shop type="2" id="26" item_id="551009" item_cnt="10" prob="10" cost_type="2" cost="100" />
+	<shop type="2" id="27" item_id="551010" item_cnt="10" prob="10" cost_type="2" cost="100" />
+	<shop type="2" id="28" item_id="120000" item_cnt="5" prob="10" cost_type="2" cost="300" />
+	<shop type="2" id="29" item_id="120000" item_cnt="10" prob="5" cost_type="2" cost="600" />
+	<shop type="2" id="30" item_id="520101" item_cnt="1" prob="10" cost_type="2" cost="200" />
+	<shop type="2" id="31" item_id="520102" item_cnt="1" prob="10" cost_type="2" cost="500" />
+	<shop type="2" id="32" item_id="120003" item_cnt="1" prob="10" cost_type="2" cost="200" />
+</root>

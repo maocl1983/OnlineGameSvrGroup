@@ -1,0 +1,39 @@
+<!-- 通用玩法地掉落配置表 -->
+<root>
+	<commonFight type="4" step="1" item1_id="513001" item1_cnt="1" item1_prob="100" item2_id="513002" item2_cnt="1" item2_prob="100" item3_id="402002" item3_cnt="1" item3_prob="100" item4_id="402005" item4_cnt="1" item4_prob="100" />
+	<commonFight type="4" step="2" item1_id="513001" item1_cnt="1" item1_prob="100" item2_id="513002" item2_cnt="1" item2_prob="100" />
+	<commonFight type="4" step="3" item1_id="513001" item1_cnt="1" item1_prob="100" item2_id="513002" item2_cnt="1" item2_prob="100" />
+	<commonFight type="4" step="4" item1_id="513001" item1_cnt="1" item1_prob="100" item2_id="513002" item2_cnt="1" item2_prob="100" />
+	<commonFight type="4" step="5" item1_id="513001" item1_cnt="1" item1_prob="100" item2_id="513002" item2_cnt="1" item2_prob="100" />
+	<commonFight type="4" step="6" item1_id="513001" item1_cnt="1" item1_prob="100" item2_id="513002" item2_cnt="1" item2_prob="100" />
+	<commonFight type="5" step="1" item1_id="513003" item1_cnt="1" item1_prob="100" item2_id="513004" item2_cnt="1" item2_prob="100" item3_id="402004" item3_cnt="1" item3_prob="100" item4_id="402005" item4_cnt="1" item4_prob="100" />
+	<commonFight type="5" step="2" item1_id="513003" item1_cnt="1" item1_prob="100" item2_id="513004" item2_cnt="1" item2_prob="100" />
+	<commonFight type="5" step="3" item1_id="513003" item1_cnt="1" item1_prob="100" item2_id="513004" item2_cnt="1" item2_prob="100" />
+	<commonFight type="5" step="4" item1_id="513003" item1_cnt="1" item1_prob="100" item2_id="513004" item2_cnt="1" item2_prob="100" />
+	<commonFight type="5" step="5" item1_id="513003" item1_cnt="1" item1_prob="100" item2_id="513004" item2_cnt="1" item2_prob="100" />
+	<commonFight type="5" step="6" item1_id="513003" item1_cnt="1" item1_prob="100" item2_id="513004" item2_cnt="1" item2_prob="100" />
+	<commonFight type="6" step="1" item1_id="513009" item1_cnt="1" item1_prob="100" item2_id="402001" item2_cnt="1" item2_prob="100" item3_id="402005" item3_cnt="1" item3_prob="100" />
+	<commonFight type="6" step="2" item1_id="513009" item1_cnt="1" item1_prob="100" />
+	<commonFight type="6" step="3" item1_id="513009" item1_cnt="1" item1_prob="100" />
+	<commonFight type="6" step="4" item1_id="513009" item1_cnt="1" item1_prob="100" />
+	<commonFight type="6" step="5" item1_id="513009" item1_cnt="1" item1_prob="100" />
+	<commonFight type="6" step="6" item1_id="513009" item1_cnt="1" item1_prob="100" />
+	<commonFight type="8" step="1" item1_id="121000" item1_cnt="4" item1_prob="100" />
+	<commonFight type="8" step="2" item1_id="121000" item1_cnt="5" item1_prob="100" />
+	<commonFight type="8" step="3" item1_id="121000" item1_cnt="6" item1_prob="100" />
+	<commonFight type="8" step="4" item1_id="121000" item1_cnt="7" item1_prob="100" />
+	<commonFight type="8" step="5" item1_id="121000" item1_cnt="8" item1_prob="100" />
+	<commonFight type="8" step="6" item1_id="121000" item1_cnt="9" item1_prob="100" />
+	<commonFight type="10" step="1" item1_id="150000" item1_cnt="1" item1_prob="100" item2_id="120007" item2_cnt="1" item2_prob="100" item3_id="102000" item3_cnt="2" item3_prob="100" item4_id="102001" item4_cnt="1" item4_prob="100" />
+	<commonFight type="10" step="2" item1_id="150000" item1_cnt="1" item1_prob="100" />
+	<commonFight type="10" step="3" item1_id="150000" item1_cnt="1" item1_prob="100" />
+	<commonFight type="10" step="4" item1_id="150000" item1_cnt="1" item1_prob="100" />
+	<commonFight type="10" step="5" item1_id="150000" item1_cnt="1" item1_prob="100" />
+	<commonFight type="10" step="6" item1_id="150000" item1_cnt="1" item1_prob="100" />
+	<commonFight type="9" step="1" item1_id="402003" item1_cnt="1" item1_prob="100" item2_id="402005" item2_cnt="1" item2_prob="100" item3_id="102000" item3_cnt="1" item3_prob="100" item4_id="102001" item4_cnt="1" item4_prob="100" />
+	<commonFight type="9" step="2" item1_id="402003" item1_cnt="1" item1_prob="100" item2_id="402005" item2_cnt="1" item2_prob="100" item3_id="102000" item3_cnt="1" item3_prob="100" item4_id="102001" item4_cnt="1" item4_prob="100" />
+	<commonFight type="9" step="3" item1_id="402003" item1_cnt="1" item1_prob="100" item2_id="402005" item2_cnt="1" item2_prob="100" item3_id="102000" item3_cnt="1" item3_prob="100" item4_id="102001" item4_cnt="1" item4_prob="100" />
+	<commonFight type="9" step="4" item1_id="402003" item1_cnt="1" item1_prob="100" item2_id="402005" item2_cnt="1" item2_prob="100" item3_id="102000" item3_cnt="1" item3_prob="100" item4_id="102001" item4_cnt="1" item4_prob="100" />
+	<commonFight type="9" step="5" item1_id="402003" item1_cnt="1" item1_prob="100" item2_id="402005" item2_cnt="1" item2_prob="100" item3_id="102000" item3_cnt="1" item3_prob="100" item4_id="102001" item4_cnt="1" item4_prob="100" />
+	<commonFight type="9" step="6" item1_id="402003" item1_cnt="1" item1_prob="100" item2_id="402005" item2_cnt="1" item2_prob="100" item3_id="102000" item3_cnt="1" item3_prob="100" item4_id="102001" item4_cnt="1" item4_prob="100" />
+</root>

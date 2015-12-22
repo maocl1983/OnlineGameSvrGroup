@@ -1,0 +1,33 @@
+<!-- 通用玩法配置表 -->
+<root>
+	<commonFight type="4" step="1" unlock_lv="24" />
+	<commonFight type="4" step="2" unlock_lv="30" />
+	<commonFight type="4" step="3" unlock_lv="40" />
+	<commonFight type="4" step="4" unlock_lv="50" />
+	<commonFight type="4" step="5" unlock_lv="60" />
+	<commonFight type="4" step="6" unlock_lv="70" />
+	<commonFight type="5" step="1" unlock_lv="28" />
+	<commonFight type="5" step="2" unlock_lv="30" />
+	<commonFight type="5" step="3" unlock_lv="40" />
+	<commonFight type="5" step="4" unlock_lv="50" />
+	<commonFight type="5" step="5" unlock_lv="60" />
+	<commonFight type="5" step="6" unlock_lv="70" />
+	<commonFight type="6" step="1" unlock_lv="16" />
+	<commonFight type="6" step="2" unlock_lv="30" />
+	<commonFight type="6" step="3" unlock_lv="40" />
+	<commonFight type="6" step="4" unlock_lv="50" />
+	<commonFight type="6" step="5" unlock_lv="60" />
+	<commonFight type="6" step="6" unlock_lv="70" />
+	<commonFight type="8" step="1" unlock_lv="12" />
+	<commonFight type="8" step="2" unlock_lv="30" />
+	<commonFight type="8" step="3" unlock_lv="40" />
+	<commonFight type="8" step="4" unlock_lv="50" />
+	<commonFight type="8" step="5" unlock_lv="60" />
+	<commonFight type="8" step="6" unlock_lv="70" />
+	<commonFight type="10" step="1" unlock_lv="19" />
+	<commonFight type="10" step="2" unlock_lv="30" />
+	<commonFight type="10" step="3" unlock_lv="40" />
+	<commonFight type="10" step="4" unlock_lv="50" />
+	<commonFight type="10" step="5" unlock_lv="60" />
+	<commonFight type="10" step="6" unlock_lv="70" />
+</root>

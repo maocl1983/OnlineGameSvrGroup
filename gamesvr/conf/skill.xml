@@ -1,0 +1,27 @@
+<!-- 技能配置表 -->
+<root>
+	<skill id="10000" name="诸葛亮普攻" type="4" desc="诸葛亮普攻" cd="0" target="6" target_type="3" shape="0" target_pos="0" target_num="1" immediate_effect="1" chant_effect="0" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10001" name="诸葛亮技能1" type="2" desc="诸葛亮技能1" cd="0" target="10" target_type="3" shape="0" target_pos="0" target_num="6" immediate_effect="0" chant_effect="1" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10002" name="诸葛亮技能2" type="2" desc="诸葛亮技能2" cd="0" target="10" target_type="3" shape="0" target_pos="0" target_num="6" immediate_effect="0" chant_effect="1" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10003" name="诸葛亮技能3" type="2" desc="诸葛亮技能3" cd="0" target="10" target_type="3" shape="0" target_pos="0" target_num="6" immediate_effect="0" chant_effect="1" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10004" name="诸葛亮技能4" type="2" desc="诸葛亮技能4" cd="0" target="10" target_type="3" shape="0" target_pos="0" target_num="6" immediate_effect="0" chant_effect="1" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10005" name="诸葛亮技能5" type="2" desc="诸葛亮技能5" cd="0" target="10" target_type="3" shape="0" target_pos="0" target_num="6" immediate_effect="0" chant_effect="1" buff_1="8" buff_2="0" passive_buff="0" />
+	<skill id="10006" name="赵云普攻" type="3" desc="赵云普攻" cd="0" target="6" target_type="3" shape="1" target_pos="0" target_num="1" immediate_effect="1" chant_effect="0" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10007" name="赵云技能1" type="1" desc="赵云技能1" cd="0" target="6" target_type="3" shape="1" target_pos="100" target_num="1" immediate_effect="1" chant_effect="0" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10008" name="赵云技能2" type="1" desc="赵云技能2" cd="0" target="6" target_type="3" shape="1" target_pos="100" target_num="1" immediate_effect="1" chant_effect="0" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10009" name="赵云技能3" type="1" desc="赵云技能3" cd="0" target="6" target_type="3" shape="1" target_pos="100" target_num="1" immediate_effect="1" chant_effect="0" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10010" name="赵云技能4" type="1" desc="赵云技能4" cd="0" target="6" target_type="3" shape="1" target_pos="100" target_num="1" immediate_effect="1" chant_effect="0" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10011" name="赵云技能5" type="1" desc="赵云技能5" cd="0" target="6" target_type="3" shape="1" target_pos="100" target_num="1" immediate_effect="1" chant_effect="0" buff_1="16" buff_2="0" passive_buff="0" />
+	<skill id="10012" name="孙尚香普攻" type="3" desc="孙尚香普攻" cd="0" target="6" target_type="3" shape="0" target_pos="0" target_num="1" immediate_effect="1" chant_effect="0" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10013" name="孙尚香技能1" type="1" desc="孙尚香技能1" cd="0" target="10" target_type="3" shape="2" target_pos="0" target_num="6" immediate_effect="1" chant_effect="0" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10014" name="孙尚香技能2" type="1" desc="孙尚香技能2" cd="0" target="10" target_type="3" shape="2" target_pos="0" target_num="6" immediate_effect="1" chant_effect="0" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10015" name="孙尚香技能3" type="1" desc="孙尚香技能3" cd="0" target="10" target_type="3" shape="2" target_pos="0" target_num="6" immediate_effect="1" chant_effect="0" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10016" name="孙尚香技能4" type="1" desc="孙尚香技能4" cd="0" target="10" target_type="3" shape="2" target_pos="0" target_num="6" immediate_effect="1" chant_effect="0" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10017" name="孙尚香技能5" type="1" desc="孙尚香技能5" cd="0" target="10" target_type="3" shape="2" target_pos="0" target_num="6" immediate_effect="1" chant_effect="0" buff_1="2" buff_2="0" passive_buff="0" />
+	<skill id="10018" name="夏侯惇" type="3" desc="夏侯惇" cd="0" target="6" target_type="3" shape="1" target_pos="0" target_num="1" immediate_effect="1" chant_effect="0" buff_1="0" buff_2="0" passive_buff="0" />
+	<skill id="10019" name="夏侯惇技能1" type="1" desc="夏侯惇技能1" cd="0" target="0" target_type="3" shape="3" target_pos="200" target_num="0" immediate_effect="1" chant_effect="0" buff_1="1" buff_2="0" passive_buff="0" />
+	<skill id="10020" name="夏侯惇技能2" type="1" desc="夏侯惇技能2" cd="0" target="0" target_type="3" shape="3" target_pos="200" target_num="0" immediate_effect="1" chant_effect="0" buff_1="1" buff_2="0" passive_buff="0" />
+	<skill id="10021" name="夏侯惇技能3" type="1" desc="夏侯惇技能3" cd="0" target="0" target_type="3" shape="3" target_pos="200" target_num="0" immediate_effect="1" chant_effect="0" buff_1="1" buff_2="0" passive_buff="0" />
+	<skill id="10022" name="夏侯惇技能4" type="1" desc="夏侯惇技能4" cd="0" target="0" target_type="3" shape="3" target_pos="200" target_num="0" immediate_effect="1" chant_effect="0" buff_1="1" buff_2="0" passive_buff="0" />
+	<skill id="10023" name="夏侯惇技能5" type="1" desc="夏侯惇技能5" cd="0" target="0" target_type="3" shape="3" target_pos="200" target_num="0" immediate_effect="1" chant_effect="0" buff_1="1" buff_2="2" passive_buff="0" />
+</root>

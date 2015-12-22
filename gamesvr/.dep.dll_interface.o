@@ -1,0 +1,8 @@
+dll_interface.o: dll_interface.cpp cli_dispatch.hpp dbroute.hpp \
+ common_def.hpp log_thread.hpp mcast_proto.hpp player.hpp hero.hpp \
+ equipment.hpp btl_soul.hpp item.hpp restriction.hpp instance.hpp \
+ soldier.hpp ten_even_draw.hpp horse.hpp treasure_risk.hpp task.hpp \
+ shop.hpp adventure.hpp achievement.hpp common_fight.hpp \
+ internal_affairs.hpp vip.hpp switch.hpp skill.hpp talent.hpp \
+ wheel_timer.h stat_log.hpp timer.hpp arena.hpp redis.hpp general.hpp \
+ trial_tower.hpp alarm.hpp

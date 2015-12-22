@@ -1,0 +1,19 @@
+<!-- 武将天赋配置表 -->
+<root>
+	<talent id="20000" name="诸葛亮天赋1" type="0" desc="诸葛亮天赋1" passive_class="0" passive_type="0" passive_value="0" />
+	<talent id="20001" name="诸葛亮天赋2" type="0" desc="诸葛亮天赋2" passive_class="1" passive_type="2" passive_value="10" />
+	<talent id="20002" name="诸葛亮天赋3" type="0" desc="诸葛亮天赋3" passive_class="1" passive_type="2" passive_value="10" />
+	<talent id="20003" name="诸葛亮天赋4" type="0" desc="诸葛亮天赋4" passive_class="0" passive_type="0" passive_value="0" />
+	<talent id="20004" name="诸葛亮天赋5" type="0" desc="诸葛亮天赋5" passive_class="0" passive_type="0" passive_value="0" />
+	<talent id="20005" name="诸葛亮天赋6" type="0" desc="诸葛亮天赋6" passive_class="0" passive_type="0" passive_value="0" />
+	<talent id="20006" name="诸葛亮天赋7" type="0" desc="诸葛亮天赋7" passive_class="0" passive_type="0" passive_value="0" />
+	<talent id="20007" name="赵云天赋1" type="0" desc="赵云天赋1" passive_class="0" passive_type="0" passive_value="0" />
+	<talent id="20008" name="赵云天赋2" type="0" desc="赵云天赋2" passive_class="1" passive_type="1" passive_value="5" />
+	<talent id="20009" name="赵云天赋3" type="0" desc="赵云天赋3" passive_class="1" passive_type="2" passive_value="5" />
+	<talent id="20010" name="孙尚香天赋1" type="0" desc="孙尚香天赋1" passive_class="0" passive_type="0" passive_value="0" />
+	<talent id="20011" name="孙尚香天赋2" type="0" desc="孙尚香天赋2" passive_class="1" passive_type="2" passive_value="10" />
+	<talent id="20012" name="孙尚香天赋3" type="0" desc="孙尚香天赋3" passive_class="1" passive_type="2" passive_value="5" />
+	<talent id="20013" name="主公天赋1" type="0" desc="主公天赋1" passive_class="0" passive_type="0" passive_value="0" />
+	<talent id="20014" name="主公天赋2" type="0" desc="主公天赋2" passive_class="1" passive_type="2" passive_value="100" />
+	<talent id="20015" name="主公天赋3" type="0" desc="主公天赋3" passive_class="1" passive_type="2" passive_value="100" />
+</root>

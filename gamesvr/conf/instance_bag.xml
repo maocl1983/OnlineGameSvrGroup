@@ -1,0 +1,24 @@
+<!-- 宝箱配置表 -->
+<root>
+	<bag id="11" star="6" item1="401003" item1_cnt="5" item2="401005" item2_cnt="5" diamond="300" />
+	<bag id="21" star="7" item1="102000" item1_cnt="5" diamond="150" />
+	<bag id="31" star="8" item1="801015" item1_cnt="1" item2="801014" item2_cnt="1" item3="801013" item3_cnt="1" />
+	<bag id="32" star="16" item1="120007" item1_cnt="1" item2="801011" item2_cnt="1" item3="801010" item3_cnt="1" diamond="200" />
+	<bag id="41" star="10" item1="402005" item1_cnt="5" item2="402001" item2_cnt="2" item3="402002" item3_cnt="2" />
+	<bag id="42" star="20" item1="802005" item1_cnt="1" item2="120007" item2_cnt="1" item3="120003" item3_cnt="10" diamond="300" />
+	<bag id="51" star="10" item1="801015" item1_cnt="1" item2="801014" item2_cnt="1" item3="801013" item3_cnt="1" />
+	<bag id="52" star="20" item1="802004" item1_cnt="1" />
+	<bag id="53" star="30" item1="802003" item1_cnt="1" diamond="350" />
+	<bag id="61" star="10" item1="801012" item1_cnt="1" item2="801011" item2_cnt="1" item3="801010" item3_cnt="1" />
+	<bag id="62" star="20" item1="802002" item1_cnt="1" />
+	<bag id="63" star="30" item1="802001" item1_cnt="1" diamond="400" />
+	<bag id="71" star="10" item1="801015" item1_cnt="1" item2="801014" item2_cnt="1" item3="801013" item3_cnt="1" />
+	<bag id="72" star="20" item1="802000" item1_cnt="1" />
+	<bag id="73" star="30" item1="802015" item1_cnt="1" diamond="450" />
+	<bag id="81" star="10" item1="801012" item1_cnt="1" item2="801011" item2_cnt="1" item3="801010" item3_cnt="1" />
+	<bag id="82" star="20" item1="802014" item1_cnt="1" />
+	<bag id="83" star="30" item1="802013" item1_cnt="1" diamond="500" />
+	<bag id="91" star="10" item1="801012" item1_cnt="1" item2="801011" item2_cnt="1" item3="801010" item3_cnt="1" />
+	<bag id="92" star="20" item1="802014" item1_cnt="1" />
+	<bag id="93" star="30" item1="802013" item1_cnt="1" diamond="600" />
+</root>

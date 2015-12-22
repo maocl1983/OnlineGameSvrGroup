@@ -1,0 +1,9 @@
+<!-- 内政奖励配置表 -->
+<root>
+	<affairs type="1" item_id="542005" item_cnt="1" weight="100" />
+	<affairs type="2" item_id="551001" item_cnt="1" weight="100" />
+	<affairs type="3" item_id="140000" item_cnt="1" weight="100" />
+	<affairs type="4" item_id="501101" item_cnt="1" weight="100" />
+	<affairs type="5" item_id="401001" item_cnt="1" weight="100" />
+	<affairs type="6" item_id="120008" item_cnt="1" weight="100" />
+</root>

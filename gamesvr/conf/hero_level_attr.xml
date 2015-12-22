@@ -1,0 +1,31 @@
+<!-- 英雄等级属性成长表 -->
+<root>
+	<hero id="100" maxhp="99.75" ad="24.94" armor="8.19" resist="6.48" hp_regain="1.51" />
+	<hero id="1001" maxhp="124.69" ad="19.95" armor="8.19" resist="3.78" hp_regain="1.81" />
+	<hero id="1002" maxhp="71.25" ad="14.25" armor="3.78" resist="3.78" hp_regain="1.81" />
+	<hero id="1003" maxhp="187.5" ad="13.13" armor="19.58" resist="10.65" hp_regain="1.62" />
+	<hero id="1004" maxhp="79.8" ad="24.94" armor="3.78" resist="3.78" hp_regain="1.24" />
+	<hero id="1005" maxhp="105.0" ad="32.81" armor="3.97" resist="10.65" hp_regain="1.51" />
+	<hero id="1006" maxhp="105.0" ad="32.81" armor="3.97" resist="10.65" hp_regain="1.51" />
+	<hero id="1007" maxhp="124.69" ad="19.95" armor="8.19" resist="3.78" hp_regain="1.81" />
+	<hero id="1008" maxhp="79.8" ad="24.94" armor="3.78" resist="3.78" hp_regain="1.24" />
+	<hero id="1009" maxhp="187.5" ad="13.13" armor="19.58" resist="10.65" hp_regain="1.62" />
+	<hero id="1010" maxhp="99.75" ad="31.17" armor="3.78" resist="10.12" hp_regain="1.51" />
+	<hero id="1011" maxhp="131.25" ad="21.0" armor="8.63" resist="3.97" hp_regain="1.81" />
+	<hero id="1012" maxhp="187.5" ad="13.13" armor="19.58" resist="10.65" hp_regain="1.62" />
+	<hero id="1013" maxhp="187.5" ad="13.13" armor="19.58" resist="10.65" hp_regain="1.62" />
+	<hero id="1014" maxhp="187.5" ad="13.13" armor="19.58" resist="10.65" hp_regain="1.62" />
+	<hero id="1015" maxhp="131.25" ad="9.19" armor="13.7" resist="7.45" hp_regain="1.26" />
+	<hero id="1016" maxhp="91.88" ad="14.7" armor="6.04" resist="2.78" hp_regain="1.26" />
+	<hero id="1017" maxhp="33.6" ad="10.5" armor="1.59" resist="1.59" hp_regain="0.62" />
+	<hero id="1018" maxhp="131.25" ad="9.19" armor="13.7" resist="7.45" hp_regain="1.26" />
+	<hero id="1019" maxhp="52.5" ad="8.4" armor="3.45" resist="1.59" hp_regain="0.81" />
+	<hero id="1020" maxhp="131.25" ad="9.19" armor="13.7" resist="7.45" hp_regain="1.26" />
+	<hero id="1021" maxhp="84.0" ad="26.25" armor="3.97" resist="3.97" hp_regain="1.24" />
+	<hero id="1022" maxhp="75.0" ad="5.25" armor="7.83" resist="4.26" hp_regain="0.81" />
+	<hero id="1023" maxhp="58.8" ad="18.38" armor="2.78" resist="2.78" hp_regain="0.97" />
+	<hero id="1024" maxhp="187.5" ad="13.13" armor="19.58" resist="10.65" hp_regain="1.62" />
+	<hero id="1025" maxhp="71.25" ad="14.25" armor="3.78" resist="3.78" hp_regain="1.51" />
+	<hero id="1026" maxhp="52.5" ad="8.4" armor="3.45" resist="1.59" hp_regain="0.81" />
+	<hero id="1027" maxhp="71.25" ad="14.25" armor="3.78" resist="3.78" hp_regain="1.51" />
+</root>

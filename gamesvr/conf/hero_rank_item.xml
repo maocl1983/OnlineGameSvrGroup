@@ -1,0 +1,57 @@
+<!-- 英雄进阶道具配置表 -->
+<root>
+	<item item_id="401001" item_name="高粱酒" item_rank="1" price="1000" />
+	<item item_id="401002" item_name="女儿红" item_rank="1" price="1000" />
+	<item item_id="401003" item_name="汾酒" item_rank="1" price="1000" />
+	<item item_id="401004" item_name="杜康酒" item_rank="1" price="1000" />
+	<item item_id="401005" item_name="茅台酒" item_rank="1" price="1000" />
+	<item item_id="402001" item_name="罗琦香囊" item_rank="2" price="1000" />
+	<item item_id="402002" item_name="青玉香囊" item_rank="2" price="1000" />
+	<item item_id="402003" item_name="灯芯香囊" item_rank="2" price="1000" />
+	<item item_id="402004" item_name="红玉香囊" item_rank="2" price="1000" />
+	<item item_id="402005" item_name="秀龙香囊" item_rank="2" price="1000" />
+	<item item_id="403001" item_name="老子" item_rank="3" price="1000" raw_1="401001" raw_1_num="5" raw_2="402001" raw_2_num="5" raw_3="413001" raw_3_num="1" />
+	<item item_id="403002" item_name="春秋" item_rank="3" price="1000" raw_1="401002" raw_1_num="5" raw_2="402002" raw_2_num="5" raw_3="413002" raw_3_num="1" />
+	<item item_id="403003" item_name="史记" item_rank="3" price="1000" raw_1="401003" raw_1_num="5" raw_2="402003" raw_2_num="5" raw_3="413003" raw_3_num="1" />
+	<item item_id="403004" item_name="易经" item_rank="3" price="1000" raw_1="401004" raw_1_num="5" raw_2="402004" raw_2_num="5" raw_3="413004" raw_3_num="1" />
+	<item item_id="403005" item_name="礼记" item_rank="3" price="1000" raw_1="401001" raw_1_num="5" raw_2="402001" raw_2_num="5" raw_3="413005" raw_3_num="1" />
+	<item item_id="403006" item_name="诗经" item_rank="3" price="1000" raw_1="401002" raw_1_num="5" raw_2="402002" raw_2_num="5" raw_3="413006" raw_3_num="1" />
+	<item item_id="403007" item_name="孙子" item_rank="3" price="1000" raw_1="401003" raw_1_num="5" raw_2="402003" raw_2_num="5" raw_3="413007" raw_3_num="1" />
+	<item item_id="403008" item_name="六韬" item_rank="3" price="1000" raw_1="401004" raw_1_num="5" raw_2="402004" raw_2_num="5" raw_3="413008" raw_3_num="1" />
+	<item item_id="403009" item_name="三略" item_rank="3" price="1000" raw_1="401005" raw_1_num="5" raw_2="402005" raw_2_num="5" raw_3="413009" raw_3_num="1" />
+	<item item_id="404001" item_name="青釉罐" item_rank="4" price="1000" raw_1="402001" raw_1_num="10" raw_2="403001" raw_2_num="2" raw_3="414001" raw_3_num="1" />
+	<item item_id="404002" item_name="青瓷壶" item_rank="4" price="1000" raw_1="402002" raw_1_num="10" raw_2="403002" raw_2_num="2" raw_3="414002" raw_3_num="1" />
+	<item item_id="404003" item_name="白瓷瓶" item_rank="4" price="1000" raw_1="402003" raw_1_num="10" raw_2="403003" raw_2_num="2" raw_3="414003" raw_3_num="1" />
+	<item item_id="404004" item_name="清溪瓶" item_rank="4" price="1000" raw_1="402004" raw_1_num="10" raw_2="403004" raw_2_num="2" raw_3="414004" raw_3_num="1" />
+	<item item_id="404005" item_name="红霞瓶" item_rank="4" price="1000" raw_1="402001" raw_1_num="10" raw_2="403001" raw_2_num="2" raw_3="414005" raw_3_num="1" />
+	<item item_id="404006" item_name="龙方壶" item_rank="4" price="1000" raw_1="402002" raw_1_num="10" raw_2="403002" raw_2_num="2" raw_3="414006" raw_3_num="1" />
+	<item item_id="404007" item_name="流彩瓶" item_rank="4" price="1000" raw_1="402003" raw_1_num="10" raw_2="403003" raw_2_num="2" raw_3="414007" raw_3_num="1" />
+	<item item_id="404008" item_name="玉净瓶" item_rank="4" price="1000" raw_1="402004" raw_1_num="10" raw_2="403004" raw_2_num="2" raw_3="414008" raw_3_num="1" />
+	<item item_id="404009" item_name="白玉瓶" item_rank="4" price="1000" raw_1="402001" raw_1_num="10" raw_2="403005" raw_2_num="2" raw_3="414009" raw_3_num="1" />
+	<item item_id="404010" item_name="九锡纹龙罐" item_rank="4" price="1000" raw_1="402002" raw_1_num="10" raw_2="403006" raw_2_num="2" raw_3="414010" raw_3_num="1" />
+	<item item_id="404011" item_name="青天金锡鉴" item_rank="4" price="1000" raw_1="402003" raw_1_num="10" raw_2="403007" raw_2_num="2" raw_3="414011" raw_3_num="1" />
+	<item item_id="404012" item_name="上古服方壶" item_rank="4" price="1000" raw_1="402004" raw_1_num="10" raw_2="403008" raw_2_num="2" raw_3="414012" raw_3_num="1" />
+	<item item_id="404013" item_name="长生乙尊瓶" item_rank="4" price="1000" raw_1="402005" raw_1_num="10" raw_2="403009" raw_2_num="2" raw_3="414013" raw_3_num="1" />
+	<item item_id="413001" item_name="老子卷轴" item_rank="3" price="1000" />
+	<item item_id="413002" item_name="春秋卷轴" item_rank="3" price="1000" />
+	<item item_id="413003" item_name="史记卷轴" item_rank="3" price="1000" />
+	<item item_id="413004" item_name="易经卷轴" item_rank="3" price="1000" />
+	<item item_id="413005" item_name="礼记卷轴" item_rank="3" price="1000" />
+	<item item_id="413006" item_name="诗经卷轴" item_rank="3" price="1000" />
+	<item item_id="413007" item_name="孙子卷轴" item_rank="3" price="1000" />
+	<item item_id="413008" item_name="六韬卷轴" item_rank="3" price="1000" />
+	<item item_id="413009" item_name="三略卷轴" item_rank="3" price="1000" />
+	<item item_id="414001" item_name="青釉罐卷轴" item_rank="4" price="1000" />
+	<item item_id="414002" item_name="青瓷壶卷轴" item_rank="4" price="1000" />
+	<item item_id="414003" item_name="白瓷瓶卷轴" item_rank="4" price="1000" />
+	<item item_id="414004" item_name="清溪瓶卷轴" item_rank="4" price="1000" />
+	<item item_id="414005" item_name="红霞瓶卷轴" item_rank="4" price="1000" />
+	<item item_id="414006" item_name="龙方壶卷轴" item_rank="4" price="1000" />
+	<item item_id="414007" item_name="流彩瓶卷轴" item_rank="4" price="1000" />
+	<item item_id="414008" item_name="玉净瓶卷轴" item_rank="4" price="1000" />
+	<item item_id="414009" item_name="白玉瓶卷轴" item_rank="4" price="1000" />
+	<item item_id="414010" item_name="九锡纹龙罐卷轴" item_rank="4" price="1000" />
+	<item item_id="414011" item_name="青天金锡鉴卷轴" item_rank="4" price="1000" />
+	<item item_id="414012" item_name="上古服方壶卷轴" item_rank="4" price="1000" />
+	<item item_id="414013" item_name="长生乙尊瓶卷轴" item_rank="4" price="1000" />
+</root>

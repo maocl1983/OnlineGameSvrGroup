@@ -1,0 +1,6 @@
+lua_script_manage.o: lua_script_manage.cpp lua_script_manage.hpp \
+ common_def.hpp log_thread.hpp lua_log.hpp restriction.hpp player.hpp \
+ hero.hpp equipment.hpp btl_soul.hpp item.hpp instance.hpp soldier.hpp \
+ ten_even_draw.hpp horse.hpp treasure_risk.hpp task.hpp shop.hpp \
+ adventure.hpp achievement.hpp common_fight.hpp internal_affairs.hpp \
+ vip.hpp

@@ -1,0 +1,6 @@
+<!-- 战马装备配置表 -->
+<root>
+	<horseEquip id="810001" lv="1" maxhp="1000" ad="0" armor="0" resist="0" ad_cri="50" ad_ren="50" cri_damage="0" cri_avoid="0" hit="0" miss="0" />
+	<horseEquip id="810002" lv="1" maxhp="0" ad="100" armor="0" resist="0" ad_cri="0" ad_ren="0" cri_damage="50" cri_avoid="50" hit="0" miss="0" />
+	<horseEquip id="810003" lv="1" maxhp="0" ad="0" armor="100" resist="100" ad_cri="0" ad_ren="0" cri_damage="0" cri_avoid="0" hit="50" miss="50" />
+</root>

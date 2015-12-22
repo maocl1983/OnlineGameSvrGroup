@@ -1,0 +1,20 @@
+<!-- 英雄分封配置表 -->
+<root>
+	<title title_id="10" title_name="偏将军" />
+	<title title_id="20" title_name="威东将军" />
+	<title title_id="21" title_name="威南将军" />
+	<title title_id="22" title_name="威西将军" />
+	<title title_id="23" title_name="威北将军" />
+	<title title_id="30" title_name="平东将军" />
+	<title title_id="31" title_name="平南将军" />
+	<title title_id="32" title_name="平西将军" />
+	<title title_id="33" title_name="平北将军" />
+	<title title_id="40" title_name="征东将军" />
+	<title title_id="41" title_name="征南将军" />
+	<title title_id="42" title_name="征西将军" />
+	<title title_id="43" title_name="征北将军" />
+	<title title_id="50" title_name="骠骑将军" />
+	<title title_id="51" title_name="车骑将军" />
+	<title title_id="52" title_name="卫将军" />
+	<title title_id="60" title_name="大将军" />
+</root>

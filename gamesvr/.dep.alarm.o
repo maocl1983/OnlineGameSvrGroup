@@ -1,0 +1,1 @@
+alarm.o: alarm.cpp alarm.hpp common_def.hpp log_thread.hpp

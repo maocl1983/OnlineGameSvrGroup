@@ -1,0 +1,53 @@
+<!-- 装备合成配置表 -->
+<root>
+	<equip id="801001" name="头盔" piece1="501101" piece2="501201" piece3="501301" piece4="501401" />
+	<equip id="801002" name="胸甲" piece1="501102" piece2="501202" piece3="501302" piece4="501402" />
+	<equip id="801003" name="靴子" piece1="501103" piece2="501203" piece3="501303" piece4="501403" />
+	<equip id="801011" name="头盔" piece1="501111" piece2="501211" piece3="501311" piece4="501411" />
+	<equip id="801012" name="胸甲" piece1="501112" piece2="501212" piece3="501312" piece4="501412" />
+	<equip id="801013" name="靴子" piece1="501113" piece2="501213" piece3="501313" piece4="501413" />
+	<equip id="802001" name="头盔" piece1="502101" piece2="502201" piece3="502301" piece4="502401" piece5="502501" />
+	<equip id="802002" name="胸甲" piece1="502102" piece2="502202" piece3="502302" piece4="502402" piece5="502502" />
+	<equip id="802003" name="靴子" piece1="502103" piece2="502203" piece3="502303" piece4="502403" piece5="502503" />
+	<equip id="802011" name="头盔" piece1="502111" piece2="502211" piece3="502311" piece4="502411" piece5="502511" />
+	<equip id="802012" name="胸甲" piece1="502112" piece2="502212" piece3="502312" piece4="502412" piece5="502512" />
+	<equip id="802013" name="靴子" piece1="502113" piece2="502213" piece3="502313" piece4="502413" piece5="502513" />
+	<equip id="802021" name="头盔" piece1="502121" piece2="502221" piece3="502321" piece4="502421" piece5="502521" />
+	<equip id="802022" name="胸甲" piece1="502122" piece2="502222" piece3="502322" piece4="502422" piece5="502522" />
+	<equip id="802023" name="靴子" piece1="502123" piece2="502223" piece3="502323" piece4="502423" piece5="502523" />
+	<equip id="802031" name="头盔" piece1="502131" piece2="502231" piece3="502331" piece4="502431" piece5="502531" />
+	<equip id="802032" name="胸甲" piece1="502132" piece2="502232" piece3="502332" piece4="502432" piece5="502532" />
+	<equip id="802033" name="靴子" piece1="502133" piece2="502233" piece3="502333" piece4="502433" piece5="502533" />
+	<equip id="802041" name="头盔" piece1="502141" piece2="502241" piece3="502341" piece4="502441" piece5="502541" />
+	<equip id="802042" name="胸甲" piece1="502142" piece2="502242" piece3="502342" piece4="502442" piece5="502542" />
+	<equip id="802043" name="靴子" piece1="502143" piece2="502243" piece3="502343" piece4="502443" piece5="502543" />
+	<equip id="803001" name="头盔" piece1="503101" piece2="503201" piece3="503301" piece4="503401" piece5="503501" piece6="503601" />
+	<equip id="803002" name="胸甲" piece1="503102" piece2="503202" piece3="503302" piece4="503402" piece5="503502" piece6="503602" />
+	<equip id="803003" name="靴子" piece1="503103" piece2="503203" piece3="503303" piece4="503403" piece5="503503" piece6="503603" />
+	<equip id="803011" name="头盔" piece1="503111" piece2="503211" piece3="503311" piece4="503411" piece5="503511" piece6="503611" />
+	<equip id="803012" name="胸甲" piece1="503112" piece2="503212" piece3="503312" piece4="503412" piece5="503512" piece6="503612" />
+	<equip id="803013" name="靴子" piece1="503113" piece2="503213" piece3="503313" piece4="503413" piece5="503513" piece6="503613" />
+	<equip id="803021" name="头盔" piece1="503121" piece2="503221" piece3="503321" piece4="503421" piece5="503521" piece6="503621" />
+	<equip id="803022" name="胸甲" piece1="503122" piece2="503222" piece3="503322" piece4="503422" piece5="503522" piece6="503622" />
+	<equip id="803023" name="靴子" piece1="503123" piece2="503223" piece3="503323" piece4="503423" piece5="503523" piece6="503623" />
+	<equip id="803031" name="头盔" piece1="503131" piece2="503231" piece3="503331" piece4="503431" piece5="503531" piece6="503631" />
+	<equip id="803032" name="胸甲" piece1="503132" piece2="503232" piece3="503332" piece4="503432" piece5="503532" piece6="503632" />
+	<equip id="803033" name="靴子" piece1="503133" piece2="503233" piece3="503333" piece4="503433" piece5="503533" piece6="503633" />
+	<equip id="803041" name="头盔" piece1="503141" piece2="503241" piece3="503341" piece4="503441" piece5="503541" piece6="503641" />
+	<equip id="803042" name="胸甲" piece1="503142" piece2="503242" piece3="503342" piece4="503442" piece5="503542" piece6="503642" />
+	<equip id="803043" name="靴子" piece1="503143" piece2="503243" piece3="503343" piece4="503443" piece5="503543" piece6="503643" />
+	<equip id="803051" name="头盔" piece1="503151" piece2="503251" piece3="503351" piece4="503451" piece5="503551" piece6="503651" />
+	<equip id="803052" name="胸甲" piece1="503152" piece2="503252" piece3="503352" piece4="503452" piece5="503552" piece6="503652" />
+	<equip id="803053" name="靴子" piece1="503153" piece2="503253" piece3="503353" piece4="503453" piece5="503553" piece6="503653" />
+	<equip id="803061" name="头盔" piece1="503161" piece2="503261" piece3="503361" piece4="503461" piece5="503561" piece6="503661" />
+	<equip id="803062" name="胸甲" piece1="503162" piece2="503262" piece3="503362" piece4="503462" piece5="503562" piece6="503662" />
+	<equip id="803063" name="靴子" piece1="503163" piece2="503263" piece3="503363" piece4="503463" piece5="503563" piece6="503663" />
+	<equip id="803071" name="头盔" piece1="503171" piece2="503271" piece3="503371" piece4="503471" piece5="503571" piece6="503671" />
+	<equip id="803072" name="胸甲" piece1="503172" piece2="503272" piece3="503372" piece4="503472" piece5="503572" piece6="503672" />
+	<equip id="803073" name="靴子" piece1="503173" piece2="503273" piece3="503373" piece4="503473" piece5="503573" piece6="503673" />
+	<equip id="803081" name="头盔" piece1="503181" piece2="503281" piece3="503381" piece4="503481" piece5="503581" piece6="503681" />
+	<equip id="803082" name="胸甲" piece1="503182" piece2="503282" piece3="503382" piece4="503482" piece5="503582" piece6="503682" />
+	<equip id="803083" name="靴子" piece1="503183" piece2="503283" piece3="503383" piece4="503483" piece5="503583" piece6="503683" />
+	<equip id="120001" name="陨铁" piece1="520101" piece2="520201" piece3="520301" piece4="520401" />
+	<equip id="120002" name="高级陨铁" piece1="520102" piece2="520202" piece3="520302" piece4="520402" />
+</root>

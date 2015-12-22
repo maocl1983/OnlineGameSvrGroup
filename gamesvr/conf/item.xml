@@ -1,0 +1,136 @@
+<!-- 道具配置表 -->
+<root>
+	<item id="100000" name="经验卡1" type="1" rank="1" effect="500" max_num="99" price="1" des="增加英雄500经验" />
+	<item id="100001" name="经验卡2" type="1" rank="2" effect="2000" max_num="99" price="1" des="增加英雄2000经验" />
+	<item id="100002" name="经验卡3" type="1" rank="3" effect="300" max_num="99" price="1" des="增加英雄300经验" />
+	<item id="100003" name="经验卡4" type="1" rank="4" effect="400" max_num="99" price="1" des="增加英雄400经验" />
+	<item id="101000" name="战马经验" type="20" rank="2" max_num="99" price="1" des="使用可增加战马经验" />
+	<item id="102000" name="小兵经验1" type="21" rank="2" effect="500" max_num="99" price="1" des="使用可增加小兵经验" />
+	<item id="102001" name="小兵经验2" type="21" rank="2" effect="2000" max_num="99" price="1" des="使用可增加小兵经验" />
+	<item id="103000" name="扫荡券" type="27" rank="4" max_num="99" price="1" des="可让你忘却时间" />
+	<item id="110000" name="1级生命宝石" type="4" rank="1" effect="100" max_num="99" price="1000" relation_id="110001" des="可镶嵌到装备上加100生命" />
+	<item id="110001" name="2级生命宝石" type="4" rank="2" effect="150" max_num="99" price="1000" relation_id="110002" des="可镶嵌到装备上加150生命" />
+	<item id="110002" name="3级生命宝石" type="4" rank="3" effect="225" max_num="99" price="1000" relation_id="110003" des="可镶嵌到装备上加225生命" />
+	<item id="110003" name="4级生命宝石" type="4" rank="4" effect="338" max_num="99" price="1000" relation_id="110004" des="可镶嵌到装备上加338生命" />
+	<item id="110004" name="5级生命宝石" type="4" rank="5" effect="507" max_num="99" price="1000" relation_id="110005" des="可镶嵌到装备上加507生命" />
+	<item id="110005" name="6级生命宝石" type="4" rank="6" effect="761" max_num="99" price="1000" relation_id="110006" des="可镶嵌到装备上加761生命" />
+	<item id="110006" name="7级生命宝石" type="4" rank="7" effect="1142" max_num="99" price="1000" relation_id="110007" des="可镶嵌到装备上加1142生命" />
+	<item id="110007" name="8级生命宝石" type="4" rank="8" effect="1713" max_num="99" price="1000" relation_id="110008" des="可镶嵌到装备上加1713生命" />
+	<item id="110008" name="9级生命宝石" type="4" rank="9" effect="2570" max_num="99" price="1000" relation_id="110009" des="可镶嵌到装备上加2570生命" />
+	<item id="110009" name="10级生命宝石" type="4" rank="10" effect="3855" max_num="99" price="1000" relation_id="110010" des="可镶嵌到装备上加3855生命" />
+	<item id="110010" name="11级生命宝石" type="4" rank="11" effect="5783" max_num="99" price="1000" relation_id="110011" des="可镶嵌到装备上加5783生命" />
+	<item id="110011" name="12级生命宝石" type="4" rank="12" effect="8675" max_num="99" price="1000" relation_id="110012" des="可镶嵌到装备上加8675生命" />
+	<item id="110012" name="13级生命宝石" type="4" rank="13" effect="13013" max_num="99" price="1000" relation_id="110013" des="可镶嵌到装备上加13013生命" />
+	<item id="110013" name="14级生命宝石" type="4" rank="14" effect="19520" max_num="99" price="1000" des="可镶嵌到装备上加19520生命" />
+	<item id="111000" name="1级攻击宝石" type="5" rank="1" effect="20" max_num="99" price="1000" relation_id="111001" des="可镶嵌到装备上加20攻击" />
+	<item id="111001" name="2级攻击宝石" type="5" rank="2" effect="30" max_num="99" price="1000" relation_id="111002" des="可镶嵌到装备上加30攻击" />
+	<item id="111002" name="3级攻击宝石" type="5" rank="3" effect="45" max_num="99" price="1000" relation_id="111003" des="可镶嵌到装备上加45攻击" />
+	<item id="111003" name="4级攻击宝石" type="5" rank="4" effect="68" max_num="99" price="1000" relation_id="111004" des="可镶嵌到装备上加68攻击" />
+	<item id="111004" name="5级攻击宝石" type="5" rank="5" effect="102" max_num="99" price="1000" relation_id="111005" des="可镶嵌到装备上加102攻击" />
+	<item id="111005" name="6级攻击宝石" type="5" rank="6" effect="153" max_num="99" price="1000" relation_id="111006" des="可镶嵌到装备上加153攻击" />
+	<item id="111006" name="7级攻击宝石" type="5" rank="7" effect="230" max_num="99" price="1000" relation_id="111007" des="可镶嵌到装备上加230攻击" />
+	<item id="111007" name="8级攻击宝石" type="5" rank="8" effect="345" max_num="99" price="1000" relation_id="111008" des="可镶嵌到装备上加345攻击" />
+	<item id="111008" name="9级攻击宝石" type="5" rank="9" effect="518" max_num="99" price="1000" relation_id="111009" des="可镶嵌到装备上加518攻击" />
+	<item id="111009" name="10级攻击宝石" type="5" rank="10" effect="777" max_num="99" price="1000" relation_id="111010" des="可镶嵌到装备上加777攻击" />
+	<item id="111010" name="11级攻击宝石" type="5" rank="11" effect="1166" max_num="99" price="1000" relation_id="111011" des="可镶嵌到装备上加1166攻击" />
+	<item id="111011" name="12级攻击宝石" type="5" rank="12" effect="1749" max_num="99" price="1000" relation_id="111012" des="可镶嵌到装备上加1749攻击" />
+	<item id="111012" name="13级攻击宝石" type="5" rank="13" effect="2624" max_num="99" price="1000" relation_id="111013" des="可镶嵌到装备上加2624攻击" />
+	<item id="111013" name="14级攻击宝石" type="5" rank="14" effect="3936" max_num="99" price="1000" des="可镶嵌到装备上加3936攻击" />
+	<item id="112000" name="1级护甲宝石" type="6" rank="1" effect="40" max_num="99" price="1000" relation_id="112001" des="可镶嵌到装备上加40护甲" />
+	<item id="112001" name="2级护甲宝石" type="6" rank="2" effect="60" max_num="99" price="1000" relation_id="112002" des="可镶嵌到装备上加60护甲" />
+	<item id="112002" name="3级护甲宝石" type="6" rank="3" effect="90" max_num="99" price="1000" relation_id="112003" des="可镶嵌到装备上加90护甲" />
+	<item id="112003" name="4级护甲宝石" type="6" rank="4" effect="135" max_num="99" price="1000" relation_id="112004" des="可镶嵌到装备上加135护甲" />
+	<item id="112004" name="5级护甲宝石" type="6" rank="5" effect="203" max_num="99" price="1000" relation_id="112005" des="可镶嵌到装备上加203护甲" />
+	<item id="112005" name="6级护甲宝石" type="6" rank="6" effect="305" max_num="99" price="1000" relation_id="112006" des="可镶嵌到装备上加305护甲" />
+	<item id="112006" name="7级护甲宝石" type="6" rank="7" effect="458" max_num="99" price="1000" relation_id="112007" des="可镶嵌到装备上加458护甲" />
+	<item id="112007" name="8级护甲宝石" type="6" rank="8" effect="687" max_num="99" price="1000" relation_id="112008" des="可镶嵌到装备上加687护甲" />
+	<item id="112008" name="9级护甲宝石" type="6" rank="9" effect="1031" max_num="99" price="1000" relation_id="112009" des="可镶嵌到装备上加1031护甲" />
+	<item id="112009" name="10级护甲宝石" type="6" rank="10" effect="1547" max_num="99" price="1000" relation_id="112010" des="可镶嵌到装备上加1547护甲" />
+	<item id="112010" name="11级护甲宝石" type="6" rank="11" effect="2321" max_num="99" price="1000" relation_id="112011" des="可镶嵌到装备上加2321护甲" />
+	<item id="112011" name="12级护甲宝石" type="6" rank="12" effect="3482" max_num="99" price="1000" relation_id="112012" des="可镶嵌到装备上加3482护甲" />
+	<item id="112012" name="13级护甲宝石" type="6" rank="13" effect="5223" max_num="99" price="1000" relation_id="112013" des="可镶嵌到装备上加5223护甲" />
+	<item id="112013" name="14级护甲宝石" type="6" rank="14" effect="7835" max_num="99" price="1000" des="可镶嵌到装备上加7835护甲" />
+	<item id="113000" name="1级魔抗宝石" type="7" rank="1" effect="40" max_num="99" price="1000" relation_id="113001" des="可镶嵌到装备上加40魔抗" />
+	<item id="113001" name="2级魔抗宝石" type="7" rank="2" effect="60" max_num="99" price="1000" relation_id="113002" des="可镶嵌到装备上加60魔抗" />
+	<item id="113002" name="3级魔抗宝石" type="7" rank="3" effect="90" max_num="99" price="1000" relation_id="113003" des="可镶嵌到装备上加90魔抗" />
+	<item id="113003" name="4级魔抗宝石" type="7" rank="4" effect="135" max_num="99" price="1000" relation_id="113004" des="可镶嵌到装备上加135魔抗" />
+	<item id="113004" name="5级魔抗宝石" type="7" rank="5" effect="203" max_num="99" price="1000" relation_id="113005" des="可镶嵌到装备上加203魔抗" />
+	<item id="113005" name="6级魔抗宝石" type="7" rank="6" effect="305" max_num="99" price="1000" relation_id="113006" des="可镶嵌到装备上加305魔抗" />
+	<item id="113006" name="7级魔抗宝石" type="7" rank="7" effect="458" max_num="99" price="1000" relation_id="113007" des="可镶嵌到装备上加458魔抗" />
+	<item id="113007" name="8级魔抗宝石" type="7" rank="8" effect="687" max_num="99" price="1000" relation_id="113008" des="可镶嵌到装备上加687魔抗" />
+	<item id="113008" name="9级魔抗宝石" type="7" rank="9" effect="1031" max_num="99" price="1000" relation_id="113009" des="可镶嵌到装备上加1031魔抗" />
+	<item id="113009" name="10级魔抗宝石" type="7" rank="10" effect="1547" max_num="99" price="1000" relation_id="113010" des="可镶嵌到装备上加1547魔抗" />
+	<item id="113010" name="11级魔抗宝石" type="7" rank="11" effect="2321" max_num="99" price="1000" relation_id="113011" des="可镶嵌到装备上加2321魔抗" />
+	<item id="113011" name="12级魔抗宝石" type="7" rank="12" effect="3482" max_num="99" price="1000" relation_id="113012" des="可镶嵌到装备上加3482魔抗" />
+	<item id="113012" name="13级魔抗宝石" type="7" rank="13" effect="5223" max_num="99" price="1000" relation_id="113013" des="可镶嵌到装备上加5223魔抗" />
+	<item id="113013" name="14级魔抗宝石" type="7" rank="14" effect="7835" max_num="99" price="1000" des="可镶嵌到装备上加7835魔抗" />
+	<item id="120000" name="精炼石" type="3" rank="3" max_num="99" price="1000" des="可用来装备精炼" />
+	<item id="120001" name="大型陨铁" type="2" rank="2" effect="400" max_num="99" price="1000" des="可用来强化装备" />
+	<item id="120002" name="高级陨铁" type="2" rank="2" effect="1000" max_num="99" price="1000" des="可用来强化装备" />
+	<item id="120003" name="小型陨铁" type="2" rank="2" effect="100" max_num="99" price="1000" des="可用来强化装备" />
+	<item id="120004" name="刷新令" type="25" rank="4" max_num="99" price="1000" des="免费刷新一次商店" />
+	<item id="120005" name="免战牌" type="15" rank="4" max_num="99" price="1000" des="保护碎片2小时内不被抢夺" />
+	<item id="120006" name="奇遇令" type="16" rank="4" effect="10" max_num="99" price="1000" des="可触发奇遇" />
+	<item id="120007" name="体力丹" type="17" rank="2" effect="25" max_num="99" price="1000" des="增加体力" />
+	<item id="120008" name="耐力丹" type="18" rank="2" effect="10" max_num="99" price="1000" des="增加耐力" />
+	<item id="121000" name="小金块" type="19" rank="4" max_num="99" price="10000" des="卖" />
+	<item id="121001" name="大金块" type="19" rank="4" max_num="99" price="50000" des="卖" />
+	<item id="131001" name="赵云卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1001" des="可作为武将上阵" />
+	<item id="131002" name="步兵卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1002" des="可作为武将上阵" />
+	<item id="131003" name="夏侯惇" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1003" des="可作为武将上阵" />
+	<item id="131004" name="孙尚香卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1004" des="可作为武将上阵" />
+	<item id="131005" name="诸葛亮卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1005" des="可作为武将上阵" />
+	<item id="131006" name="周瑜卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1006" des="可作为武将上阵" />
+	<item id="131007" name="张飞卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1007" des="可作为武将上阵" />
+	<item id="131008" name="黄月英卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1008" des="可作为武将上阵" />
+	<item id="131009" name="董卓卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1009" des="可作为武将上阵" />
+	<item id="131010" name="张角卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1010" des="可作为武将上阵" />
+	<item id="131011" name="吕布卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1011" des="可作为武将上阵" />
+	<item id="131012" name="刘备卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1012" des="可作为武将上阵" />
+	<item id="131013" name="曹操卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1013" des="可作为武将上阵" />
+	<item id="131014" name="孙权卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1014" des="可作为武将上阵" />
+	<item id="131015" name="周仓卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1015" des="可作为武将上阵" />
+	<item id="131016" name="廖化卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1016" des="可作为武将上阵" />
+	<item id="131017" name="马忠卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1017" des="可作为武将上阵" />
+	<item id="131018" name="程普卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1018" des="可作为武将上阵" />
+	<item id="131019" name="潘璋卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1019" des="可作为武将上阵" />
+	<item id="131020" name="黄盖卡" type="11" rank="4" effect="500" max_num="99" price="1000" relation_id="1020" des="可作为武将上阵" />
+	<item id="132003" name="枪兵" type="10" rank="2" effect="500" max_num="99" price="1000" relation_id="2003" des="枪兵" />
+	<item id="132008" name="鼓手" type="10" rank="2" effect="500" max_num="99" price="1000" relation_id="2008" des="鼓手" />
+	<item id="132013" name="短弓兵" type="10" rank="2" effect="500" max_num="99" price="1000" relation_id="2013" des="短弓兵" />
+	<item id="132023" name="手雷兵" type="10" rank="2" effect="500" max_num="99" price="1000" relation_id="2023" des="手雷兵" />
+	<item id="132028" name="盾兵" type="10" rank="2" effect="500" max_num="99" price="1000" relation_id="2028" des="盾兵" />
+	<item id="132034" name="方士" type="10" rank="2" effect="500" max_num="99" price="1000" relation_id="2034" des="方士" />
+	<item id="132004" name="精英枪兵" type="10" rank="3" effect="500" max_num="99" price="1000" relation_id="2004" des="精英枪兵" />
+	<item id="132009" name="精英鼓手" type="10" rank="3" effect="500" max_num="99" price="1000" relation_id="2009" des="精英鼓手" />
+	<item id="132029" name="精英盾兵" type="10" rank="3" effect="500" max_num="99" price="1000" relation_id="2029" des="精英盾兵" />
+	<item id="132014" name="精英弓手" type="10" rank="3" effect="500" max_num="99" price="1000" relation_id="2014" des="精英弓手" />
+	<item id="132035" name="精英方士" type="10" rank="3" effect="500" max_num="99" price="1000" relation_id="2035" des="精英方士" />
+	<item id="132024" name="精英手雷" type="10" rank="3" effect="500" max_num="99" price="1000" relation_id="2024" des="精英手雷" />
+	<item id="132005" name="老练枪兵" type="10" rank="3" effect="500" max_num="99" price="1000" relation_id="2005" des="老练枪兵" />
+	<item id="132010" name="老练鼓手" type="10" rank="3" effect="500" max_num="99" price="1000" relation_id="2010" des="老练鼓手" />
+	<item id="132030" name="老练盾兵" type="10" rank="3" effect="500" max_num="99" price="1000" relation_id="2030" des="老练盾兵" />
+	<item id="132015" name="老练弓手" type="10" rank="3" effect="500" max_num="99" price="1000" relation_id="2015" des="老练弓手" />
+	<item id="132036" name="老练方士" type="10" rank="3" effect="500" max_num="99" price="1000" relation_id="2036" des="老练方士" />
+	<item id="132025" name="老练手雷" type="10" rank="3" effect="500" max_num="99" price="1000" relation_id="2025" des="老练手雷" />
+	<item id="810001" name="战马装备1" type="14" rank="3" max_num="1" price="1000" des="增加战马属性" />
+	<item id="810002" name="战马装备2" type="14" rank="3" max_num="1" price="1000" des="增加战马属性" />
+	<item id="810003" name="战马装备3" type="14" rank="3" max_num="1" price="1000" des="增加战马属性" />
+	<item id="140000" name="白玉虎符" type="13" rank="1" effect="200" max_num="99" price="1000" des="增加武将战功等级" />
+	<item id="140001" name="翠玉虎符" type="13" rank="2" effect="400" max_num="99" price="1000" des="增加武将战功等级" />
+	<item id="140002" name="青玉龙符" type="13" rank="3" effect="2000" max_num="99" price="1000" des="增加武将战功等级" />
+	<item id="140003" name="紫玉麒麟符" type="13" rank="4" effect="4000" max_num="99" price="1000" des="增加武将战功等级" />
+	<item id="150000" name="百斩道具" type="22" rank="4" max_num="99" price="1000" des="开启百斩技能" />
+	<item id="150001" name="万箭齐发道具" type="22" rank="4" max_num="99" price="1000" des="万箭齐发" />
+	<item id="150002" name="包子道具" type="22" rank="4" max_num="99" price="1000" des="包子回血" />
+	<item id="160000" name="铜钥匙" type="23" rank="2" max_num="99" price="1000" des="可开启铜宝箱" />
+	<item id="160001" name="银钥匙" type="23" rank="3" max_num="99" price="1000" des="可开启银宝箱" />
+	<item id="160002" name="金钥匙" type="23" rank="4" max_num="99" price="1000" des="可开启金宝箱" />
+	<item id="161000" name="铜宝箱" type="24" rank="2" max_num="99" price="1000" des="需要铜钥匙" />
+	<item id="161001" name="银宝箱" type="24" rank="3" max_num="99" price="1000" des="需要银钥匙" />
+	<item id="161002" name="金宝箱" type="24" rank="4" max_num="99" price="1000" des="需要金钥匙" />
+	<item id="162000" name="紫色装备礼包" type="26" rank="4" max_num="99" price="1000" des="开启随机获得一个紫色碎片" />
+	<item id="162001" name="蓝色进阶道具礼包" type="26" rank="2" max_num="99" price="1000" des="随机获得一个蓝色进阶道具碎片" />
+	<item id="163003" name="3级宝石礼包" type="26" rank="2" max_num="99" price="1000" des="打开随机获得一个3级宝石" />
+	<item id="163004" name="4级宝石礼包" type="26" rank="2" max_num="99" price="1000" des="打开随机获得一个4级宝石" />
+</root>

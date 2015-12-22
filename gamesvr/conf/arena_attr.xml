@@ -1,0 +1,28 @@
+<!-- 竞技场主公属性配置表 -->
+<root>
+	<arena min_rank="10" max_rank="1" lv="32" rank="2" maxhp="7350.0" ad="1837.5" armor="404.25" resist="320.25" min_power="92000" max_power="100000" />
+	<arena min_rank="20" max_rank="11" lv="31" rank="2" maxhp="7140.0" ad="1785.0" armor="392.7" resist="311.1" min_power="85000" max_power="95000" />
+	<arena min_rank="30" max_rank="21" lv="30" rank="2" maxhp="6720.0" ad="1680.0" armor="369.6" resist="292.8" min_power="78000" max_power="90000" />
+	<arena min_rank="40" max_rank="31" lv="29" rank="2" maxhp="6510.0" ad="1627.5" armor="358.05" resist="283.65" min_power="75000" max_power="85000" />
+	<arena min_rank="50" max_rank="41" lv="28" rank="2" maxhp="6300.0" ad="1575.0" armor="346.5" resist="274.5" min_power="72000" max_power="82000" />
+	<arena min_rank="60" max_rank="51" lv="27" rank="2" maxhp="6090.0" ad="1522.5" armor="334.95" resist="265.35" min_power="70000" max_power="80000" />
+	<arena min_rank="70" max_rank="61" lv="26" rank="2" maxhp="5880.0" ad="1470.0" armor="323.4" resist="256.2" min_power="68000" max_power="75000" />
+	<arena min_rank="80" max_rank="71" lv="25" rank="2" maxhp="5670.0" ad="1417.5" armor="311.85" resist="247.05" min_power="65000" max_power="72000" />
+	<arena min_rank="90" max_rank="81" lv="24" rank="2" maxhp="5460.0" ad="1365.0" armor="300.3" resist="237.9" min_power="62000" max_power="68000" />
+	<arena min_rank="100" max_rank="91" lv="23" rank="2" maxhp="5250.0" ad="1312.5" armor="288.75" resist="228.75" min_power="57000" max_power="65000" />
+	<arena min_rank="200" max_rank="101" lv="22" rank="1" maxhp="5040.0" ad="1260.0" armor="277.2" resist="219.6" min_power="54000" max_power="60000" />
+	<arena min_rank="400" max_rank="201" lv="21" rank="1" maxhp="4830.0" ad="1207.5" armor="265.65" resist="210.45" min_power="52000" max_power="56000" />
+	<arena min_rank="500" max_rank="401" lv="21" rank="1" maxhp="4620.0" ad="1155.0" armor="254.1" resist="201.3" min_power="50000" max_power="54000" />
+	<arena min_rank="600" max_rank="501" lv="20" rank="1" maxhp="4620.0" ad="1155.0" armor="254.1" resist="201.3" min_power="42000" max_power="52000" />
+	<arena min_rank="800" max_rank="601" lv="19" rank="1" maxhp="4410.0" ad="1102.5" armor="242.55" resist="192.15" min_power="36000" max_power="50000" />
+	<arena min_rank="1000" max_rank="801" lv="18" rank="1" maxhp="4200.0" ad="1050.0" armor="231.0" resist="183.0" min_power="30000" max_power="45000" />
+	<arena min_rank="2000" max_rank="1001" lv="17" rank="1" maxhp="2394.0" ad="598.5" armor="131.67" resist="104.31" min_power="26500" max_power="40000" />
+	<arena min_rank="3000" max_rank="2001" lv="16" rank="1" maxhp="2268.0" ad="567.0" armor="124.74" resist="98.82" min_power="26000" max_power="38000" />
+	<arena min_rank="4000" max_rank="3001" lv="15" rank="1" maxhp="2142.0" ad="535.5" armor="117.81" resist="93.33" min_power="24000" max_power="36000" />
+	<arena min_rank="5000" max_rank="4001" lv="14" rank="1" maxhp="2016.0" ad="504.0" armor="110.88" resist="87.84" min_power="22000" max_power="32000" />
+	<arena min_rank="6000" max_rank="5001" lv="13" rank="1" maxhp="1890.0" ad="472.5" armor="103.95" resist="82.35" min_power="20000" max_power="30000" />
+	<arena min_rank="7000" max_rank="6001" lv="12" rank="0" maxhp="1764.0" ad="441.0" armor="97.02" resist="76.86" min_power="18000" max_power="24000" />
+	<arena min_rank="8000" max_rank="7001" lv="11" rank="0" maxhp="1638.0" ad="409.5" armor="90.09" resist="71.37" min_power="16000" max_power="21000" />
+	<arena min_rank="9000" max_rank="8001" lv="10" rank="0" maxhp="1512.0" ad="378.0" armor="83.16" resist="65.88" min_power="13000" max_power="18000" />
+	<arena min_rank="10000" max_rank="9001" lv="10" rank="0" maxhp="756.0" ad="189.0" armor="41.58" resist="32.94" min_power="10000" max_power="12000" />
+</root>

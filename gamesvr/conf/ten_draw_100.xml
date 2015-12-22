@@ -1,0 +1,14 @@
+<!-- 十连抽金币抽配置表 -->
+<root>
+	<item item_id="131017" item_prob="900" />
+	<item item_id="131019" item_prob="900" />
+	<item item_id="131015" item_prob="45" />
+	<item item_id="131016" item_prob="45" />
+	<item item_id="131018" item_prob="45" />
+	<item item_id="131020" item_prob="45" />
+	<item item_id="131001" item_prob="4" />
+	<item item_id="131004" item_prob="4" />
+	<item item_id="131007" item_prob="4" />
+	<item item_id="131008" item_prob="4" />
+	<item item_id="131010" item_prob="4" />
+</root>

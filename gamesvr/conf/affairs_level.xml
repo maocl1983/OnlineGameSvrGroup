@@ -1,0 +1,23 @@
+<!-- 内政升级配置表 -->
+<root>
+	<affairs lv="1" exp="80" cost_golds="10000" />
+	<affairs lv="2" exp="240" cost_golds="10000" />
+	<affairs lv="3" exp="400" cost_golds="10000" />
+	<affairs lv="4" exp="560" cost_golds="10000" />
+	<affairs lv="5" exp="1080" cost_golds="20000" />
+	<affairs lv="6" exp="1440" cost_golds="20000" />
+	<affairs lv="7" exp="1680" cost_golds="20000" />
+	<affairs lv="8" exp="1920" cost_golds="20000" />
+	<affairs lv="9" exp="2160" cost_golds="20000" />
+	<affairs lv="10" exp="3200" cost_golds="50000" />
+	<affairs lv="11" exp="3520" cost_golds="50000" />
+	<affairs lv="12" exp="3840" cost_golds="50000" />
+	<affairs lv="13" exp="4160" cost_golds="50000" />
+	<affairs lv="14" exp="4480" cost_golds="50000" />
+	<affairs lv="15" exp="6000" cost_golds="100000" />
+	<affairs lv="16" exp="6400" cost_golds="100000" />
+	<affairs lv="17" exp="6800" cost_golds="100000" />
+	<affairs lv="18" exp="7200" cost_golds="100000" />
+	<affairs lv="19" exp="7600" cost_golds="100000" />
+	<affairs lv="20" exp="0" cost_golds="100000" />
+</root>

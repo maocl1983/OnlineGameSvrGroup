@@ -1,0 +1,7 @@
+<!-- 夺宝武将库配置表 -->
+<root>
+	<treasure type="1" hero_id="1003" />
+	<treasure type="2" hero_id="1001" />
+	<treasure type="2" hero_id="1007" />
+	<treasure type="3" hero_id="1004" />
+</root>

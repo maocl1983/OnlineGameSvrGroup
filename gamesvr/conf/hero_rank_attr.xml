@@ -1,0 +1,203 @@
+<!-- 英雄品阶属性成长表 -->
+<root>
+	<hero id="100">
+		<growth rank="1" maxhp="1330" ad="332" armor="109" resist="86" talent_id="0" />
+		<growth rank="2" maxhp="2660" ad="665" armor="218" resist="172" talent_id="0" />
+		<growth rank="3" maxhp="3990" ad="997" armor="327" resist="259" talent_id="0" />
+		<growth rank="4" maxhp="5320" ad="1330" armor="437" resist="345" talent_id="0" />
+		<growth rank="5" maxhp="6650" ad="1662" armor="546" resist="432" talent_id="0" />
+		<growth rank="6" maxhp="7980" ad="1995" armor="655" resist="518" talent_id="0" />
+		<growth rank="7" maxhp="9310" ad="2327" armor="764" resist="605" talent_id="0" />
+		<growth rank="8" maxhp="10640" ad="2660" armor="874" resist="691" talent_id="0" />
+	</hero>
+	<hero id="1001">
+		<growth rank="1" maxhp="1662" ad="266" armor="109" resist="50" talent_id="0" />
+		<growth rank="2" maxhp="3325" ad="532" armor="218" resist="100" talent_id="0" />
+		<growth rank="3" maxhp="4987" ad="798" armor="327" resist="151" talent_id="0" />
+		<growth rank="4" maxhp="6650" ad="1064" armor="437" resist="201" talent_id="0" />
+		<growth rank="5" maxhp="8312" ad="1330" armor="546" resist="251" talent_id="0" />
+		<growth rank="6" maxhp="9975" ad="1596" armor="655" resist="302" talent_id="0" />
+		<growth rank="7" maxhp="11637" ad="1862" armor="764" resist="352" talent_id="0" />
+		<growth rank="8" maxhp="13300" ad="2128" armor="874" resist="402" talent_id="0" />
+	</hero>
+	<hero id="1003">
+		<growth rank="1" maxhp="2500" ad="175" armor="261" resist="142" talent_id="0" />
+		<growth rank="2" maxhp="5000" ad="350" armor="522" resist="284" talent_id="0" />
+		<growth rank="3" maxhp="7500" ad="525" armor="783" resist="426" talent_id="0" />
+		<growth rank="4" maxhp="10000" ad="700" armor="1044" resist="568" talent_id="0" />
+		<growth rank="5" maxhp="12500" ad="875" armor="1305" resist="710" talent_id="0" />
+		<growth rank="6" maxhp="15000" ad="1050" armor="1566" resist="852" talent_id="0" />
+		<growth rank="7" maxhp="17500" ad="1225" armor="1827" resist="994" talent_id="0" />
+		<growth rank="8" maxhp="20000" ad="1400" armor="2088" resist="1136" talent_id="0" />
+	</hero>
+	<hero id="1004">
+		<growth rank="1" maxhp="1064" ad="332" armor="50" resist="50" talent_id="0" />
+		<growth rank="2" maxhp="2128" ad="665" armor="100" resist="100" talent_id="0" />
+		<growth rank="3" maxhp="3192" ad="997" armor="151" resist="151" talent_id="0" />
+		<growth rank="4" maxhp="4256" ad="1330" armor="201" resist="201" talent_id="0" />
+		<growth rank="5" maxhp="5320" ad="1662" armor="251" resist="251" talent_id="0" />
+		<growth rank="6" maxhp="6384" ad="1995" armor="302" resist="302" talent_id="0" />
+		<growth rank="7" maxhp="7448" ad="2327" armor="352" resist="352" talent_id="0" />
+		<growth rank="8" maxhp="8512" ad="2660" armor="402" resist="402" talent_id="0" />
+	</hero>
+	<hero id="1005">
+		<growth rank="1" maxhp="1400" ad="437" armor="53" resist="142" talent_id="0" />
+		<growth rank="2" maxhp="2800" ad="875" armor="106" resist="284" talent_id="0" />
+		<growth rank="3" maxhp="4200" ad="1312" armor="159" resist="426" talent_id="0" />
+		<growth rank="4" maxhp="5600" ad="1750" armor="212" resist="568" talent_id="0" />
+		<growth rank="5" maxhp="7000" ad="2187" armor="265" resist="710" talent_id="0" />
+		<growth rank="6" maxhp="8400" ad="2625" armor="318" resist="852" talent_id="0" />
+		<growth rank="7" maxhp="9800" ad="3062" armor="371" resist="994" talent_id="0" />
+		<growth rank="8" maxhp="11200" ad="3500" armor="424" resist="1136" talent_id="0" />
+	</hero>
+	<hero id="1006">
+		<growth rank="1" maxhp="1400" ad="437" armor="53" resist="142" talent_id="0" />
+		<growth rank="2" maxhp="2800" ad="875" armor="106" resist="284" talent_id="0" />
+		<growth rank="3" maxhp="4200" ad="1312" armor="159" resist="426" talent_id="0" />
+		<growth rank="4" maxhp="5600" ad="1750" armor="212" resist="568" talent_id="0" />
+		<growth rank="5" maxhp="7000" ad="2187" armor="265" resist="710" talent_id="0" />
+		<growth rank="6" maxhp="8400" ad="2625" armor="318" resist="852" talent_id="0" />
+		<growth rank="7" maxhp="9800" ad="3062" armor="371" resist="994" talent_id="0" />
+		<growth rank="8" maxhp="11200" ad="3500" armor="424" resist="1136" talent_id="0" />
+	</hero>
+	<hero id="1007">
+		<growth rank="1" maxhp="1662" ad="266" armor="109" resist="50" talent_id="0" />
+		<growth rank="2" maxhp="3325" ad="532" armor="218" resist="100" talent_id="0" />
+		<growth rank="3" maxhp="4987" ad="798" armor="327" resist="151" talent_id="0" />
+		<growth rank="4" maxhp="6650" ad="1064" armor="437" resist="201" talent_id="0" />
+		<growth rank="5" maxhp="8312" ad="1330" armor="546" resist="251" talent_id="0" />
+		<growth rank="6" maxhp="9975" ad="1596" armor="655" resist="302" talent_id="0" />
+		<growth rank="7" maxhp="11637" ad="1862" armor="764" resist="352" talent_id="0" />
+		<growth rank="8" maxhp="13300" ad="2128" armor="874" resist="402" talent_id="0" />
+	</hero>
+	<hero id="1008">
+		<growth rank="1" maxhp="1064" ad="332" armor="50" resist="50" talent_id="0" />
+		<growth rank="2" maxhp="2128" ad="665" armor="100" resist="100" talent_id="0" />
+		<growth rank="3" maxhp="3192" ad="997" armor="151" resist="151" talent_id="0" />
+		<growth rank="4" maxhp="4256" ad="1330" armor="201" resist="201" talent_id="0" />
+		<growth rank="5" maxhp="5320" ad="1662" armor="251" resist="251" talent_id="0" />
+		<growth rank="6" maxhp="6384" ad="1995" armor="302" resist="302" talent_id="0" />
+		<growth rank="7" maxhp="7448" ad="2327" armor="352" resist="352" talent_id="0" />
+		<growth rank="8" maxhp="8512" ad="2660" armor="402" resist="402" talent_id="0" />
+	</hero>
+	<hero id="1009">
+		<growth rank="1" maxhp="2500" ad="175" armor="261" resist="142" talent_id="0" />
+		<growth rank="2" maxhp="5000" ad="350" armor="522" resist="284" talent_id="0" />
+		<growth rank="3" maxhp="7500" ad="525" armor="783" resist="426" talent_id="0" />
+		<growth rank="4" maxhp="10000" ad="700" armor="1044" resist="568" talent_id="0" />
+		<growth rank="5" maxhp="12500" ad="875" armor="1305" resist="710" talent_id="0" />
+		<growth rank="6" maxhp="15000" ad="1050" armor="1566" resist="852" talent_id="0" />
+		<growth rank="7" maxhp="17500" ad="1225" armor="1827" resist="994" talent_id="0" />
+		<growth rank="8" maxhp="20000" ad="1400" armor="2088" resist="1136" talent_id="0" />
+	</hero>
+	<hero id="1010">
+		<growth rank="1" maxhp="1330" ad="415" armor="50" resist="134" talent_id="0" />
+		<growth rank="2" maxhp="2660" ad="831" armor="100" resist="269" talent_id="0" />
+		<growth rank="3" maxhp="3990" ad="1246" armor="151" resist="404" talent_id="0" />
+		<growth rank="4" maxhp="5320" ad="1662" armor="201" resist="539" talent_id="0" />
+		<growth rank="5" maxhp="6650" ad="2078" armor="251" resist="674" talent_id="0" />
+		<growth rank="6" maxhp="7980" ad="2493" armor="302" resist="809" talent_id="0" />
+		<growth rank="7" maxhp="9310" ad="2909" armor="352" resist="944" talent_id="0" />
+		<growth rank="8" maxhp="10640" ad="3325" armor="402" resist="1079" talent_id="0" />
+	</hero>
+	<hero id="1011">
+		<growth rank="1" maxhp="1750" ad="280" armor="115" resist="53" talent_id="0" />
+		<growth rank="2" maxhp="3500" ad="560" armor="230" resist="106" talent_id="0" />
+		<growth rank="3" maxhp="5250" ad="840" armor="345" resist="159" talent_id="0" />
+		<growth rank="4" maxhp="7000" ad="1120" armor="460" resist="212" talent_id="0" />
+		<growth rank="5" maxhp="8750" ad="1400" armor="575" resist="265" talent_id="0" />
+		<growth rank="6" maxhp="10500" ad="1680" armor="690" resist="318" talent_id="0" />
+		<growth rank="7" maxhp="12250" ad="1960" armor="805" resist="371" talent_id="0" />
+		<growth rank="8" maxhp="14000" ad="2240" armor="920" resist="424" talent_id="0" />
+	</hero>
+	<hero id="1012">
+		<growth rank="1" maxhp="2500" ad="175" armor="261" resist="142" talent_id="0" />
+		<growth rank="2" maxhp="5000" ad="350" armor="522" resist="284" talent_id="0" />
+		<growth rank="3" maxhp="7500" ad="525" armor="783" resist="426" talent_id="0" />
+		<growth rank="4" maxhp="10000" ad="700" armor="1044" resist="568" talent_id="0" />
+		<growth rank="5" maxhp="12500" ad="875" armor="1305" resist="710" talent_id="0" />
+		<growth rank="6" maxhp="15000" ad="1050" armor="1566" resist="852" talent_id="0" />
+		<growth rank="7" maxhp="17500" ad="1225" armor="1827" resist="994" talent_id="0" />
+		<growth rank="8" maxhp="20000" ad="1400" armor="2088" resist="1136" talent_id="0" />
+	</hero>
+	<hero id="1013">
+		<growth rank="1" maxhp="2500" ad="175" armor="261" resist="142" talent_id="0" />
+		<growth rank="2" maxhp="5000" ad="350" armor="522" resist="284" talent_id="0" />
+		<growth rank="3" maxhp="7500" ad="525" armor="783" resist="426" talent_id="0" />
+		<growth rank="4" maxhp="10000" ad="700" armor="1044" resist="568" talent_id="0" />
+		<growth rank="5" maxhp="12500" ad="875" armor="1305" resist="710" talent_id="0" />
+		<growth rank="6" maxhp="15000" ad="1050" armor="1566" resist="852" talent_id="0" />
+		<growth rank="7" maxhp="17500" ad="1225" armor="1827" resist="994" talent_id="0" />
+		<growth rank="8" maxhp="20000" ad="1400" armor="2088" resist="1136" talent_id="0" />
+	</hero>
+	<hero id="1014">
+		<growth rank="1" maxhp="2500" ad="175" armor="261" resist="142" talent_id="0" />
+		<growth rank="2" maxhp="5000" ad="350" armor="522" resist="284" talent_id="0" />
+		<growth rank="3" maxhp="7500" ad="525" armor="783" resist="426" talent_id="0" />
+		<growth rank="4" maxhp="10000" ad="700" armor="1044" resist="568" talent_id="0" />
+		<growth rank="5" maxhp="12500" ad="875" armor="1305" resist="710" talent_id="0" />
+		<growth rank="6" maxhp="15000" ad="1050" armor="1566" resist="852" talent_id="0" />
+		<growth rank="7" maxhp="17500" ad="1225" armor="1827" resist="994" talent_id="0" />
+		<growth rank="8" maxhp="20000" ad="1400" armor="2088" resist="1136" talent_id="0" />
+	</hero>
+	<hero id="1021">
+		<growth rank="1" maxhp="1120" ad="350" armor="52" resist="52" talent_id="0" />
+		<growth rank="2" maxhp="2240" ad="700" armor="105" resist="105" talent_id="0" />
+		<growth rank="3" maxhp="3360" ad="1050" armor="158" resist="158" talent_id="0" />
+		<growth rank="4" maxhp="4480" ad="1400" armor="211" resist="211" talent_id="0" />
+		<growth rank="5" maxhp="5600" ad="1750" armor="264" resist="264" talent_id="0" />
+		<growth rank="6" maxhp="6720" ad="2100" armor="317" resist="317" talent_id="0" />
+		<growth rank="7" maxhp="7840" ad="2450" armor="370" resist="370" talent_id="0" />
+		<growth rank="8" maxhp="8960" ad="2800" armor="423" resist="423" talent_id="0" />
+	</hero>
+	<hero id="1024">
+		<growth rank="1" maxhp="2500" ad="175" armor="261" resist="141" talent_id="0" />
+		<growth rank="2" maxhp="5000" ad="350" armor="522" resist="283" talent_id="0" />
+		<growth rank="3" maxhp="7500" ad="525" armor="783" resist="425" talent_id="0" />
+		<growth rank="4" maxhp="10000" ad="700" armor="1044" resist="567" talent_id="0" />
+		<growth rank="5" maxhp="12500" ad="875" armor="1305" resist="709" talent_id="0" />
+		<growth rank="6" maxhp="15000" ad="1050" armor="1566" resist="851" talent_id="0" />
+		<growth rank="7" maxhp="17500" ad="1225" armor="1827" resist="993" talent_id="0" />
+		<growth rank="8" maxhp="20000" ad="1400" armor="2088" resist="1135" talent_id="0" />
+	</hero>
+	<hero id="1025">
+		<growth rank="1" maxhp="950" ad="190" armor="50" resist="50" talent_id="0" />
+		<growth rank="2" maxhp="1900" ad="380" armor="100" resist="100" talent_id="0" />
+		<growth rank="3" maxhp="2850" ad="570" armor="151" resist="151" talent_id="0" />
+		<growth rank="4" maxhp="3800" ad="760" armor="201" resist="201" talent_id="0" />
+		<growth rank="5" maxhp="4750" ad="950" armor="251" resist="251" talent_id="0" />
+		<growth rank="6" maxhp="5700" ad="1140" armor="302" resist="302" talent_id="0" />
+		<growth rank="7" maxhp="6650" ad="1330" armor="352" resist="352" talent_id="0" />
+		<growth rank="8" maxhp="7600" ad="1520" armor="402" resist="402" talent_id="0" />
+	</hero>
+	<hero id="1027">
+		<growth rank="1" maxhp="950" ad="190" armor="50" resist="50" talent_id="0" />
+		<growth rank="2" maxhp="1900" ad="380" armor="100" resist="100" talent_id="0" />
+		<growth rank="3" maxhp="2850" ad="570" armor="151" resist="151" talent_id="0" />
+		<growth rank="4" maxhp="3800" ad="760" armor="201" resist="201" talent_id="0" />
+		<growth rank="5" maxhp="4750" ad="950" armor="251" resist="251" talent_id="0" />
+		<growth rank="6" maxhp="5700" ad="1140" armor="302" resist="302" talent_id="0" />
+		<growth rank="7" maxhp="6650" ad="1330" armor="352" resist="352" talent_id="0" />
+		<growth rank="8" maxhp="7600" ad="1520" armor="402" resist="402" talent_id="0" />
+	</hero>
+	<hero id="1030">
+		<growth rank="1" maxhp="2500" ad="175" armor="261" resist="141" talent_id="0" />
+		<growth rank="2" maxhp="5000" ad="350" armor="522" resist="283" talent_id="0" />
+		<growth rank="3" maxhp="7500" ad="525" armor="783" resist="425" talent_id="0" />
+		<growth rank="4" maxhp="10000" ad="700" armor="1044" resist="567" talent_id="0" />
+		<growth rank="5" maxhp="12500" ad="875" armor="1305" resist="709" talent_id="0" />
+		<growth rank="6" maxhp="15000" ad="1050" armor="1566" resist="851" talent_id="0" />
+		<growth rank="7" maxhp="17500" ad="1225" armor="1827" resist="993" talent_id="0" />
+		<growth rank="8" maxhp="20000" ad="1400" armor="2088" resist="1135" talent_id="0" />
+	</hero>
+	<hero id="1031">
+		<growth rank="1" maxhp="2500" ad="175" armor="261" resist="141" talent_id="0" />
+		<growth rank="2" maxhp="5000" ad="350" armor="522" resist="283" talent_id="0" />
+		<growth rank="3" maxhp="7500" ad="525" armor="783" resist="425" talent_id="0" />
+		<growth rank="4" maxhp="10000" ad="700" armor="1044" resist="567" talent_id="0" />
+		<growth rank="5" maxhp="12500" ad="875" armor="1305" resist="709" talent_id="0" />
+		<growth rank="6" maxhp="15000" ad="1050" armor="1566" resist="851" talent_id="0" />
+		<growth rank="7" maxhp="17500" ad="1225" armor="1827" resist="993" talent_id="0" />
+		<growth rank="8" maxhp="20000" ad="1400" armor="2088" resist="1135" talent_id="0" />
+	</hero>
+</root>

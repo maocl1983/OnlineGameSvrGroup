@@ -1,0 +1,16 @@
+<!-- 十连抽钻石抽特殊道具配置表 -->
+<root>
+	<item item_special_id="131001" item_prob="72" />
+	<item item_special_id="131004" item_prob="72" />
+	<item item_special_id="131007" item_prob="72" />
+	<item item_special_id="131008" item_prob="72" />
+	<item item_special_id="131010" item_prob="72" />
+	<item item_special_id="131003" item_prob="5" />
+	<item item_special_id="131005" item_prob="5" />
+	<item item_special_id="131006" item_prob="5" />
+	<item item_special_id="131009" item_prob="5" />
+	<item item_special_id="131011" item_prob="5" />
+	<item item_special_id="131012" item_prob="5" />
+	<item item_special_id="131013" item_prob="5" />
+	<item item_special_id="131014" item_prob="5" />
+</root>

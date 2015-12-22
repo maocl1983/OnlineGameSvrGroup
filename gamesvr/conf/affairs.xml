@@ -1,0 +1,9 @@
+<!-- 内政配置表 -->
+<root>
+	<affairs type="1" energy="5" time="360" exp="100" week="1357" unlock_lv="0" />
+	<affairs type="2" energy="5" time="360" exp="100" week="2468" unlock_lv="0" />
+	<affairs type="3" energy="5" time="360" exp="100" week="1357" unlock_lv="5" />
+	<affairs type="4" energy="5" time="360" exp="100" week="2468" unlock_lv="10" />
+	<affairs type="5" energy="5" time="360" exp="100" week="1357" unlock_lv="15" />
+	<affairs type="6" energy="5" time="360" exp="100" week="2468" unlock_lv="20" />
+</root>

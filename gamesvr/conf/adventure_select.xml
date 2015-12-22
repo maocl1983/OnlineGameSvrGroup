@@ -1,0 +1,15 @@
+<!-- 奇遇选择配置表 -->
+<root>
+	<select select_id="1" cost_adventure="4" />
+	<select select_id="2" cost_adventure="1" />
+	<select select_id="3" cost_adventure="6" />
+	<select select_id="4" cost_adventure="1" />
+	<select select_id="5" cost_adventure="8" />
+	<select select_id="6" cost_adventure="1" />
+	<select select_id="7" cost_adventure="12" />
+	<select select_id="8" cost_adventure="1" />
+	<select select_id="9" cost_adventure="4" />
+	<select select_id="10" cost_adventure="1" />
+	<select cost_diamond="120" select_id="11" />
+	<select select_id="12" cost_adventure="1" />
+</root>

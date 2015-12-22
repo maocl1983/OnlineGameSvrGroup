@@ -1,0 +1,21 @@
+<!-- 小兵升级属性配置表 -->
+<root>
+	<soldier id="2003" maxhp="84.0" ad="11.26" armor="9.24" resist="4.2" />
+	<soldier id="2004" maxhp="126.0" ad="16.88" armor="13.86" resist="6.3" />
+	<soldier id="2005" maxhp="220.5" ad="29.55" armor="24.25" resist="11.03" />
+	<soldier id="2008" maxhp="48.0" ad="16.08" armor="4.2" resist="4.2" />
+	<soldier id="2009" maxhp="72.0" ad="24.12" armor="6.3" resist="6.3" />
+	<soldier id="2010" maxhp="126.0" ad="42.21" armor="11.03" resist="11.03" />
+	<soldier id="2028" maxhp="120.0" ad="7.04" armor="20.88" resist="11.4" />
+	<soldier id="2029" maxhp="180.0" ad="10.55" armor="31.32" resist="17.1" />
+	<soldier id="2030" maxhp="315.0" ad="18.47" armor="54.81" resist="29.93" />
+	<soldier id="2013" maxhp="53.76" ad="14.07" armor="4.2" resist="4.2" />
+	<soldier id="2014" maxhp="80.64" ad="21.11" armor="6.3" resist="6.3" />
+	<soldier id="2015" maxhp="141.12" ad="36.93" armor="11.03" resist="11.03" />
+	<soldier id="2034" maxhp="67.2" ad="17.59" armor="4.2" resist="11.4" />
+	<soldier id="2035" maxhp="100.8" ad="26.38" armor="6.3" resist="17.1" />
+	<soldier id="2036" maxhp="176.4" ad="46.17" armor="11.03" resist="29.93" />
+	<soldier id="2023" maxhp="67.2" ad="20.1" armor="4.2" resist="4.2" />
+	<soldier id="2024" maxhp="100.8" ad="30.15" armor="6.3" resist="6.3" />
+	<soldier id="2025" maxhp="176.4" ad="52.76" armor="11.03" resist="11.03" />
+</root>

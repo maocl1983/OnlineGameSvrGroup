@@ -1,0 +1,8 @@
+<!-- 主公技能配置表 -->
+<root>
+	<roleSkill id="1" skill_id="10021" unlock_lv="1" />
+	<roleSkill id="2" skill_id="10111" unlock_lv="8" />
+	<roleSkill id="3" skill_id="10023" unlock_lv="12" />
+	<roleSkill id="4" skill_id="10024" unlock_lv="16" />
+	<roleSkill id="5" skill_id="10022" unlock_lv="20" />
+</root>

@@ -1,0 +1,8 @@
+redis.o: redis.cpp proto/xseer_redis.hpp proto/common.hpp \
+ proto/xseer_online.hpp redis.hpp common_def.hpp log_thread.hpp \
+ dbroute.hpp player.hpp hero.hpp equipment.hpp btl_soul.hpp item.hpp \
+ restriction.hpp instance.hpp soldier.hpp ten_even_draw.hpp horse.hpp \
+ treasure_risk.hpp task.hpp shop.hpp adventure.hpp achievement.hpp \
+ common_fight.hpp internal_affairs.hpp vip.hpp \
+ proto/xseer_redis_func_def.hpp proto/xseer_redis_bind_func.hpp \
+ proto/xseer_redis_enum.hpp proto/xseer_online_enum.hpp

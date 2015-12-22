@@ -1,0 +1,15 @@
+<!-- 副本宝箱配置表 -->
+<root>
+	<chapter chapter="1" bag1="11" />
+	<chapter chapter="2" bag1="21" />
+	<chapter chapter="3" bag1="31" bag2="32" />
+	<chapter chapter="4" bag1="41" bag2="42" />
+	<chapter chapter="5" bag1="51" bag2="52" bag3="53" />
+	<chapter chapter="6" bag1="61" bag2="62" bag3="63" />
+	<chapter chapter="7" bag1="71" bag2="72" bag3="73" />
+	<chapter chapter="8" bag1="81" bag2="82" bag3="83" />
+	<chapter chapter="9" bag1="91" bag2="92" bag3="93" />
+	<chapter chapter="10" bag1="101" bag2="102" bag3="103" />
+	<chapter chapter="11" bag1="111" bag2="112" bag3="113" />
+	<chapter chapter="12" bag1="121" bag2="122" bag3="123" />
+</root>

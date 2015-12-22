@@ -1,0 +1,9 @@
+<!-- 奇遇配置表 -->
+<root>
+	<adventure id="1" name="征兵" type="1" time="900" npc="1" select_1="1" select_1_des="立即完成" select_2="2" select_2_des="完成" rewards="542005" des="最近国内又征召了一批新兵，个个看上去就龙精虎猛。等训练完成后，主公可以用这些[奖励名]来强化士兵们。" />
+	<adventure id="2" name="募将" type="1" time="1800" npc="1" select_1="3" select_1_des="立即完成" select_2="4" select_2_des="完成" rewards="551001" des="这位将军对主公您仰慕已经，希望可以加入您的帐下，看来您的麾下又多了一员猛将啊。" />
+	<adventure id="3" name="外交" type="1" time="3600" npc="1" select_1="5" select_1_des="立即完成" select_2="6" select_2_des="完成" rewards="402005" des="我国和海外诸国都签订了新的盟约，前来朝拜的官员带来了当地的特产。" />
+	<adventure id="4" name="铸造" type="1" time="10800" npc="1" select_1="7" select_1_des="立即完成" select_2="8" select_2_des="完成" rewards="501401" des="我国工匠为您铸造的神兵很可惜失败了，但是却意外获得了这些装备的碎片，请看下有没有您需要的。" />
+	<adventure id="5" name="寻宝" type="1" time="900" npc="1" select_1="9" select_1_des="立即完成" select_2="10" select_2_des="完成" rewards="140000" des="恭喜主公，贺喜主公，我国的礼官找到了前朝的秘宝，正连夜送到这里呢。" />
+	<adventure id="6" name="屯田" type="2" time="10800" npc="1" select_1="11" select_1_des="马上购买" select_2="12" select_2_des="放弃" rewards="120003" des="主公大人感谢你救了附近的乡里，这个[奖励名]是我家里的祖传宝物。既然你我有缘，我就便宜让给你吧。" />
+</root>

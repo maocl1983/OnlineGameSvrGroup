@@ -1,0 +1,7 @@
+shop.o: shop.cpp proto/xseer_db.hpp proto/common.hpp \
+ proto/xseer_db_enum.hpp proto/xseer_online.hpp \
+ proto/xseer_online_enum.hpp shop.hpp common_def.hpp log_thread.hpp \
+ player.hpp hero.hpp equipment.hpp btl_soul.hpp item.hpp restriction.hpp \
+ instance.hpp soldier.hpp ten_even_draw.hpp horse.hpp treasure_risk.hpp \
+ task.hpp adventure.hpp achievement.hpp common_fight.hpp \
+ internal_affairs.hpp vip.hpp utils.hpp dbroute.hpp

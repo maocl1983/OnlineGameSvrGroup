@@ -1,0 +1,2 @@
+wheel_timer.o: wheel_timer.cpp wheel_timer.h common_def.hpp \
+ log_thread.hpp

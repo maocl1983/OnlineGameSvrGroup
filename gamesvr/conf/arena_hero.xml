@@ -1,0 +1,12 @@
+<!-- 竞技场武将库配置表 -->
+<root>
+	<arena type="1" hero_id="1001" />
+	<arena type="1" hero_id="1003" />
+	<arena type="1" hero_id="1007" />
+	<arena type="1" hero_id="1009" />
+	<arena type="2" hero_id="1005" />
+	<arena type="2" hero_id="1006" />
+	<arena type="2" hero_id="1010" />
+	<arena type="3" hero_id="1004" />
+	<arena type="3" hero_id="1008" />
+</root>

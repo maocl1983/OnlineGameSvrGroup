@@ -1,0 +1,374 @@
+<!-- 碎片配置表 -->
+<root>
+	<piece max_num="999" item_id="501101" item_name="琉璃冠碎片1" item_rank="2" relation_id="801001" type="2" item_des="琉璃冠碎片1" />
+	<piece max_num="999" item_id="501102" item_name="碧玉长袍碎片1" item_rank="2" relation_id="801002" type="2" item_des="碧玉长袍碎片1" />
+	<piece max_num="999" item_id="501103" item_name="碧玉靴子碎片1" item_rank="2" relation_id="801003" type="2" item_des="碧玉靴子碎片1" />
+	<piece max_num="999" item_id="501201" item_name="琉璃冠碎片2" item_rank="2" relation_id="801001" type="2" item_des="琉璃冠碎片2" />
+	<piece max_num="999" item_id="501202" item_name="碧玉长袍碎片2" item_rank="2" relation_id="801002" type="2" item_des="碧玉长袍碎片2" />
+	<piece max_num="999" item_id="501203" item_name="碧玉靴子碎片2" item_rank="2" relation_id="801003" type="2" item_des="碧玉靴子碎片2" />
+	<piece max_num="999" item_id="501301" item_name="琉璃冠碎片3" item_rank="2" relation_id="801001" type="2" item_des="琉璃冠碎片3" />
+	<piece max_num="999" item_id="501302" item_name="碧玉长袍碎片3" item_rank="2" relation_id="801002" type="2" item_des="碧玉长袍碎片3" />
+	<piece max_num="999" item_id="501303" item_name="碧玉靴子碎片3" item_rank="2" relation_id="801003" type="2" item_des="碧玉靴子碎片3" />
+	<piece max_num="999" item_id="501401" item_name="琉璃冠碎片4" item_rank="2" relation_id="801001" type="2" item_des="琉璃冠碎片4" />
+	<piece max_num="999" item_id="501402" item_name="碧玉长袍碎片4" item_rank="2" relation_id="801002" type="2" item_des="碧玉长袍碎片4" />
+	<piece max_num="999" item_id="501403" item_name="碧玉靴子碎片4" item_rank="2" relation_id="801003" type="2" item_des="碧玉靴子碎片4" />
+	<piece max_num="999" item_id="501111" item_name="琉璃冠碎片1" item_rank="2" relation_id="801011" type="2" item_des="琉璃冠碎片1" />
+	<piece max_num="999" item_id="501112" item_name="碧玉长袍碎片1" item_rank="2" relation_id="801012" type="2" item_des="碧玉长袍碎片1" />
+	<piece max_num="999" item_id="501113" item_name="碧玉靴子碎片1" item_rank="2" relation_id="801013" type="2" item_des="碧玉靴子碎片1" />
+	<piece max_num="999" item_id="501211" item_name="琉璃冠碎片2" item_rank="2" relation_id="801011" type="2" item_des="琉璃冠碎片2" />
+	<piece max_num="999" item_id="501212" item_name="碧玉长袍碎片2" item_rank="2" relation_id="801012" type="2" item_des="碧玉长袍碎片2" />
+	<piece max_num="999" item_id="501213" item_name="碧玉靴子碎片2" item_rank="2" relation_id="801013" type="2" item_des="碧玉靴子碎片2" />
+	<piece max_num="999" item_id="501311" item_name="琉璃冠碎片3" item_rank="2" relation_id="801011" type="2" item_des="琉璃冠碎片3" />
+	<piece max_num="999" item_id="501312" item_name="碧玉长袍碎片3" item_rank="2" relation_id="801012" type="2" item_des="碧玉长袍碎片3" />
+	<piece max_num="999" item_id="501313" item_name="碧玉靴子碎片3" item_rank="2" relation_id="801013" type="2" item_des="碧玉靴子碎片3" />
+	<piece max_num="999" item_id="501411" item_name="琉璃冠碎片4" item_rank="2" relation_id="801011" type="2" item_des="琉璃冠碎片4" />
+	<piece max_num="999" item_id="501412" item_name="碧玉长袍碎片4" item_rank="2" relation_id="801012" type="2" item_des="碧玉长袍碎片4" />
+	<piece max_num="999" item_id="501413" item_name="碧玉靴子碎片4" item_rank="2" relation_id="801013" type="2" item_des="碧玉靴子碎片4" />
+	<piece max_num="999" item_id="502101" item_name="青龙云盔碎片1" item_rank="3" relation_id="802001" type="2" item_des="青龙云盔碎片1" />
+	<piece max_num="999" item_id="502102" item_name="青龙铠甲碎片1" item_rank="3" relation_id="802002" type="2" item_des="青龙铠甲碎片1" />
+	<piece max_num="999" item_id="502103" item_name="青龙靴子碎片1" item_rank="3" relation_id="802003" type="2" item_des="青龙靴子碎片1" />
+	<piece max_num="999" item_id="502201" item_name="青龙云盔碎片2" item_rank="3" relation_id="802001" type="2" item_des="青龙云盔碎片2" />
+	<piece max_num="999" item_id="502202" item_name="青龙铠甲碎片2" item_rank="3" relation_id="802002" type="2" item_des="青龙铠甲碎片2" />
+	<piece max_num="999" item_id="502203" item_name="青龙靴子碎片2" item_rank="3" relation_id="802003" type="2" item_des="青龙靴子碎片2" />
+	<piece max_num="999" item_id="502301" item_name="青龙云盔碎片3" item_rank="3" relation_id="802001" type="2" item_des="青龙云盔碎片3" />
+	<piece max_num="999" item_id="502302" item_name="青龙铠甲碎片3" item_rank="3" relation_id="802002" type="2" item_des="青龙铠甲碎片3" />
+	<piece max_num="999" item_id="502303" item_name="青龙靴子碎片3" item_rank="3" relation_id="802003" type="2" item_des="青龙靴子碎片3" />
+	<piece max_num="999" item_id="502401" item_name="青龙云盔碎片4" item_rank="3" relation_id="802001" type="2" item_des="青龙云盔碎片4" />
+	<piece max_num="999" item_id="502402" item_name="青龙铠甲碎片4" item_rank="3" relation_id="802002" type="2" item_des="青龙铠甲碎片4" />
+	<piece max_num="999" item_id="502403" item_name="青龙靴子碎片4" item_rank="3" relation_id="802003" type="2" item_des="青龙靴子碎片4" />
+	<piece max_num="999" item_id="502501" item_name="青龙云盔碎片5" item_rank="3" relation_id="802001" type="2" item_des="青龙云盔碎片5" />
+	<piece max_num="999" item_id="502502" item_name="青龙铠甲碎片5" item_rank="3" relation_id="802002" type="2" item_des="青龙铠甲碎片5" />
+	<piece max_num="999" item_id="502503" item_name="青龙靴子碎片5" item_rank="3" relation_id="802003" type="2" item_des="青龙靴子碎片5" />
+	<piece max_num="999" item_id="502111" item_name="青龙云盔碎片1" item_rank="3" relation_id="802011" type="2" item_des="青龙云盔碎片1" />
+	<piece max_num="999" item_id="502112" item_name="青龙铠甲碎片1" item_rank="3" relation_id="802012" type="2" item_des="青龙铠甲碎片1" />
+	<piece max_num="999" item_id="502113" item_name="青龙靴子碎片1" item_rank="3" relation_id="802013" type="2" item_des="青龙靴子碎片1" />
+	<piece max_num="999" item_id="502211" item_name="青龙云盔碎片2" item_rank="3" relation_id="802011" type="2" item_des="青龙云盔碎片2" />
+	<piece max_num="999" item_id="502212" item_name="青龙铠甲碎片2" item_rank="3" relation_id="802012" type="2" item_des="青龙铠甲碎片2" />
+	<piece max_num="999" item_id="502213" item_name="青龙靴子碎片2" item_rank="3" relation_id="802013" type="2" item_des="青龙靴子碎片2" />
+	<piece max_num="999" item_id="502311" item_name="青龙云盔碎片3" item_rank="3" relation_id="802011" type="2" item_des="青龙云盔碎片3" />
+	<piece max_num="999" item_id="502312" item_name="青龙铠甲碎片3" item_rank="3" relation_id="802012" type="2" item_des="青龙铠甲碎片3" />
+	<piece max_num="999" item_id="502313" item_name="青龙靴子碎片3" item_rank="3" relation_id="802013" type="2" item_des="青龙靴子碎片3" />
+	<piece max_num="999" item_id="502411" item_name="青龙云盔碎片4" item_rank="3" relation_id="802011" type="2" item_des="青龙云盔碎片4" />
+	<piece max_num="999" item_id="502412" item_name="青龙铠甲碎片4" item_rank="3" relation_id="802012" type="2" item_des="青龙铠甲碎片4" />
+	<piece max_num="999" item_id="502413" item_name="青龙靴子碎片4" item_rank="3" relation_id="802013" type="2" item_des="青龙靴子碎片4" />
+	<piece max_num="999" item_id="502511" item_name="青龙云盔碎片5" item_rank="3" relation_id="802011" type="2" item_des="青龙云盔碎片5" />
+	<piece max_num="999" item_id="502512" item_name="青龙铠甲碎片5" item_rank="3" relation_id="802012" type="2" item_des="青龙铠甲碎片5" />
+	<piece max_num="999" item_id="502513" item_name="青龙靴子碎片5" item_rank="3" relation_id="802013" type="2" item_des="青龙靴子碎片5" />
+	<piece max_num="999" item_id="502121" item_name="青龙云盔碎片1" item_rank="3" relation_id="802021" type="2" item_des="青龙云盔碎片1" />
+	<piece max_num="999" item_id="502122" item_name="青龙铠甲碎片1" item_rank="3" relation_id="802022" type="2" item_des="青龙铠甲碎片1" />
+	<piece max_num="999" item_id="502123" item_name="青龙靴子碎片1" item_rank="3" relation_id="802023" type="2" item_des="青龙靴子碎片1" />
+	<piece max_num="999" item_id="502221" item_name="青龙云盔碎片2" item_rank="3" relation_id="802021" type="2" item_des="青龙云盔碎片2" />
+	<piece max_num="999" item_id="502222" item_name="青龙铠甲碎片2" item_rank="3" relation_id="802022" type="2" item_des="青龙铠甲碎片2" />
+	<piece max_num="999" item_id="502223" item_name="青龙靴子碎片2" item_rank="3" relation_id="802023" type="2" item_des="青龙靴子碎片2" />
+	<piece max_num="999" item_id="502321" item_name="青龙云盔碎片3" item_rank="3" relation_id="802021" type="2" item_des="青龙云盔碎片3" />
+	<piece max_num="999" item_id="502322" item_name="青龙铠甲碎片3" item_rank="3" relation_id="802022" type="2" item_des="青龙铠甲碎片3" />
+	<piece max_num="999" item_id="502323" item_name="青龙靴子碎片3" item_rank="3" relation_id="802023" type="2" item_des="青龙靴子碎片3" />
+	<piece max_num="999" item_id="502421" item_name="青龙云盔碎片4" item_rank="3" relation_id="802021" type="2" item_des="青龙云盔碎片4" />
+	<piece max_num="999" item_id="502422" item_name="青龙铠甲碎片4" item_rank="3" relation_id="802022" type="2" item_des="青龙铠甲碎片4" />
+	<piece max_num="999" item_id="502423" item_name="青龙靴子碎片4" item_rank="3" relation_id="802023" type="2" item_des="青龙靴子碎片4" />
+	<piece max_num="999" item_id="502521" item_name="青龙云盔碎片5" item_rank="3" relation_id="802021" type="2" item_des="青龙云盔碎片5" />
+	<piece max_num="999" item_id="502522" item_name="青龙铠甲碎片5" item_rank="3" relation_id="802022" type="2" item_des="青龙铠甲碎片5" />
+	<piece max_num="999" item_id="502523" item_name="青龙靴子碎片5" item_rank="3" relation_id="802023" type="2" item_des="青龙靴子碎片5" />
+	<piece max_num="999" item_id="502131" item_name="青龙云盔碎片1" item_rank="3" relation_id="802031" type="2" item_des="青龙云盔碎片1" />
+	<piece max_num="999" item_id="502132" item_name="青龙铠甲碎片1" item_rank="3" relation_id="802032" type="2" item_des="青龙铠甲碎片1" />
+	<piece max_num="999" item_id="502133" item_name="青龙靴子碎片1" item_rank="3" relation_id="802033" type="2" item_des="青龙靴子碎片1" />
+	<piece max_num="999" item_id="502231" item_name="青龙云盔碎片2" item_rank="3" relation_id="802031" type="2" item_des="青龙云盔碎片2" />
+	<piece max_num="999" item_id="502232" item_name="青龙铠甲碎片2" item_rank="3" relation_id="802032" type="2" item_des="青龙铠甲碎片2" />
+	<piece max_num="999" item_id="502233" item_name="青龙靴子碎片2" item_rank="3" relation_id="802033" type="2" item_des="青龙靴子碎片2" />
+	<piece max_num="999" item_id="502331" item_name="青龙云盔碎片3" item_rank="3" relation_id="802031" type="2" item_des="青龙云盔碎片3" />
+	<piece max_num="999" item_id="502332" item_name="青龙铠甲碎片3" item_rank="3" relation_id="802032" type="2" item_des="青龙铠甲碎片3" />
+	<piece max_num="999" item_id="502333" item_name="青龙靴子碎片3" item_rank="3" relation_id="802033" type="2" item_des="青龙靴子碎片3" />
+	<piece max_num="999" item_id="502431" item_name="青龙云盔碎片4" item_rank="3" relation_id="802031" type="2" item_des="青龙云盔碎片4" />
+	<piece max_num="999" item_id="502432" item_name="青龙铠甲碎片4" item_rank="3" relation_id="802032" type="2" item_des="青龙铠甲碎片4" />
+	<piece max_num="999" item_id="502433" item_name="青龙靴子碎片4" item_rank="3" relation_id="802033" type="2" item_des="青龙靴子碎片4" />
+	<piece max_num="999" item_id="502531" item_name="青龙云盔碎片5" item_rank="3" relation_id="802031" type="2" item_des="青龙云盔碎片5" />
+	<piece max_num="999" item_id="502532" item_name="青龙铠甲碎片5" item_rank="3" relation_id="802032" type="2" item_des="青龙铠甲碎片5" />
+	<piece max_num="999" item_id="502533" item_name="青龙靴子碎片5" item_rank="3" relation_id="802033" type="2" item_des="青龙靴子碎片5" />
+	<piece max_num="999" item_id="502141" item_name="青龙云盔碎片1" item_rank="3" relation_id="802041" type="2" item_des="青龙云盔碎片1" />
+	<piece max_num="999" item_id="502142" item_name="青龙铠甲碎片1" item_rank="3" relation_id="802042" type="2" item_des="青龙铠甲碎片1" />
+	<piece max_num="999" item_id="502143" item_name="青龙靴子碎片1" item_rank="3" relation_id="802043" type="2" item_des="青龙靴子碎片1" />
+	<piece max_num="999" item_id="502241" item_name="青龙云盔碎片2" item_rank="3" relation_id="802041" type="2" item_des="青龙云盔碎片2" />
+	<piece max_num="999" item_id="502242" item_name="青龙铠甲碎片2" item_rank="3" relation_id="802042" type="2" item_des="青龙铠甲碎片2" />
+	<piece max_num="999" item_id="502243" item_name="青龙靴子碎片2" item_rank="3" relation_id="802043" type="2" item_des="青龙靴子碎片2" />
+	<piece max_num="999" item_id="502341" item_name="青龙云盔碎片3" item_rank="3" relation_id="802041" type="2" item_des="青龙云盔碎片3" />
+	<piece max_num="999" item_id="502342" item_name="青龙铠甲碎片3" item_rank="3" relation_id="802042" type="2" item_des="青龙铠甲碎片3" />
+	<piece max_num="999" item_id="502343" item_name="青龙靴子碎片3" item_rank="3" relation_id="802043" type="2" item_des="青龙靴子碎片3" />
+	<piece max_num="999" item_id="502441" item_name="青龙云盔碎片4" item_rank="3" relation_id="802041" type="2" item_des="青龙云盔碎片4" />
+	<piece max_num="999" item_id="502442" item_name="青龙铠甲碎片4" item_rank="3" relation_id="802042" type="2" item_des="青龙铠甲碎片4" />
+	<piece max_num="999" item_id="502443" item_name="青龙靴子碎片4" item_rank="3" relation_id="802043" type="2" item_des="青龙靴子碎片4" />
+	<piece max_num="999" item_id="502541" item_name="青龙云盔碎片5" item_rank="3" relation_id="802041" type="2" item_des="青龙云盔碎片5" />
+	<piece max_num="999" item_id="502542" item_name="青龙铠甲碎片5" item_rank="3" relation_id="802042" type="2" item_des="青龙铠甲碎片5" />
+	<piece max_num="999" item_id="502543" item_name="青龙靴子碎片5" item_rank="3" relation_id="802043" type="2" item_des="青龙靴子碎片5" />
+	<piece max_num="999" item_id="503101" item_name="紫耀头盔碎片1" item_rank="4" relation_id="803001" type="2" item_des="紫耀头盔碎片1" />
+	<piece max_num="999" item_id="503102" item_name="紫耀胸甲碎片1" item_rank="4" relation_id="803002" type="2" item_des="紫耀胸甲碎片1" />
+	<piece max_num="999" item_id="503103" item_name="紫耀靴子碎片1" item_rank="4" relation_id="803003" type="2" item_des="紫耀靴子碎片1" />
+	<piece max_num="999" item_id="503201" item_name="紫耀头盔碎片2" item_rank="4" relation_id="803001" type="2" item_des="紫耀头盔碎片2" />
+	<piece max_num="999" item_id="503202" item_name="紫耀胸甲碎片2" item_rank="4" relation_id="803002" type="2" item_des="紫耀胸甲碎片2" />
+	<piece max_num="999" item_id="503203" item_name="紫耀靴子碎片2" item_rank="4" relation_id="803003" type="2" item_des="紫耀靴子碎片2" />
+	<piece max_num="999" item_id="503301" item_name="紫耀头盔碎片3" item_rank="4" relation_id="803001" type="2" item_des="紫耀头盔碎片3" />
+	<piece max_num="999" item_id="503302" item_name="紫耀胸甲碎片3" item_rank="4" relation_id="803002" type="2" item_des="紫耀胸甲碎片3" />
+	<piece max_num="999" item_id="503303" item_name="紫耀靴子碎片3" item_rank="4" relation_id="803003" type="2" item_des="紫耀靴子碎片3" />
+	<piece max_num="999" item_id="503401" item_name="紫耀头盔碎片4" item_rank="4" relation_id="803001" type="2" item_des="紫耀头盔碎片4" />
+	<piece max_num="999" item_id="503402" item_name="紫耀胸甲碎片4" item_rank="4" relation_id="803002" type="2" item_des="紫耀胸甲碎片4" />
+	<piece max_num="999" item_id="503403" item_name="紫耀靴子碎片4" item_rank="4" relation_id="803003" type="2" item_des="紫耀靴子碎片4" />
+	<piece max_num="999" item_id="503501" item_name="紫耀头盔碎片5" item_rank="4" relation_id="803001" type="2" item_des="紫耀头盔碎片5" />
+	<piece max_num="999" item_id="503502" item_name="紫耀胸甲碎片5" item_rank="4" relation_id="803002" type="2" item_des="紫耀胸甲碎片5" />
+	<piece max_num="999" item_id="503503" item_name="紫耀靴子碎片5" item_rank="4" relation_id="803003" type="2" item_des="紫耀靴子碎片5" />
+	<piece max_num="999" item_id="503601" item_name="紫耀头盔碎片6" item_rank="4" relation_id="803001" type="2" item_des="紫耀头盔碎片6" />
+	<piece max_num="999" item_id="503602" item_name="紫耀胸甲碎片6" item_rank="4" relation_id="803002" type="2" item_des="紫耀胸甲碎片6" />
+	<piece max_num="999" item_id="503603" item_name="紫耀靴子碎片6" item_rank="4" relation_id="803003" type="2" item_des="紫耀靴子碎片6" />
+	<piece max_num="999" item_id="503111" item_name="紫耀头盔碎片1" item_rank="4" relation_id="803011" type="2" item_des="紫耀头盔碎片1" />
+	<piece max_num="999" item_id="503112" item_name="紫耀胸甲碎片1" item_rank="4" relation_id="803012" type="2" item_des="紫耀胸甲碎片1" />
+	<piece max_num="999" item_id="503113" item_name="紫耀靴子碎片1" item_rank="4" relation_id="803013" type="2" item_des="紫耀靴子碎片1" />
+	<piece max_num="999" item_id="503211" item_name="紫耀头盔碎片2" item_rank="4" relation_id="803011" type="2" item_des="紫耀头盔碎片2" />
+	<piece max_num="999" item_id="503212" item_name="紫耀胸甲碎片2" item_rank="4" relation_id="803012" type="2" item_des="紫耀胸甲碎片2" />
+	<piece max_num="999" item_id="503213" item_name="紫耀靴子碎片2" item_rank="4" relation_id="803013" type="2" item_des="紫耀靴子碎片2" />
+	<piece max_num="999" item_id="503311" item_name="紫耀头盔碎片3" item_rank="4" relation_id="803011" type="2" item_des="紫耀头盔碎片3" />
+	<piece max_num="999" item_id="503312" item_name="紫耀胸甲碎片3" item_rank="4" relation_id="803012" type="2" item_des="紫耀胸甲碎片3" />
+	<piece max_num="999" item_id="503313" item_name="紫耀靴子碎片3" item_rank="4" relation_id="803013" type="2" item_des="紫耀靴子碎片3" />
+	<piece max_num="999" item_id="503411" item_name="紫耀头盔碎片4" item_rank="4" relation_id="803011" type="2" item_des="紫耀头盔碎片4" />
+	<piece max_num="999" item_id="503412" item_name="紫耀胸甲碎片4" item_rank="4" relation_id="803012" type="2" item_des="紫耀胸甲碎片4" />
+	<piece max_num="999" item_id="503413" item_name="紫耀靴子碎片4" item_rank="4" relation_id="803013" type="2" item_des="紫耀靴子碎片4" />
+	<piece max_num="999" item_id="503511" item_name="紫耀头盔碎片5" item_rank="4" relation_id="803011" type="2" item_des="紫耀头盔碎片5" />
+	<piece max_num="999" item_id="503512" item_name="紫耀胸甲碎片5" item_rank="4" relation_id="803012" type="2" item_des="紫耀胸甲碎片5" />
+	<piece max_num="999" item_id="503513" item_name="紫耀靴子碎片5" item_rank="4" relation_id="803013" type="2" item_des="紫耀靴子碎片5" />
+	<piece max_num="999" item_id="503611" item_name="紫耀头盔碎片6" item_rank="4" relation_id="803011" type="2" item_des="紫耀头盔碎片6" />
+	<piece max_num="999" item_id="503612" item_name="紫耀胸甲碎片6" item_rank="4" relation_id="803012" type="2" item_des="紫耀胸甲碎片6" />
+	<piece max_num="999" item_id="503613" item_name="紫耀靴子碎片6" item_rank="4" relation_id="803013" type="2" item_des="紫耀靴子碎片6" />
+	<piece max_num="999" item_id="503121" item_name="紫耀头盔碎片1" item_rank="4" relation_id="803021" type="2" item_des="紫耀头盔碎片1" />
+	<piece max_num="999" item_id="503122" item_name="紫耀胸甲碎片1" item_rank="4" relation_id="803022" type="2" item_des="紫耀胸甲碎片1" />
+	<piece max_num="999" item_id="503123" item_name="紫耀靴子碎片1" item_rank="4" relation_id="803023" type="2" item_des="紫耀靴子碎片1" />
+	<piece max_num="999" item_id="503221" item_name="紫耀头盔碎片2" item_rank="4" relation_id="803021" type="2" item_des="紫耀头盔碎片2" />
+	<piece max_num="999" item_id="503222" item_name="紫耀胸甲碎片2" item_rank="4" relation_id="803022" type="2" item_des="紫耀胸甲碎片2" />
+	<piece max_num="999" item_id="503223" item_name="紫耀靴子碎片2" item_rank="4" relation_id="803023" type="2" item_des="紫耀靴子碎片2" />
+	<piece max_num="999" item_id="503321" item_name="紫耀头盔碎片3" item_rank="4" relation_id="803021" type="2" item_des="紫耀头盔碎片3" />
+	<piece max_num="999" item_id="503322" item_name="紫耀胸甲碎片3" item_rank="4" relation_id="803022" type="2" item_des="紫耀胸甲碎片3" />
+	<piece max_num="999" item_id="503323" item_name="紫耀靴子碎片3" item_rank="4" relation_id="803023" type="2" item_des="紫耀靴子碎片3" />
+	<piece max_num="999" item_id="503421" item_name="紫耀头盔碎片4" item_rank="4" relation_id="803021" type="2" item_des="紫耀头盔碎片4" />
+	<piece max_num="999" item_id="503422" item_name="紫耀胸甲碎片4" item_rank="4" relation_id="803022" type="2" item_des="紫耀胸甲碎片4" />
+	<piece max_num="999" item_id="503423" item_name="紫耀靴子碎片4" item_rank="4" relation_id="803023" type="2" item_des="紫耀靴子碎片4" />
+	<piece max_num="999" item_id="503521" item_name="紫耀头盔碎片5" item_rank="4" relation_id="803021" type="2" item_des="紫耀头盔碎片5" />
+	<piece max_num="999" item_id="503522" item_name="紫耀胸甲碎片5" item_rank="4" relation_id="803022" type="2" item_des="紫耀胸甲碎片5" />
+	<piece max_num="999" item_id="503523" item_name="紫耀靴子碎片5" item_rank="4" relation_id="803023" type="2" item_des="紫耀靴子碎片5" />
+	<piece max_num="999" item_id="503621" item_name="紫耀头盔碎片6" item_rank="4" relation_id="803021" type="2" item_des="紫耀头盔碎片6" />
+	<piece max_num="999" item_id="503622" item_name="紫耀胸甲碎片6" item_rank="4" relation_id="803022" type="2" item_des="紫耀胸甲碎片6" />
+	<piece max_num="999" item_id="503623" item_name="紫耀靴子碎片6" item_rank="4" relation_id="803023" type="2" item_des="紫耀靴子碎片6" />
+	<piece max_num="999" item_id="503131" item_name="紫耀头盔碎片1" item_rank="4" relation_id="803031" type="2" item_des="紫耀头盔碎片1" />
+	<piece max_num="999" item_id="503132" item_name="紫耀胸甲碎片1" item_rank="4" relation_id="803032" type="2" item_des="紫耀胸甲碎片1" />
+	<piece max_num="999" item_id="503133" item_name="紫耀靴子碎片1" item_rank="4" relation_id="803033" type="2" item_des="紫耀靴子碎片1" />
+	<piece max_num="999" item_id="503231" item_name="紫耀头盔碎片2" item_rank="4" relation_id="803031" type="2" item_des="紫耀头盔碎片2" />
+	<piece max_num="999" item_id="503232" item_name="紫耀胸甲碎片2" item_rank="4" relation_id="803032" type="2" item_des="紫耀胸甲碎片2" />
+	<piece max_num="999" item_id="503233" item_name="紫耀靴子碎片2" item_rank="4" relation_id="803033" type="2" item_des="紫耀靴子碎片2" />
+	<piece max_num="999" item_id="503331" item_name="紫耀头盔碎片3" item_rank="4" relation_id="803031" type="2" item_des="紫耀头盔碎片3" />
+	<piece max_num="999" item_id="503332" item_name="紫耀胸甲碎片3" item_rank="4" relation_id="803032" type="2" item_des="紫耀胸甲碎片3" />
+	<piece max_num="999" item_id="503333" item_name="紫耀靴子碎片3" item_rank="4" relation_id="803033" type="2" item_des="紫耀靴子碎片3" />
+	<piece max_num="999" item_id="503431" item_name="紫耀头盔碎片4" item_rank="4" relation_id="803031" type="2" item_des="紫耀头盔碎片4" />
+	<piece max_num="999" item_id="503432" item_name="紫耀胸甲碎片4" item_rank="4" relation_id="803032" type="2" item_des="紫耀胸甲碎片4" />
+	<piece max_num="999" item_id="503433" item_name="紫耀靴子碎片4" item_rank="4" relation_id="803033" type="2" item_des="紫耀靴子碎片4" />
+	<piece max_num="999" item_id="503531" item_name="紫耀头盔碎片5" item_rank="4" relation_id="803031" type="2" item_des="紫耀头盔碎片5" />
+	<piece max_num="999" item_id="503532" item_name="紫耀胸甲碎片5" item_rank="4" relation_id="803032" type="2" item_des="紫耀胸甲碎片5" />
+	<piece max_num="999" item_id="503533" item_name="紫耀靴子碎片5" item_rank="4" relation_id="803033" type="2" item_des="紫耀靴子碎片5" />
+	<piece max_num="999" item_id="503631" item_name="紫耀头盔碎片6" item_rank="4" relation_id="803031" type="2" item_des="紫耀头盔碎片6" />
+	<piece max_num="999" item_id="503632" item_name="紫耀胸甲碎片6" item_rank="4" relation_id="803032" type="2" item_des="紫耀胸甲碎片6" />
+	<piece max_num="999" item_id="503633" item_name="紫耀靴子碎片6" item_rank="4" relation_id="803033" type="2" item_des="紫耀靴子碎片6" />
+	<piece max_num="999" item_id="503141" item_name="紫耀头盔碎片1" item_rank="4" relation_id="803041" type="2" item_des="紫耀头盔碎片1" />
+	<piece max_num="999" item_id="503142" item_name="紫耀胸甲碎片1" item_rank="4" relation_id="803042" type="2" item_des="紫耀胸甲碎片1" />
+	<piece max_num="999" item_id="503143" item_name="紫耀靴子碎片1" item_rank="4" relation_id="803043" type="2" item_des="紫耀靴子碎片1" />
+	<piece max_num="999" item_id="503241" item_name="紫耀头盔碎片2" item_rank="4" relation_id="803041" type="2" item_des="紫耀头盔碎片2" />
+	<piece max_num="999" item_id="503242" item_name="紫耀胸甲碎片2" item_rank="4" relation_id="803042" type="2" item_des="紫耀胸甲碎片2" />
+	<piece max_num="999" item_id="503243" item_name="紫耀靴子碎片2" item_rank="4" relation_id="803043" type="2" item_des="紫耀靴子碎片2" />
+	<piece max_num="999" item_id="503341" item_name="紫耀头盔碎片3" item_rank="4" relation_id="803041" type="2" item_des="紫耀头盔碎片3" />
+	<piece max_num="999" item_id="503342" item_name="紫耀胸甲碎片3" item_rank="4" relation_id="803042" type="2" item_des="紫耀胸甲碎片3" />
+	<piece max_num="999" item_id="503343" item_name="紫耀靴子碎片3" item_rank="4" relation_id="803043" type="2" item_des="紫耀靴子碎片3" />
+	<piece max_num="999" item_id="503441" item_name="紫耀头盔碎片4" item_rank="4" relation_id="803041" type="2" item_des="紫耀头盔碎片4" />
+	<piece max_num="999" item_id="503442" item_name="紫耀胸甲碎片4" item_rank="4" relation_id="803042" type="2" item_des="紫耀胸甲碎片4" />
+	<piece max_num="999" item_id="503443" item_name="紫耀靴子碎片4" item_rank="4" relation_id="803043" type="2" item_des="紫耀靴子碎片4" />
+	<piece max_num="999" item_id="503541" item_name="紫耀头盔碎片5" item_rank="4" relation_id="803041" type="2" item_des="紫耀头盔碎片5" />
+	<piece max_num="999" item_id="503542" item_name="紫耀胸甲碎片5" item_rank="4" relation_id="803042" type="2" item_des="紫耀胸甲碎片5" />
+	<piece max_num="999" item_id="503543" item_name="紫耀靴子碎片5" item_rank="4" relation_id="803043" type="2" item_des="紫耀靴子碎片5" />
+	<piece max_num="999" item_id="503641" item_name="紫耀头盔碎片6" item_rank="4" relation_id="803041" type="2" item_des="紫耀头盔碎片6" />
+	<piece max_num="999" item_id="503642" item_name="紫耀胸甲碎片6" item_rank="4" relation_id="803042" type="2" item_des="紫耀胸甲碎片6" />
+	<piece max_num="999" item_id="503643" item_name="紫耀靴子碎片6" item_rank="4" relation_id="803043" type="2" item_des="紫耀靴子碎片6" />
+	<piece max_num="999" item_id="503151" item_name="紫耀头盔碎片1" item_rank="4" relation_id="803051" type="2" item_des="紫耀头盔碎片1" />
+	<piece max_num="999" item_id="503152" item_name="紫耀胸甲碎片1" item_rank="4" relation_id="803052" type="2" item_des="紫耀胸甲碎片1" />
+	<piece max_num="999" item_id="503153" item_name="紫耀靴子碎片1" item_rank="4" relation_id="803053" type="2" item_des="紫耀靴子碎片1" />
+	<piece max_num="999" item_id="503251" item_name="紫耀头盔碎片2" item_rank="4" relation_id="803051" type="2" item_des="紫耀头盔碎片2" />
+	<piece max_num="999" item_id="503252" item_name="紫耀胸甲碎片2" item_rank="4" relation_id="803052" type="2" item_des="紫耀胸甲碎片2" />
+	<piece max_num="999" item_id="503253" item_name="紫耀靴子碎片2" item_rank="4" relation_id="803053" type="2" item_des="紫耀靴子碎片2" />
+	<piece max_num="999" item_id="503351" item_name="紫耀头盔碎片3" item_rank="4" relation_id="803051" type="2" item_des="紫耀头盔碎片3" />
+	<piece max_num="999" item_id="503352" item_name="紫耀胸甲碎片3" item_rank="4" relation_id="803052" type="2" item_des="紫耀胸甲碎片3" />
+	<piece max_num="999" item_id="503353" item_name="紫耀靴子碎片3" item_rank="4" relation_id="803053" type="2" item_des="紫耀靴子碎片3" />
+	<piece max_num="999" item_id="503451" item_name="紫耀头盔碎片4" item_rank="4" relation_id="803051" type="2" item_des="紫耀头盔碎片4" />
+	<piece max_num="999" item_id="503452" item_name="紫耀胸甲碎片4" item_rank="4" relation_id="803052" type="2" item_des="紫耀胸甲碎片4" />
+	<piece max_num="999" item_id="503453" item_name="紫耀靴子碎片4" item_rank="4" relation_id="803053" type="2" item_des="紫耀靴子碎片4" />
+	<piece max_num="999" item_id="503551" item_name="紫耀头盔碎片5" item_rank="4" relation_id="803051" type="2" item_des="紫耀头盔碎片5" />
+	<piece max_num="999" item_id="503552" item_name="紫耀胸甲碎片5" item_rank="4" relation_id="803052" type="2" item_des="紫耀胸甲碎片5" />
+	<piece max_num="999" item_id="503553" item_name="紫耀靴子碎片5" item_rank="4" relation_id="803053" type="2" item_des="紫耀靴子碎片5" />
+	<piece max_num="999" item_id="503651" item_name="紫耀头盔碎片6" item_rank="4" relation_id="803051" type="2" item_des="紫耀头盔碎片6" />
+	<piece max_num="999" item_id="503652" item_name="紫耀胸甲碎片6" item_rank="4" relation_id="803052" type="2" item_des="紫耀胸甲碎片6" />
+	<piece max_num="999" item_id="503653" item_name="紫耀靴子碎片6" item_rank="4" relation_id="803053" type="2" item_des="紫耀靴子碎片6" />
+	<piece max_num="999" item_id="503161" item_name="紫耀头盔碎片1" item_rank="4" relation_id="803061" type="2" item_des="紫耀头盔碎片1" />
+	<piece max_num="999" item_id="503162" item_name="紫耀胸甲碎片1" item_rank="4" relation_id="803062" type="2" item_des="紫耀胸甲碎片1" />
+	<piece max_num="999" item_id="503163" item_name="紫耀靴子碎片1" item_rank="4" relation_id="803063" type="2" item_des="紫耀靴子碎片1" />
+	<piece max_num="999" item_id="503261" item_name="紫耀头盔碎片2" item_rank="4" relation_id="803061" type="2" item_des="紫耀头盔碎片2" />
+	<piece max_num="999" item_id="503262" item_name="紫耀胸甲碎片2" item_rank="4" relation_id="803062" type="2" item_des="紫耀胸甲碎片2" />
+	<piece max_num="999" item_id="503263" item_name="紫耀靴子碎片2" item_rank="4" relation_id="803063" type="2" item_des="紫耀靴子碎片2" />
+	<piece max_num="999" item_id="503361" item_name="紫耀头盔碎片3" item_rank="4" relation_id="803061" type="2" item_des="紫耀头盔碎片3" />
+	<piece max_num="999" item_id="503362" item_name="紫耀胸甲碎片3" item_rank="4" relation_id="803062" type="2" item_des="紫耀胸甲碎片3" />
+	<piece max_num="999" item_id="503363" item_name="紫耀靴子碎片3" item_rank="4" relation_id="803063" type="2" item_des="紫耀靴子碎片3" />
+	<piece max_num="999" item_id="503461" item_name="紫耀头盔碎片4" item_rank="4" relation_id="803061" type="2" item_des="紫耀头盔碎片4" />
+	<piece max_num="999" item_id="503462" item_name="紫耀胸甲碎片4" item_rank="4" relation_id="803062" type="2" item_des="紫耀胸甲碎片4" />
+	<piece max_num="999" item_id="503463" item_name="紫耀靴子碎片4" item_rank="4" relation_id="803063" type="2" item_des="紫耀靴子碎片4" />
+	<piece max_num="999" item_id="503561" item_name="紫耀头盔碎片5" item_rank="4" relation_id="803061" type="2" item_des="紫耀头盔碎片5" />
+	<piece max_num="999" item_id="503562" item_name="紫耀胸甲碎片5" item_rank="4" relation_id="803062" type="2" item_des="紫耀胸甲碎片5" />
+	<piece max_num="999" item_id="503563" item_name="紫耀靴子碎片5" item_rank="4" relation_id="803063" type="2" item_des="紫耀靴子碎片5" />
+	<piece max_num="999" item_id="503661" item_name="紫耀头盔碎片6" item_rank="4" relation_id="803061" type="2" item_des="紫耀头盔碎片6" />
+	<piece max_num="999" item_id="503662" item_name="紫耀胸甲碎片6" item_rank="4" relation_id="803062" type="2" item_des="紫耀胸甲碎片6" />
+	<piece max_num="999" item_id="503663" item_name="紫耀靴子碎片6" item_rank="4" relation_id="803063" type="2" item_des="紫耀靴子碎片6" />
+	<piece max_num="999" item_id="503171" item_name="紫耀头盔碎片1" item_rank="4" relation_id="803071" type="2" item_des="紫耀头盔碎片1" />
+	<piece max_num="999" item_id="503172" item_name="紫耀胸甲碎片1" item_rank="4" relation_id="803072" type="2" item_des="紫耀胸甲碎片1" />
+	<piece max_num="999" item_id="503173" item_name="紫耀靴子碎片1" item_rank="4" relation_id="803073" type="2" item_des="紫耀靴子碎片1" />
+	<piece max_num="999" item_id="503271" item_name="紫耀头盔碎片2" item_rank="4" relation_id="803071" type="2" item_des="紫耀头盔碎片2" />
+	<piece max_num="999" item_id="503272" item_name="紫耀胸甲碎片2" item_rank="4" relation_id="803072" type="2" item_des="紫耀胸甲碎片2" />
+	<piece max_num="999" item_id="503273" item_name="紫耀靴子碎片2" item_rank="4" relation_id="803073" type="2" item_des="紫耀靴子碎片2" />
+	<piece max_num="999" item_id="503371" item_name="紫耀头盔碎片3" item_rank="4" relation_id="803071" type="2" item_des="紫耀头盔碎片3" />
+	<piece max_num="999" item_id="503372" item_name="紫耀胸甲碎片3" item_rank="4" relation_id="803072" type="2" item_des="紫耀胸甲碎片3" />
+	<piece max_num="999" item_id="503373" item_name="紫耀靴子碎片3" item_rank="4" relation_id="803073" type="2" item_des="紫耀靴子碎片3" />
+	<piece max_num="999" item_id="503471" item_name="紫耀头盔碎片4" item_rank="4" relation_id="803071" type="2" item_des="紫耀头盔碎片4" />
+	<piece max_num="999" item_id="503472" item_name="紫耀胸甲碎片4" item_rank="4" relation_id="803072" type="2" item_des="紫耀胸甲碎片4" />
+	<piece max_num="999" item_id="503473" item_name="紫耀靴子碎片4" item_rank="4" relation_id="803073" type="2" item_des="紫耀靴子碎片4" />
+	<piece max_num="999" item_id="503571" item_name="紫耀头盔碎片5" item_rank="4" relation_id="803071" type="2" item_des="紫耀头盔碎片5" />
+	<piece max_num="999" item_id="503572" item_name="紫耀胸甲碎片5" item_rank="4" relation_id="803072" type="2" item_des="紫耀胸甲碎片5" />
+	<piece max_num="999" item_id="503573" item_name="紫耀靴子碎片5" item_rank="4" relation_id="803073" type="2" item_des="紫耀靴子碎片5" />
+	<piece max_num="999" item_id="503671" item_name="紫耀头盔碎片6" item_rank="4" relation_id="803071" type="2" item_des="紫耀头盔碎片6" />
+	<piece max_num="999" item_id="503672" item_name="紫耀胸甲碎片6" item_rank="4" relation_id="803072" type="2" item_des="紫耀胸甲碎片6" />
+	<piece max_num="999" item_id="503673" item_name="紫耀靴子碎片6" item_rank="4" relation_id="803073" type="2" item_des="紫耀靴子碎片6" />
+	<piece max_num="999" item_id="503181" item_name="紫耀头盔碎片1" item_rank="4" relation_id="803081" type="2" item_des="紫耀头盔碎片1" />
+	<piece max_num="999" item_id="503182" item_name="紫耀胸甲碎片1" item_rank="4" relation_id="803082" type="2" item_des="紫耀胸甲碎片1" />
+	<piece max_num="999" item_id="503183" item_name="紫耀靴子碎片1" item_rank="4" relation_id="803083" type="2" item_des="紫耀靴子碎片1" />
+	<piece max_num="999" item_id="503281" item_name="紫耀头盔碎片2" item_rank="4" relation_id="803081" type="2" item_des="紫耀头盔碎片2" />
+	<piece max_num="999" item_id="503282" item_name="紫耀胸甲碎片2" item_rank="4" relation_id="803082" type="2" item_des="紫耀胸甲碎片2" />
+	<piece max_num="999" item_id="503283" item_name="紫耀靴子碎片2" item_rank="4" relation_id="803083" type="2" item_des="紫耀靴子碎片2" />
+	<piece max_num="999" item_id="503381" item_name="紫耀头盔碎片3" item_rank="4" relation_id="803081" type="2" item_des="紫耀头盔碎片3" />
+	<piece max_num="999" item_id="503382" item_name="紫耀胸甲碎片3" item_rank="4" relation_id="803082" type="2" item_des="紫耀胸甲碎片3" />
+	<piece max_num="999" item_id="503383" item_name="紫耀靴子碎片3" item_rank="4" relation_id="803083" type="2" item_des="紫耀靴子碎片3" />
+	<piece max_num="999" item_id="503481" item_name="紫耀头盔碎片4" item_rank="4" relation_id="803081" type="2" item_des="紫耀头盔碎片4" />
+	<piece max_num="999" item_id="503482" item_name="紫耀胸甲碎片4" item_rank="4" relation_id="803082" type="2" item_des="紫耀胸甲碎片4" />
+	<piece max_num="999" item_id="503483" item_name="紫耀靴子碎片4" item_rank="4" relation_id="803083" type="2" item_des="紫耀靴子碎片4" />
+	<piece max_num="999" item_id="503581" item_name="紫耀头盔碎片5" item_rank="4" relation_id="803081" type="2" item_des="紫耀头盔碎片5" />
+	<piece max_num="999" item_id="503582" item_name="紫耀胸甲碎片5" item_rank="4" relation_id="803082" type="2" item_des="紫耀胸甲碎片5" />
+	<piece max_num="999" item_id="503583" item_name="紫耀靴子碎片5" item_rank="4" relation_id="803083" type="2" item_des="紫耀靴子碎片5" />
+	<piece max_num="999" item_id="503681" item_name="紫耀头盔碎片6" item_rank="4" relation_id="803081" type="2" item_des="紫耀头盔碎片6" />
+	<piece max_num="999" item_id="503682" item_name="紫耀胸甲碎片6" item_rank="4" relation_id="803082" type="2" item_des="紫耀胸甲碎片6" />
+	<piece max_num="999" item_id="503683" item_name="紫耀靴子碎片6" item_rank="4" relation_id="803083" type="2" item_des="紫耀靴子碎片6" />
+	<piece max_num="999" item_id="513001" item_name="老子卷轴碎片" item_rank="3" need_num="5" comp_fee="1000" relation_id="413001" type="1" item_des="用于合成老子卷轴" />
+	<piece max_num="999" item_id="513002" item_name="春秋卷轴碎片" item_rank="3" need_num="5" comp_fee="1000" relation_id="413002" type="1" item_des="用于合成春秋卷轴" />
+	<piece max_num="999" item_id="513003" item_name="史记卷轴碎片" item_rank="3" need_num="5" comp_fee="1000" relation_id="413003" type="1" item_des="用于合成史记卷轴" />
+	<piece max_num="999" item_id="513004" item_name="易经卷轴碎片" item_rank="3" need_num="5" comp_fee="1000" relation_id="413004" type="1" item_des="用于合成易经卷轴" />
+	<piece max_num="999" item_id="513005" item_name="礼记卷轴碎片" item_rank="3" need_num="5" comp_fee="1000" relation_id="413005" type="1" item_des="用于合成礼记卷轴" />
+	<piece max_num="999" item_id="513006" item_name="诗经卷轴碎片" item_rank="3" need_num="5" comp_fee="1000" relation_id="413006" type="1" item_des="用于合成诗经卷轴" />
+	<piece max_num="999" item_id="513007" item_name="孙子卷轴碎片" item_rank="3" need_num="5" comp_fee="1000" relation_id="413007" type="1" item_des="用于合成孙子卷轴" />
+	<piece max_num="999" item_id="513008" item_name="六韬卷轴碎片" item_rank="3" need_num="5" comp_fee="1000" relation_id="413008" type="1" item_des="用于合成六韬卷轴" />
+	<piece max_num="999" item_id="513009" item_name="三略卷轴碎片" item_rank="3" need_num="5" comp_fee="1000" relation_id="413009" type="1" item_des="用于合成三略卷轴" />
+	<piece max_num="999" item_id="514001" item_name="青釉罐卷轴碎片" item_rank="4" need_num="20" comp_fee="2000" relation_id="414001" type="1" item_des="用于合成青釉罐卷轴" />
+	<piece max_num="999" item_id="514002" item_name="青瓷壶卷轴碎片" item_rank="4" need_num="20" comp_fee="2000" relation_id="414002" type="1" item_des="用于合成青瓷壶卷轴" />
+	<piece max_num="999" item_id="514003" item_name="白瓷瓶卷轴碎片" item_rank="4" need_num="20" comp_fee="2000" relation_id="414003" type="1" item_des="用于合成白瓷瓶卷轴" />
+	<piece max_num="999" item_id="514004" item_name="清溪瓶卷轴碎片" item_rank="4" need_num="20" comp_fee="2000" relation_id="414004" type="1" item_des="用于合成清溪瓶卷轴" />
+	<piece max_num="999" item_id="514005" item_name="红霞瓶卷轴碎片" item_rank="4" need_num="20" comp_fee="2000" relation_id="414005" type="1" item_des="用于合成红霞瓶卷轴" />
+	<piece max_num="999" item_id="514006" item_name="龙方壶卷轴碎片" item_rank="4" need_num="20" comp_fee="2000" relation_id="414006" type="1" item_des="用于合成龙方壶卷轴" />
+	<piece max_num="999" item_id="514007" item_name="流彩瓶卷轴碎片" item_rank="4" need_num="20" comp_fee="2000" relation_id="414007" type="1" item_des="用于合成流彩瓶卷轴" />
+	<piece max_num="999" item_id="514008" item_name="玉净瓶卷轴碎片" item_rank="4" need_num="20" comp_fee="2000" relation_id="414008" type="1" item_des="用于合成玉净瓶卷轴" />
+	<piece max_num="999" item_id="514009" item_name="白玉瓶卷轴碎片" item_rank="4" need_num="20" comp_fee="2000" relation_id="414009" type="1" item_des="用于合成白玉瓶卷轴" />
+	<piece max_num="999" item_id="514010" item_name="九锡纹龙罐卷轴碎片" item_rank="4" need_num="20" comp_fee="2000" relation_id="414010" type="1" item_des="用于合成九锡纹龙罐卷轴" />
+	<piece max_num="999" item_id="514011" item_name="青天金锡鉴卷轴碎片" item_rank="4" need_num="20" comp_fee="2000" relation_id="414011" type="1" item_des="用于合成青天金锡鉴卷轴" />
+	<piece max_num="999" item_id="514012" item_name="上古服方壶卷轴碎片" item_rank="4" need_num="20" comp_fee="2000" relation_id="414012" type="1" item_des="用于合成上古服方壶卷轴" />
+	<piece max_num="999" item_id="514013" item_name="长生乙尊瓶卷轴碎片" item_rank="4" need_num="20" comp_fee="2000" relation_id="414013" type="1" item_des="用于合成长生乙尊瓶卷轴" />
+	<piece max_num="999" item_id="520101" item_name="陨铁碎片1" item_rank="3" relation_id="120001" type="4" item_des="陨铁碎片1" />
+	<piece max_num="999" item_id="520102" item_name="高级陨铁碎片1" item_rank="4" relation_id="120002" type="4" item_des="高级陨铁碎片1" />
+	<piece max_num="999" item_id="520201" item_name="陨铁碎片2" item_rank="3" relation_id="120001" type="4" item_des="陨铁碎片2" />
+	<piece max_num="999" item_id="520202" item_name="高级陨铁碎片2" item_rank="4" relation_id="120002" type="4" item_des="高级陨铁碎片2" />
+	<piece max_num="999" item_id="520301" item_name="陨铁碎片3" item_rank="3" relation_id="120001" type="4" item_des="陨铁碎片3" />
+	<piece max_num="999" item_id="520302" item_name="高级陨铁碎片3" item_rank="4" relation_id="120002" type="4" item_des="高级陨铁碎片3" />
+	<piece max_num="999" item_id="520401" item_name="陨铁碎片4" item_rank="3" relation_id="120001" type="4" item_des="陨铁碎片4" />
+	<piece max_num="999" item_id="520402" item_name="高级陨铁碎片4" item_rank="4" relation_id="120002" type="4" item_des="高级陨铁碎片4" />
+	<piece max_num="99" item_id="532000" item_name="青龙长矛碎片" item_rank="3" need_num="5" relation_id="802000" type="3" item_des="用于合成青龙长矛" />
+	<piece max_num="99" item_id="532004" item_name="青龙项链碎片" item_rank="3" need_num="5" relation_id="802004" type="3" item_des="用于合成青龙项链" />
+	<piece max_num="99" item_id="532005" item_name="青龙戒指碎片" item_rank="3" need_num="5" relation_id="802005" type="3" item_des="用于合成青龙戒指" />
+	<piece max_num="99" item_id="532010" item_name="青龙长矛碎片" item_rank="3" need_num="5" relation_id="802010" type="3" item_des="用于合成青龙长矛" />
+	<piece max_num="99" item_id="532014" item_name="青龙项链碎片" item_rank="3" need_num="5" relation_id="802014" type="3" item_des="用于合成青龙项链" />
+	<piece max_num="99" item_id="532015" item_name="青龙戒指碎片" item_rank="3" need_num="5" relation_id="802015" type="3" item_des="用于合成青龙戒指" />
+	<piece max_num="99" item_id="532020" item_name="青龙长矛碎片" item_rank="3" need_num="5" relation_id="802020" type="3" item_des="用于合成青龙长矛" />
+	<piece max_num="99" item_id="532024" item_name="青龙项链碎片" item_rank="3" need_num="5" relation_id="802024" type="3" item_des="用于合成青龙项链" />
+	<piece max_num="99" item_id="532025" item_name="青龙戒指碎片" item_rank="3" need_num="5" relation_id="802025" type="3" item_des="用于合成青龙戒指" />
+	<piece max_num="99" item_id="532030" item_name="青龙长矛碎片" item_rank="3" need_num="5" relation_id="802030" type="3" item_des="用于合成青龙长矛" />
+	<piece max_num="99" item_id="532034" item_name="青龙项链碎片" item_rank="3" need_num="5" relation_id="802034" type="3" item_des="用于合成青龙项链" />
+	<piece max_num="99" item_id="532035" item_name="青龙戒指碎片" item_rank="3" need_num="5" relation_id="802035" type="3" item_des="用于合成青龙戒指" />
+	<piece max_num="99" item_id="532040" item_name="青龙长矛碎片" item_rank="3" need_num="5" relation_id="802040" type="3" item_des="用于合成青龙长矛" />
+	<piece max_num="99" item_id="532044" item_name="青龙项链碎片" item_rank="3" need_num="5" relation_id="802044" type="3" item_des="用于合成青龙项链" />
+	<piece max_num="99" item_id="532045" item_name="青龙戒指碎片" item_rank="3" need_num="5" relation_id="802045" type="3" item_des="用于合成青龙戒指" />
+	<piece max_num="99" item_id="533000" item_name="紫耀映日碎片" item_rank="4" need_num="10" relation_id="803000" type="3" item_des="用于合成紫耀映日" />
+	<piece max_num="99" item_id="533004" item_name="紫耀项链碎片" item_rank="4" need_num="10" relation_id="803004" type="3" item_des="用于合成紫耀项链" />
+	<piece max_num="99" item_id="533005" item_name="紫耀戒指碎片" item_rank="4" need_num="10" relation_id="803005" type="3" item_des="用于合成紫耀戒指" />
+	<piece max_num="99" item_id="533010" item_name="紫耀映日碎片" item_rank="4" need_num="10" relation_id="803010" type="3" item_des="用于合成紫耀映日" />
+	<piece max_num="99" item_id="533014" item_name="紫耀项链碎片" item_rank="4" need_num="10" relation_id="803014" type="3" item_des="用于合成紫耀项链" />
+	<piece max_num="99" item_id="533015" item_name="紫耀戒指碎片" item_rank="4" need_num="10" relation_id="803015" type="3" item_des="用于合成紫耀戒指" />
+	<piece max_num="99" item_id="533020" item_name="紫耀映日碎片" item_rank="4" need_num="10" relation_id="803020" type="3" item_des="用于合成紫耀映日" />
+	<piece max_num="99" item_id="533024" item_name="紫耀项链碎片" item_rank="4" need_num="10" relation_id="803024" type="3" item_des="用于合成紫耀项链" />
+	<piece max_num="99" item_id="533025" item_name="紫耀戒指碎片" item_rank="4" need_num="10" relation_id="803025" type="3" item_des="用于合成紫耀戒指" />
+	<piece max_num="99" item_id="533030" item_name="紫耀映日碎片" item_rank="4" need_num="10" relation_id="803030" type="3" item_des="用于合成紫耀映日" />
+	<piece max_num="99" item_id="533034" item_name="紫耀项链碎片" item_rank="4" need_num="10" relation_id="803034" type="3" item_des="用于合成紫耀项链" />
+	<piece max_num="99" item_id="533035" item_name="紫耀戒指碎片" item_rank="4" need_num="10" relation_id="803035" type="3" item_des="用于合成紫耀戒指" />
+	<piece max_num="99" item_id="533040" item_name="紫耀映日碎片" item_rank="4" need_num="10" relation_id="803040" type="3" item_des="用于合成紫耀映日" />
+	<piece max_num="99" item_id="533044" item_name="紫耀项链碎片" item_rank="4" need_num="10" relation_id="803044" type="3" item_des="用于合成紫耀项链" />
+	<piece max_num="99" item_id="533045" item_name="紫耀戒指碎片" item_rank="4" need_num="10" relation_id="803045" type="3" item_des="用于合成紫耀戒指" />
+	<piece max_num="99" item_id="533050" item_name="紫耀映日碎片" item_rank="4" need_num="10" relation_id="803050" type="3" item_des="用于合成紫耀映日" />
+	<piece max_num="99" item_id="533054" item_name="紫耀项链碎片" item_rank="4" need_num="10" relation_id="803054" type="3" item_des="用于合成紫耀项链" />
+	<piece max_num="99" item_id="533055" item_name="紫耀戒指碎片" item_rank="4" need_num="10" relation_id="803055" type="3" item_des="用于合成紫耀戒指" />
+	<piece max_num="99" item_id="533060" item_name="紫耀映日碎片" item_rank="4" need_num="10" relation_id="803060" type="3" item_des="用于合成紫耀映日" />
+	<piece max_num="99" item_id="533064" item_name="紫耀项链碎片" item_rank="4" need_num="10" relation_id="803064" type="3" item_des="用于合成紫耀项链" />
+	<piece max_num="99" item_id="533065" item_name="紫耀戒指碎片" item_rank="4" need_num="10" relation_id="803065" type="3" item_des="用于合成紫耀戒指" />
+	<piece max_num="99" item_id="533070" item_name="紫耀映日碎片" item_rank="4" need_num="10" relation_id="803070" type="3" item_des="用于合成紫耀映日" />
+	<piece max_num="99" item_id="533074" item_name="紫耀项链碎片" item_rank="4" need_num="10" relation_id="803074" type="3" item_des="用于合成紫耀项链" />
+	<piece max_num="99" item_id="533075" item_name="紫耀戒指碎片" item_rank="4" need_num="10" relation_id="803075" type="3" item_des="用于合成紫耀戒指" />
+	<piece max_num="99" item_id="533080" item_name="紫耀映日碎片" item_rank="4" need_num="10" relation_id="803080" type="3" item_des="用于合成紫耀映日" />
+	<piece max_num="99" item_id="533084" item_name="紫耀项链碎片" item_rank="4" need_num="10" relation_id="803084" type="3" item_des="用于合成紫耀项链" />
+	<piece max_num="99" item_id="533085" item_name="紫耀戒指碎片" item_rank="4" need_num="10" relation_id="803085" type="3" item_des="用于合成紫耀戒指" />
+	<piece max_num="99" item_id="542003" item_name="枪兵碎片" item_rank="2" need_num="10" relation_id="132003" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542008" item_name="鼓手碎片" item_rank="2" need_num="10" relation_id="132008" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542013" item_name="短弓兵碎片" item_rank="2" need_num="10" relation_id="132013" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542023" item_name="手雷兵碎片" item_rank="2" need_num="10" relation_id="132023" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542028" item_name="盾兵碎片" item_rank="2" need_num="10" relation_id="132028" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542034" item_name="方士碎片" item_rank="2" need_num="10" relation_id="132034" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542004" item_name="精英枪兵碎片" item_rank="3" need_num="10" relation_id="132004" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542009" item_name="精英鼓手碎片" item_rank="3" need_num="10" relation_id="132009" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542029" item_name="精英盾兵碎片" item_rank="3" need_num="10" relation_id="132029" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542014" item_name="精英弓手碎片" item_rank="3" need_num="10" relation_id="132014" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542035" item_name="精英方士碎片" item_rank="3" need_num="10" relation_id="132035" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542024" item_name="精英手雷碎片" item_rank="3" need_num="10" relation_id="132024" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542005" item_name="老练枪兵碎片" item_rank="3" need_num="10" relation_id="132005" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542010" item_name="老练鼓手碎片" item_rank="3" need_num="10" relation_id="132010" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542030" item_name="老练盾兵碎片" item_rank="3" need_num="10" relation_id="132030" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542015" item_name="老练弓手碎片" item_rank="3" need_num="10" relation_id="132015" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542036" item_name="老练方士碎片" item_rank="3" need_num="10" relation_id="132036" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="542025" item_name="老练手雷碎片" item_rank="3" need_num="10" relation_id="132025" type="6" item_des="可用来兵种升星" />
+	<piece max_num="99" item_id="551001" item_name="赵云卡碎片" item_rank="4" need_num="30" relation_id="131001" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551002" item_name="步兵卡碎片" item_rank="4" need_num="30" relation_id="131002" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551003" item_name="夏侯惇碎片" item_rank="4" need_num="30" relation_id="131003" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551004" item_name="孙尚香卡碎片" item_rank="4" need_num="30" relation_id="131004" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551005" item_name="诸葛亮卡碎片" item_rank="4" need_num="30" relation_id="131005" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551006" item_name="周瑜卡碎片" item_rank="4" need_num="30" relation_id="131006" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551007" item_name="张飞碎片" item_rank="4" need_num="30" relation_id="131007" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551008" item_name="黄月英碎片" item_rank="4" need_num="30" relation_id="131008" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551009" item_name="董卓碎片" item_rank="4" need_num="30" relation_id="131009" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551010" item_name="张角碎片" item_rank="4" need_num="30" relation_id="131010" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551011" item_name="吕布碎片" item_rank="4" need_num="30" relation_id="131011" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551012" item_name="刘备碎片" item_rank="4" need_num="30" relation_id="131012" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551013" item_name="曹操碎片" item_rank="4" need_num="30" relation_id="131013" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551014" item_name="孙权碎片" item_rank="4" need_num="30" relation_id="131014" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551015" item_name="周仓碎片" item_rank="4" need_num="30" relation_id="131015" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551016" item_name="廖化碎片" item_rank="4" need_num="30" relation_id="131016" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551017" item_name="马忠碎片" item_rank="4" need_num="30" relation_id="131017" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551018" item_name="程普碎片" item_rank="4" need_num="30" relation_id="131018" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551019" item_name="潘璋碎片" item_rank="4" need_num="30" relation_id="131019" type="5" item_des="可作为武将上阵" />
+	<piece max_num="99" item_id="551020" item_name="黄盖碎片" item_rank="4" need_num="30" relation_id="131020" type="5" item_des="可作为武将上阵" />
+</root>
