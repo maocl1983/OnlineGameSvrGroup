@@ -444,6 +444,17 @@ Utils::get_two_point_distance(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2
 /*								Lua Interface									*/
 /********************************************************************************/
 static int
+lua_get_cur_time(lua_State *L)
+{   
+	struct tm now = *get_now_tm();
+	uint32_t cur_time = mktime(&now);
+
+	lua_pushinteger(L, cur_time);
+
+	return 1;
+} 
+
+static int
 lua_get_date(lua_State *L)
 {   
 	time_t t = luaL_checkinteger(L, 1);
@@ -619,6 +630,7 @@ luaopen_utils(lua_State *L)
 	luaL_checkversion(L);
 
 	luaL_Reg l[] = {
+		{"get_cur_time", lua_get_cur_time},
 		{"get_date", lua_get_date},
 		{"get_day", lua_get_day},
 		{"get_hour", lua_get_hour},
@@ -636,7 +648,12 @@ luaopen_utils(lua_State *L)
 		{NULL, NULL}
 	};
 
-	luaL_newlib(L, l);
+	luaL_newmetatable(L, "Utils");
+	lua_pushvalue(L, -1);
+	lua_setfield(L, -2, "__index");
+	luaL_setfuncs(L, l, 0);
+
+	//luaL_newlib(L, l);
 
 	return 1;
 }

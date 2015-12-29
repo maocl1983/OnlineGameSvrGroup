@@ -58,6 +58,7 @@ extern "C" {
 #include "vip.hpp"
 #include "trial_tower.hpp"
 #include "alarm.hpp"
+#include "lua_script_manage.hpp"
 
 /**
   * @brief Initialize service
@@ -177,6 +178,8 @@ extern "C" int init_service(int isparent)
 		pthread_t log_tid;
 		pthread_create(&log_tid, 0, &write_log_thread, 0);
 
+		//加载lua脚本
+		lua_script_mgr.LoadLuaFile("./lualib/");
 	} else {
 	
 	}

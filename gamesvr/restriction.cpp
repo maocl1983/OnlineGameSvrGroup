@@ -350,7 +350,7 @@ lua_set_res_value(lua_State *L)
 int
 luaopen_restriction(lua_State *L)
 {
-	/*luaL_checkversion(L);
+	//luaL_checkversion(L);
 
 	luaL_Reg l[] = {
 		{"get_res_value", lua_get_res_value},
@@ -358,11 +358,15 @@ luaopen_restriction(lua_State *L)
 		{NULL, NULL},
 	};
 
+	luaL_newmetatable(L, "Restriction");
+	lua_pushvalue(L, -1);
+	lua_setfield(L, -2, "__index");
+	luaL_setfuncs(L, l, 0);
 
-	luaL_newlib(L, l);*/
+	//luaL_newlib(L, l);
 	
-	lua_register(L, "get_res_value", lua_get_res_value);
-	lua_register(L, "set_res_value", lua_set_res_value);
+	//lua_register(L, "get_res_value", lua_get_res_value);
+	//lua_register(L, "set_res_value", lua_set_res_value);
 
 	return 1;
 }

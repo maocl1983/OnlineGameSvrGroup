@@ -102,6 +102,8 @@ Player::Player(uint32_t uid, fdsession_t *fds) : user_id(uid), fdsess(fds)
 	energy_tm = add_timer_event(0, add_player_energy, this, 0, ENERGY_PER_SEC * 1000);
 	endurance_tm = add_timer_event(0, add_player_endurance, this, 0, ENDURANCE_PER_SEC * 1000);
 	adventure_tm = add_timer_event(0, add_player_adventure, this, 0, ADVENTURE_PER_SEC * 1000);
+	
+	KDEBUG_LOG(user_id, "player create");
 }
 
 Player::~Player()
@@ -909,7 +911,7 @@ Player::deal_something_when_login()
 
 	set_login_day();
 
-	lua_script_mgr.DoTest(this);
+	//lua_script_mgr.DoTest(this);
 	return 0;
 }
 
@@ -2150,17 +2152,87 @@ static int lua_send_to_self_error(lua_State *L)
 	return 0;
 }
 
+static int lua_add_role_exp(lua_State *L)
+{
+	Player *p = (Player *)lua_touserdata(L, 1);
+	int add_value = luaL_checkinteger(L, 2);
+	
+	if (p) {
+		p->add_role_exp(add_value);
+	}
+
+	return 0;
+}
+
+static int lua_chg_golds(lua_State *L)
+{
+	//Player *p = (Player *)lua_touserdata(L, 1);
+	Player **p = (Player **)luaL_checkudata(L, 1, "Player");
+	int chg_value = luaL_checkinteger(L, 2);
+	
+	if ((*p)) {
+		(*p)->chg_golds(chg_value);
+	}
+
+	return 0;
+}
+
+static int lua_get_res_value(lua_State *L)
+{
+	Player **p = (Player **)luaL_checkudata(L, 1, "Player");
+	uint32_t res_type = luaL_checkinteger(L, 2);
+
+	uint32_t res_value = (*p)->res_mgr->get_res_value(res_type);
+	lua_pushinteger(L, res_value);
+
+	return 1;
+}
+
+static int lua_set_res_value(lua_State *L)
+{
+	Player **p = (Player **)luaL_checkudata(L, 1, "Player");
+	uint32_t res_type = luaL_checkinteger(L, 2);
+	uint32_t res_value = luaL_checkinteger(L, 3);
+
+	(*p)->res_mgr->set_res_value(res_type, res_value);
+
+	return 0;
+}
+
+static int lua_add_item(lua_State *L)
+{
+	Player **p = (Player **)luaL_checkudata(L, 1, "Player");
+	uint32_t item_id = luaL_checkinteger(L, 2);
+	uint32_t item_cnt = luaL_checkinteger(L, 3);
+
+	(*p)->items_mgr->add_item_without_callback(item_id, item_cnt);
+
+	return 0;
+}
+
 int luaopen_player(lua_State *L)
 {
 	luaL_checkversion(L);
 
 	luaL_Reg l[] = {
-		{"send_to_self", lua_send_to_self},
-		{"send_to_self_error", lua_send_to_self_error},
-		{NULL, NULL}
+#define RegFunc(func) {#func, lua_##func},
+		RegFunc(send_to_self)
+		RegFunc(send_to_self_error)
+		RegFunc(add_role_exp)
+		RegFunc(chg_golds)
+		RegFunc(get_res_value)
+		RegFunc(set_res_value)
+		RegFunc(add_item)
+#undef RegFunc
+		{NULL, NULL},
 	};
 
-	luaL_newlib(L, l);
+	if (luaL_newmetatable(L, PLAYERMETA)) {
+		lua_pushvalue(L, -1);
+		lua_setfield(L, -2, "__index");
+		luaL_setfuncs(L, l, 0);
+	}
+	//luaL_newlib(L, l);
 
 	return 1;
 }

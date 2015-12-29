@@ -18,14 +18,18 @@
 
 #include "common_def.hpp"
 
+#define PLAYERMETA "Player"
+
 class Player;
 class LuaScriptManage {
 public:
 	LuaScriptManage();
 	~LuaScriptManage();
 
-	bool LoadLuaFile();
+	void RegisterGlbFuncs();
+	bool LoadLuaFile(const char* path);
 	int DoTest(Player* p);
+	int daliy_checkin(Player* p);
 private:
 	lua_State *l_state;
 };

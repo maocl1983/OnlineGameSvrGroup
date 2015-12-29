@@ -27,6 +27,7 @@
 #include "utils.hpp"
 #include "lua_log.hpp"
 #include "log_thread.hpp"
+#include "lua_script_manage.hpp"
 
 using namespace std;
 using namespace project;
@@ -434,8 +435,7 @@ NickXmlManager::load_female_nick_xml_info(xmlNodePtr cur)
  */
 int cli_daily_checkin(Player *p, Cmessage *c_in)
 {
-
-	uint32_t daily_flag =  p->res_mgr->get_res_value(daily_checkin_stat);
+	/*uint32_t daily_flag =  p->res_mgr->get_res_value(daily_checkin_stat);
 	if (daily_flag) {
 		return p->send_to_self_error(p->wait_cmd, cli_already_checkin_err, 1);	
 	}
@@ -454,7 +454,12 @@ int cli_daily_checkin(Player *p, Cmessage *c_in)
 	p->items_mgr->add_item_without_callback(60000, 1);
 
 	KDEBUG_LOG(p->user_id, "DAILY CHECKIN\t[cur_day=%u month_stat=%u]", cur_day, month_stat);
+	*/
 
+	int ret = lua_script_mgr.daliy_checkin(p);
+	if (ret) {
+		return p->send_to_self_error(p->wait_cmd, ret, 1);	
+	}
 	return p->send_to_self(p->wait_cmd, 0, 1);
 }
 
