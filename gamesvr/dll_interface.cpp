@@ -336,3 +336,17 @@ extern "C" void proc_mcast_pkg(const void* data, int len)
 		}
 	}
 }
+
+/**
+  * @brief Called to process udp package from the address and port configured in the config file
+  */
+extern "C" void proc_udp_pkg(int fd, const void* avail_data, int avail_len, struct sockaddr_in *from, socklen_t fromlen)
+{
+	const char *data_str = (char*)avail_data;
+	DEBUG_LOG("recv udp data len=%d str=%.*s", avail_len, avail_len, data_str);
+	sendto(fd, data_str, avail_len, 0, (struct sockaddr*)from, sizeof(*from));
+}
+
+
+
+
