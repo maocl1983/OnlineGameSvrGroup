@@ -1,9 +1,9 @@
 /**
  *============================================================
  *
- * @file  dll_interface.cpp
+ * @file  thttp.cpp
  *
- * @brief  AsynServ的接口函数，AsynServ通过加载SO,处理具体的逻辑
+ * @brief  tiny thttp服务器
  * compiler   gcc4.1.2
  * 
  * platform   Linux
@@ -28,6 +28,7 @@ extern "C" {
 #include <asyn_serv/net_if.hpp>
 
 #include <libproject/utils/strings.hpp> //bin2hex
+#include <json/json.h> 
 
 const int min_len_req_line = 0;
 const int max_line_size = 2048 * 2;
@@ -146,7 +147,6 @@ extern "C" int proc_pkg_from_client(void* data, int len, fdsession_t* fdsess)
 {
 	//int sockfd = fdsess->fd;
 	//int pkg_len = 0;
-
 	memcpy(req_line, data, len);
 	req_line[len] = '\0';
 
@@ -225,52 +225,36 @@ extern "C" int proc_pkg_from_client(void* data, int len, fdsession_t* fdsess)
 		memcpy(data, data_ptr+4, data_length);
 		data[data_length] = '\0';
 		DEBUG_LOG("post data len=%d str=[%s]", data_length, data);
+
+		//json parse
+		Json::Reader Parser;
+		Json::Value root;
+		int userid = 0;
+		std::string nick;
+		if (Parser.parse(data, data+data_length, root, false)) {
+			if (root["userid"].isInt()) {
+				userid = root["userid"].asInt();
+			}
+			if (root["nick"].isString()) {
+				nick = root["nick"].asString();
+			}
+		}
+		DEBUG_LOG("json data userid=%d nick=%s", userid, nick.c_str());
+
+		//json respond
+		Json::Value outRoot;
+		outRoot["userid"] = userid+1;
+		outRoot["nick"] = nick;
+		std::string outStr = outRoot.toStyledString();
+		char respond_str[2048];
+		sprintf(respond_str, "HTTP/1.1 200 OK\r\nContent-Length: %ld", strlen(outStr.c_str()));
+		strcat(respond_str, http_ok_header2);
+		strncat(respond_str, outStr.c_str(), strlen(outStr.c_str())+1);
+		return send_pkg_to_client(fdsess, respond_str, strlen(respond_str));  		
 	}
 			
 	send_pkg_to_client(fdsess, notfound_str, notfound_len);
 	return 0;
-
-	/*
-	const char* req_line_end = "\r\n\r\n";
-	char* pend = strstr(req_line, req_line_end);
-	if (!pend) {
-		return -1;
-	}
-	pkg_len = pend - req_line + 4;
-	req_line[pkg_len] = '\0';
-	DEBUG_LOG("fd=%d len=%d %d req=[%s]\n", sockfd, len, pkg_len, req_line);
-
-	char method[4], req_content[40];
-	int n = sscanf(req_line, "%3s %39[^?|^ ]", method, req_content);
-	if (n == 2) {
-		if (!strcasecmp(method, "GET")) {
-			if (!strcasecmp(req_content, "/crossdomain.xml")) { //crossdomain.xml
-				//return send_pkg_to_client(sockfd, res_cross.c_str(), res_cross.size()); 
-			} else if (!strcasecmp(req_content, "/ip.txt") || !strcasecmp(req_content, "/")) { //ip.txt
-				send_pkg_to_client(fdsess, res_ip.c_str(), res_ip.size());  		
-				return -1; //requset and response ok, close fd with client
-			} else if (!strcasecmp(req_content, "/time")) { //time
-				sprintf(time_buff, "HTTP/1.1 200 OK\r\nContent-Length: %d\r\nConnection: close\r\nContent-Type: text/html; charset=UTF-8\r\n\r\n%ld", 10, get_now_tv()->tv_sec);
-				send_pkg_to_client(fdsess, time_buff, strlen(time_buff));  		
-				return -1; //requset and response ok, close fd with client
-			} else {
-				send_pkg_to_client(fdsess, notfound_str, notfound_len);
-				ERROR_LOG("Invalid pkg: %s", req_line);
-				return -1;
-			}
-		} else { //non-get method
-			ERROR_LOG("Unsuported method: %s data=%s", method, req_content);
-			send_pkg_to_client(fdsess, notfound_str, notfound_len);
-			return -1;
-		}
-	} else {
-		send_pkg_to_client(fdsess, notfound_str, notfound_len);
-		ERROR_LOG("Invalid pkg: %s", req_line);
-		return -1;
-	}
-
-	return 0; 
-	*/
 }
 
 /**
