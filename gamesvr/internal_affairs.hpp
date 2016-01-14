@@ -92,7 +92,7 @@ private:
 private:
 	InternalAffairsXmlMap internal_affairs_xml_map;
 };
-extern InternalAffairsXmlManager internal_affairs_xml_mgr;
+//extern InternalAffairsXmlManager internal_affairs_xml_mgr;
 
 /********************************************************************************/
 /*						InternalAffairsRewardXmlManager Class					*/
@@ -125,7 +125,7 @@ private:
 private:
 	InternalAffairsRewardXmlMap internal_affairs_reward_xml_map;
 };
-extern InternalAffairsRewardXmlManager internal_affairs_reward_xml_mgr;
+//extern InternalAffairsRewardXmlManager internal_affairs_reward_xml_mgr;
 
 /********************************************************************************/
 /*						InternalAffairsLevelXmlManager Class					*/
@@ -151,7 +151,7 @@ private:
 private:
 	InternalAffairsLevelXmlMap internal_affairs_level_xml_map;
 };
-extern InternalAffairsLevelXmlManager internal_affairs_level_xml_mgr;
+//extern InternalAffairsLevelXmlManager internal_affairs_level_xml_mgr;
 
 
 #endif //INTERNAL_AFFAIRS_HPP_

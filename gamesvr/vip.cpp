@@ -18,6 +18,7 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "vip.hpp"
 #include "dbroute.hpp"
 #include "player.hpp"
@@ -25,7 +26,7 @@
 using namespace std;
 using namespace project;
 
-VipXmlManager vip_xml_mgr;
+//VipXmlManager vip_xml_mgr;
 
 
 /********************************************************************************/

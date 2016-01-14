@@ -69,6 +69,6 @@ private:
 private:
 	TrialTowerRewardXmlMap trial_tower_reward_xml_map;
 };
-extern TrialTowerRewardXmlManager trial_tower_reward_xml_mgr;
+//extern TrialTowerRewardXmlManager trial_tower_reward_xml_mgr;
 
 #endif //TRIAL_TOWER_HPP_

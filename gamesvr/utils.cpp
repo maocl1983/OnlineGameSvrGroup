@@ -14,13 +14,14 @@
  */
 
 
-#include "utils.hpp"
 #include <math.h>
+#include "global_data.hpp"
+#include "utils.hpp"
 
 using namespace std;
 using namespace project;
 
-Utils utils_mgr; 
+//Utils utils_mgr; 
 
 /************************************************************************/
 /*                          Utils class                                 */ 
@@ -459,7 +460,7 @@ lua_get_date(lua_State *L)
 {   
 	time_t t = luaL_checkinteger(L, 1);
 
-	uint32_t date = utils_mgr.get_date(t);
+	uint32_t date = utils_mgr->get_date(t);
 
 	lua_pushinteger(L, date);
 
@@ -470,7 +471,7 @@ static int
 lua_get_day(lua_State *L)
 {
 	time_t t = luaL_checkinteger(L, 1);
-	uint32_t day = utils_mgr.get_day(t);
+	uint32_t day = utils_mgr->get_day(t);
 	lua_pushinteger(L, day);
 
 	return 1;
@@ -482,7 +483,7 @@ static int
 lua_get_hour(lua_State *L)
 {
 	time_t t = luaL_checkinteger(L, 1);
-	uint32_t hour = utils_mgr.get_hour(t);
+	uint32_t hour = utils_mgr->get_hour(t);
 	lua_pushinteger(L, hour);
 
 	return 1;
@@ -494,7 +495,7 @@ static int
 lua_get_min(lua_State *L)
 {
 	time_t t = luaL_checkinteger(L, 1);
-	uint32_t min = utils_mgr.get_min(t);
+	uint32_t min = utils_mgr->get_min(t);
 	lua_pushinteger(L, min);
 
 	return 1;
@@ -506,7 +507,7 @@ static int
 lua_get_year_day(lua_State *L)
 {
 	time_t t = luaL_checkinteger(L, 1);
-	uint32_t yday = utils_mgr.get_year_day(t);
+	uint32_t yday = utils_mgr->get_year_day(t);
 	lua_pushinteger(L, yday);
 
 	return 1;
@@ -518,7 +519,7 @@ static int
 lua_get_week_day(lua_State *L)
 {   
 	time_t t = luaL_checkinteger(L, 1);
-	uint32_t wday = utils_mgr.get_week_day(t);
+	uint32_t wday = utils_mgr->get_week_day(t);
 	lua_pushinteger(L, wday);
 
 	return 1;
@@ -530,7 +531,7 @@ static int
 lua_get_year_month(lua_State *L)
 {       
 	time_t t = luaL_checkinteger(L, 1);
-	uint32_t m = utils_mgr.get_year_month(t);
+	uint32_t m = utils_mgr->get_year_month(t);
 	lua_pushinteger(L, m);
 
 	return 1;
@@ -542,7 +543,7 @@ static int
 lua_mk_date_to_tm(lua_State *L)
 {
 	uint32_t date = luaL_checkinteger(L, 1);
-	uint32_t t = utils_mgr.mk_date_to_tm(date);
+	uint32_t t = utils_mgr->mk_date_to_tm(date);
 	lua_pushinteger(L, t);
 
 	return 1;
@@ -554,7 +555,7 @@ static int
 lua_get_month_last_day_tm(lua_State *L)
 {
 	uint32_t now_tm = luaL_checkinteger(L, 1);
-	uint32_t t = utils_mgr.get_month_last_day_tm(now_tm);
+	uint32_t t = utils_mgr->get_month_last_day_tm(now_tm);
 	lua_pushinteger(L, t);
 
 	return 1;
@@ -566,7 +567,7 @@ static int
 lua_mk_zero_tm(lua_State *L)
 {
 	struct tm *p = (struct tm*)lua_touserdata(L, 1);
-	uint32_t t = utils_mgr.mk_zero_tm(*p);
+	uint32_t t = utils_mgr->mk_zero_tm(*p);
 	lua_pushinteger(L, t);
 
 	return 1;
@@ -577,7 +578,7 @@ lua_mk_zero_tm(lua_State *L)
 static int
 lua_get_today_zero_tm(lua_State *L)
 {
-	uint32_t t = utils_mgr.get_today_zero_tm();
+	uint32_t t = utils_mgr->get_today_zero_tm();
 	lua_pushinteger(L, t);
 
 	return 1;
@@ -588,7 +589,7 @@ lua_get_today_zero_tm(lua_State *L)
 static int
 lua_mk_next_day_zero_tm(lua_State *L)
 {
-	uint32_t t = utils_mgr.mk_next_day_zero_tm();
+	uint32_t t = utils_mgr->mk_next_day_zero_tm();
 	lua_pushinteger(L, t);
 
 	return 1;

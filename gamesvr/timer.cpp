@@ -16,6 +16,7 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "timer.hpp"
 #include "player.hpp"
 #include "utils.hpp"
@@ -26,8 +27,8 @@
 using namespace std;
 using namespace project;
 
-TimeStampXmlManage time_stamp_xml_info;
-Timer timer_mgr;
+//TimeStampXmlManage time_stamp_xml_info;
+//Timer timer_mgr;
 
 /************************************************************************/
 /*                       Timer  Function								*/
@@ -47,7 +48,7 @@ int init_global_timer()
 
 	//启动每天晚上九点竞技场奖励定时器
 	uint32_t now_tm = get_now_tv()->tv_sec;
-	uint32_t nine_tm = utils_mgr.get_today_zero_tm() + 21 * 3600;
+	uint32_t nine_tm = utils_mgr->get_today_zero_tm() + 21 * 3600;
 	if (now_tm >= nine_tm) {
 		nine_tm += 24 * 3600;
 	}
@@ -67,7 +68,7 @@ int keep_alive_noti(void *owner, void *data)
 	cli_out.time = (uint32_t)time(NULL);
 	//p->send_to_self(cli_keep_alive_cmd, &cli_out, 0);
 
-	p->keep_alive_tm = add_timer_event(0, keep_alive_noti, p, 0, 10000);
+	p->keep_alive_tm = add_timer_event(0, tm_keep_alive_noti_index, p, 0, 10000);
 	return 0;
 }
 
@@ -78,7 +79,7 @@ int check_active_player(void *owner, void *data)
 {
 	Player *p = (Player *)owner;
 
-	g_player_mgr.del_expire_player(p);
+	g_player_mgr->del_expire_player(p);
 
 	return 0;
 }
@@ -87,21 +88,21 @@ int check_active_player(void *owner, void *data)
  */
 int check_arena_count(void *owner, void *data)
 {
-	return arena_mgr.get_arena_count();
+	return arena_mgr->get_arena_count();
 }
 
 /* @brief 检测公会个数是否为0
  */
 int check_guild_count(void *owner, void *data)
 {
-	return guild_mgr.get_guild_count();
+	return guild_mgr->get_guild_count();
 }
 
 /* @brief 竞技场每日奖励发放定时器
  */
 int give_arena_daily_ranking_bonus(void *owner, void *data)
 {
-	arena_mgr.give_arena_daily_ranking_bonus();
+	arena_mgr->give_arena_daily_ranking_bonus();
 
 	set_timeout(give_arena_daily_ranking_bonus, 0, 0, 24 * 3600 * 1000);
 
@@ -116,7 +117,8 @@ int add_player_skill_point(void *owner, void *data)
 
 	p->add_skill_point_tm();
 
-	p->skill_point_tm = add_timer_event(0, add_player_skill_point, p, 0, SKILL_POINT_PER_SEC * 1000);
+	//p->skill_point_tm = add_timer_event(0, add_player_skill_point, p, 0, SKILL_POINT_PER_SEC * 1000);
+	p->skill_point_tm = add_timer_event(0, tm_add_player_skill_point_index, p, 0, 3 * 1000);
 
 	return 0;	
 }
@@ -129,7 +131,7 @@ int add_player_soldier_train_point(void *owner, void *data)
 
 	p->add_soldier_train_point_tm();
 
-	p->soldier_train_point_tm = add_timer_event(0, add_player_soldier_train_point, p, 0, SOLDIER_TRAIN_POINT_PER_SEC * 1000);
+	p->soldier_train_point_tm = add_timer_event(0, tm_add_player_soldier_train_point_index, p, 0, SOLDIER_TRAIN_POINT_PER_SEC * 1000);
 
 	return 0;	
 }
@@ -142,7 +144,7 @@ int add_player_energy(void *owner, void *data)
 
 	p->add_energy_tm();
 
-	p->energy_tm = add_timer_event(0, add_player_energy, p, 0, ENERGY_PER_SEC * 1000);
+	p->energy_tm = add_timer_event(0, tm_add_player_energy_index, p, 0, ENERGY_PER_SEC * 1000);
 
 	return 0;	
 }
@@ -155,7 +157,7 @@ int add_player_endurance(void *owner, void *data)
 
 	p->add_endurance_tm();
 
-	p->endurance_tm = add_timer_event(0, add_player_endurance, p, 0, ENDURANCE_PER_SEC * 1000);
+	p->endurance_tm = add_timer_event(0, tm_add_player_endurance_index, p, 0, ENDURANCE_PER_SEC * 1000);
 
 	return 0;	
 }
@@ -168,11 +170,36 @@ int add_player_adventure(void *owner, void *data)
 
 	p->add_adventure_tm();
 
-	p->adventure_tm = add_timer_event(0, add_player_adventure, p, 0, ADVENTURE_PER_SEC * 1000);
+	p->adventure_tm = add_timer_event(0, tm_add_player_adventure_index, p, 0, ADVENTURE_PER_SEC * 1000);
 
 	return 0;	
 }
 
+#define REGISTER_TIMER_TYPE(nbr_, cb_) \
+	do {\
+		if (register_timer_callback(nbr_, cb_, max_timer_type) == -1) {\
+			ERROR_LOG("register timer callback error!");\
+			return false;\
+		}\
+	} while(0)
+
+bool init_timer_callback_type()
+{
+	memset(tcfs, 0x00, sizeof(tcfs));
+	REGISTER_TIMER_TYPE(tm_keep_alive_noti_index , keep_alive_noti);
+	REGISTER_TIMER_TYPE(tm_connect_to_switch_timely_index, connect_to_switch_timely);
+	REGISTER_TIMER_TYPE(tm_connect_to_alarm_timely_index, connect_to_alarm_timely);
+	REGISTER_TIMER_TYPE(tm_check_active_player_index , check_active_player);
+	REGISTER_TIMER_TYPE(tm_check_arena_count_index , check_arena_count);
+	REGISTER_TIMER_TYPE(tm_check_guild_count_index , check_guild_count);
+	REGISTER_TIMER_TYPE(tm_give_arena_daily_ranking_bonus_index , give_arena_daily_ranking_bonus);
+	REGISTER_TIMER_TYPE(tm_add_player_skill_point_index , add_player_skill_point);
+	REGISTER_TIMER_TYPE(tm_add_player_soldier_train_point_index , add_player_soldier_train_point);
+	REGISTER_TIMER_TYPE(tm_add_player_energy_index , add_player_energy);
+	REGISTER_TIMER_TYPE(tm_add_player_endurance_index , add_player_endurance);
+	REGISTER_TIMER_TYPE(tm_add_player_adventure_index , add_player_adventure);
+	return  true;
+}
 /************************************************************************/
 /*                      		Timer class                             */ 
 /************************************************************************/
@@ -263,7 +290,7 @@ TimeStampXmlManage::init_time_stamp_info(time_stamp_xml_info_t &info, const char
 	int year, month, day, hour, min, sec;
 	sscanf(day_str, "%4d-%d-%d %2d:%2d:%2d", &year, &month, &day, &hour, &min, &sec);
 
-	info.time_stamp = utils_mgr.mk_tm(year, month, day, hour, min, sec);
+	info.time_stamp = utils_mgr->mk_tm(year, month, day, hour, min, sec);
 
 	return 0;
 }

@@ -67,7 +67,7 @@ private:
 	uint32_t total_prob;
 	TenEvenDrawGoldsXmlMap draw_map;
 };
-extern TenEvenDrawGoldsXmlManager ten_even_draw_golds_xml_mgr;
+//extern TenEvenDrawGoldsXmlManager ten_even_draw_golds_xml_mgr;
 
 /********************************************************************************/
 /*					TenEvenDrawDiamondXmlManager Class							*/
@@ -93,7 +93,7 @@ private:
 	uint32_t total_prob;
 	TenEvenDrawDiamondXmlMap draw_map;
 };
-extern TenEvenDrawDiamondXmlManager ten_even_draw_diamond_xml_mgr;
+//extern TenEvenDrawDiamondXmlManager ten_even_draw_diamond_xml_mgr;
 
 /********************************************************************************/
 /*					TenEvenDrawDiamondSpecialXmlManager Class					*/
@@ -119,7 +119,7 @@ private:
 	uint32_t total_prob;
 	TenEvenDrawDiamondSpecialXmlMap draw_map;
 };
-extern TenEvenDrawDiamondSpecialXmlManager ten_even_draw_diamond_special_xml_mgr;
+//extern TenEvenDrawDiamondSpecialXmlManager ten_even_draw_diamond_special_xml_mgr;
 
 #endif //TEN_EVEN_DRAW_HPP_
 

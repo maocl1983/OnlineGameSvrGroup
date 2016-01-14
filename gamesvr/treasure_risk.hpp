@@ -96,7 +96,7 @@ private:
 private:
 	TreasureAttrXmlMap treasure_attr_xml_map;
 };
-extern TreasureAttrXmlManager treasure_attr_xml_mgr;
+//extern TreasureAttrXmlManager treasure_attr_xml_mgr;
 
 /********************************************************************************/
 /*							TreasureHeroXmlManager Class						*/
@@ -121,7 +121,7 @@ private:
 private:
 	TreasureHeroXmlMap treasure_hero_xml_map;
 };
-extern TreasureHeroXmlManager treasure_hero_xml_mgr;
+//extern TreasureHeroXmlManager treasure_hero_xml_mgr;
 
 /********************************************************************************/
 /*							TreasureRewardXmlManager Class						*/
@@ -148,6 +148,6 @@ private:
 	uint32_t total_prob;
 	TreasureRewardVec rewards;
 };
-extern TreasureRewardXmlManager treasure_reward_xml_mgr;
+//extern TreasureRewardXmlManager treasure_reward_xml_mgr;
 
 #endif //TREASURE_RISK_HPP_

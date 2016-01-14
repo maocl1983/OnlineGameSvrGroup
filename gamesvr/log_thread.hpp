@@ -23,18 +23,13 @@ struct log_list_t {
 	int lock;
 };
 
-extern struct log_list_t g_log_list;
+//extern struct log_list_t g_log_list;
 
-inline
-void init_log_thread_list()
-{
-	INIT_LIST_HEAD(&(g_log_list.list));
-}
+void init_log_thread_list();
 
 int add_to_log_list(int level, uint32_t key, const char *fmt, ...) LOG_CHECK_FMT(3, 4);
 
 void* write_log_thread(void *arg);
-
 
 #ifndef LOG_USE_SYSLOG
 #define TLOG_DETAIL(level, key, fmt, args...) \

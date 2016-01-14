@@ -34,5 +34,5 @@ private:
 	lua_State *l_state;
 };
 
-extern LuaScriptManage lua_script_mgr;
+//extern LuaScriptManage lua_script_mgr;
 #endif

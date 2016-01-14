@@ -129,7 +129,7 @@ extern "C"{
 const uint32_t cur_version = 1;
 
 /*! 全局变量-服务器ID */
-extern uint32_t g_server_id;
+//extern uint32_t g_server_id;
 
 /*! 全局变量-用户相关 */
 const uint32_t MAX_SESSLEN = 1000; 					/*! 用户最大缓存长度 */

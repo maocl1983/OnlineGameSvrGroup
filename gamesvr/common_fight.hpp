@@ -16,7 +16,7 @@
 #ifndef COMMON_FIGHT_HPP_
 #define COMMON_FIGHT_HPP_
 
-#include "common_fight.hpp"
+//#include "common_fight.hpp"
 
 class Player;
 class item_info_t;
@@ -103,7 +103,7 @@ private:
 private:
 	CommonFightXmlMap common_fight_xml_map;
 };
-extern CommonFightXmlManager common_fight_xml_mgr;
+//extern CommonFightXmlManager common_fight_xml_mgr;
 
 /********************************************************************************/
 /*							CommonFightDropXmlManager Class						*/
@@ -139,7 +139,7 @@ private:
 private:
 	CommonFightDropXmlMap common_fight_drop_xml_map;
 };
-extern CommonFightDropXmlManager common_fight_drop_xml_mgr;
+//extern CommonFightDropXmlManager common_fight_drop_xml_mgr;
 
 
 #endif //COMMON_FIGHT_HPP_

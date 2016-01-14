@@ -19,6 +19,7 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "astrology.hpp"
 #include "player.hpp"
 #include "dbroute.hpp"
@@ -113,7 +114,7 @@ AstrologyManager::light_star(uint32_t dst_pos, uint32_t select_pos)
 			//设置状态
 			star_stat = set_bit_on(star_stat, dst_pos);
 			owner->res_mgr->set_res_value(daily_astrology_light_star_stat, star_stat);
-			uint32_t light_num = utils_mgr.get_binary_one_cnt(star_stat);
+			uint32_t light_num = utils_mgr->get_binary_one_cnt(star_stat);
 
 			//增加星数
 			uint32_t add_star = 1;
@@ -158,7 +159,7 @@ int
 AstrologyManager::get_all_reward()
 {
 	uint32_t reward_stat = owner->res_mgr->get_res_value(daily_astrology_reward_stat);
-	uint32_t get_num = utils_mgr.get_binary_one_cnt(reward_stat);
+	uint32_t get_num = utils_mgr->get_binary_one_cnt(reward_stat);
 
 	uint32_t need_star_num[10] = {15, 30, 40, 50, 60, 80, 90, 100, 115, 130};
 	uint32_t star_num = owner->res_mgr->get_res_value(daily_astrology_star_num);

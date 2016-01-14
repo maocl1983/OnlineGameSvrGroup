@@ -8,6 +8,7 @@ extern "C" {
 #include <stdlib.h>
 #include <jemalloc/jemalloc.h>
 }
+#include "global_data.hpp"
 #include "log_thread.hpp"
 
 #define LOCK(q) while (__sync_lock_test_and_set(&(q)->lock,1)) {}
@@ -25,8 +26,13 @@ extern "C" {
 
 #define MAX_LOG_CNT 10000000
 
-struct log_list_t g_log_list;
+//struct log_list_t g_log_list;
 
+
+void init_log_thread_list()
+{
+	INIT_LIST_HEAD(&(g_log_list.list));
+}
 
 int add_to_log_list(int level, uint32_t key, const char *fmt, ...)
 {

@@ -69,7 +69,7 @@ public:
 	bool get_rand_vec(const std::vector<uint32_t>& vec1, uint32_t num, std::vector<uint32_t>& vec2);
 };
 
-extern Utils utils_mgr; 
+//extern Utils utils_mgr; 
 
 int luaopen_utils(lua_State *L);
 

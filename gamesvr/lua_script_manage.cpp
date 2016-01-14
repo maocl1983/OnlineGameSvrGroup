@@ -15,11 +15,13 @@
 */
 #include <dirent.h>
 #include <vector>
+#include <unistd.h>
 #include "lua_script_manage.hpp"
 #include "lua_log.hpp"
 #include "restriction.hpp"
 #include "utils.hpp"
 #include "player.hpp"
+#include "global_data.hpp"
 
 using namespace std;
 #define pushuserdata(_p, lua_state, metaname) \
@@ -29,7 +31,7 @@ using namespace std;
 		lua_setmetatable(lua_state, -2); \
 	}while (0)
 
-LuaScriptManage lua_script_mgr;
+//LuaScriptManage lua_script_mgr;
 static int tracelv = 1;
 static int traceback(lua_State* l)
 {

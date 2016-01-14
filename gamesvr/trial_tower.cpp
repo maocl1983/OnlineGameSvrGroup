@@ -19,6 +19,7 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "trial_tower.hpp"
 #include "player.hpp"
 #include "dbroute.hpp"
@@ -26,7 +27,7 @@
 using namespace std;
 using namespace project;
 
-TrialTowerRewardXmlManager trial_tower_reward_xml_mgr;
+//TrialTowerRewardXmlManager trial_tower_reward_xml_mgr;
 
 /********************************************************************************/
 /*							TrialTowerManager Class								*/
@@ -83,7 +84,7 @@ TrialTowerManager::send_sweep_reward(uint32_t start_floor, uint32_t end_floor)
 	std::map<uint32_t, uint32_t> items_reward;
 	uint32_t golds = 0;
 	for (uint32_t floor = start_floor; floor <= end_floor; floor++) {
-		const trial_tower_reward_xml_info_t *p_xml_info = trial_tower_reward_xml_mgr.get_trial_tower_reward_xml_info(floor);
+		const trial_tower_reward_xml_info_t *p_xml_info = trial_tower_reward_xml_mgr->get_trial_tower_reward_xml_info(floor);
 		if (p_xml_info) {
 			golds += p_xml_info->golds;
 			for (int i = 0; i < 3; i++) {
@@ -210,7 +211,7 @@ TrialTowerManager::battle_end(uint32_t battle_floor, uint32_t is_win)
 			owner->res_mgr->set_res_value(forever_trial_tower_history_max_floor, battle_floor);
 		}
 		//发送奖励 
-		const trial_tower_reward_xml_info_t *p_xml_info = trial_tower_reward_xml_mgr.get_trial_tower_reward_xml_info(battle_floor);
+		const trial_tower_reward_xml_info_t *p_xml_info = trial_tower_reward_xml_mgr->get_trial_tower_reward_xml_info(battle_floor);
 		if (p_xml_info) {
 			cli_send_get_common_bonus_noti_out noti_out;
 			if (p_xml_info->golds) {

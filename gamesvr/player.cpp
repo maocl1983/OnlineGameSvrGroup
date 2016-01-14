@@ -19,6 +19,7 @@
 #include "./proto/xseer_db.hpp"
 #include "./proto/xseer_db_enum.hpp"
 
+#include "global_data.hpp"
 #include "player.hpp"
 #include "timer.hpp"
 #include "cli_dispatch.hpp"
@@ -35,8 +36,8 @@
 using namespace std;
 using namespace project;
 
-PlayerManager g_player_mgr;
-RoleSkillXmlManager role_skill_xml_mgr;
+//PlayerManager g_player_mgr;
+//RoleSkillXmlManager role_skill_xml_mgr;
 
 /********************************************************************************/
 /*								Player Class									*/
@@ -97,11 +98,12 @@ Player::Player(uint32_t uid, fdsession_t *fds) : user_id(uid), fdsess(fds)
 	keep_alive_tm = 0;
 
 	//keep_alive_tm = add_timer_event(0, keep_alive_noti, this, 0, 10000);
-	skill_point_tm = add_timer_event(0, add_player_skill_point, this, 0, SKILL_POINT_PER_SEC * 1000);
-	soldier_train_point_tm = add_timer_event(0, add_player_soldier_train_point, this, 0, SOLDIER_TRAIN_POINT_PER_SEC * 1000);
-	energy_tm = add_timer_event(0, add_player_energy, this, 0, ENERGY_PER_SEC * 1000);
-	endurance_tm = add_timer_event(0, add_player_endurance, this, 0, ENDURANCE_PER_SEC * 1000);
-	adventure_tm = add_timer_event(0, add_player_adventure, this, 0, ADVENTURE_PER_SEC * 1000);
+	//skill_point_tm = add_timer_event(0, add_player_skill_point, this, 0, SKILL_POINT_PER_SEC * 1000);
+	skill_point_tm = add_timer_event(0, tm_add_player_skill_point_index, this, 0, 5 * 1000);
+	soldier_train_point_tm = add_timer_event(0, tm_add_player_soldier_train_point_index, this, 0, SOLDIER_TRAIN_POINT_PER_SEC * 1000);
+	energy_tm = add_timer_event(0, tm_add_player_energy_index, this, 0, ENERGY_PER_SEC * 1000);
+	endurance_tm = add_timer_event(0, tm_add_player_endurance_index, this, 0, ENDURANCE_PER_SEC * 1000);
+	adventure_tm = add_timer_event(0, tm_add_player_adventure_index, this, 0, ADVENTURE_PER_SEC * 1000);
 	
 	KDEBUG_LOG(user_id, "player create");
 }
@@ -157,7 +159,7 @@ Player::set_player_level(uint32_t lv)
 	this->lv = lv;
 
 	//更新redis
-	redis_mgr.set_user_level(this);
+	redis_mgr->set_user_level(this);
 
 	//更新DB
 	db_set_player_level_in db_in;
@@ -324,7 +326,7 @@ int
 Player::calc_max_energy()
 {
 	/*
-	const level_xml_info_t *p_info = level_xml_mgr.get_level_xml_info(lv);
+	const level_xml_info_t *p_info = level_xml_mgr->get_level_xml_info(lv);
 	if (!p_info) {
 		return 0;
 	}
@@ -498,7 +500,7 @@ Player::chg_energy(int32_t chg_value, bool recovery_flag, bool role_exp_flag)
 	send_msg_to_dbroute(0, db_change_energy_cmd, &db_in, this->user_id);
 
 	//行动力变化通知
-	if (g_player_mgr.get_player_by_uid(this->user_id)) {//玩家在线，则通知
+	if (g_player_mgr->get_player_by_uid(this->user_id)) {//玩家在线，则通知
 		send_energy_change_noti();
 	}
 
@@ -562,7 +564,7 @@ Player::chg_endurance(int32_t chg_value, bool recovery_flag, bool role_exp_flag)
 	send_msg_to_dbroute(0, db_update_endurance_cmd, &db_in, this->user_id);
 
 	//通知前端
-	if (g_player_mgr.get_player_by_uid(this->user_id)) {//玩家在线，则通知
+	if (g_player_mgr->get_player_by_uid(this->user_id)) {//玩家在线，则通知
 		uint32_t now_sec = get_now_tv()->tv_sec;
 		cli_endurance_change_noti_out noti_out;
 		noti_out.endurance = endurance;
@@ -615,7 +617,7 @@ Player::chg_adventure(int32_t chg_value, bool recovery_flag)
 	send_msg_to_dbroute(0, db_update_adventure_cmd, &db_in, this->user_id);
 
 	//通知前端
-	if (g_player_mgr.get_player_by_uid(this->user_id)) {//玩家在线，则通知
+	if (g_player_mgr->get_player_by_uid(this->user_id)) {//玩家在线，则通知
 		cli_adventure_change_noti_out noti_out;
 		noti_out.adventure = adventure;
 		noti_out.max_adventure = max_adventure;
@@ -709,7 +711,7 @@ Player::deal_role_levelup(uint32_t old_lv, uint32_t lv)
 	set_player_level(lv);
 
 	for (uint32_t i = old_lv + 1; i <= lv; i++) {
-		const level_xml_info_t *p_info = level_xml_mgr.get_level_xml_info(i);
+		const level_xml_info_t *p_info = level_xml_mgr->get_level_xml_info(i);
 		if (p_info) {
 			//提高当前耐力
 			this->chg_endurance(p_info->levelup_endurance);
@@ -740,7 +742,7 @@ Player::deal_role_levelup(uint32_t old_lv, uint32_t lv)
 
 	//加入竞技场 TODO
 	if (old_lv < 10 && lv >= 10) {
-		arena_mgr.first_add_to_arena(this);
+		arena_mgr->first_add_to_arena(this);
 	}
 
 	//检查任务 
@@ -1007,21 +1009,21 @@ Player::handle_redis_login_init()
 	uint32_t limit = res_mgr->get_res_value(forever_redis_login_init_flag);
 	if (!limit) {
 		res_mgr->set_res_value(forever_redis_login_init_flag, 1);
-		redis_mgr.set_user_nick(this);
-		redis_mgr.set_user_level(this);
+		redis_mgr->set_user_nick(this);
+		redis_mgr->set_user_level(this);
 	}
 
-	//redis_mgr.set_treasure_piece_user(this, 821101);
-	//redis_mgr.set_treasure_piece_user(this, 821102);
-	//redis_mgr.get_treasure_piece_user_list(this, 821101);
+	//redis_mgr->set_treasure_piece_user(this, 821101);
+	//redis_mgr->set_treasure_piece_user(this, 821102);
+	//redis_mgr->get_treasure_piece_user_list(this, 821101);
 }
 
 void
 Player::set_login_day()
 {
 	uint32_t now_sec = time(0);
-	uint32_t now_date = utils_mgr.get_date(now_sec);
-	uint32_t last_login_date = utils_mgr.get_date(last_login_tm);
+	uint32_t now_date = utils_mgr->get_date(now_sec);
+	uint32_t last_login_date = utils_mgr->get_date(last_login_tm);
 
 	if (now_date != last_login_date) {
 		uint32_t login_day = this->res_mgr->get_res_value(forever_player_login_day);
@@ -1076,6 +1078,7 @@ Player::set_player_last_logout_tm()
 int 
 Player::chg_skill_point(int32_t chg_value)
 {
+	DEBUG_LOG("CHG SKILL PT=%d", chg_value);
 	if (!chg_value) {
 		return 0;
 	}
@@ -1100,7 +1103,7 @@ Player::chg_skill_point(int32_t chg_value)
 	send_msg_to_dbroute(0, db_set_player_skill_point_cmd, &db_in, user_id);
 	
 	//通知前端
-	if (g_player_mgr.get_player_by_uid(this->user_id)) {//玩家在线，则通知
+	if (g_player_mgr->get_player_by_uid(this->user_id)) {//玩家在线，则通知
 		cli_skill_point_change_noti_out noti_out;
 		noti_out.left_skill_point = skill_point;
 
@@ -1136,7 +1139,7 @@ Player::chg_soldier_train_point(int32_t chg_value)
 	db_in.soldier_train_point = soldier_train_point;
 	send_msg_to_dbroute(0, db_set_player_soldier_train_point_cmd, &db_in, user_id);
 
-	if (g_player_mgr.get_player_by_uid(this->user_id)) {//玩家在线，则通知
+	if (g_player_mgr->get_player_by_uid(this->user_id)) {//玩家在线，则通知
 		cli_soldier_train_point_change_noti_out noti_out;
 		noti_out.left_soldier_train_point = soldier_train_point;
 
@@ -1188,7 +1191,7 @@ Player::buy_item(uint32_t type)
 		daily_res = daily_soldier_train_point_buy_tms;
 		daily_max = 1;
 	} else {
-		const item_shop_xml_info_t *p_xml_info = item_shop_xml_mgr.get_item_shop_xml_info(type);
+		const item_shop_xml_info_t *p_xml_info = item_shop_xml_mgr->get_item_shop_xml_info(type);
 		if (p_xml_info) {
 			daily_res = p_xml_info->res_type;
 			daily_max = this->shop_mgr->get_item_shop_buy_limit(type);
@@ -1239,7 +1242,7 @@ Player::buy_item(uint32_t type)
 int
 Player::eat_energy_items(uint32_t item_id, uint32_t item_cnt)
 {
-	const item_xml_info_t *p_info = items_xml_mgr.get_item_xml_info(item_id);
+	const item_xml_info_t *p_info = items_xml_mgr->get_item_xml_info(item_id);
 	if (!p_info || p_info->type != em_item_type_for_energy) {
 		T_KWARN_LOG(this->user_id, "invalid energy item\t[item_id=%u]", item_id);
 		return cli_invalid_item_err;
@@ -1264,7 +1267,7 @@ Player::eat_energy_items(uint32_t item_id, uint32_t item_cnt)
 int
 Player::eat_endurance_items(uint32_t item_id, uint32_t item_cnt)
 {
-	const item_xml_info_t *p_info = items_xml_mgr.get_item_xml_info(item_id);
+	const item_xml_info_t *p_info = items_xml_mgr->get_item_xml_info(item_id);
 	if (!p_info || p_info->type != em_item_type_for_endurance) {
 		T_KWARN_LOG(this->user_id, "invalid endurance item\t[item_id=%u]", item_id);
 		return cli_invalid_item_err;
@@ -1289,7 +1292,7 @@ Player::eat_endurance_items(uint32_t item_id, uint32_t item_cnt)
 int
 Player::eat_adventure_items(uint32_t item_id, uint32_t item_cnt)
 {
-	const item_xml_info_t *p_info = items_xml_mgr.get_item_xml_info(item_id);
+	const item_xml_info_t *p_info = items_xml_mgr->get_item_xml_info(item_id);
 	if (!p_info || p_info->type != em_item_type_for_adventure) {
 		T_KWARN_LOG(this->user_id, "invalid adventure item\t[item_id=%u]", item_id);
 		return cli_invalid_item_err;
@@ -1314,7 +1317,7 @@ Player::eat_adventure_items(uint32_t item_id, uint32_t item_cnt)
 int
 Player::use_battle_items(uint32_t item_id, uint32_t item_cnt)
 {
-	const item_xml_info_t *p_info = items_xml_mgr.get_item_xml_info(item_id);
+	const item_xml_info_t *p_info = items_xml_mgr->get_item_xml_info(item_id);
 	if (!p_info || p_info->type != em_item_type_for_battle) {
 		T_KWARN_LOG(this->user_id, "invalid battle item\t[item_id=%u]", item_id);
 		return cli_invalid_item_err;
@@ -1345,7 +1348,7 @@ Player::set_role_skills(std::vector<uint32_t> &skills)
 	}
 	for (uint32_t i = 0; i < skills.size(); i++) {
 		uint32_t skill_id = skills[i];
-		const role_skill_xml_info_t *p_xml_info = role_skill_xml_mgr.get_role_skill_xml_info_by_skill(skill_id);
+		const role_skill_xml_info_t *p_xml_info = role_skill_xml_mgr->get_role_skill_xml_info_by_skill(skill_id);
 		if (!p_xml_info) {
 			return cli_invalid_skill_id_err;
 		}
@@ -1434,7 +1437,7 @@ Player::pack_player_base_info(cli_player_base_info_t &info)
 	info.energy_gift_stat = this->res_mgr->get_res_value(daily_energy_gift_stat);
 	info.vip_daily_gift_stat = this->res_mgr->get_res_value(daily_vip_gift_stat);
 	pack_items_buy_list(info.items_buy_info);
-	role_skill_xml_mgr.pack_unlock_role_skill(this, info.role_skills);
+	role_skill_xml_mgr->pack_unlock_role_skill(this, info.role_skills);
 
 	return 0;
 }
@@ -1971,7 +1974,7 @@ int cli_set_player_nick(Player *p, Cmessage *c_in)
 	send_msg_to_dbroute(0, db_set_player_nick_cmd, &db_in, p->user_id);
 
 	//更新redis
-	redis_mgr.set_user_nick(p);
+	redis_mgr->set_user_nick(p);
 
 	cli_set_player_nick_out cli_out;
 	memcpy(cli_out.nick, p_in->nick, NICK_LEN);
@@ -2033,7 +2036,7 @@ int cli_buy_item(Player *p, Cmessage *c_in)
 int cli_use_items_for_role(Player *p, Cmessage *c_in)
 {
 	cli_use_items_for_role_in *p_in = P_IN;
-	const item_xml_info_t *p_item_info = items_xml_mgr.get_item_xml_info(p_in->item_id);
+	const item_xml_info_t *p_item_info = items_xml_mgr->get_item_xml_info(p_in->item_id);
 	if (!p_item_info) {
 		T_KWARN_LOG(p->user_id, "invalid item id\t[item_id=%u]", p_in->item_id);
 		return p->send_to_self_error(p->wait_cmd, cli_invalid_item_err, 1);

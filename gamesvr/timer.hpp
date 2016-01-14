@@ -19,10 +19,25 @@
 
 #include "common_def.hpp"
 
+enum timer_type_index{
+	tm_connect_to_alarm_timely_index = 1,
+	tm_connect_to_switch_timely_index,
+	tm_keep_alive_noti_index,
+	tm_check_active_player_index,
+	tm_check_arena_count_index,
+	tm_check_guild_count_index,
+	tm_give_arena_daily_ranking_bonus_index,
+	tm_add_player_skill_point_index,
+	tm_add_player_soldier_train_point_index,
+	tm_add_player_energy_index,
+	tm_add_player_endurance_index,
+	tm_add_player_adventure_index,
+};
 
 /************************************************************************/
 /*                       Timer  Function								*/
 /************************************************************************/
+bool init_timer_callback_type();
 int init_global_timer();
 int keep_alive_noti(void *owner, void *data);
 int check_active_player(void *owner, void *data);
@@ -64,7 +79,7 @@ public:
 
 };
 
-extern Timer timer_mgr;
+//extern Timer timer_mgr;
 
 /************************************************************************/
 /*                      TimeStampXmlManage class                        */ 
@@ -98,6 +113,6 @@ private:
     TimeStampXmlMap time_xml_map;
 };
 
-extern TimeStampXmlManage time_stamp_xml_info;
+//extern TimeStampXmlManage time_stamp_xml_info;
 
 #endif

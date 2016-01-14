@@ -14,14 +14,15 @@
  * =====================================================================================
  */
 
+#include "global_data.hpp"
 #include "talent.hpp"
 
 
 using namespace std;
 using namespace project;
 
-HeroTalentXmlManager hero_talent_xml_mgr;
-SoldierTalentXmlManager soldier_talent_xml_mgr;
+//HeroTalentXmlManager hero_talent_xml_mgr;
+//SoldierTalentXmlManager soldier_talent_xml_mgr;
 
 
 /********************************************************************************/

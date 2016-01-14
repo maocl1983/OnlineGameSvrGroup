@@ -56,6 +56,6 @@ public:
 	int get_treasure_piece_user_list(Player *p, uint32_t piece_id);
 };
 
-extern Redis redis_mgr;
+//extern Redis redis_mgr;
 
 #endif

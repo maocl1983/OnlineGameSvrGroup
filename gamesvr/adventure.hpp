@@ -85,7 +85,7 @@ private:
 	AdventureXmlMap adventure_xml_map;
 	std::vector<uint32_t> adventures[2];
 };
-extern AdventureXmlManager adventure_xml_mgr;
+//extern AdventureXmlManager adventure_xml_mgr;
 
 
 /********************************************************************************/
@@ -115,7 +115,7 @@ private:
 private:
 	AdventureSelectXmlMap adventure_select_xml_map;
 };
-extern AdventureSelectXmlManager adventure_select_xml_mgr;
+//extern AdventureSelectXmlManager adventure_select_xml_mgr;
 
 /********************************************************************************/
 /*						AdventureItemXmlManager Class							*/
@@ -140,6 +140,6 @@ private:
 private:
 	AdventureItemXmlMap adventure_item_xml_map;
 };
-extern AdventureItemXmlManager adventure_item_xml_mgr;
+//extern AdventureItemXmlManager adventure_item_xml_mgr;
 
 #endif //ADVENTURE_HPP_

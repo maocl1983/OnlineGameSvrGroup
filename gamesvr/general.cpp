@@ -19,6 +19,7 @@
 #include "./proto/xseer_db.hpp"
 #include "./proto/xseer_db_enum.hpp"
 
+#include "global_data.hpp"
 #include "general.hpp"
 #include "player.hpp"
 #include "restriction.hpp"
@@ -32,7 +33,7 @@
 using namespace std;
 using namespace project;
 
-NickXmlManager nick_xml_mgr;
+//NickXmlManager nick_xml_mgr;
 #if 0
 int cli_daily_checkin(Player *p, Cmessage *c_in)
 {
@@ -440,7 +441,7 @@ int cli_daily_checkin(Player *p, Cmessage *c_in)
 		return p->send_to_self_error(p->wait_cmd, cli_already_checkin_err, 1);	
 	}
 
-	uint32_t cur_day = utils_mgr.get_day(time(0));
+	uint32_t cur_day = utils_mgr->get_day(time(0));
 	uint32_t month_stat = p->res_mgr->get_res_value(month_checkin_days_stat);
 	if (test_bit_on(month_stat, cur_day)) {
 		return p->send_to_self_error(p->wait_cmd, cli_already_checkin_err, 1);	
@@ -456,7 +457,7 @@ int cli_daily_checkin(Player *p, Cmessage *c_in)
 	KDEBUG_LOG(p->user_id, "DAILY CHECKIN\t[cur_day=%u month_stat=%u]", cur_day, month_stat);
 	*/
 
-	int ret = lua_script_mgr.daliy_checkin(p);
+	int ret = lua_script_mgr->daliy_checkin(p);
 	if (ret) {
 		return p->send_to_self_error(p->wait_cmd, ret, 1);	
 	}
@@ -629,7 +630,7 @@ int cli_get_diamond_gift(Player *p, Cmessage *c_in)
  */
 int cli_get_daily_energy_gift(Player *p, Cmessage *c_in)
 {
-	uint32_t now_hour = utils_mgr.get_hour(time(0));
+	uint32_t now_hour = utils_mgr->get_hour(time(0));
 	uint32_t time_zone = 0;
 	if (now_hour >= 11 && now_hour <= 14) {
 		time_zone = 1;

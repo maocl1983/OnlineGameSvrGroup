@@ -14,15 +14,16 @@
  * =====================================================================================
  */
 
+#include "global_data.hpp"
 #include "skill.hpp"
 
 
 using namespace std;
 using namespace project;
 
-SkillXmlManager skill_xml_mgr;
-SkillEffectXmlManager skill_effect_xml_mgr;
-SkillLevelupGoldsXmlManager skill_levelup_golds_xml_mgr;
+//SkillXmlManager skill_xml_mgr;
+//SkillEffectXmlManager skill_effect_xml_mgr;
+//SkillLevelupGoldsXmlManager skill_levelup_golds_xml_mgr;
 
 
 /********************************************************************************/

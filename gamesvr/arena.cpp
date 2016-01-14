@@ -23,6 +23,7 @@ extern "C" {
 #include <math.h>
 }
 
+#include "global_data.hpp"
 #include "arena.hpp"
 #include "dbroute.hpp"
 #include "player.hpp"
@@ -35,11 +36,11 @@ extern "C" {
 using namespace std;
 using namespace project;
 
-ArenaManager arena_mgr;
-ArenaAttrXmlManager arena_attr_xml_mgr;
-ArenaHeroXmlManager arena_hero_xml_mgr;
-ArenaBonusXmlManager arena_bonus_xml_mgr;
-ArenaLevelAttrXmlManager arena_level_attr_xml_mgr;
+//ArenaManager arena_mgr;
+//ArenaAttrXmlManager arena_attr_xml_mgr;
+//ArenaHeroXmlManager arena_hero_xml_mgr;
+//ArenaBonusXmlManager arena_bonus_xml_mgr;
+//ArenaLevelAttrXmlManager arena_level_attr_xml_mgr;
 
 /********************************************************************************/
 /*							ArenaManager Class									*/
@@ -70,7 +71,7 @@ ArenaManager::first_init_arena()
 	char robot_nick[5][NICK_LEN] = {"Mark", "Frankie", "Rock", "MoMo", "Buono"};
 	db_add_arena_list_in db_in;
 	for (int i = 1; i <= 10000; i++) {
-		const arena_attr_xml_info_t *p_xml_info = arena_attr_xml_mgr.get_arena_attr_xml_info(i);
+		const arena_attr_xml_info_t *p_xml_info = arena_attr_xml_mgr->get_arena_attr_xml_info(i);
 		if (!p_xml_info) {
 			continue;
 		}
@@ -82,9 +83,9 @@ ArenaManager::first_init_arena()
 		memcpy(info.nick, nick, strlen(nick));
 		info.lv = p_xml_info->lv;
 		info.rank = p_xml_info->rank;
-		info.hero1 = arena_hero_xml_mgr.random_one_hero(1);
-		info.hero2 = arena_hero_xml_mgr.random_one_hero(2);
-		info.hero3 = arena_hero_xml_mgr.random_one_hero(3);
+		info.hero1 = arena_hero_xml_mgr->random_one_hero(1);
+		info.hero2 = arena_hero_xml_mgr->random_one_hero(2);
+		info.hero3 = arena_hero_xml_mgr->random_one_hero(3);
 		info.soldier1 = 2003;
 		info.soldier2 = 2008;
 		info.soldier3 = 2013;
@@ -593,7 +594,7 @@ ArenaManager::give_ranking_bonus(Player *p, uint32_t ranking)
 		return 0;
 	}
 
-	uint32_t give_diamond = arena_bonus_xml_mgr.calc_arena_bonus_diamond(history_ranking, ranking);
+	uint32_t give_diamond = arena_bonus_xml_mgr->calc_arena_bonus_diamond(history_ranking, ranking);
 	
 	p->chg_diamond(give_diamond);
 
@@ -625,7 +626,7 @@ ArenaManager::give_arena_daily_ranking_bonus()
 	ArenaMap::iterator it = arena_map.begin();
 	for (; it != arena_map.end(); ++it) {
 		arnea_info_t *p_info = &(it->second);
-		const arena_bonus_xml_info_t *p_xml_info = arena_bonus_xml_mgr.get_arena_bonus_xml_info(p_info->ranking);
+		const arena_bonus_xml_info_t *p_xml_info = arena_bonus_xml_mgr->get_arena_bonus_xml_info(p_info->ranking);
 		if (!p_xml_info) {
 			continue;
 		}
@@ -776,14 +777,14 @@ ArenaManager::pack_arena_robot_battle_info(uint32_t ranking, cli_arena_battle_re
 		return 0;
 	}
 
-	const arena_attr_xml_info_t *p_arena_attr_info = arena_attr_xml_mgr.get_arena_attr_xml_info(ranking);
+	const arena_attr_xml_info_t *p_arena_attr_info = arena_attr_xml_mgr->get_arena_attr_xml_info(ranking);
 	if (!p_arena_attr_info) {
 		return 0;
 	}
 
 	//计算开服加成等级和战斗力
 	uint32_t robot_lv = calc_robot_lv(opp_info->lv);
-	const arena_level_attr_xml_info_t *p_level_attr_xml_info = arena_level_attr_xml_mgr.get_arena_level_attr_xml_info(robot_lv);
+	const arena_level_attr_xml_info_t *p_level_attr_xml_info = arena_level_attr_xml_mgr->get_arena_level_attr_xml_info(robot_lv);
 
 	//打包主公
 	cli_hero_info_t main_hero_info;
@@ -808,7 +809,7 @@ ArenaManager::pack_arena_robot_battle_info(uint32_t ranking, cli_arena_battle_re
 	double armor_factor[] = {2.5, 1, 0.6};
 	double resist_factor[] = {1.9, 0.6, 1};
 	for (int i = 0; i < 3; i++) {
-		const hero_xml_info_t* p_xml_info = hero_xml_mgr.get_hero_xml_info(opp_info->hero[i]);
+		const hero_xml_info_t* p_xml_info = hero_xml_mgr->get_hero_xml_info(opp_info->hero[i]);
 		if (p_xml_info) {
 			cli_hero_info_t info;
 			info.hero_id = opp_info->hero[i];
@@ -860,7 +861,7 @@ ArenaManager::pack_arena_opp_player_battle_info(uint32_t ranking, cli_arena_batt
 	}
 
 	//判断玩家是否在线
-	Player *p = g_player_mgr.get_player_by_uid(opp_info->user_id);
+	Player *p = g_player_mgr->get_player_by_uid(opp_info->user_id);
 	if (p) {//如果在线
 		Hero *main_hero = p->hero_mgr->get_hero(p->role_id);
 		if (main_hero) {
@@ -902,7 +903,7 @@ ArenaManager::pack_arena_opp_battle_info(uint32_t ranking, cli_arena_battle_requ
 	if (opp_info->user_id <= 10000) {//机器人
 		return pack_arena_robot_battle_info(ranking, cli_out);
 	} else {
-		Player *p = g_player_mgr.get_player_by_uid(opp_info->user_id);
+		Player *p = g_player_mgr->get_player_by_uid(opp_info->user_id);
 		if (p) {//在线
 			return pack_arena_opp_player_battle_info(ranking, cli_out);
 		} 
@@ -929,7 +930,7 @@ ArenaManager::pack_arena_opp_battle_info_from_db(db_get_arena_opp_battle_info_ou
 		
 		for (uint32_t j = 0; j < p_info->equips.size(); j++) {
 			db_equip_info_t *p_equip_info = &(p_info->equips[j]);
-			const equip_xml_info_t *base_info = equip_xml_mgr.get_equip_xml_info(p_equip_info->equip_id);
+			const equip_xml_info_t *base_info = equip_xml_mgr->get_equip_xml_info(p_equip_info->equip_id);
 			if (base_info) {
 				Equipment *p_equip = new Equipment(&p, base_info->id);
 				p_equip->get_tm = p_equip_info->get_tm;
@@ -947,7 +948,7 @@ ArenaManager::pack_arena_opp_battle_info_from_db(db_get_arena_opp_battle_info_ou
 
 		for (uint32_t j = 0; j < p_info->btl_souls.size(); j++) {
 			db_btl_soul_info_t *p_btl_soul_info = &(p_info->btl_souls[i]);
-			const btl_soul_xml_info_t *base_info = btl_soul_xml_mgr.get_btl_soul_xml_info(p_btl_soul_info->id);
+			const btl_soul_xml_info_t *base_info = btl_soul_xml_mgr->get_btl_soul_xml_info(p_btl_soul_info->id);
 			if (base_info) {
 				BtlSoul *p_btl_soul = new BtlSoul(&p, base_info->id);
 				p_btl_soul->get_tm = p_btl_soul_info->get_tm;
@@ -955,7 +956,7 @@ ArenaManager::pack_arena_opp_battle_info_from_db(db_get_arena_opp_battle_info_ou
 				p_btl_soul->lv = p_btl_soul_info->lv;
 				p_btl_soul->exp = p_btl_soul_info->exp;
 				p_btl_soul->tmp = p_btl_soul_info->tmp;
-				p_btl_soul->base_info = btl_soul_xml_mgr.get_btl_soul_xml_info(p_btl_soul_info->id);
+				p_btl_soul->base_info = btl_soul_xml_mgr->get_btl_soul_xml_info(p_btl_soul_info->id);
 
 				hero.btl_souls.insert(BtlSoulMap::value_type(p_btl_soul->get_tm, p_btl_soul));
 			}
@@ -1357,7 +1358,7 @@ int cli_get_arena_ranking_list(Player *p, Cmessage *c_in)
 	cli_get_arena_ranking_list_in *p_in = P_IN;
 
 	cli_get_arena_ranking_list_out cli_out;
-	int ret = arena_mgr.get_arena_ranking_list(p_in->start, p_in->end, cli_out.arena_list);
+	int ret = arena_mgr->get_arena_ranking_list(p_in->start, p_in->end, cli_out.arena_list);
 
 	if (ret) {
 		return p->send_to_self_error(p->wait_cmd, ret, 1);
@@ -1373,19 +1374,19 @@ int cli_get_arena_ranking_list(Player *p, Cmessage *c_in)
 int cli_get_arena_panel_info(Player *p, Cmessage *c_in)
 {
 	//检查竞技场是否已初始化完毕
-	if (!arena_mgr.check_arena_is_init()) {
+	if (!arena_mgr->check_arena_is_init()) {
 		T_KWARN_LOG(p->user_id, "arena has not been init!");
 		return p->send_to_self_error(p->wait_cmd, cli_arena_has_not_been_init_err, 1);
 	}
 	
 	//检查是否在竞技场中
-	const arena_info_t *p_info = arena_mgr.get_arena_ranking_info_by_userid(p->user_id);
+	const arena_info_t *p_info = arena_mgr->get_arena_ranking_info_by_userid(p->user_id);
 	if (!p_info) {
 		if (p->lv < 10) {
 			T_KWARN_LOG(p->user_id, "user in arena need lv not enough");
 			return p->send_to_self_error(p->wait_cmd, cli_user_not_in_arena_ranking_err, 1);
 		} else {//加入竞技场
-			arena_mgr.first_add_to_arena(p);	
+			arena_mgr->first_add_to_arena(p);	
 		}
 	}
 	
@@ -1398,9 +1399,9 @@ int cli_get_arena_panel_info(Player *p, Cmessage *c_in)
 	cli_out.left_tms = daily_tms < 5 ? (5 - daily_tms) : 0;
 	cli_out.cd = (now_sec < prev_tm + 900) ? (prev_tm + 900 - now_sec) : 0;
 
-	arena_mgr.pack_single_arena_info_by_userid(p->user_id, cli_out.self_info);
+	arena_mgr->pack_single_arena_info_by_userid(p->user_id, cli_out.self_info);
 
-	arena_mgr.pack_recommend_players_info(cli_out.self_info.ranking, cli_out.recommend_players);
+	arena_mgr->pack_recommend_players_info(cli_out.self_info.ranking, cli_out.recommend_players);
 
 	return p->send_to_self(p->wait_cmd, &cli_out, 1);
 }
@@ -1423,7 +1424,7 @@ int cli_arena_battle_request(Player *p, Cmessage *c_in)
 		return p->send_to_self_error(p->wait_cmd, cli_arena_challenge_being_cd_err, 1);
 	}
 
-	int ret = arena_mgr.battle_request(p->user_id, p_in->ranking);
+	int ret = arena_mgr->battle_request(p->user_id, p_in->ranking);
 	if (ret) {
 		return p->send_to_self_error(p->wait_cmd, ret, 1);
 	}
@@ -1441,9 +1442,9 @@ int cli_arena_battle_request(Player *p, Cmessage *c_in)
 	//打包对战信息
 	cli_arena_battle_request_out cli_out;
 	cli_out.ranking = p_in->ranking;
-	ret = arena_mgr.pack_arena_opp_battle_info(p_in->ranking, cli_out);
+	ret = arena_mgr->pack_arena_opp_battle_info(p_in->ranking, cli_out);
 	if (ret) {//对手不在线 需拉取数据库
-		const arena_info_t *p_info = arena_mgr.get_arena_ranking_info_by_ranking(p_in->ranking);
+		const arena_info_t *p_info = arena_mgr->get_arena_ranking_info_by_ranking(p_in->ranking);
 		if (p_info) {
 			db_get_arena_opp_battle_info_in db_in;
 			db_in.ranking = p_in->ranking;
@@ -1469,7 +1470,7 @@ int cli_arena_battle_end(Player *p, Cmessage *c_in)
 	cli_arena_battle_end_out cli_out;
 	cli_out.opp_ranking = p_in->opp_ranking;
 	cli_out.is_win = p_in->is_win;
-	int ret = arena_mgr.battle_end(p, p_in->opp_ranking, p_in->is_win, p_in->kill_hero_id, cli_out);
+	int ret = arena_mgr->battle_end(p, p_in->opp_ranking, p_in->is_win, p_in->kill_hero_id, cli_out);
 	if (ret) {
 		return p->send_to_self_error(p->wait_cmd, ret, 1);
 	}
@@ -1485,7 +1486,7 @@ int cli_set_arena_defend_team(Player *p, Cmessage *c_in)
 {
 	cli_set_arena_defend_team_in *p_in = P_IN;
 
-	int ret = arena_mgr.set_arena_defend_team(p, p_in->hero1, p_in->hero2, p_in->hero3, p_in->soldier1, p_in->soldier2, p_in->soldier3);
+	int ret = arena_mgr->set_arena_defend_team(p, p_in->hero1, p_in->hero2, p_in->hero3, p_in->soldier1, p_in->soldier2, p_in->soldier3);
 	if (ret) {
 		return p->send_to_self_error(p->wait_cmd, ret, 1);
 	}
@@ -1509,7 +1510,7 @@ int db_get_arena_count(Player *p, Cmessage *c_in, uint32_t ret)
 
 	db_get_arena_count_out *p_in = P_IN;
 	if (p_in->count == 0) {//竞技场为空则初始化竞技场
-		arena_mgr.first_init_arena();
+		arena_mgr->first_init_arena();
 	} else {//拉取竞技场信息
 		return send_msg_to_dbroute(0, db_get_arena_list_cmd, 0, 0);
 	}
@@ -1527,7 +1528,7 @@ int db_get_arena_list(Player *p, Cmessage *c_in, uint32_t ret)
 
 	db_get_arena_list_out *p_in = P_IN;
 
-	arena_mgr.init_arena(p_in->arena_list);
+	arena_mgr->init_arena(p_in->arena_list);
 
 	return 0;
 }
@@ -1543,7 +1544,7 @@ int db_get_arena_opp_battle_info(Player *p, Cmessage *c_in, uint32_t ret)
 		cli_arena_battle_request_out cli_out;
 		
 		cli_out.ranking = p_in->ranking;
-		arena_mgr.pack_arena_opp_battle_info_from_db(p_in, cli_out);
+		arena_mgr->pack_arena_opp_battle_info_from_db(p_in, cli_out);
 
 		T_KDEBUG_LOG(p->user_id, "GET ARENA OPP BATTLE INFO FROM DB");
 		

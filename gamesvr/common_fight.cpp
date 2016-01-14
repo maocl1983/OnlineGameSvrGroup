@@ -19,14 +19,15 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "player.hpp"
 #include "restriction.hpp"
 
 using namespace std;
 using namespace project;
 
-CommonFightXmlManager common_fight_xml_mgr;
-CommonFightDropXmlManager common_fight_drop_xml_mgr;
+//CommonFightXmlManager common_fight_xml_mgr;
+//CommonFightDropXmlManager common_fight_drop_xml_mgr;
 
 /********************************************************************************/
 /*								CommonFight Class								*/
@@ -72,7 +73,7 @@ CommonFight::get_kill_guard_unlock_idx()
 int
 CommonFight::get_common_fight_unlock_idx(uint32_t type)
 {
-	int unlock_idx = common_fight_xml_mgr.get_common_fight_unlock_step(type, owner->lv);
+	int unlock_idx = common_fight_xml_mgr->get_common_fight_unlock_step(type, owner->lv);
 
 	return unlock_idx;
 }
@@ -157,7 +158,7 @@ int
 CommonFight::random_rewards(uint32_t type, uint32_t idx)
 {
 	rewards.clear();
-	const common_fight_drop_step_xml_info_t *p_xml_info = common_fight_drop_xml_mgr.get_common_fight_drop_xml_info(type, idx);
+	const common_fight_drop_step_xml_info_t *p_xml_info = common_fight_drop_xml_mgr->get_common_fight_drop_xml_info(type, idx);
 	if (!p_xml_info) {
 		return -1;
 	}

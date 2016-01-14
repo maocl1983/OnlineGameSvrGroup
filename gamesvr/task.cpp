@@ -19,6 +19,7 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "task.hpp"
 #include "player.hpp"
 #include "dbroute.hpp"
@@ -26,7 +27,7 @@
 using namespace std;
 using namespace project;
 
-TaskXmlManager task_xml_mgr;
+//TaskXmlManager task_xml_mgr;
 
 /********************************************************************************/
 /*									TaskManager									*/
@@ -46,7 +47,7 @@ TaskManager::init_task_list(db_get_task_list_out *p_in)
 {
 	for (uint32_t i = 0; i < p_in->task_list.size(); i++) {
 		db_task_info_t *p_info = &(p_in->task_list[i]);
-		const task_xml_info_t *base_info = task_xml_mgr.get_task_xml_info(p_info->task_id);
+		const task_xml_info_t *base_info = task_xml_mgr->get_task_xml_info(p_info->task_id);
 		if (!base_info) {
 			continue;
 		}
@@ -78,7 +79,7 @@ TaskManager::get_task_info(uint32_t task_id)
 bool
 TaskManager::check_pre_task_is_completed(uint32_t task_id)
 {
-	const task_xml_info_t *p_xml_info = task_xml_mgr.get_task_xml_info(task_id);
+	const task_xml_info_t *p_xml_info = task_xml_mgr->get_task_xml_info(task_id);
 	if (!p_xml_info) {
 		return false;
 	}
@@ -98,14 +99,14 @@ TaskManager::check_pre_task_is_completed(uint32_t task_id)
 int
 TaskManager::check_task(uint32_t task_type, uint32_t parm1, uint32_t parm2)
 {
-	const task_type_xml_info_t *p_type_info = task_xml_mgr.get_task_type_xml_info(task_type);
+	const task_type_xml_info_t *p_type_info = task_xml_mgr->get_task_type_xml_info(task_type);
 	if (!p_type_info) {
 		return 0;
 	}
 
 	for (uint32_t i = 0; i < p_type_info->task_list.size(); i++) {
 		uint32_t task_id = p_type_info->task_list[i];
-		const task_xml_info_t *p_xml_info = task_xml_mgr.get_task_xml_info(task_id);
+		const task_xml_info_t *p_xml_info = task_xml_mgr->get_task_xml_info(task_id);
 		const task_info_t *p_info = get_task_info(task_id);
 		if (!p_xml_info) {
 			continue;
@@ -175,7 +176,7 @@ TaskManager::check_task(uint32_t task_type, uint32_t parm1, uint32_t parm2)
 int
 TaskManager::progress_task(uint32_t task_id, uint32_t reach_tms)
 {
-	const task_xml_info_t *base_info = task_xml_mgr.get_task_xml_info(task_id);
+	const task_xml_info_t *base_info = task_xml_mgr->get_task_xml_info(task_id);
 	if (!base_info) {
 		return -1;
 	}

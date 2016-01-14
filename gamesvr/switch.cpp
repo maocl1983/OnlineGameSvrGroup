@@ -26,9 +26,11 @@ extern "C"{
 #include "./proto/xseer_db.hpp"
 #include "./proto/xseer_db_enum.hpp"
 
+#include "global_data.hpp"
 #include "switch.hpp"
 #include "utils.hpp"
 #include "common_def.hpp"
+#include "timer.hpp"
 
 
 
@@ -58,7 +60,7 @@ Cproto< P_DEALFUN_T> g_switch_proto_list[]={
 //命令map
 Cproto_map< Cproto< P_DEALFUN_T> >  g_switch_proto_map;
 
-int switch_fd = -1;
+//int switch_fd = -1;
 
 /* @brief 处理switch返回的包，分发到相应的处理函数中
  * @param data 返回包
@@ -73,15 +75,15 @@ void handle_switch_return(sw_proto_head_t *data, uint32_t len)
 		uint32_t waitcmd = data->seq & 0xFFFF; //低16位命令
 		int	  connfd  = data->seq >> 16; //高16位fd
 
-		//p = g_player_mgr.get_player_by_fd(connfd);
-		p = g_player_mgr.get_player_by_fd(connfd);
+		//p = g_player_mgr->get_player_by_fd(connfd);
+		p = g_player_mgr->get_player_by_fd(connfd);
 		if (!p || p->wait_cmd != waitcmd) {
 			KERROR_LOG(pkg->uid, "sw re err:[p = %p][uid = %u][cmd = %u][seq = %u]",
 				p, pkg->uid, pkg->cmd, pkg->seq);
 			return;
 		}
 	} else {
-		p = g_player_mgr.get_player_by_uid(pkg->uid);
+		p = g_player_mgr->get_player_by_uid(pkg->uid);
 		if (!p && (pkg->uid)) {
 			//一些sw命令是不管用户是否在线的
 			/*
@@ -203,7 +205,7 @@ int connect_to_switch_timely(void *owner, void *data)
 	if (switch_fd == -1) {
 		connect_to_switch();
 	}
-	add_timer_event(0, connect_to_switch_timely, NULL, NULL, 2000);
+	add_timer_event(0, tm_connect_to_switch_timely_index, NULL, NULL, 2000);
 	/*KERROR_LOG(0, "[owner:%p, data:%p, switch_fd:%d]", owner, data, switch_fd);
 	if (!data) {
 		ADD_TIMER_EVENT_EX(&timer_events, timer_connect_to_switch_timely, reinterpret_cast<void*>(1), get_now_tv()->tv_sec + 3);
@@ -236,7 +238,7 @@ int sw_register_gamesvr_info()
 	snprintf(out.ip, sizeof(out.ip), "%s", get_server_ip());
 	out.port = static_cast<uint32_t>(get_server_port());
 	//TODO:
-	//g_player_mgr.pack_player_uid_list(&out.players);
+	//g_player_mgr->pack_player_uid_list(&out.players);
 
 	DEBUG_LOG("register gamesvr info: [gamesvr_id=%u, ip=[%s], port=%u, usr_size=%lu] ",
 		out.id, out.ip, out.port, out.players.size());

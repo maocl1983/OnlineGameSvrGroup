@@ -28,6 +28,7 @@ extern "C"{
 #include <libproject/utils/strings.hpp>
 #include <libproject/utils/tcpip.h>
 
+#include "global_data.hpp"
 #include "cli_dispatch.hpp"
 #include "player.hpp"
 
@@ -68,14 +69,14 @@ int dispatch(void *data, fdsession_t *fdsess, bool first_tm)
 	}
 
 	/*
-	Player *p = g_player_mgr.get_player_by_uid(head->user_id);
+	Player *p = g_player_mgr->get_player_by_uid(head->user_id);
 	if (p) {
 		p->fdsess = fdsess;
 		p->wait_cmd = head->cmd;
 	}*/
-	Player *p = g_player_mgr.get_player_by_fd(fdsess->fd);
+	Player *p = g_player_mgr->get_player_by_fd(fdsess->fd);
 	if ((head->cmd != cli_proto_login_cmd && !p) || (head->cmd == cli_proto_login_cmd && p)|| (p && (p->user_id != head->user_id))) {
-		KERROR_LOG(head->user_id, "pkg err [cmd = %u] [p addr %p]", head->cmd, p);
+		KERROR_LOG(head->user_id, "pkg err [cmd = %u] [p addr %p] [userid %d %d]", head->cmd, p, head->user_id, (p)?p->user_id:0);
 		return -1;
 	}
 	if (first_tm && p) {
@@ -127,6 +128,7 @@ int dispatch(void *data, fdsession_t *fdsess, bool first_tm)
 }
 
 
+int i = 0;
 /* @brief 初始化处理客户端数据的函数数组
  */
 void init_cli_handle_funs()

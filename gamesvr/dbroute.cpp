@@ -21,6 +21,7 @@
 #include "./proto/xseer_db.hpp"
 #include "./proto/account_db.hpp"
 
+#include "global_data.hpp"
 #include "dbroute.hpp"
 #include "player.hpp"
 #include "redis.hpp"
@@ -49,7 +50,7 @@ Cproto< P_DEALFUN_T> g_route_proto_list[]={
 //命令map
 Cproto_map< Cproto< P_DEALFUN_T> >  g_route_proto_map;
 
-int dbroute_fd = -1;
+//int dbroute_fd = -1;
 
 /* @brief 初始化DB的返回的处理函数
  */
@@ -86,7 +87,7 @@ int send_msg_to_dbroute(Player *p, int cmd, Cmessage *msg, uint32_t user_id, boo
 		if (p) {
 			return p->send_to_self_error(p->wait_cmd, cli_connect_db_err, 1);		
 		} else {
-			Player* usr = g_player_mgr.get_player_by_uid(user_id);
+			Player* usr = g_player_mgr->get_player_by_uid(user_id);
 			if (usr){
 				usr->wait_cmd = 0;
 				return 0;
@@ -129,7 +130,7 @@ void handle_db_return(db_proto_head_t *db_pkg, uint32_t len)
 {
 	uint32_t wait_cmd = db_pkg->seq_num & 0xFFFF;
 	int conn_fd = db_pkg->seq_num >> 16;
-	Player *p = g_player_mgr.get_player_by_fd(conn_fd);
+	Player *p = g_player_mgr->get_player_by_fd(conn_fd);
 	/* DB返回之前客户端已关闭, 新的玩家进来, 此时拿到的p是新玩家 */
 	/*if (p && p->user_id != db_pkg->user_id) {
 		return;

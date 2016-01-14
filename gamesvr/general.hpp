@@ -48,7 +48,7 @@ private:
 	NickXmlMap female_sumname_xml_map;
 	NickXmlMap female_name_xml_map;
 };
-extern NickXmlManager nick_xml_mgr;
+//extern NickXmlManager nick_xml_mgr;
 
 
 /********************************************************************************/

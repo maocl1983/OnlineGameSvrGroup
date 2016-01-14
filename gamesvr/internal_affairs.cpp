@@ -19,6 +19,7 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "internal_affairs.hpp"
 #include "player.hpp"
 #include "hero.hpp"
@@ -29,9 +30,9 @@
 using namespace std;
 using namespace project;
 
-InternalAffairsXmlManager internal_affairs_xml_mgr;
-InternalAffairsRewardXmlManager internal_affairs_reward_xml_mgr;
-InternalAffairsLevelXmlManager internal_affairs_level_xml_mgr;
+//InternalAffairsXmlManager internal_affairs_xml_mgr;
+//InternalAffairsRewardXmlManager internal_affairs_reward_xml_mgr;
+//InternalAffairsLevelXmlManager internal_affairs_level_xml_mgr;
 
 /********************************************************************************/
 /*						InternalAffairs Class									*/
@@ -94,7 +95,7 @@ InternalAffairs::get_internal_affairs_info(uint32_t type)
 int
 InternalAffairs::get_level_up_exp()
 {
-	const internal_affairs_level_xml_info_t *p_xml_info = internal_affairs_level_xml_mgr.get_internal_affairs_level_xml_info(this->lv);
+	const internal_affairs_level_xml_info_t *p_xml_info = internal_affairs_level_xml_mgr->get_internal_affairs_level_xml_info(this->lv);
 	if (!p_xml_info) {
 		return -1;
 	}	
@@ -211,7 +212,7 @@ InternalAffairs::add_internal_affairs(uint32_t type, uint32_t hero_id)
 int
 InternalAffairs::join_internal_affairs(uint32_t type, uint32_t hero_id, uint32_t &left_tm)
 {
-	const internal_affairs_xml_info_t *p_xml_info = internal_affairs_xml_mgr.get_internal_affairs_xml_info(type);
+	const internal_affairs_xml_info_t *p_xml_info = internal_affairs_xml_mgr->get_internal_affairs_xml_info(type);
 	if (!p_xml_info) {
 		T_KWARN_LOG(owner->user_id, "invalid internal affairs type\t[type=%u]", type);
 		return cli_invalid_internal_affairs_type_err;
@@ -278,7 +279,7 @@ InternalAffairs::set_complete_time(uint32_t type)
 int
 InternalAffairs::add_internal_affairs_reward(uint32_t type)
 {
-	const internal_affairs_reward_item_xml_info_t *p_xml_info = internal_affairs_reward_xml_mgr.random_one_reward(type);
+	const internal_affairs_reward_item_xml_info_t *p_xml_info = internal_affairs_reward_xml_mgr->random_one_reward(type);
 	if (p_xml_info) {
 		owner->items_mgr->add_reward(p_xml_info->item_id, p_xml_info->item_cnt);
 	}
@@ -289,7 +290,7 @@ InternalAffairs::add_internal_affairs_reward(uint32_t type)
 int
 InternalAffairs::complete_internal_affairs(uint32_t type)
 {
-	const internal_affairs_xml_info_t *p_xml_info = internal_affairs_xml_mgr.get_internal_affairs_xml_info(type);
+	const internal_affairs_xml_info_t *p_xml_info = internal_affairs_xml_mgr->get_internal_affairs_xml_info(type);
 	if (!p_xml_info) {
 		T_KWARN_LOG(owner->user_id, "invalid internal affairs type\t[type=%u]", type);
 		return cli_invalid_internal_affairs_type_err;
@@ -300,7 +301,7 @@ InternalAffairs::complete_internal_affairs(uint32_t type)
 		return cli_not_enough_energy_err;
 	}
 
-	const internal_affairs_level_xml_info_t *p_level_xml_info = internal_affairs_level_xml_mgr.get_internal_affairs_level_xml_info(lv);
+	const internal_affairs_level_xml_info_t *p_level_xml_info = internal_affairs_level_xml_mgr->get_internal_affairs_level_xml_info(lv);
 	if (!p_level_xml_info) {
 		T_KWARN_LOG(owner->user_id, "internal affairs level invalid\t[lv=%u]", lv);
 		return cli_internal_affairs_level_invalid_err;
@@ -360,13 +361,13 @@ InternalAffairs::pack_client_internal_affairs_info(cli_get_internal_affairs_pane
 	cli_out.role_exp_flag = owner->res_mgr->get_res_value(daily_internal_affairs_role_exp_flag);
 
 	std::vector<uint32_t> week_affairs;
-	internal_affairs_xml_mgr.get_cur_week_interal_affairs(week_affairs);
+	internal_affairs_xml_mgr->get_cur_week_interal_affairs(week_affairs);
 
 	uint32_t now_sec = get_now_tv()->tv_sec;
 	for (uint32_t i = 0; i < week_affairs.size(); i++) {
 		uint32_t type = week_affairs[i];
-		const internal_affairs_xml_info_t *p_xml_info = internal_affairs_xml_mgr.get_internal_affairs_xml_info(type);
-		const internal_affairs_level_xml_info_t *p_level_xml_info = internal_affairs_level_xml_mgr.get_internal_affairs_level_xml_info(lv);
+		const internal_affairs_xml_info_t *p_xml_info = internal_affairs_xml_mgr->get_internal_affairs_xml_info(type);
+		const internal_affairs_level_xml_info_t *p_level_xml_info = internal_affairs_level_xml_mgr->get_internal_affairs_level_xml_info(lv);
 		if (!p_xml_info || !p_level_xml_info) {
 			continue;
 		}
@@ -421,7 +422,7 @@ InternalAffairsXmlManager::get_internal_affairs_xml_info(uint32_t type)
 int
 InternalAffairsXmlManager::get_cur_week_interal_affairs(vector<uint32_t> &vec)
 {
-	uint32_t cur_week = utils_mgr.get_week_day(time(0));
+	uint32_t cur_week = utils_mgr->get_week_day(time(0));
 	if (cur_week == 0) {
 		cur_week = 7;
 	}

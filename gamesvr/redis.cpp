@@ -21,11 +21,12 @@
 #include "./proto/xseer_redis.hpp"
 #include "./proto/xseer_online.hpp"
 
+#include "global_data.hpp"
 #include "redis.hpp"
 #include "player.hpp"
 #include "treasure_risk.hpp"
 
-Redis redis_mgr;
+//Redis redis_mgr;
 
 //-------------------------------------------------------
 //函数定义

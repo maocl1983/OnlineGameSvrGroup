@@ -78,7 +78,7 @@ Spirit::Spirit(Player* p, uint32_t sp_id) : id(sp_id), owner(p)
 	memset(equips, 0, sizeof(equips));
 	memset(skills, 0, sizeof(skills));
 
-	base_info = spirit_xml_mgr.get_spirit_xml_info(sp_id);
+	base_info = spirit_xml_mgr->get_spirit_xml_info(sp_id);
 
 }
 
@@ -90,7 +90,7 @@ Spirit::~Spirit()
 uint32_t
 Spirit::get_upgrade_exp(uint32_t lv)
 {
-	return spirit_exp_xml_mgr.get_level_up_exp(lv);
+	return spirit_exp_xml_mgr->get_level_up_exp(lv);
 }
 
 int
@@ -137,7 +137,7 @@ Spirit::add_exp(uint32_t add_value)
 int
 Spirit::wear_equipment(uint32_t equip_id, uint32_t pos)
 {
-	const equip_xml_info_t* p_info = equip_xml_mgr.get_equip_xml_info(equip_id);
+	const equip_xml_info_t* p_info = equip_xml_mgr->get_equip_xml_info(equip_id);
 	if (!p_info) {
 		return -1;
 	}
@@ -145,7 +145,7 @@ Spirit::wear_equipment(uint32_t equip_id, uint32_t pos)
 	if (lv < p_info->need_lv) {
 		return -1;
 	}
-	if (!spirit_growth_xml_mgr.check_equip_is_can_wear(this->id, this->grade, equip_id, pos)) {
+	if (!spirit_growth_xml_mgr->check_equip_is_can_wear(this->id, this->grade, equip_id, pos)) {
 		return -1;
 	}
 	if (this->equips[pos-1]) {
@@ -179,7 +179,7 @@ Spirit::rising_grade()
 		if (!equips[i]) {
 			return cli_not_enough_equipment_err;
 		} 
-		if (!spirit_growth_xml_mgr.check_equip_is_can_wear(this->id, this->grade, this->equips[i], i + 1)) {
+		if (!spirit_growth_xml_mgr->check_equip_is_can_wear(this->id, this->grade, this->equips[i], i + 1)) {
 			return cli_invalid_equip_err;
 		}
 	}
@@ -247,7 +247,7 @@ Spirit::talent_level_up(uint32_t pos)
 		return 0;
 	}
 
-	const spirit_talent_xml_info_t* p_info = spirit_xml_mgr.get_talent_xml_info(this->id, pos);
+	const spirit_talent_xml_info_t* p_info = spirit_xml_mgr->get_talent_xml_info(this->id, pos);
 	if (!p_info) {
 		return cli_invalid_spirit_talent_id_err;
 	}
@@ -274,7 +274,7 @@ Spirit::talent_level_up(uint32_t pos)
 int
 Spirit::eat_exp_items(uint32_t item_id, uint32_t item_cnt)
 {
-	const item_xml_info_t* p_info = items_xml_mgr.get_item_xml_info(item_id);
+	const item_xml_info_t* p_info = items_xml_mgr->get_item_xml_info(item_id);
 	if (!p_info || p_info->type != em_item_type_for_exp) {
 		return cli_invalid_item_err;
 	}
@@ -311,8 +311,8 @@ Spirit::calc_spirit_growth()
 int 
 Spirit::calc_cur_grade_attr(spirit_attr_info_t& upgrade_attr)
 {
-	spirit_growth_xml_mgr.calc_grade_attr(this->id, this->grade, upgrade_attr);
-	//spirit_grade_xml_mgr.
+	spirit_growth_xml_mgr->calc_grade_attr(this->id, this->grade, upgrade_attr);
+	//spirit_grade_xml_mgr->
 
 	return 0;
 }
@@ -324,7 +324,7 @@ Spirit::calc_cur_equip_attr(spirit_attr_info_t& equip_attr)
 	for (uint32_t i = 0; i < 6; i++) {
 		uint32_t equip_id = this->equips[i];
 		if (equip_id) {
-			equip_xml_mgr.load_equip_attr_info(equip_id, equip_attr);
+			equip_xml_mgr->load_equip_attr_info(equip_id, equip_attr);
 		}
 	}
 
@@ -336,15 +336,15 @@ Spirit::calc_cur_skill_attr1(spirit_attr_info_t& skill_attr1)
 {
 	for (uint32_t i = 0; i < 4; i++) {
 		uint32_t skill_id = skills[i];
-		skill_effect_xml_mgr.load_passive_skill_attr_info(1, skill_id, skill_attr1);
+		skill_effect_xml_mgr->load_passive_skill_attr_info(1, skill_id, skill_attr1);
 
 		uint32_t talent_id = talent[i][0];
 		uint32_t talent_lv = talent[i][1];
-		const talent_xml_info_t* p_talent = talent_xml_mgr.get_talent_xml_info(talent_id);
+		const talent_xml_info_t* p_talent = talent_xml_mgr->get_talent_xml_info(talent_id);
 		if (p_talent) {
 			for (uint32_t j = 0; j < 4; j++) {
 				if (p_talent->effect_skills[j].skill_id == skill_id) {
-					talent_effect_xml_mgr.load_passive_talent_attr_info(0, talent_id, talent_lv, skill_id, skill_attr1);
+					talent_effect_xml_mgr->load_passive_talent_attr_info(0, talent_id, talent_lv, skill_id, skill_attr1);
 					break;
 				}
 			}
@@ -358,15 +358,15 @@ Spirit::calc_cur_skill_attr2(spirit_attr_info_t& skill_attr2)
 {
 	for (uint32_t i = 0; i < 4; i++) {
 		uint32_t skill_id = skills[i];
-		skill_effect_xml_mgr.load_passive_skill_attr_info(1, skill_id, skill_attr2);
+		skill_effect_xml_mgr->load_passive_skill_attr_info(1, skill_id, skill_attr2);
 
 		uint32_t talent_id = talent[i][0];
 		uint32_t talent_lv = talent[i][1];
-		const talent_xml_info_t* p_talent = talent_xml_mgr.get_talent_xml_info(talent_id);
+		const talent_xml_info_t* p_talent = talent_xml_mgr->get_talent_xml_info(talent_id);
 		if (p_talent) {
 			for (uint32_t j = 0; j < 4; j++) {
 				if (p_talent->effect_skills[j].skill_id == skill_id) {
-					talent_effect_xml_mgr.load_passive_talent_attr_info(1, talent_id, talent_lv, skill_id, skill_attr2);
+					talent_effect_xml_mgr->load_passive_talent_attr_info(1, talent_id, talent_lv, skill_id, skill_attr2);
 					break;
 				}
 			}
@@ -589,7 +589,7 @@ SpiritManager::get_spirit(uint32_t sp_id)
 Spirit* 
 SpiritManager::add_spirit(uint32_t sp_id)
 {
-	const spirit_xml_info_t* p_info = spirit_xml_mgr.get_spirit_xml_info(sp_id);
+	const spirit_xml_info_t* p_info = spirit_xml_mgr->get_spirit_xml_info(sp_id);
 	if (!p_info) {
 		KERROR_LOG(owner->user_id, "invalid spirit id, sp_id=%u", sp_id);
 		return 0;
@@ -628,7 +628,7 @@ SpiritManager::init_all_spirits_info(db_get_player_spirits_info_out* p_in)
 	vector<db_spirit_info_t>::iterator it = p_in->spirits.begin();
 	for (; it != p_in->spirits.end(); it++) {
 		db_spirit_info_t* p_info = &(*it);
-		const spirit_xml_info_t* sp_info = spirit_xml_mgr.get_spirit_xml_info(p_info->sp_id);
+		const spirit_xml_info_t* sp_info = spirit_xml_mgr->get_spirit_xml_info(p_info->sp_id);
 		if (!sp_info) {
 			KERROR_LOG(owner->user_id, "invalid spirit id, sp_id=%u", p_info->sp_id);
 			return -1;
@@ -944,10 +944,10 @@ SpiritGrowthXmlManager::load_grade_attr(uint32_t sp_id, spirit_growth_xml_info_t
 		}
 		for (uint32_t i = 0; i < 6; i++) {
 			uint32_t equip_id = it->second.equips[i];
-			const equip_xml_info_t* p_equip = equip_xml_mgr.get_equip_xml_info(equip_id);
+			const equip_xml_info_t* p_equip = equip_xml_mgr->get_equip_xml_info(equip_id);
 			if (p_equip) {
 				spirit_attr_info_t attr_info;
-				equip_xml_mgr.load_equip_attr_info(equip_id, attr_info);
+				equip_xml_mgr->load_equip_attr_info(equip_id, attr_info);
 				info.grade_attr[grade - 1]._str += attr_info._str;
 				info.grade_attr[grade - 1]._int += attr_info._int;
 				info.grade_attr[grade - 1]._agi += attr_info._agi;
@@ -1324,7 +1324,7 @@ int cli_spirit_talent_level_up(Player* p, Cmessage* c_in)
 		KERROR_LOG(p->user_id, "spirit talent pos err, sp_id=%u, pos=%u", p_in->sp_id, p_in->talent_pos);
 		return -1;
 	}
-	const spirit_xml_info_t* p_info = spirit_xml_mgr.get_spirit_xml_info(sp->id);
+	const spirit_xml_info_t* p_info = spirit_xml_mgr->get_spirit_xml_info(sp->id);
 	if (!p_info) {
 		KERROR_LOG(p->user_id, "invalid spirit id, sp_id=%u", sp->id);
 		return -1;

@@ -19,6 +19,7 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "achievement.hpp"
 #include "player.hpp"
 #include "dbroute.hpp"
@@ -26,7 +27,7 @@
 using namespace std;
 using namespace project;
 
-AchievementXmlManager achievement_xml_mgr;
+//AchievementXmlManager achievement_xml_mgr;
 
 /********************************************************************************/
 /*									AchievementManager									*/
@@ -46,7 +47,7 @@ AchievementManager::init_achievement_list(db_get_achievement_list_out *p_in)
 {
 	for (uint32_t i = 0; i < p_in->achievement_list.size(); i++) {
 		db_achievement_info_t *p_info = &(p_in->achievement_list[i]);
-		const achievement_xml_info_t *base_info = achievement_xml_mgr.get_achievement_xml_info(p_info->achievement_id);
+		const achievement_xml_info_t *base_info = achievement_xml_mgr->get_achievement_xml_info(p_info->achievement_id);
 		if (!base_info) {
 			continue;
 		}
@@ -78,7 +79,7 @@ AchievementManager::get_achievement_info(uint32_t achievement_id)
 bool
 AchievementManager::check_pre_achievement_is_completed(uint32_t achievement_id)
 {
-	const achievement_xml_info_t *p_xml_info = achievement_xml_mgr.get_achievement_xml_info(achievement_id);
+	const achievement_xml_info_t *p_xml_info = achievement_xml_mgr->get_achievement_xml_info(achievement_id);
 	if (!p_xml_info) {
 		return false;
 	}
@@ -98,14 +99,14 @@ AchievementManager::check_pre_achievement_is_completed(uint32_t achievement_id)
 int
 AchievementManager::check_achievement(uint32_t achievement_type, uint32_t parm1, uint32_t parm2)
 {
-	const achievement_type_xml_info_t *p_type_info = achievement_xml_mgr.get_achievement_type_xml_info(achievement_type);
+	const achievement_type_xml_info_t *p_type_info = achievement_xml_mgr->get_achievement_type_xml_info(achievement_type);
 	if (!p_type_info) {
 		return 0;
 	}
 
 	for (uint32_t i = 0; i < p_type_info->achievement_list.size(); i++) {
 		uint32_t achievement_id = p_type_info->achievement_list[i];
-		const achievement_xml_info_t *p_xml_info = achievement_xml_mgr.get_achievement_xml_info(achievement_id);
+		const achievement_xml_info_t *p_xml_info = achievement_xml_mgr->get_achievement_xml_info(achievement_id);
 		const achievement_info_t *p_info = get_achievement_info(achievement_id);
 		if (!p_xml_info) {
 			continue;
@@ -174,7 +175,7 @@ AchievementManager::check_achievement(uint32_t achievement_type, uint32_t parm1,
 int
 AchievementManager::progress_achievement(uint32_t achievement_id, uint32_t reach_tms)
 {
-	const achievement_xml_info_t *base_info = achievement_xml_mgr.get_achievement_xml_info(achievement_id);
+	const achievement_xml_info_t *base_info = achievement_xml_mgr->get_achievement_xml_info(achievement_id);
 	if (!base_info) {
 		return -1;
 	}

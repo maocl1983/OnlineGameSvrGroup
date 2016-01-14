@@ -19,6 +19,7 @@
 #include "./proto/xseer_db.hpp"
 #include "./proto/xseer_db_enum.hpp"
 
+#include "global_data.hpp"
 #include "ten_even_draw.hpp"
 #include "player.hpp"
 #include "restriction.hpp"
@@ -26,9 +27,9 @@
 using namespace std;
 using namespace project;
 
-TenEvenDrawGoldsXmlManager ten_even_draw_golds_xml_mgr;
-TenEvenDrawDiamondXmlManager ten_even_draw_diamond_xml_mgr;
-TenEvenDrawDiamondSpecialXmlManager ten_even_draw_diamond_special_xml_mgr;
+//TenEvenDrawGoldsXmlManager ten_even_draw_golds_xml_mgr;
+//TenEvenDrawDiamondXmlManager ten_even_draw_diamond_xml_mgr;
+//TenEvenDrawDiamondSpecialXmlManager ten_even_draw_diamond_special_xml_mgr;
 
 /********************************************************************************/
 /*							TenEvenDrawManager Class							*/
@@ -95,7 +96,7 @@ TenEvenDrawManager::ten_even_draw_for_golds(uint32_t type, cli_ten_even_draw_req
 			owner->res_mgr->set_res_value(forever_ten_even_draw_golds_first, 1);
 			owner->items_mgr->add_item_without_callback(131004, 1);
 		} else {
-			uint32_t item_id = ten_even_draw_golds_xml_mgr.random_one_item();
+			uint32_t item_id = ten_even_draw_golds_xml_mgr->random_one_item();
 			int ret = owner->items_mgr->add_item_without_callback(item_id, 1);
 			if (ret) {
 				out.items.push_back(item_id);
@@ -103,7 +104,7 @@ TenEvenDrawManager::ten_even_draw_for_golds(uint32_t type, cli_ten_even_draw_req
 		}
 	} else {//十连抽
 		for (int i = 0; i < 10; i++) {
-			uint32_t item_id = ten_even_draw_golds_xml_mgr.random_one_item();
+			uint32_t item_id = ten_even_draw_golds_xml_mgr->random_one_item();
 			owner->items_mgr->add_item_without_callback(item_id, 1);
 			out.items.push_back(item_id);
 		}
@@ -160,7 +161,7 @@ TenEvenDrawManager::ten_even_draw_for_golds(uint32_t type, cli_ten_even_draw_req
 			owner->res_mgr->set_res_value(forever_ten_even_draw_golds_first, 1);
 			owner->items_mgr->add_item_without_callback(131004, 1);
 		} else {
-			uint32_t item_id = ten_even_draw_golds_xml_mgr.random_one_item();
+			uint32_t item_id = ten_even_draw_golds_xml_mgr->random_one_item();
 			int ret = owner->items_mgr->add_item_without_callback(item_id, 1);
 			if (ret) {
 				out.items.push_back(item_id);
@@ -168,7 +169,7 @@ TenEvenDrawManager::ten_even_draw_for_golds(uint32_t type, cli_ten_even_draw_req
 		}
 	} else {//十连抽
 		for (int i = 0; i < 10; i++) {
-			uint32_t item_id = ten_even_draw_golds_xml_mgr.random_one_item();
+			uint32_t item_id = ten_even_draw_golds_xml_mgr->random_one_item();
 			owner->items_mgr->add_item_without_callback(item_id, 1);
 			out.items.push_back(item_id);
 		}
@@ -228,9 +229,9 @@ TenEvenDrawManager::ten_even_draw_for_diamond(uint32_t type, cli_ten_even_draw_r
 			} else {
 				//第3,5,10必出武将
 				if (draw_tms == 3 || draw_tms == 5 || draw_tms == 10 || (draw_tms > 10 && draw_tms % 10 == 0)) {
-					item_id = ten_even_draw_diamond_special_xml_mgr.random_one_item();
+					item_id = ten_even_draw_diamond_special_xml_mgr->random_one_item();
 				} else {
-					item_id = ten_even_draw_diamond_xml_mgr.random_one_item();
+					item_id = ten_even_draw_diamond_xml_mgr->random_one_item();
 				}
 			}
 		}
@@ -243,9 +244,9 @@ TenEvenDrawManager::ten_even_draw_for_diamond(uint32_t type, cli_ten_even_draw_r
 			draw_tms++;
 			uint32_t item_id = 0;
 			if (draw_tms == 3 || draw_tms == 5 || draw_tms == 10 || (draw_tms > 10 && draw_tms % 10 == 0)) {
-				item_id = ten_even_draw_diamond_special_xml_mgr.random_one_item();
+				item_id = ten_even_draw_diamond_special_xml_mgr->random_one_item();
 			} else {
-				item_id = ten_even_draw_diamond_xml_mgr.random_one_item();
+				item_id = ten_even_draw_diamond_xml_mgr->random_one_item();
 			}
 			int ret = owner->items_mgr->add_item_without_callback(item_id, 1);
 			if (ret) {

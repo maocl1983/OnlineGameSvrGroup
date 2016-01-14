@@ -90,7 +90,7 @@ private:
 	ArenaMap arena_map;
 	std::map<uint32_t, uint32_t> ranking_map;
 };
-extern ArenaManager arena_mgr;
+//extern ArenaManager arena_mgr;
 
 
 /********************************************************************************/
@@ -125,7 +125,7 @@ private:
 private:
 	ArenaAttrXmlMap arena_attr_xml_map;
 };
-extern ArenaAttrXmlManager arena_attr_xml_mgr;
+//extern ArenaAttrXmlManager arena_attr_xml_mgr;
 
 
 /********************************************************************************/
@@ -151,7 +151,7 @@ private:
 private:
 	ArenaHeroXmlMap arena_hero_xml_map;
 };
-extern ArenaHeroXmlManager arena_hero_xml_mgr;
+//extern ArenaHeroXmlManager arena_hero_xml_mgr;
 
 /********************************************************************************/
 /*						ArenaBonusXmlManager Class								*/
@@ -180,7 +180,7 @@ private:
 private:
 	ArenaBonusXmlMap arena_bonus_xml_map;
 };
-extern ArenaBonusXmlManager arena_bonus_xml_mgr;
+//extern ArenaBonusXmlManager arena_bonus_xml_mgr;
 
 /********************************************************************************/
 /*						ArenaLevelAttrXmlManager Class							*/
@@ -208,7 +208,7 @@ private:
 private:
 	ArenaLevelAttrXmlMap arena_level_attr_xml_map;
 };
-extern ArenaLevelAttrXmlManager arena_level_attr_xml_mgr;
+//extern ArenaLevelAttrXmlManager arena_level_attr_xml_mgr;
 
 #endif //ARENA_HPP_
 

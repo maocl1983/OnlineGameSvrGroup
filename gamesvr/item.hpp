@@ -129,7 +129,7 @@ private:
 private:
 	ItemXmlMap items;
 };
-extern ItemsXmlManager items_xml_mgr;
+//extern ItemsXmlManager items_xml_mgr;
 
 /********************************************************************************/
 /*							HeroRankItemXmlManager Class						*/
@@ -158,7 +158,7 @@ private:
 private:
 	HeroRankItemXmlMap hero_rank_item_xml_map;
 };
-extern HeroRankItemXmlManager hero_rank_item_xml_mgr;
+//extern HeroRankItemXmlManager hero_rank_item_xml_mgr;
 
 /********************************************************************************/
 /*							ItemPieceXmlManager Class							*/
@@ -187,7 +187,7 @@ private:
 private:
 	ItemPieceXmlMap item_piece_xml_map;
 };
-extern ItemPieceXmlManager item_piece_xml_mgr;
+//extern ItemPieceXmlManager item_piece_xml_mgr;
 
 /********************************************************************************/
 /*							RandomItemXmlManager Class							*/
@@ -219,6 +219,6 @@ private:
 private:
 	TreasureBoxXmlMap random_item_xml_map;
 };
-extern RandomItemXmlManager random_item_xml_mgr;
+//extern RandomItemXmlManager random_item_xml_mgr;
 
 #endif //ITEM_HPP_

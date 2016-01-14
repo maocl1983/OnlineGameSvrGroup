@@ -31,8 +31,8 @@ struct battle_cache_info_t {
 	uint32_t stat;
 	std::vector<cli_item_info_t> rewards;
 };
-typedef std::map<uint32_t, battle_cache_info_t> BattleCacheMap;
-extern BattleCacheMap g_battle_cache_map;
+typedef std::map<uint32_t, battle_cache_info_t*> BattleCacheMap;
+//extern BattleCacheMap g_battle_cache_map;
 
 class Battle {
 public:

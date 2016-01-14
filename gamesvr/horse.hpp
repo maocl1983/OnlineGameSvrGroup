@@ -146,7 +146,7 @@ private:
 private:
 	HorseAttrXmlMap horse_map;
 };
-extern HorseAttrXmlManager horse_attr_xml_mgr;
+//extern HorseAttrXmlManager horse_attr_xml_mgr;
 
 /********************************************************************************/
 /*							HorseExpXmlManager									*/
@@ -178,7 +178,7 @@ private:
 private:
 	HorseExpXmlMap horse_exp_map;
 };
-extern HorseExpXmlManager horse_exp_xml_mgr;
+//extern HorseExpXmlManager horse_exp_xml_mgr;
 
 /********************************************************************************/
 /*							HorseEquipXmlManager								*/
@@ -212,6 +212,6 @@ private:
 private:
 	HorseEquipXmlMap horse_equip_map;
 };
-extern HorseEquipXmlManager horse_equip_xml_mgr;
+//extern HorseEquipXmlManager horse_equip_xml_mgr;
 
 #endif //HORSE_HPP_

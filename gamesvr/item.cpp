@@ -19,15 +19,16 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "item.hpp"
 #include "player.hpp"
 #include "dbroute.hpp"
 #include "redis.hpp"
 
-ItemsXmlManager items_xml_mgr;
-HeroRankItemXmlManager hero_rank_item_xml_mgr;
-ItemPieceXmlManager item_piece_xml_mgr;
-RandomItemXmlManager random_item_xml_mgr;
+//ItemsXmlManager items_xml_mgr;
+//HeroRankItemXmlManager hero_rank_item_xml_mgr;
+//ItemPieceXmlManager item_piece_xml_mgr;
+//RandomItemXmlManager random_item_xml_mgr;
 
 using namespace std;
 using namespace project;
@@ -53,9 +54,9 @@ ItemsManager::init_items_info(db_get_player_items_info_out *p_out)
 		items.insert(ItemsMap::value_type(info.id, info));
 		T_KTRACE_LOG(owner->user_id, "init items info\t[%u %u]", info.id, info.cnt);
 
-		const item_piece_xml_info_t *p_piece_xml_info = item_piece_xml_mgr.get_item_piece_xml_info(info.id);
+		const item_piece_xml_info_t *p_piece_xml_info = item_piece_xml_mgr->get_item_piece_xml_info(info.id);
 		if (p_piece_xml_info && p_piece_xml_info->type == 2) {//装备碎片
-			redis_mgr.set_treasure_piece_user(owner, info.id);
+			redis_mgr->set_treasure_piece_user(owner, info.id);
 		}
 	}
 
@@ -76,17 +77,17 @@ ItemsManager::get_item_cnt(uint32_t id)
 bool
 ItemsManager::check_is_valid_item(uint32_t item_id)
 {
-	const item_xml_info_t *p_info = items_xml_mgr.get_item_xml_info(item_id);
+	const item_xml_info_t *p_info = items_xml_mgr->get_item_xml_info(item_id);
 	if (p_info) {
 		return true;
 	}
 
-	const hero_rank_item_xml_info_t *p_info_2 = hero_rank_item_xml_mgr.get_hero_rank_item_xml_info(item_id);
+	const hero_rank_item_xml_info_t *p_info_2 = hero_rank_item_xml_mgr->get_hero_rank_item_xml_info(item_id);
 	if (p_info_2) {
 		return true;
 	}
 
-	const item_piece_xml_info_t *p_info_3 = item_piece_xml_mgr.get_item_piece_xml_info(item_id);
+	const item_piece_xml_info_t *p_info_3 = item_piece_xml_mgr->get_item_piece_xml_info(item_id);
 	if (p_info_3) {
 		return true;
 	}
@@ -97,7 +98,7 @@ ItemsManager::check_is_valid_item(uint32_t item_id)
 int
 ItemsManager::get_item_max_cnt(uint32_t item_id)
 {
-	const item_xml_info_t *p_info = items_xml_mgr.get_item_xml_info(item_id);
+	const item_xml_info_t *p_info = items_xml_mgr->get_item_xml_info(item_id);
 	if (p_info) {
 		return p_info->max;
 	}
@@ -190,7 +191,7 @@ ItemsManager::add_item_without_callback(uint32_t id, uint32_t add_cnt)
 		owner->chg_golds(add_cnt);
 		return 0;
 	}
-	const item_xml_info_t *p_info = items_xml_mgr.get_item_xml_info(id);
+	const item_xml_info_t *p_info = items_xml_mgr->get_item_xml_info(id);
 	if (p_info) {
 		if (p_info->type == em_item_type_for_hero_card) {//英雄卡牌
 			Hero *p_hero = owner->hero_mgr->get_hero(p_info->relation_id);
@@ -227,9 +228,9 @@ ItemsManager::add_item_without_callback(uint32_t id, uint32_t add_cnt)
 	send_msg_to_dbroute(0, db_change_items_cmd, &db_in, owner->user_id);
 
 	//如果是装备碎片，加入redis
-	const item_piece_xml_info_t *p_piece_xml_info = item_piece_xml_mgr.get_item_piece_xml_info(id);
+	const item_piece_xml_info_t *p_piece_xml_info = item_piece_xml_mgr->get_item_piece_xml_info(id);
 	if (p_piece_xml_info && p_piece_xml_info->type == 2) {//装备碎片
-		redis_mgr.set_treasure_piece_user(owner, id);
+		redis_mgr->set_treasure_piece_user(owner, id);
 	}
 
 	//通知前端
@@ -267,9 +268,9 @@ ItemsManager::del_item_without_callback(uint32_t id, uint32_t del_cnt)
 	uint32_t item_cnt = this->get_item_cnt(id);
 	if (item_cnt == 0) {
 		//如果是装备碎片，更新redis
-		const item_piece_xml_info_t *p_piece_xml_info = item_piece_xml_mgr.get_item_piece_xml_info(id);
+		const item_piece_xml_info_t *p_piece_xml_info = item_piece_xml_mgr->get_item_piece_xml_info(id);
 		if (p_piece_xml_info && p_piece_xml_info->type == 2) {//装备碎片
-			redis_mgr.del_treasure_piece_user(owner, id);
+			redis_mgr->del_treasure_piece_user(owner, id);
 		}
 	}
 
@@ -286,7 +287,7 @@ ItemsManager::del_item_without_callback(uint32_t id, uint32_t del_cnt)
 int
 ItemsManager::compound_item_piece(uint32_t piece_id, uint32_t &item_id)
 {
-	const item_piece_xml_info_t *p_piece_xml_info = item_piece_xml_mgr.get_item_piece_xml_info(piece_id);
+	const item_piece_xml_info_t *p_piece_xml_info = item_piece_xml_mgr->get_item_piece_xml_info(piece_id);
 	if (!p_piece_xml_info) {
 		T_KWARN_LOG(owner->user_id, "compound item piece id err\t[piece_id=%u]", piece_id);
 		return cli_invalid_item_err;
@@ -339,7 +340,7 @@ ItemsManager::open_treasure_box(uint32_t box_id, uint32_t cnt)
 	//添加物品
 	cli_send_get_common_bonus_noti_out noti_out;
 	for (uint32_t i = 0; i < cnt; i++) {
-		const random_item_item_xml_info_t *p_xml_info = random_item_xml_mgr.random_one_item(box_id);
+		const random_item_item_xml_info_t *p_xml_info = random_item_xml_mgr->random_one_item(box_id);
 		if (p_xml_info) {
 			this->add_reward(p_xml_info->item_id, p_xml_info->item_cnt);
 			this->pack_give_items_info(noti_out.give_items_info, p_xml_info->item_id, p_xml_info->item_cnt);
@@ -359,7 +360,7 @@ ItemsManager::open_treasure_box(uint32_t box_id, uint32_t cnt)
 int
 ItemsManager::open_random_gift(uint32_t item_id, uint32_t cnt)
 {
-	const item_xml_info_t *p_xml_info = items_xml_mgr.get_item_xml_info(item_id);
+	const item_xml_info_t *p_xml_info = items_xml_mgr->get_item_xml_info(item_id);
 	if (!p_xml_info || p_xml_info->type != em_item_type_for_random_gift) {
 		return cli_invalid_item_err;
 	}
@@ -374,7 +375,7 @@ ItemsManager::open_random_gift(uint32_t item_id, uint32_t cnt)
 
 	//添加物品
 	for (uint32_t i = 0; i < cnt; i++) {
-		const random_item_item_xml_info_t *p_xml_info = random_item_xml_mgr.random_one_item(item_id);
+		const random_item_item_xml_info_t *p_xml_info = random_item_xml_mgr->random_one_item(item_id);
 		if (p_xml_info) {
 			this->add_reward(p_xml_info->item_id, p_xml_info->item_cnt);
 		}
@@ -388,7 +389,7 @@ ItemsManager::open_random_gift(uint32_t item_id, uint32_t cnt)
 int
 ItemsManager::sell_item(uint32_t item_id, uint32_t cnt)
 {
-	const item_xml_info_t *p_xml_info = items_xml_mgr.get_item_xml_info(item_id);
+	const item_xml_info_t *p_xml_info = items_xml_mgr->get_item_xml_info(item_id);
 	if (!p_xml_info) {
 		return cli_invalid_item_err;
 	}

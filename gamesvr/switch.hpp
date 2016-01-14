@@ -41,7 +41,7 @@ struct sw_proto_head_t {
 	uint32_t uid; /*米米号*/
 };
 #pragma pack()
-extern int switch_fd;
+//extern int switch_fd;
 
 class Cmessage;
 

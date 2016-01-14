@@ -18,6 +18,7 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "hero.hpp"
 #include "player.hpp"
 #include "dbroute.hpp"
@@ -29,14 +30,14 @@
 using namespace project;
 using namespace std;
 
-HeroXmlManager hero_xml_mgr;
-HeroRankXmlManager hero_rank_xml_mgr;
-HeroRankStuffXmlManager hero_rank_stuff_xml_mgr;
-HeroLevelAttrXmlManager hero_level_attr_xml_mgr;
-LevelXmlManager level_xml_mgr;
-HeroHonorXmlManager hero_honor_xml_mgr;
-HeroHonorExpXmlManager hero_honor_exp_xml_mgr;
-HeroTitleXmlManager hero_title_xml_mgr;
+//HeroXmlManager hero_xml_mgr;
+//HeroRankXmlManager hero_rank_xml_mgr;
+//HeroRankStuffXmlManager hero_rank_stuff_xml_mgr;
+//HeroLevelAttrXmlManager hero_level_attr_xml_mgr;
+//LevelXmlManager level_xml_mgr;
+//HeroHonorXmlManager hero_honor_xml_mgr;
+//HeroHonorExpXmlManager hero_honor_exp_xml_mgr;
+//HeroTitleXmlManager hero_title_xml_mgr;
 
 /********************************************************************************/
 /*							Hero Class										*/
@@ -90,7 +91,7 @@ Hero::Hero(Player *p, uint32_t hero_id) : id(hero_id), owner(p)
 	memset(&honor_attr, 0x0, sizeof(honor_attr));
 	memset(&horse_attr, 0x0, sizeof(horse_attr));
 
-	base_info = hero_xml_mgr.get_hero_xml_info(hero_id);
+	base_info = hero_xml_mgr->get_hero_xml_info(hero_id);
 }
 
 Hero::~Hero()
@@ -103,7 +104,7 @@ Hero::~Hero()
 int
 Hero::get_level_up_exp(uint32_t lv)
 {
-	const level_xml_info_t * p_info = level_xml_mgr.get_level_xml_info(lv);
+	const level_xml_info_t * p_info = level_xml_mgr->get_level_xml_info(lv);
 	if (!p_info) {
 		return -1;
 	}
@@ -183,9 +184,9 @@ Hero::add_exp(uint32_t add_value)
 	if (lv > old_lv) {
 		if (id == owner->role_id) {//主角升级
 			owner->deal_role_levelup(old_lv, lv);
-			const arena_info_t *p_info = arena_mgr.get_arena_ranking_info_by_userid(owner->user_id);
+			const arena_info_t *p_info = arena_mgr->get_arena_ranking_info_by_userid(owner->user_id);
 			if (p_info) {
-				arena_mgr.update_ranking_info_lv(owner->user_id, lv);
+				arena_mgr->update_ranking_info_lv(owner->user_id, lv);
 			}
 		}
 		calc_all();
@@ -216,7 +217,7 @@ Hero::calc_hero_max_honor_lv()
 int
 Hero::get_level_up_honor(uint32_t lv)
 {
-	const hero_honor_exp_xml_info_t *p_info = hero_honor_exp_xml_mgr.get_hero_honor_exp_xml_info(lv);
+	const hero_honor_exp_xml_info_t *p_info = hero_honor_exp_xml_mgr->get_hero_honor_exp_xml_info(lv);
 	if (p_info) {
 		return p_info->exp;
 	}
@@ -249,7 +250,7 @@ Hero::add_honor(uint32_t add_value, bool item_flag)
 
 	bool cri_flag = false;
 	if (item_flag) {//通过道具增加经验
-		const hero_honor_exp_xml_info_t *p_info = hero_honor_exp_xml_mgr.get_hero_honor_exp_xml_info(lv);
+		const hero_honor_exp_xml_info_t *p_info = hero_honor_exp_xml_mgr->get_hero_honor_exp_xml_info(lv);
 		if (p_info) {
 			uint32_t level_up_honor = get_level_up_honor(honor_lv);
 			if (honor + add_value < level_up_honor) {//不够升级计算暴击概率
@@ -415,7 +416,7 @@ Hero::put_on_equipment(uint32_t get_tm, uint32_t &off_get_tm)
 	}
 
 	uint32_t equip_id = p_equip->id;
-	const equip_xml_info_t *p_info = equip_xml_mgr.get_equip_xml_info(equip_id);
+	const equip_xml_info_t *p_info = equip_xml_mgr->get_equip_xml_info(equip_id);
 	if (!p_info) {
 		T_KWARN_LOG(owner->user_id, "put on equip invalid\t[equip_id=%u]", equip_id);
 		return cli_invalid_equip_err;
@@ -476,7 +477,7 @@ Hero::put_on_equipment_list(vector<uint32_t> &equips, cli_hero_put_on_equipment_
 		}
 
 		uint32_t equip_id = p_equip->id;
-		const equip_xml_info_t *p_info = equip_xml_mgr.get_equip_xml_info(equip_id);
+		const equip_xml_info_t *p_info = equip_xml_mgr->get_equip_xml_info(equip_id);
 		if (!p_info) {
 			T_KWARN_LOG(owner->user_id, "put on equip invalid\t[equip_id=%u]", equip_id);
 			return cli_invalid_equip_err;
@@ -516,7 +517,7 @@ Hero::put_off_equipment(uint32_t get_tm)
 		return cli_equip_not_exist_err;
 	}
 	uint32_t equip_id = p_equip->id;
-	const equip_xml_info_t *p_info = equip_xml_mgr.get_equip_xml_info(equip_id);
+	const equip_xml_info_t *p_info = equip_xml_mgr->get_equip_xml_info(equip_id);
 	if (!p_info) {
 		T_KWARN_LOG(owner->user_id, "put on equip invalid\t[equip_id=%u]", equip_id);
 		return cli_invalid_equip_err;
@@ -551,7 +552,7 @@ Hero::rising_rank()
 
 	uint32_t army_id = this->base_info->army;
 
-	const hero_rank_stuff_detail_xml_info_t *p_info = hero_rank_stuff_xml_mgr.get_hero_rank_stuff_xml_info(army_id, rank);
+	const hero_rank_stuff_detail_xml_info_t *p_info = hero_rank_stuff_xml_mgr->get_hero_rank_stuff_xml_info(army_id, rank);
 	if (!p_info) {
 		T_KWARN_LOG(owner->user_id, "rising rank stuff not exist\t[army_id=%u, rank=%u]", army_id, rank);
 		return cli_hero_cannot_rising_rank_err;
@@ -606,9 +607,9 @@ Hero::rising_rank()
 	send_hero_attr_change_noti();
 
 	if (this->id == owner->role_id) {//主角 
-		const arena_info_t *p_info = arena_mgr.get_arena_ranking_info_by_userid(owner->user_id);
+		const arena_info_t *p_info = arena_mgr->get_arena_ranking_info_by_userid(owner->user_id);
 		if (p_info) {
-			arena_mgr.update_ranking_info_rank(owner->user_id, rank);
+			arena_mgr->update_ranking_info_rank(owner->user_id, rank);
 		}
 	}
 
@@ -632,7 +633,7 @@ Hero::rising_rank()
 int
 Hero::eat_exp_items(uint32_t item_id, uint32_t item_cnt)
 {
-	const item_xml_info_t *p_info = items_xml_mgr.get_item_xml_info(item_id);
+	const item_xml_info_t *p_info = items_xml_mgr->get_item_xml_info(item_id);
 	if (!p_info || p_info->type != em_item_type_for_hero_exp) {
 		T_KWARN_LOG(owner->user_id, "invalid hero exp item\t[item_id=%u]", item_id);
 		return cli_invalid_item_err;
@@ -661,7 +662,7 @@ Hero::eat_exp_items(uint32_t item_id, uint32_t item_cnt)
 int
 Hero::eat_honor_items(uint32_t item_id, uint32_t item_cnt)
 {
-	const item_xml_info_t *p_info = items_xml_mgr.get_item_xml_info(item_id);
+	const item_xml_info_t *p_info = items_xml_mgr->get_item_xml_info(item_id);
 	if (!p_info || p_info->type != em_item_type_for_hero_honor) {
 		T_KWARN_LOG(owner->user_id, "invalid hero honor item\t[item_id=%u]", item_id);
 		return cli_invalid_item_err;
@@ -800,7 +801,7 @@ Hero::calc_hero_base_btl_power()
 	}
 	double star_power[] = {0, 0.4, 0.7, 0.95, 1, 1};
 
-	const level_xml_info_t *p_info = level_xml_mgr.get_level_xml_info(lv);
+	const level_xml_info_t *p_info = level_xml_mgr->get_level_xml_info(lv);
 	if (!p_info) {
 		return 0;
 	}
@@ -822,7 +823,7 @@ Hero::calc_hero_skill_btl_power()
 		uint32_t res_type = forever_main_hero_skill_1 + i;
 		uint32_t skill_id = owner->res_mgr->get_res_value(res_type);
 		if (skill_id) {
-			const role_skill_xml_info_t *p_xml_info = role_skill_xml_mgr.get_role_skill_xml_info_by_skill(skill_id);
+			const role_skill_xml_info_t *p_xml_info = role_skill_xml_mgr->get_role_skill_xml_info_by_skill(skill_id);
 			if (p_xml_info) {
 				uint32_t skill_level_type = forever_main_hero_skill_1_lv + p_xml_info->id - 1;
 				uint32_t skill_level = owner->res_mgr->get_res_value(skill_level_type);
@@ -844,7 +845,7 @@ Hero::calc_hero_equip_btl_power()
 	EquipmentMap::iterator it = equips.begin();
 	for (; it != equips.end(); ++it) {
 		Equipment *p_equip = it->second;
-		const level_xml_info_t *p_info = level_xml_mgr.get_level_xml_info(p_equip->lv);
+		const level_xml_info_t *p_info = level_xml_mgr->get_level_xml_info(p_equip->lv);
 		if (!p_info) {
 			continue;
 		}
@@ -891,7 +892,7 @@ Hero::calc_hero_btl_soul_btl_power()
 	BtlSoulMap::iterator it = btl_souls.begin();
 	for (; it != btl_souls.end(); ++it) {
 		BtlSoul *btl_soul = it->second;
-		const level_xml_info_t *p_info = level_xml_mgr.get_level_xml_info(btl_soul->lv);
+		const level_xml_info_t *p_info = level_xml_mgr->get_level_xml_info(btl_soul->lv);
 		if (!btl_soul || !p_info) {
 			continue;
 		}
@@ -927,7 +928,7 @@ Hero::calc_hero_horse_btl_power()
 double 
 Hero::calc_hero_honor_btl_power()
 {
-	const hero_honor_exp_xml_info_t *p_info = hero_honor_exp_xml_mgr.get_hero_honor_exp_xml_info(this->honor_lv);
+	const hero_honor_exp_xml_info_t *p_info = hero_honor_exp_xml_mgr->get_hero_honor_exp_xml_info(this->honor_lv);
 	if (p_info) {
 		return p_info->btl_power;
 	}
@@ -964,8 +965,8 @@ Hero::calc_hero_btl_power()
 			owner->calc_btl_power();
 		}
 
-		if (arena_mgr.is_defend_hero(owner->user_id, this->id)) {
-			arena_mgr.update_ranking_info_btl_power(owner);
+		if (arena_mgr->is_defend_hero(owner->user_id, this->id)) {
+			arena_mgr->update_ranking_info_btl_power(owner);
 		}
 
 		T_KTRACE_LOG(owner->user_id, "hero btl power changed\t[%u %u %u]", this->id, old_btl_power, btl_power);
@@ -988,7 +989,7 @@ Hero::calc_hero_max_lv()
 	if (!p_hero) {
 		return 0;
 	}
-	const level_xml_info_t *p_info = level_xml_mgr.get_level_xml_info(p_hero->lv);
+	const level_xml_info_t *p_info = level_xml_mgr->get_level_xml_info(p_hero->lv);
 	if (!p_info) {
 		return 0;
 	}
@@ -1015,7 +1016,7 @@ Hero::calc_hero_growth()
 int
 Hero::calc_cur_rank_attr(hero_attr_info_t &rank_attr)
 {
-	const hero_rank_detail_xml_info_t *p_info = hero_rank_xml_mgr.get_hero_rank_xml_info(this->id, this->rank);
+	const hero_rank_detail_xml_info_t *p_info = hero_rank_xml_mgr->get_hero_rank_xml_info(this->id, this->rank);
 	if (p_info) {
 		memcpy(&rank_attr, &(p_info->attr), sizeof(rank_attr));
 	}
@@ -1027,9 +1028,9 @@ int
 Hero::calc_cur_talent_attr(hero_attr_info_t &talent_attr1, hero_attr_info_t &talent_attr2)
 {
 	for (uint32_t i = 1; i <= this->rank; i++) {
-		const hero_rank_detail_xml_info_t *p_rank_info = hero_rank_xml_mgr.get_hero_rank_xml_info(this->id, i);
+		const hero_rank_detail_xml_info_t *p_rank_info = hero_rank_xml_mgr->get_hero_rank_xml_info(this->id, i);
 		if (p_rank_info && p_rank_info->talent_id) {
-			const hero_talent_xml_info_t *p_xml_info = hero_talent_xml_mgr.get_hero_talent_xml_info(p_rank_info->talent_id);
+			const hero_talent_xml_info_t *p_xml_info = hero_talent_xml_mgr->get_hero_talent_xml_info(p_rank_info->talent_id);
 			if (p_xml_info) {
 				int flag = p_xml_info->passive_class == 1 ? 1 : -1;
 				hero_attr_info_t &attr = (p_xml_info->passive_type > 0) ? talent_attr2 : talent_attr1; 
@@ -1103,7 +1104,7 @@ Hero::calc_cur_talent_attr(hero_attr_info_t &talent_attr1, hero_attr_info_t &tal
 int
 Hero::calc_cur_level_attr(hero_attr_info_t & level_attr)
 {
-	const hero_level_attr_xml_info_t *p_info = hero_level_attr_xml_mgr.get_hero_level_attr_xml_info(id);
+	const hero_level_attr_xml_info_t *p_info = hero_level_attr_xml_mgr->get_hero_level_attr_xml_info(id);
 	if (!p_info) {
 		return 0;
 	}
@@ -1164,7 +1165,7 @@ Hero::calc_hero_equip_attr()
 		equip_attr.resist += (p_equip->base_info->attr.resist + p_equip->base_info->up_attr.resist * p_equip->lv);
 
 		//精炼属性
-		const equip_refining_sub_xml_info_t* p_refining_info = equip_refining_xml_mgr.get_equip_refining_xml_info(p_equip->id, p_equip->refining_lv);
+		const equip_refining_sub_xml_info_t* p_refining_info = equip_refining_xml_mgr->get_equip_refining_xml_info(p_equip->id, p_equip->refining_lv);
 		if (p_refining_info) {
 			equip_attr.max_hp += (p_refining_info->maxhp + p_refining_info->extra_maxhp);
 			equip_attr.ad += (p_refining_info->ad + p_refining_info->extra_ad);
@@ -1265,7 +1266,7 @@ void
 Hero::calc_hero_honor_attr()
 {
 	memset(&honor_attr, 0x0, sizeof(honor_attr));
-	const hero_honor_level_xml_info_t *p_xml_info = hero_honor_xml_mgr.get_hero_honor_xml_info(base_info->army, honor_lv);
+	const hero_honor_level_xml_info_t *p_xml_info = hero_honor_xml_mgr->get_hero_honor_xml_info(base_info->army, honor_lv);
 	if (p_xml_info) {
 		honor_attr.max_hp = p_xml_info->max_hp;
 		honor_attr.ad = p_xml_info->ad;
@@ -1555,7 +1556,7 @@ Hero::normal_skill_level_up(uint32_t add_lv)
 	//金币是否足够 
 	uint32_t need_golds = 0;
 	for (uint32_t i = skill_lv + 1; i <= skill_lv + add_lv; i++) {
-		need_golds += skill_levelup_golds_xml_mgr.get_skill_levelup_golds(i);
+		need_golds += skill_levelup_golds_xml_mgr->get_skill_levelup_golds(i);
 	}
 	if (owner->golds < need_golds) {
 		T_KWARN_LOG(owner->user_id, "skill levelup need golds not enough\t[skill_lv=%u, need_golds=%u]", skill_lv, need_golds);
@@ -1608,7 +1609,7 @@ Hero::unique_skill_level_up(uint32_t add_lv)
 	//金币是否足够 
 	uint32_t need_golds = 0;
 	for (uint32_t i = unique_skill_lv + 1; i <= unique_skill_lv + add_lv; i++) {
-		need_golds += skill_levelup_golds_xml_mgr.get_skill_levelup_golds(i);
+		need_golds += skill_levelup_golds_xml_mgr->get_skill_levelup_golds(i);
 	}
 	if (owner->golds < need_golds) {
 		T_KWARN_LOG(owner->user_id, "skill levelup need golds not enough\t[unique-skill_lv=%u, need_golds=%u]", unique_skill_lv, need_golds);
@@ -1645,7 +1646,7 @@ Hero::role_skill_level_up(uint32_t skill_id, uint32_t add_lv)
 	if (!add_lv) {
 		add_lv = 1;
 	}
-	const role_skill_xml_info_t *p_xml_info = role_skill_xml_mgr.get_role_skill_xml_info_by_skill(skill_id);
+	const role_skill_xml_info_t *p_xml_info = role_skill_xml_mgr->get_role_skill_xml_info_by_skill(skill_id);
 	if (!p_xml_info || !p_xml_info->id || p_xml_info->id > 12) {
 		T_KWARN_LOG(owner->user_id, "skill level up invalid skill id\t[skill_id=%u]", skill_id);
 		return cli_invalid_skill_id_err;
@@ -1673,7 +1674,7 @@ Hero::role_skill_level_up(uint32_t skill_id, uint32_t add_lv)
 	//金币是否足够 
 	uint32_t need_golds = 0;
 	for (uint32_t i = res_value + 1; i <= res_value + add_lv; i++) {
-		need_golds += skill_levelup_golds_xml_mgr.get_skill_levelup_golds(i);
+		need_golds += skill_levelup_golds_xml_mgr->get_skill_levelup_golds(i);
 	}
 	if (owner->golds < need_golds) {
 		T_KWARN_LOG(owner->user_id, "skill levelup need golds not enough\t[skill_lv=%u, need_golds=%u]", res_value, need_golds);
@@ -1872,7 +1873,7 @@ HeroManager::calc_hero_max_lv()
 {
 	Hero *p_main_hero = get_hero(owner->role_id);
 	if (p_main_hero) {
-		const level_xml_info_t *p_info = level_xml_mgr.get_level_xml_info(p_main_hero->lv);
+		const level_xml_info_t *p_info = level_xml_mgr->get_level_xml_info(p_main_hero->lv);
 		if (p_info) {
 			return p_info->max_lv;
 		}
@@ -1895,7 +1896,7 @@ HeroManager::get_hero(uint32_t hero_id)
 Hero* 
 HeroManager::add_hero(uint32_t hero_id)
 {
-	const hero_xml_info_t *p_info = hero_xml_mgr.get_hero_xml_info(hero_id);
+	const hero_xml_info_t *p_info = hero_xml_mgr->get_hero_xml_info(hero_id);
 	if (!p_info) {
 		KERROR_LOG(owner->user_id, "invalid hero id, hero_id=%u", hero_id);
 		return 0;
@@ -1969,7 +1970,7 @@ HeroManager::init_all_heros_info(db_get_player_heros_info_out *p_in)
 	vector<db_hero_info_t>::iterator it = p_in->heros.begin();
 	for (; it != p_in->heros.end(); it++) {
 		db_hero_info_t *p_info = &(*it);
-		const hero_xml_info_t *hero_info = hero_xml_mgr.get_hero_xml_info(p_info->hero_id);
+		const hero_xml_info_t *hero_info = hero_xml_mgr->get_hero_xml_info(p_info->hero_id);
 		if (!hero_info) {
 			KERROR_LOG(owner->user_id, "invalid hero id, hero_id=%u", p_info->hero_id);
 			return -1;
@@ -2895,7 +2896,7 @@ int cli_hero_skill_level_up(Player *p, Cmessage *c_in)
 		cli_out.skill_lv = hero->unique_skill_lv;
 	}
 	if (hero->id == p->role_id) {
-		const role_skill_xml_info_t *p_xml_info = role_skill_xml_mgr.get_role_skill_xml_info_by_skill(p_in->skill_type);
+		const role_skill_xml_info_t *p_xml_info = role_skill_xml_mgr->get_role_skill_xml_info_by_skill(p_in->skill_type);
 		if (p_xml_info && p_xml_info->id && p_xml_info->id < 12) {
 			uint32_t res_type = forever_main_hero_skill_1_lv + p_xml_info->id - 1;
 			uint32_t res_value = p->res_mgr->get_res_value(res_type);
@@ -2921,7 +2922,7 @@ int cli_use_items_for_hero(Player *p, Cmessage *c_in)
 		return p->send_to_self_error(p->wait_cmd, cli_hero_not_exist_err, 1);
 	}
 
-	const item_xml_info_t *p_info = items_xml_mgr.get_item_xml_info(p_in->item_id);
+	const item_xml_info_t *p_info = items_xml_mgr->get_item_xml_info(p_in->item_id);
 	if (!p_info) {
 		T_KWARN_LOG(p->user_id, "invalid item id\t[item_id=%u]", p_in->item_id);
 		return p->send_to_self_error(p->wait_cmd, cli_invalid_item_err, 1);

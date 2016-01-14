@@ -122,6 +122,6 @@ private:
 	TaskXmlMap task_map;
 	TaskTypeXmlMap task_type_map;
 };
-extern TaskXmlManager task_xml_mgr;
+//extern TaskXmlManager task_xml_mgr;
 
 #endif //TASK_HPP_

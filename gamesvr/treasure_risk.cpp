@@ -21,6 +21,7 @@
 #include "./proto/xseer_redis.hpp"
 #include "./proto/xseer_redis_enum.hpp"
 
+#include "global_data.hpp"
 #include "treasure_risk.hpp"
 #include "player.hpp"
 #include "hero.hpp"
@@ -34,9 +35,9 @@
 using namespace std;
 using namespace project;
 
-TreasureAttrXmlManager treasure_attr_xml_mgr;
-TreasureHeroXmlManager treasure_hero_xml_mgr;
-TreasureRewardXmlManager treasure_reward_xml_mgr;
+//TreasureAttrXmlManager treasure_attr_xml_mgr;
+//TreasureHeroXmlManager treasure_hero_xml_mgr;
+//TreasureRewardXmlManager treasure_reward_xml_mgr;
 
 /********************************************************************************/
 /*							TreasureManager Class								*/
@@ -62,7 +63,7 @@ TreasureManager::treasure_10_risk(uint32_t request_piece, cli_treasure_10_risk_o
 		return cli_endurance_not_enough_err;
 	}
 
-	const item_piece_xml_info_t *p_piece_xml_info = item_piece_xml_mgr.get_item_piece_xml_info(request_piece);
+	const item_piece_xml_info_t *p_piece_xml_info = item_piece_xml_mgr->get_item_piece_xml_info(request_piece);
 	if (!p_piece_xml_info) {
 		T_KWARN_LOG(owner->user_id, "treasure 10 risk piece err, piece_id=%u", request_piece);
 		return cli_invalid_item_err;
@@ -92,7 +93,7 @@ TreasureManager::treasure_10_risk(uint32_t request_piece, cli_treasure_10_risk_o
 
 	for (int i = 0; i < tms; i++) {
 		//发送奖励
-		const treasure_reward_xml_info_t *p_xml_info = treasure_reward_xml_mgr.random_one_treasure_reward();
+		const treasure_reward_xml_info_t *p_xml_info = treasure_reward_xml_mgr->random_one_treasure_reward();
 		if (p_xml_info) {
 			owner->items_mgr->add_item_without_callback(p_xml_info->item_id, p_xml_info->num);
 			cli_treasure_risk_info_t info;
@@ -139,7 +140,7 @@ TreasureManager::open_protection()
 	owner->res_mgr->set_res_value(forever_treasure_risk_protection_tm, now_sec);
 
 	//同步更新redis
-	redis_mgr.set_treasure_protection_time(owner, now_sec);
+	redis_mgr->set_treasure_protection_time(owner, now_sec);
 
 	return 0;
 }
@@ -152,7 +153,7 @@ TreasureManager::get_request_piece_prob(uint32_t user_id)
 		return 500;
 	}	
 
-	const item_piece_xml_info_t *p_piece_xml_info = item_piece_xml_mgr.get_item_piece_xml_info(request_piece);
+	const item_piece_xml_info_t *p_piece_xml_info = item_piece_xml_mgr->get_item_piece_xml_info(request_piece);
 	if (!p_piece_xml_info) {
 		return 0;
 	}
@@ -163,7 +164,7 @@ TreasureManager::get_request_piece_prob(uint32_t user_id)
 	} else if (p_piece_xml_info->relation_id == 120002) {//高级陨铁
 		prob = 120;
 	} else {
-		const equip_xml_info_t *p_equip_xml_info = equip_xml_mgr.get_equip_xml_info(p_piece_xml_info->relation_id);
+		const equip_xml_info_t *p_equip_xml_info = equip_xml_mgr->get_equip_xml_info(p_piece_xml_info->relation_id);
 		if (!p_equip_xml_info) {
 			return 0;
 		}
@@ -216,7 +217,7 @@ TreasureManager::winner_draw(cli_treasure_risk_winner_draw_out &out)
 
 	reward_stat = true;
 
-	const treasure_reward_xml_info_t *p_xml_info = treasure_reward_xml_mgr.random_one_treasure_reward();
+	const treasure_reward_xml_info_t *p_xml_info = treasure_reward_xml_mgr->random_one_treasure_reward();
 	if (p_xml_info) {
 		owner->items_mgr->add_item_without_callback(p_xml_info->item_id, p_xml_info->num);
 		out.item_info.item_id = p_xml_info->item_id;
@@ -308,7 +309,7 @@ TreasureManager::battle_end(uint32_t user_id, uint32_t is_win, uint32_t kill_her
 			owner->send_to_self(cli_send_get_common_bonus_noti_cmd, &noti_out, 0);
 
 			if (user_id >= 100000) {//玩家 删除被抢夺碎片
-				Player *p = g_player_mgr.get_player_by_uid(user_id);
+				Player *p = g_player_mgr->get_player_by_uid(user_id);
 				if (p) {//在线
 					p->items_mgr->del_item_without_callback(piece_id, 1);
 				} else {//不在线
@@ -362,7 +363,7 @@ TreasureManager::handle_treasure_piece_user_list_redis_return(rs_get_treasure_pi
 	if (user_cnt > 0) {//如果有玩家
 		for (uint32_t i = 0; i < user_cnt; i++) {
 			uint32_t user_id = user_list[i];
-			Player *p = g_player_mgr.get_player_by_uid(user_id);
+			Player *p = g_player_mgr->get_player_by_uid(user_id);
 			if (p) {//如果玩家在线
 				owner->treasure_mgr->pack_recommend_online_player(p);
 			} else {//不在线 拉DB
@@ -413,7 +414,7 @@ TreasureManager::pack_recommend_offline_player(db_get_treasure_risk_opp_player_i
 		
 		for (uint32_t j = 0; j < p_info->equips.size(); j++) {
 			db_equip_info_t *p_equip_info = &(p_info->equips[j]);
-			const equip_xml_info_t *base_info = equip_xml_mgr.get_equip_xml_info(p_equip_info->equip_id);
+			const equip_xml_info_t *base_info = equip_xml_mgr->get_equip_xml_info(p_equip_info->equip_id);
 			if (base_info) {
 				Equipment *p_equip = new Equipment(&p, base_info->id);
 				p_equip->get_tm = p_equip_info->get_tm;
@@ -431,7 +432,7 @@ TreasureManager::pack_recommend_offline_player(db_get_treasure_risk_opp_player_i
 
 		for (uint32_t j = 0; j < p_info->btl_souls.size(); j++) {
 			db_btl_soul_info_t *p_btl_soul_info = &(p_info->btl_souls[i]);
-			const btl_soul_xml_info_t *base_info = btl_soul_xml_mgr.get_btl_soul_xml_info(p_btl_soul_info->id);
+			const btl_soul_xml_info_t *base_info = btl_soul_xml_mgr->get_btl_soul_xml_info(p_btl_soul_info->id);
 			if (base_info) {
 				BtlSoul *p_btl_soul = new BtlSoul(&p, base_info->id);
 				p_btl_soul->get_tm = p_btl_soul_info->get_tm;
@@ -439,7 +440,7 @@ TreasureManager::pack_recommend_offline_player(db_get_treasure_risk_opp_player_i
 				p_btl_soul->lv = p_btl_soul_info->lv;
 				p_btl_soul->exp = p_btl_soul_info->exp;
 				p_btl_soul->tmp = p_btl_soul_info->tmp;
-				p_btl_soul->base_info = btl_soul_xml_mgr.get_btl_soul_xml_info(p_btl_soul_info->id);
+				p_btl_soul->base_info = btl_soul_xml_mgr->get_btl_soul_xml_info(p_btl_soul_info->id);
 
 				hero.btl_souls.insert(BtlSoulMap::value_type(p_btl_soul->get_tm, p_btl_soul));
 			}
@@ -558,7 +559,7 @@ TreasureManager::pack_recommend_robot(uint32_t piece_id, uint32_t num)
 		return -1;
 	}
 
-	const item_piece_xml_info_t *p_piece_xml_info = item_piece_xml_mgr.get_item_piece_xml_info(piece_id);
+	const item_piece_xml_info_t *p_piece_xml_info = item_piece_xml_mgr->get_item_piece_xml_info(piece_id);
 	if (!p_piece_xml_info) {
 		return -1;
 	}
@@ -570,7 +571,7 @@ TreasureManager::pack_recommend_robot(uint32_t piece_id, uint32_t num)
 	char robot_nick[5][NICK_LEN] = {"Mark", "Frankie", "Rock", "MoMo", "Buono"};
 	for (uint32_t i = 0; i < num; i++) {
 		uint32_t lv = ranged_random(main_hero->lv - 1, main_hero->lv + 1);
-		const treasure_attr_xml_info_t *p_xml_info = treasure_attr_xml_mgr.get_treasure_attr_xml_info(lv);
+		const treasure_attr_xml_info_t *p_xml_info = treasure_attr_xml_mgr->get_treasure_attr_xml_info(lv);
 		if (!p_xml_info) {
 			return 0;
 		}
@@ -597,8 +598,8 @@ TreasureManager::pack_recommend_robot(uint32_t piece_id, uint32_t num)
 		double resist_factor[] = {1.9, 0.6, 1};
 		for (int j = 0; j < 3; j++) {
 			cli_treasure_risk_attr_info_t attr_info;
-			attr_info.id = treasure_hero_xml_mgr.random_one_hero(j + 1);
-			const hero_xml_info_t* p_hero_xml_info = hero_xml_mgr.get_hero_xml_info(attr_info.id);
+			attr_info.id = treasure_hero_xml_mgr->random_one_hero(j + 1);
+			const hero_xml_info_t* p_hero_xml_info = hero_xml_mgr->get_hero_xml_info(attr_info.id);
 			if (!p_hero_xml_info) {
 				continue;
 			}
@@ -617,11 +618,11 @@ TreasureManager::pack_recommend_robot(uint32_t piece_id, uint32_t num)
 		for (int j = 0; j < 3; j++) {
 			cli_treasure_risk_attr_info_t attr_info;
 			attr_info.id = soldier_id[j];
-			const soldier_xml_info_t *p_xml_info = soldier_xml_mgr.get_soldier_xml_info(attr_info.id);
+			const soldier_xml_info_t *p_xml_info = soldier_xml_mgr->get_soldier_xml_info(attr_info.id);
 			if (!p_xml_info) {
 				continue;
 			}
-			const soldier_rank_detail_xml_info_t *p_rank_info = soldier_rank_xml_mgr.get_soldier_rank_xml_info(attr_info.id, rank);
+			const soldier_rank_detail_xml_info_t *p_rank_info = soldier_rank_xml_mgr->get_soldier_rank_xml_info(attr_info.id, rank);
 			
 			attr_info.max_hp = (p_xml_info->max_hp + (p_rank_info ? p_rank_info->max_hp : 0) + p_xml_info->hp_up * train_lv) * star_factor;
 			attr_info.ad = (p_xml_info->ad + (p_rank_info ? p_rank_info->ad : 0) + p_xml_info->ad_up * train_lv) * star_factor;
@@ -909,7 +910,7 @@ int cli_get_treasure_risk_recommend_players(Player *p, Cmessage *c_in)
 	p->treasure_mgr->set_request_piece(p_in->piece_id);
 
 	uint32_t now_sec = time(0);
-	uint32_t now_hour = utils_mgr.get_hour(now_sec);
+	uint32_t now_hour = utils_mgr->get_hour(now_sec);
 	if (now_hour >= 0 && now_hour < 10) {//免战时间 只能挑战机器人
 		p->treasure_mgr->pack_recommend_robot(p_in->piece_id, 4);
 
@@ -918,7 +919,7 @@ int cli_get_treasure_risk_recommend_players(Player *p, Cmessage *c_in)
 		return p->send_to_self(p->wait_cmd, &cli_out, 1);
 	}
 
-	return redis_mgr.get_treasure_piece_user_list(p, p_in->piece_id);
+	return redis_mgr->get_treasure_piece_user_list(p, p_in->piece_id);
 }
 
 /* @brief 夺宝-十连夺

@@ -82,7 +82,7 @@ private:
 private:
 	VipXmlMap vip_xml_map;
 };
-extern VipXmlManager vip_xml_mgr;
+//extern VipXmlManager vip_xml_mgr;
 
 
 #endif //VIP_HPP_

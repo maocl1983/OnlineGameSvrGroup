@@ -89,6 +89,6 @@ void init_tcp_socket();
 
 int is_global_db_cmd(uint32_t db_cmd);
 
-extern int dbroute_fd;
+//extern int dbroute_fd;
 
 #endif

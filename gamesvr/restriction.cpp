@@ -19,6 +19,7 @@
 #include "./proto/xseer_db.hpp" 
 #include "./proto/xseer_db_enum.hpp" 
 
+#include "global_data.hpp"
 #include "restriction.hpp"
 #include "player.hpp"
 #include "dbroute.hpp"
@@ -28,7 +29,7 @@
 using namespace std;
 using namespace project;
 
-ResXmlManage res_xml_mgr;
+//ResXmlManage res_xml_mgr;
 
 /************************************************************************/
 /*                       Restriction class                               */ 
@@ -63,7 +64,7 @@ Restriction::init_res_value_info(std::vector<db_res_info_t> *p_vec)
 		uint32_t expire_tm = (*p_vec)[i].expire_tm;
 		//先过滤掉过期的带期限限制
 		if (type >= 50000) {//带期限限制
-			const res_xml_info_t *p_info = res_xml_mgr.get_res_xml_info(type);
+			const res_xml_info_t *p_info = res_xml_mgr->get_res_xml_info(type);
 			if (!p_info || expire_tm < p_info->expire_tm) {//过期了，由玩家触发清除数据
 				db_in.expire_vec.push_back(type);
 			} else {
@@ -136,7 +137,7 @@ void
 Restriction::set_res_value_with_expire(uint32_t type, uint32_t value, uint32_t expire_tm)
 {
 	if (expire_tm == 0) {
-		const res_xml_info_t *p_info = res_xml_mgr.get_res_xml_info(type);
+		const res_xml_info_t *p_info = res_xml_mgr->get_res_xml_info(type);
 		if (p_info) {
 			uint32_t year = p_info->year;
 			uint32_t month = p_info->month;
@@ -144,7 +145,7 @@ Restriction::set_res_value_with_expire(uint32_t type, uint32_t value, uint32_t e
 			uint32_t hour = p_info->hour;
 			uint32_t min = p_info->min;
 			uint32_t sec = p_info->sec;
-			expire_tm = utils_mgr.mk_tm(year, month, day, hour, min, sec);
+			expire_tm = utils_mgr->mk_tm(year, month, day, hour, min, sec);
 		}
 	}
 	res_map[type].value = value;

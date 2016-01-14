@@ -73,7 +73,7 @@ private:
 private:
 	HeroTalentXmlMap hero_talent_map;
 };
-extern HeroTalentXmlManager hero_talent_xml_mgr;
+//extern HeroTalentXmlManager hero_talent_xml_mgr;
 
 /********************************************************************************/
 /*							SoldierTalentXmlManager								*/
@@ -104,7 +104,7 @@ private:
 private:
 	SoldierTalentXmlMap soldier_talent_map;
 };
-extern SoldierTalentXmlManager soldier_talent_xml_mgr;
+//extern SoldierTalentXmlManager soldier_talent_xml_mgr;
 
 
 

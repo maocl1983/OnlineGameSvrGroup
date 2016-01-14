@@ -52,7 +52,7 @@ private:
 private:
 	SkillXmlMap skill_map;
 };
-extern SkillXmlManager skill_xml_mgr;
+//extern SkillXmlManager skill_xml_mgr;
 
 /********************************************************************************/
 /*						SkillEffectXmlManager									*/
@@ -97,7 +97,7 @@ private:
 private:
 	SkillEffectXmlMap skill_effect_map;
 };
-extern SkillEffectXmlManager skill_effect_xml_mgr;
+//extern SkillEffectXmlManager skill_effect_xml_mgr;
 
 /********************************************************************************/
 /*						SkillLevelupGoldsXmlManager								*/
@@ -122,6 +122,6 @@ private:
 private:
 	SkillLevelupGoldsXmlMap levelup_golds_map;
 };
-extern SkillLevelupGoldsXmlManager skill_levelup_golds_xml_mgr;
+//extern SkillLevelupGoldsXmlManager skill_levelup_golds_xml_mgr;
 
 #endif //SKILL_HPP_

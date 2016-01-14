@@ -18,6 +18,7 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "soldier.hpp"
 #include "player.hpp"
 #include "dbroute.hpp"
@@ -27,11 +28,11 @@
 using namespace project;
 using namespace std;
 
-SoldierXmlManager soldier_xml_mgr;
-SoldierRankXmlManager soldier_rank_xml_mgr;
-SoldierStarXmlManager soldier_star_xml_mgr;
-SoldierTrainCostXmlManager soldier_train_cost_xml_mgr;
-SoldierLevelAttrXmlManager soldier_level_attr_xml_mgr;
+//SoldierXmlManager soldier_xml_mgr;
+//SoldierRankXmlManager soldier_rank_xml_mgr;
+//SoldierStarXmlManager soldier_star_xml_mgr;
+//SoldierTrainCostXmlManager soldier_train_cost_xml_mgr;
+//SoldierLevelAttrXmlManager soldier_level_attr_xml_mgr;
 
 /********************************************************************************/
 /*							Soldier Class										*/
@@ -55,7 +56,7 @@ Soldier::Soldier(Player *p, uint32_t soldier_id) : id(soldier_id), owner(p)
 
 	memset(&train_lv, 0x0, sizeof(train_lv));
 
-	base_info = soldier_xml_mgr.get_soldier_xml_info(soldier_id);
+	base_info = soldier_xml_mgr->get_soldier_xml_info(soldier_id);
 }
 
 Soldier::~Soldier()
@@ -66,7 +67,7 @@ Soldier::~Soldier()
 int
 Soldier::get_level_up_exp()
 {
-	const level_xml_info_t * p_info = level_xml_mgr.get_level_xml_info(lv);
+	const level_xml_info_t * p_info = level_xml_mgr->get_level_xml_info(lv);
 	if (!p_info) {
 		return -1;
 	}
@@ -146,7 +147,7 @@ Soldier::add_exp(uint32_t add_value)
 int
 Soldier::eat_exp_items(uint32_t item_id, uint32_t item_cnt)
 {
-	const item_xml_info_t *p_item_info = items_xml_mgr.get_item_xml_info(item_id);
+	const item_xml_info_t *p_item_info = items_xml_mgr->get_item_xml_info(item_id);
 	if (!p_item_info || p_item_info->type != em_item_type_for_soldier_exp) {
 		T_KWARN_LOG(owner->user_id, "invalid hero exp item\t[item_id=%u]", item_id);
 		return cli_invalid_item_err;
@@ -175,7 +176,7 @@ Soldier::get_rank_up_exp()
 	if (rank >= MAX_SOLDIER_RANK) {
 		query_rank = MAX_SOLDIER_RANK;
 	}
-	const soldier_rank_detail_xml_info_t *p_info = soldier_rank_xml_mgr.get_soldier_rank_xml_info(this->id, query_rank);
+	const soldier_rank_detail_xml_info_t *p_info = soldier_rank_xml_mgr->get_soldier_rank_xml_info(this->id, query_rank);
 	if (!p_info) {
 		return -1;
 	}
@@ -236,7 +237,7 @@ Soldier::strength_soldier(vector<cli_item_info_t> &cards)
 	for (uint32_t i = 0; i < cards.size(); i++) {
 		uint32_t item_id = cards[i].item_id;
 		uint32_t item_cnt = cards[i].item_cnt;
-		const item_xml_info_t* p_info = items_xml_mgr.get_item_xml_info(item_id);
+		const item_xml_info_t* p_info = items_xml_mgr->get_item_xml_info(item_id);
 		if (!p_info || p_info->type != em_item_type_for_hero_card) {
 			T_KWARN_LOG(owner->user_id, "invalid soldier strength item type\t[item_id=%u]", item_id);
 			return cli_invalid_soldier_strength_item_err;
@@ -284,7 +285,7 @@ Soldier::rising_star()
 	}
 
 
-	const soldier_star_detail_xml_info_t *p_info = soldier_star_xml_mgr.get_soldier_star_xml_info(this->id, this->star + 1);
+	const soldier_star_detail_xml_info_t *p_info = soldier_star_xml_mgr->get_soldier_star_xml_info(this->id, this->star + 1);
 	if (!p_info) {
 		return cli_soldier_cannot_rising_star_err;
 	}
@@ -313,7 +314,7 @@ Soldier::rising_star()
 		uint32_t old_soldier_id = this->id;
 		this->id = p_info->evolution_id;
 		this->star = 1;
-		base_info = soldier_xml_mgr.get_soldier_xml_info(this->id);
+		base_info = soldier_xml_mgr->get_soldier_xml_info(this->id);
 
 		//更新map
 		owner->soldier_mgr->soldier_evolution(old_soldier_id, this->id);
@@ -370,7 +371,7 @@ Soldier::soldier_training(uint32_t type, uint32_t add_lv)
 	//判断金币是否足够 
 	uint32_t need_golds = 0;
 	for (uint32_t i = this->train_lv[type-1] + 1; i <= this->train_lv[type-1] + add_lv; i++) {
-		const soldier_train_cost_xml_info_t *p_info = soldier_train_cost_xml_mgr.get_soldier_train_cost_xml_info(this->train_lv[type-1] + 1);
+		const soldier_train_cost_xml_info_t *p_info = soldier_train_cost_xml_mgr->get_soldier_train_cost_xml_info(this->train_lv[type-1] + 1);
 		if (!p_info) {
 			return cli_soldier_cannot_train_err;
 		}
@@ -445,7 +446,7 @@ Soldier::calc_soldier_base_btl_power()
 	double base_btl_power = 0;
 	for (int i = 0; i < 4; i++) {
 		uint32_t lv = train_lv[i];
-		const level_xml_info_t *p_info = level_xml_mgr.get_level_xml_info(lv);
+		const level_xml_info_t *p_info = level_xml_mgr->get_level_xml_info(lv);
 		if (p_info) {
 			base_btl_power += SOLDIER_TRAIN_BASE_BTL_POWER * p_info->btl_power_scale * factor;
 		}
@@ -512,9 +513,9 @@ void
 Soldier::calc_talent_attr(soldier_attr_info_t &talent_attr1, soldier_attr_info_t &talent_attr2)
 {
 	for (uint32_t i = 1; i <= this->rank; i++) {
-		const soldier_rank_detail_xml_info_t *p_rank_info = soldier_rank_xml_mgr.get_soldier_rank_xml_info(this->id, i);
+		const soldier_rank_detail_xml_info_t *p_rank_info = soldier_rank_xml_mgr->get_soldier_rank_xml_info(this->id, i);
 		if (p_rank_info && p_rank_info->talent_id) {
-			const soldier_talent_xml_info_t *p_xml_info = soldier_talent_xml_mgr.get_soldier_talent_xml_info(p_rank_info->talent_id);
+			const soldier_talent_xml_info_t *p_xml_info = soldier_talent_xml_mgr->get_soldier_talent_xml_info(p_rank_info->talent_id);
 			if (p_xml_info) {
 				int flag = p_xml_info->passive_class == 1 ? 1 : -1;
 				soldier_attr_info_t &attr = (p_xml_info->passive_type == 1) ? talent_attr1 : talent_attr2;
@@ -622,7 +623,7 @@ Soldier::calc_all(bool flag)
 	resist = base_info->resist;
 
 	//等级属性
-	const soldier_level_attr_xml_info_t *p_level_attr_xml_info = soldier_level_attr_xml_mgr.get_soldier_level_attr_xml_info(this->id);
+	const soldier_level_attr_xml_info_t *p_level_attr_xml_info = soldier_level_attr_xml_mgr->get_soldier_level_attr_xml_info(this->id);
 	if (p_level_attr_xml_info) {
 		max_hp += lv * p_level_attr_xml_info->max_hp;
 		ad += lv * p_level_attr_xml_info->ad;
@@ -631,7 +632,7 @@ Soldier::calc_all(bool flag)
 	}
 
 	//品阶属性
-	const soldier_rank_detail_xml_info_t *p_rank_info = soldier_rank_xml_mgr.get_soldier_rank_xml_info(this->id, this->rank);
+	const soldier_rank_detail_xml_info_t *p_rank_info = soldier_rank_xml_mgr->get_soldier_rank_xml_info(this->id, this->rank);
 	if (p_rank_info) {
 		max_hp += p_rank_info->max_hp;
 		ad += p_rank_info->ad;
@@ -823,7 +824,7 @@ SoldierManager::soldier_evolution(uint32_t old_soldier_id, uint32_t soldier_id)
 Soldier* 
 SoldierManager::add_soldier(uint32_t soldier_id)
 {
-	const soldier_xml_info_t *p_info = soldier_xml_mgr.get_soldier_xml_info(soldier_id);
+	const soldier_xml_info_t *p_info = soldier_xml_mgr->get_soldier_xml_info(soldier_id);
 	if (!p_info) {
 		KERROR_LOG(owner->user_id, "invalid soldier id, soldier_id=%u", soldier_id);
 		return 0;
@@ -868,7 +869,7 @@ SoldierManager::init_all_soldiers_info(db_get_player_soldiers_info_out *p_in)
 	vector<db_soldier_info_t>::iterator it = p_in->soldiers.begin();
 	for (; it != p_in->soldiers.end(); it++) {
 		db_soldier_info_t *p_info = &(*it);
-		const soldier_xml_info_t *soldier_info = soldier_xml_mgr.get_soldier_xml_info(p_info->soldier_id);
+		const soldier_xml_info_t *soldier_info = soldier_xml_mgr->get_soldier_xml_info(p_info->soldier_id);
 		if (!soldier_info) {
 			KERROR_LOG(owner->user_id, "invalid soldier id, soldier_id=%u", p_info->soldier_id);
 			return -1;
@@ -1485,7 +1486,7 @@ int cli_use_items_for_soldier(Player *p, Cmessage *c_in)
 		return p->send_to_self_error(p->wait_cmd, cli_soldier_not_exist_err, 1);
 	}
 
-	const item_xml_info_t *p_item_info = items_xml_mgr.get_item_xml_info(p_in->item_id);
+	const item_xml_info_t *p_item_info = items_xml_mgr->get_item_xml_info(p_in->item_id);
 	if (!p_item_info) {
 		T_KWARN_LOG(p->user_id, "invalid item id\t[item_id=%u]", p_in->item_id);
 		return p->send_to_self_error(p->wait_cmd, cli_invalid_item_err, 1);

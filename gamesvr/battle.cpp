@@ -18,6 +18,7 @@
 #include "./proto/xseer_online_enum.hpp"
 #include "./proto/common.hpp"
 
+#include "global_data.hpp"
 #include "battle.hpp"
 #include "instance.hpp"
 #include "restriction.hpp"
@@ -27,7 +28,7 @@
 using namespace std;
 using namespace project;
 
-BattleCacheMap g_battle_cache_map;
+//BattleCacheMap g_battle_cache_map;
 
 /********************************************************************************/
 /*								Battle Class									*/
@@ -45,8 +46,8 @@ Battle::~Battle()
 int
 Battle::init_battle()
 {
-	BattleCacheMap::iterator it = g_battle_cache_map.find(owner->user_id);
-	if (it == g_battle_cache_map.end()) {
+	BattleCacheMap::iterator it = g_battle_cache_map->find(owner->user_id);
+	if (it == g_battle_cache_map->end()) {
 		return 0;
 	}
 
@@ -62,9 +63,9 @@ Battle::cache_battle_info(uint32_t battle_id, uint32_t stat)
 	info.user_id = owner->user_id;
 	info.battle_id = battle_id;
 	info.stat = stat;
-	BattleCacheMap::iterator it = g_battle_cache_map.find(owner->user_id);
-	if (it == g_battle_cache_map.end()) {
-		g_battle_cache_map.insert(BattleCacheMap::value_type(owner->user_id, info));
+	BattleCacheMap::iterator it = g_battle_cache_map->find(owner->user_id);
+	if (it == g_battle_cache_map->end()) {
+		g_battle_cache_map->insert(BattleCacheMap::value_type(owner->user_id, info));
 	} else {
 		it->second.battle_id = battle_id;
 		it->second.stat = stat;
@@ -75,8 +76,8 @@ Battle::cache_battle_info(uint32_t battle_id, uint32_t stat)
 int
 Battle::cache_instance_reward_info(uint32_t exp, uint32_t golds, vector<cli_item_info_t> &reward_vec)
 {
-	BattleCacheMap::iterator it = g_battle_cache_map.find(owner->user_id);
-	if (it == g_battle_cache_map.end()) {
+	BattleCacheMap::iterator it = g_battle_cache_map->find(owner->user_id);
+	if (it == g_battle_cache_map->end()) {
 		return 0;
 	}
 	it->second.exp = exp;
@@ -95,8 +96,8 @@ Battle::cache_instance_reward_info(uint32_t exp, uint32_t golds, vector<cli_item
 battle_cache_info_t*
 Battle::get_battle_cache_info()
 {
-	BattleCacheMap::iterator it = g_battle_cache_map.find(owner->user_id);
-	if (it == g_battle_cache_map.end()) {
+	BattleCacheMap::iterator it = g_battle_cache_map->find(owner->user_id);
+	if (it == g_battle_cache_map->end()) {
 		return 0;
 	}
 

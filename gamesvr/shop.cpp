@@ -19,6 +19,7 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "shop.hpp"
 #include "player.hpp"
 #include "utils.hpp"
@@ -27,8 +28,8 @@
 using namespace std;
 using namespace project;
 
-ShopXmlManager shop_xml_mgr;
-ItemShopXmlManager item_shop_xml_mgr;
+//ShopXmlManager shop_xml_mgr;
+//ItemShopXmlManager item_shop_xml_mgr;
 
 /********************************************************************************/
 /*							ShopManager Class									*/
@@ -81,12 +82,12 @@ ShopManager::refresh_shop(uint32_t type, uint32_t refresh_tm)
 	shop_info_t info = {};
 	info.type = type;
 	for (int i = 0; i < 6; i++) {
-		const goods_xml_info_t *p_info = shop_xml_mgr.random_one_goods(type);
+		const goods_xml_info_t *p_info = shop_xml_mgr->random_one_goods(type);
 		if (!p_info) {
 			continue;
 		}
 		while (owner->lv < p_info->role_lv || owner->vip_lv < p_info->vip_lv) {
-			p_info = shop_xml_mgr.random_one_goods(type);
+			p_info = shop_xml_mgr->random_one_goods(type);
 		}
 		info.goods[i] = p_info->goods_id;
 	}
@@ -126,8 +127,8 @@ ShopManager::calc_shop_left_refresh_tm(uint32_t type)
 	}
 
 	uint32_t now_sec = time(0);
-	uint32_t now_hour = utils_mgr.get_hour(now_sec);
-	uint32_t now_hour_whole_tm = utils_mgr.get_cur_hour_whole_tm();
+	uint32_t now_hour = utils_mgr->get_hour(now_sec);
+	uint32_t now_hour_whole_tm = utils_mgr->get_cur_hour_whole_tm();
 	uint32_t refresh_tm = 0;
 	if (now_hour % 2 == 0) {
 		refresh_tm = now_hour_whole_tm + 2 * 3600;
@@ -170,8 +171,8 @@ ShopManager::calc_shop_free_refresh_tms(uint32_t type)
 	if (diff_tm > 6 * 3600) {
 		free_refresh_tms += 3;
 	} else {
-		uint32_t now_hour = utils_mgr.get_hour(now_sec);
-		uint32_t refresh_hour = utils_mgr.get_hour(refresh_tm);
+		uint32_t now_hour = utils_mgr->get_hour(now_sec);
+		uint32_t refresh_hour = utils_mgr->get_hour(refresh_tm);
 		if (now_hour < refresh_hour) {
 			now_hour += 24;
 		}
@@ -310,7 +311,7 @@ ShopManager::buy_goods(uint32_t type, uint32_t id)
 		return cli_shop_goods_already_buy_err;
 	}
 
-	const goods_xml_info_t *p_xml_info = shop_xml_mgr.get_goods_xml_info(type, p_info->goods[id - 1]);
+	const goods_xml_info_t *p_xml_info = shop_xml_mgr->get_goods_xml_info(type, p_info->goods[id - 1]);
 	if (!p_xml_info) {
 		T_KWARN_LOG(owner->user_id, "buy goods err, type=%u, goods_id=%u", type, p_info->goods[id - 1]);
 		return cli_invalid_goods_id_err;
@@ -365,7 +366,7 @@ ShopManager::buy_goods(uint32_t type, uint32_t id)
 int
 ShopManager::buy_item_goods(uint32_t id)
 {
-	const item_shop_xml_info_t *p_xml_info = item_shop_xml_mgr.get_item_shop_xml_info_by_goods_id(id);
+	const item_shop_xml_info_t *p_xml_info = item_shop_xml_mgr->get_item_shop_xml_info_by_goods_id(id);
 	if (!p_xml_info) {
 		T_KWARN_LOG(owner->user_id, "buy goods input arg err\t[id=%u]", id);
 		return cli_invalid_input_arg_err;
@@ -441,7 +442,7 @@ ShopManager::buy_gem_goods(uint32_t id)
 int
 ShopManager::get_item_shop_price(uint32_t item_id, uint32_t buy_tms)
 {
-	uint32_t price = item_shop_xml_mgr.get_item_shop_price(item_id, buy_tms);
+	uint32_t price = item_shop_xml_mgr->get_item_shop_price(item_id, buy_tms);
 
 	if (!price) {
 		price = -1;
@@ -466,7 +467,7 @@ ShopManager::get_item_shop_left_buy_tms(uint32_t item_id)
 {
 	uint32_t buy_limit = get_item_shop_buy_limit(item_id);
 
-	const item_shop_xml_info_t *p_xml_info = item_shop_xml_mgr.get_item_shop_xml_info(item_id);
+	const item_shop_xml_info_t *p_xml_info = item_shop_xml_mgr->get_item_shop_xml_info(item_id);
 	if (p_xml_info) {
 		uint32_t buy_tms = owner->res_mgr->get_res_value(p_xml_info->res_type);
 		uint32_t left_tms = buy_tms < buy_limit ? buy_limit - buy_tms : 0;
@@ -482,7 +483,7 @@ ShopManager::get_shop_left_buy_tms(uint32_t type, uint32_t id)
 {
 	uint32_t left_buy_tms = 0;
 	if (type == 3) {
-		const item_shop_xml_info_t *p_xml_info = item_shop_xml_mgr.get_item_shop_xml_info_by_goods_id(id);
+		const item_shop_xml_info_t *p_xml_info = item_shop_xml_mgr->get_item_shop_xml_info_by_goods_id(id);
 		if (p_xml_info) {
 			left_buy_tms = get_item_shop_left_buy_tms(p_xml_info->item_id);
 		}
@@ -503,7 +504,7 @@ ShopManager::get_shop_price(uint32_t type, uint32_t id)
 {
 	int price = -1;
 	if (type == 3) {
-		const item_shop_xml_info_t *p_xml_info = item_shop_xml_mgr.get_item_shop_xml_info_by_goods_id(id);
+		const item_shop_xml_info_t *p_xml_info = item_shop_xml_mgr->get_item_shop_xml_info_by_goods_id(id);
 		if (p_xml_info) {
 			uint32_t buy_tms = owner->res_mgr->get_res_value(p_xml_info->res_type);
 			price = get_item_shop_price(p_xml_info->item_id, buy_tms);
@@ -511,7 +512,7 @@ ShopManager::get_shop_price(uint32_t type, uint32_t id)
 	} else if (type == 4) {
 		return 25;
 	} else {
-		const goods_xml_info_t *p_xml_info = shop_xml_mgr.get_goods_xml_info(type, id);
+		const goods_xml_info_t *p_xml_info = shop_xml_mgr->get_goods_xml_info(type, id);
 		if (p_xml_info) {
 			price = p_xml_info->cost;
 		}
@@ -524,7 +525,7 @@ void
 ShopManager::pack_client_item_shop_info(cli_shop_info_t &shop_info)
 {
 	shop_info.type = 3;
-	item_shop_xml_mgr.pack_item_shop_info(owner, shop_info.goods);
+	item_shop_xml_mgr->pack_item_shop_info(owner, shop_info.goods);
 }
 
 void
@@ -568,7 +569,7 @@ ShopManager::pack_client_shop_info(uint32_t type, cli_shop_info_t &shop_info)
 	}
 
 	uint32_t free_refresh_tms = calc_shop_free_refresh_tms(type);
-	uint32_t zero_tm = utils_mgr.get_next_day_zero_tm(p_info->refresh_tm);
+	uint32_t zero_tm = utils_mgr->get_next_day_zero_tm(p_info->refresh_tm);
 	uint32_t now_sec = get_now_tv()->tv_sec;
 	if (p_info->refresh_tm < zero_tm && now_sec >= zero_tm) {//每天零点刷新
 		refresh_shop(type, zero_tm);
@@ -584,7 +585,7 @@ ShopManager::pack_client_shop_info(uint32_t type, cli_shop_info_t &shop_info)
 	shop_info.left_refresh_tm = calc_shop_left_refresh_tm(type);
 	shop_info.free_tms = free_refresh_tms;
 	for (int i = 0; i < 6; i++) {
-		const goods_xml_info_t *p_xml_info = shop_xml_mgr.get_goods_xml_info(type, p_info->goods[i]);
+		const goods_xml_info_t *p_xml_info = shop_xml_mgr->get_goods_xml_info(type, p_info->goods[i]);
 		if (!p_xml_info) {
 			continue;
 		}

@@ -213,7 +213,7 @@ private:
 private:
 	SoldierXmlMap soldier_xml_map;
 };
-extern SoldierXmlManager soldier_xml_mgr;
+//extern SoldierXmlManager soldier_xml_mgr;
 
 /********************************************************************************/
 /*						SoldierRankXmlManager Class						*/
@@ -249,7 +249,7 @@ private:
 private:
 	SoldierRankXmlMap soldier_map;
 };
-extern SoldierRankXmlManager soldier_rank_xml_mgr;
+//extern SoldierRankXmlManager soldier_rank_xml_mgr;
 
 /********************************************************************************/
 /*							SoldierStarXmlManager Class							*/
@@ -285,7 +285,7 @@ private:
 private:
 	SoldierStarXmlMap soldier_map;
 };
-extern SoldierStarXmlManager soldier_star_xml_mgr;
+//extern SoldierStarXmlManager soldier_star_xml_mgr;
 
 /********************************************************************************/
 /*							SoldierTrainCostXmlManager Class					*/
@@ -310,7 +310,7 @@ private:
 private:
 	SoldierTrainCostXmlMap train_cost_map;
 };
-extern SoldierTrainCostXmlManager soldier_train_cost_xml_mgr;
+//extern SoldierTrainCostXmlManager soldier_train_cost_xml_mgr;
 
 /********************************************************************************/
 /*							SoldierLevelAttrXmlManager Class					*/
@@ -338,6 +338,6 @@ private:
 private:
 	SoldierLevelAttrXmlMap soldier_level_attr_xml_map;
 };
-extern SoldierLevelAttrXmlManager soldier_level_attr_xml_mgr;
+//extern SoldierLevelAttrXmlManager soldier_level_attr_xml_mgr;
 
 #endif //SOLDIER_HPP_

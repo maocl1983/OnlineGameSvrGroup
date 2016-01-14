@@ -19,6 +19,7 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "adventure.hpp"
 #include "player.hpp"
 #include "dbroute.hpp"
@@ -26,9 +27,9 @@
 using namespace std;
 using namespace project;
 
-AdventureXmlManager adventure_xml_mgr;
-AdventureSelectXmlManager adventure_select_xml_mgr;
-AdventureItemXmlManager adventure_item_xml_mgr;
+//AdventureXmlManager adventure_xml_mgr;
+//AdventureSelectXmlManager adventure_select_xml_mgr;
+//AdventureItemXmlManager adventure_item_xml_mgr;
 
 /********************************************************************************/
 /*						AdventureManager Class									*/
@@ -77,7 +78,7 @@ int
 AdventureManager::trigger_adventure()
 {
 	uint32_t type = (rand() % 100 < 80) ? 1 : 2;
-	uint32_t adventure_id = adventure_xml_mgr.random_one_adventure(type);
+	uint32_t adventure_id = adventure_xml_mgr->random_one_adventure(type);
 	if (adventure_id) {
 		add_adventure(adventure_id);
 	}
@@ -92,7 +93,7 @@ AdventureManager::del_expire_adventure()
 	AdventureMap::iterator it = adventure_map.begin();
 	while (it != adventure_map.end()) {
 		adventure_info_t *p_info = &(it++->second);
-		const adventure_xml_info_t *p_xml_info = adventure_xml_mgr.get_adventure_xml_info(p_info->adventure_id);
+		const adventure_xml_info_t *p_xml_info = adventure_xml_mgr->get_adventure_xml_info(p_info->adventure_id);
 		if (p_xml_info) {
 			if (p_info->time + p_xml_info->time < now_sec) {//expire
 				del_adventure(p_info->time);
@@ -106,11 +107,11 @@ AdventureManager::del_expire_adventure()
 int
 AdventureManager::add_adventure(uint32_t adventure_id)
 {
-	const adventure_xml_info_t *p_xml_info = adventure_xml_mgr.get_adventure_xml_info(adventure_id);
+	const adventure_xml_info_t *p_xml_info = adventure_xml_mgr->get_adventure_xml_info(adventure_id);
 	if (!p_xml_info) {
 		return 0;
 	}
-	const item_info_t *p_item_xml_info = adventure_item_xml_mgr.random_one_reward(p_xml_info->select_1);
+	const item_info_t *p_item_xml_info = adventure_item_xml_mgr->random_one_reward(p_xml_info->select_1);
 	if (!p_item_xml_info) {
 		return 0;
 	}
@@ -190,7 +191,7 @@ AdventureManager::complete_adventure(uint32_t time, uint32_t type)
 		return cli_adventure_not_exist_err;
 	}
 
-	const adventure_xml_info_t *p_xml_info = adventure_xml_mgr.get_adventure_xml_info(p_info->adventure_id);
+	const adventure_xml_info_t *p_xml_info = adventure_xml_mgr->get_adventure_xml_info(p_info->adventure_id);
 	if (!p_xml_info) {
 		T_KWARN_LOG(owner->user_id, "invalid adventure id\t[adventure_id=%u]", p_info->adventure_id);
 		return cli_invalid_adventure_id_err;
@@ -225,7 +226,7 @@ AdventureManager::complete_adventure(uint32_t time, uint32_t type)
 		select_id = p_xml_info->select_2;
 	}
 
-	const adventure_select_xml_info_t *p_xml_info_2 = adventure_select_xml_mgr.get_adventure_select_xml_info(select_id);
+	const adventure_select_xml_info_t *p_xml_info_2 = adventure_select_xml_mgr->get_adventure_select_xml_info(select_id);
 	if (!p_xml_info_2) {
 		T_KWARN_LOG(owner->user_id, "adventure select id not exist\t[adventure_id=%u, select_id=%u]", p_info->adventure_id, select_id);
 		return cli_invalid_adventure_select_id_err;
@@ -291,7 +292,7 @@ AdventureManager::pack_client_adventure_list(cli_get_adventure_list_out &out)
 	AdventureMap::iterator it = adventure_map.begin();
 	for (; it != adventure_map.end(); ++it) {
 		adventure_info_t *p_info = &(it->second);
-		const adventure_xml_info_t *p_xml_info = adventure_xml_mgr.get_adventure_xml_info(p_info->adventure_id);
+		const adventure_xml_info_t *p_xml_info = adventure_xml_mgr->get_adventure_xml_info(p_info->adventure_id);
 		if (!p_xml_info) {
 			continue;
 		}

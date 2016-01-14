@@ -28,7 +28,7 @@ struct alarm_proto_head_t {
 	uint8_t body[];		/* 包体 */
 };
 #pragma pack()
-extern int alarm_fd;
+//extern int alarm_fd;
 
 int connect_to_alarm();
 int connect_to_alarm_timely(void *owner, void *data);

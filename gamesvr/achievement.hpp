@@ -120,6 +120,6 @@ private:
 	AchievementXmlMap achievement_map;
 	AchievementTypeXmlMap achievement_type_map;
 };
-extern AchievementXmlManager achievement_xml_mgr;
+//extern AchievementXmlManager achievement_xml_mgr;
 
 #endif //ACHIEVEMENT_HPP_

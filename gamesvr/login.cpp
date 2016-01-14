@@ -21,6 +21,7 @@
 #include "./proto/account_db.hpp"
 #include "./proto/account_db_enum.hpp"
 
+#include "global_data.hpp"
 #include "login.hpp"
 #include "player.hpp"
 #include "dbroute.hpp"
@@ -71,7 +72,7 @@ int cli_proto_login(Player *p, Cmessage *c_in)
 	cli_proto_login_in * p_in = P_IN;
 
 	bool cache_flag = false;
-	Player *new_player = g_player_mgr.add_player(p_in->account_id, p->fdsess, &cache_flag);
+	Player *new_player = g_player_mgr->add_player(p_in->account_id, p->fdsess, &cache_flag);
 	new_player->wait_cmd = cli_proto_login_cmd;
 
 	/* TODO
@@ -86,7 +87,7 @@ int cli_proto_login(Player *p, Cmessage *c_in)
 
 	/*加入玩家信息*/
 	/*
-	Player* new_player = g_player_mgr.add_player(p->user_id, p->fdsess);
+	Player* new_player = g_player_mgr->add_player(p->user_id, p->fdsess);
 	new_player->wait_cmd = cli_proto_login_cmd;
 
 	if (cur_version != p_in->version) {
@@ -125,7 +126,7 @@ int db_get_player_login_info(Player *p, Cmessage *c_in, uint32_t ret)
 	}
 
 	db_get_player_login_info_out *p_in = P_IN;
-	g_player_mgr.init_player(p_in->user_id, p);
+	g_player_mgr->init_player(p_in->user_id, p);
 	p->init_player_login_info(p_in);
 
 	p->login_step++;

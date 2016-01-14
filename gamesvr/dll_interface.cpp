@@ -59,6 +59,95 @@ extern "C" {
 #include "trial_tower.hpp"
 #include "alarm.hpp"
 #include "lua_script_manage.hpp"
+#include "global_data.hpp"
+
+
+static void init_global_members()
+{
+	//ev_mgr = new EventMgr();
+	achievement_xml_mgr = new AchievementXmlManager();
+	adventure_xml_mgr = new AdventureXmlManager();
+	adventure_select_xml_mgr = new AdventureSelectXmlManager();
+	adventure_item_xml_mgr = new AdventureItemXmlManager();
+	arena_mgr = new ArenaManager();
+	arena_attr_xml_mgr = new ArenaAttrXmlManager();
+	arena_hero_xml_mgr = new ArenaHeroXmlManager();
+	arena_bonus_xml_mgr = new ArenaBonusXmlManager();
+	arena_level_attr_xml_mgr = new ArenaLevelAttrXmlManager();
+	g_battle_cache_map = new BattleCacheMap();
+	btl_soul_xml_mgr = new BtlSoulXmlManager();
+	btl_soul_level_xml_mgr = new BtlSoulLevelXmlManager();
+	divine_item_xml_mgr = new DivineItemXmlManager();
+	common_fight_xml_mgr = new CommonFightXmlManager();
+	common_fight_drop_xml_mgr = new CommonFightDropXmlManager();
+	equip_xml_mgr = new EquipmentXmlManager();
+	equip_refining_xml_mgr = new EquipRefiningXmlManager();
+	equip_compound_xml_mgr = new EquipCompoundXmlManager();
+	equip_level_xml_mgr = new EquipLevelXmlManager();
+	nick_xml_mgr = new NickXmlManager();
+	guild_mgr = new GuildManager();
+	hero_xml_mgr = new HeroXmlManager();
+	hero_rank_xml_mgr = new HeroRankXmlManager();
+	hero_rank_stuff_xml_mgr = new HeroRankStuffXmlManager();
+	hero_level_attr_xml_mgr = new HeroLevelAttrXmlManager();
+	level_xml_mgr = new LevelXmlManager();
+	hero_honor_xml_mgr = new HeroHonorXmlManager();
+	hero_honor_exp_xml_mgr = new HeroHonorExpXmlManager();
+	hero_title_xml_mgr = new HeroTitleXmlManager();
+	horse_attr_xml_mgr = new HorseAttrXmlManager();
+	horse_exp_xml_mgr = new HorseExpXmlManager();
+	horse_equip_xml_mgr = new HorseEquipXmlManager();
+	instance_xml_mgr = new InstanceXmlManager();
+	//troop_xml_mgr = new TroopXmlManager();
+	monster_xml_mgr = new MonsterXmlManager();
+	instance_drop_xml_mgr = new InstanceDropXmlManager();
+	instance_chapter_xml_mgr = new InstanceChapterXmlManager();
+	instance_bag_xml_mgr = new InstanceBagXmlManager();
+	internal_affairs_xml_mgr = new InternalAffairsXmlManager();
+	internal_affairs_reward_xml_mgr = new InternalAffairsRewardXmlManager();
+	internal_affairs_level_xml_mgr = new InternalAffairsLevelXmlManager();
+	items_xml_mgr = new ItemsXmlManager();
+	hero_rank_item_xml_mgr = new HeroRankItemXmlManager();
+	item_piece_xml_mgr = new ItemPieceXmlManager();
+	random_item_xml_mgr = new RandomItemXmlManager();
+	lua_script_mgr = new LuaScriptManage();
+	g_player_mgr = new PlayerManager();
+	role_skill_xml_mgr = new RoleSkillXmlManager();
+	redis_mgr = new Redis();
+	res_xml_mgr = new ResXmlManage();
+	shop_xml_mgr = new ShopXmlManager();
+	item_shop_xml_mgr = new ItemShopXmlManager();
+	skill_xml_mgr = new SkillXmlManager();
+	skill_effect_xml_mgr = new SkillEffectXmlManager();
+	skill_levelup_golds_xml_mgr = new SkillLevelupGoldsXmlManager();
+	soldier_xml_mgr = new SoldierXmlManager();
+	soldier_rank_xml_mgr = new SoldierRankXmlManager();
+	soldier_star_xml_mgr = new SoldierStarXmlManager();
+	soldier_train_cost_xml_mgr = new SoldierTrainCostXmlManager();
+	soldier_level_attr_xml_mgr = new SoldierLevelAttrXmlManager();
+	hero_talent_xml_mgr = new HeroTalentXmlManager();
+	soldier_talent_xml_mgr = new SoldierTalentXmlManager();
+	task_xml_mgr = new TaskXmlManager();
+	ten_even_draw_golds_xml_mgr = new TenEvenDrawGoldsXmlManager();
+	ten_even_draw_diamond_xml_mgr = new TenEvenDrawDiamondXmlManager();
+	ten_even_draw_diamond_special_xml_mgr = new TenEvenDrawDiamondSpecialXmlManager();
+	time_stamp_xml_info = new TimeStampXmlManage();
+	timer_mgr = new Timer(); 
+	treasure_attr_xml_mgr = new TreasureAttrXmlManager();
+	treasure_hero_xml_mgr = new TreasureHeroXmlManager();
+	treasure_reward_xml_mgr = new TreasureRewardXmlManager();
+	trial_tower_reward_xml_mgr = new TrialTowerRewardXmlManager();
+	vip_xml_mgr = new VipXmlManager();
+}
+
+static int init_proto_handle_funs()
+{
+	init_cli_handle_funs();
+	//init_switch_handle_funs();
+	init_db_handle_funs();
+	init_redis_handle_funs();
+	return 0;	
+}
 
 /**
   * @brief Initialize service
@@ -69,10 +158,12 @@ extern "C" int init_service(int isparent)
 	if (!isparent) {
 		KDEBUG_LOG(0, "\n====================== SERVER START ====================");
 
-		init_cli_handle_funs();
+		init_global_members();
+		//init_cli_handle_funs();
 		//init_switch_handle_funs();
-		init_db_handle_funs();
-		init_redis_handle_funs();
+		//init_db_handle_funs();
+		//init_redis_handle_funs();
+		init_proto_handle_funs();
 		
 		/*
 		init_btl_handle_funs();
@@ -81,75 +172,76 @@ extern "C" int init_service(int isparent)
 		g_announce.init_good_news_info();
 		*/
 
-		g_server_id = get_server_id();
-		setup_timer();
+		g_server_id = get_server_id() - 1;
+		setup_timer(&timers_list, tcfs, 1);
+		init_timer_callback_type();
 		struct timeval stv;
 		gettimeofday(&stv,NULL); 
 		srand(stv.tv_sec);
 
 		/*配置文件加载*/
-		if (hero_xml_mgr.read_from_xml("./conf/hero.xml") == -1 
-				|| hero_rank_xml_mgr.read_from_xml("./conf/hero_rank_attr.xml") == -1
-				|| hero_rank_stuff_xml_mgr.read_from_xml("./conf/hero_rank_stuff.xml") == -1
-				|| items_xml_mgr.read_from_xml("./conf/item.xml") == -1
-				|| hero_rank_item_xml_mgr.read_from_xml("./conf/hero_rank_item.xml") == -1
-				|| item_piece_xml_mgr.read_from_xml("./conf/item_piece.xml") == -1
-				|| random_item_xml_mgr.read_from_xml("./conf/random_item.xml") == -1
-				|| equip_xml_mgr.read_from_xml("./conf/equipment.xml") == -1
-				|| equip_refining_xml_mgr.read_from_xml("./conf/equip_refining.xml") == -1
-				|| equip_compound_xml_mgr.read_from_xml("./conf/equip_compound.xml") == -1
-				|| equip_level_xml_mgr.read_from_xml("./conf/equip_level.xml") == -1
-				|| hero_talent_xml_mgr.read_from_xml("./conf/hero_talent.xml") == -1
-				|| soldier_talent_xml_mgr.read_from_xml("./conf/soldier_talent.xml") == -1
-				|| skill_xml_mgr.read_from_xml("./conf/skill.xml") == -1
-				|| skill_effect_xml_mgr.read_from_xml("./conf/skill_effect.xml") == -1
-				|| skill_levelup_golds_xml_mgr.read_from_xml("./conf/skill_levelup_golds.xml") == -1
-				|| soldier_xml_mgr.read_from_xml("./conf/soldier.xml") == -1
-				|| soldier_rank_xml_mgr.read_from_xml("./conf/soldier_rank.xml") == -1
-				|| soldier_star_xml_mgr.read_from_xml("./conf/soldier_star.xml") == -1
-				|| soldier_train_cost_xml_mgr.read_from_xml("./conf/soldier_train_cost.xml") == -1
-				|| soldier_level_attr_xml_mgr.read_from_xml("./conf/soldier_level_attr.xml") == -1
-				|| instance_xml_mgr.read_from_xml("./conf/instance.xml") == -1
-				|| instance_drop_xml_mgr.read_from_xml("./conf/drop.xml") == -1
-				|| instance_chapter_xml_mgr.read_from_xml("./conf/instance_chapter.xml") == -1
-				|| instance_bag_xml_mgr.read_from_xml("./conf/instance_bag.xml") == -1
-				|| level_xml_mgr.read_from_xml("./conf/level.xml") == -1
-				|| hero_level_attr_xml_mgr.read_from_xml("./conf/hero_level_attr.xml") == -1
-				|| btl_soul_xml_mgr.read_from_xml("./conf/btl_soul.xml") == -1
-				|| btl_soul_level_xml_mgr.read_from_xml("./conf/btl_soul_level.xml") == -1
-				|| divine_item_xml_mgr.read_from_xml("./conf/divine_item.xml") == -1
-				|| ten_even_draw_golds_xml_mgr.read_from_xml("./conf/ten_draw_100.xml") == -1
-				|| ten_even_draw_diamond_xml_mgr.read_from_xml("./conf/ten_draw_280.xml") == -1
-				|| ten_even_draw_diamond_special_xml_mgr.read_from_xml("./conf/ten_draw_special.xml") == -1
-				|| hero_honor_xml_mgr.read_from_xml("./conf/honor_attr.xml") == -1
-				|| hero_honor_exp_xml_mgr.read_from_xml("./conf/honor_exp.xml") == -1
-				|| horse_attr_xml_mgr.read_from_xml("./conf/horse_attr.xml") == -1
-				|| horse_exp_xml_mgr.read_from_xml("./conf/horse_exp.xml") == -1
-				|| horse_equip_xml_mgr.read_from_xml("./conf/horse_equip.xml") == -1
-				|| arena_attr_xml_mgr.read_from_xml("./conf/arena_attr.xml") == -1
-				|| arena_hero_xml_mgr.read_from_xml("./conf/arena_hero.xml") == -1
-				|| arena_bonus_xml_mgr.read_from_xml("./conf/arena_bonus.xml") == -1
-				|| arena_level_attr_xml_mgr.read_from_xml("./conf/arena_level_attr.xml") == -1
-				|| treasure_attr_xml_mgr.read_from_xml("./conf/treasure_attr.xml") == -1
-				|| treasure_hero_xml_mgr.read_from_xml("./conf/treasure_hero.xml") == -1
-				|| treasure_reward_xml_mgr.read_from_xml("./conf/treasure_reward.xml") == -1
-				|| task_xml_mgr.read_from_xml("./conf/task.xml") == -1
-				|| shop_xml_mgr.read_from_xml("./conf/shop.xml") == -1
-				|| hero_title_xml_mgr.read_from_xml("./conf/hero_title.xml") == -1
-				|| adventure_xml_mgr.read_from_xml("./conf/adventure.xml") == -1
-				|| adventure_select_xml_mgr.read_from_xml("./conf/adventure_select.xml") == -1
-				|| adventure_item_xml_mgr.read_from_xml("./conf/adventure_item.xml") == -1
-				|| nick_xml_mgr.read_from_xml("./conf/nick.xml") == -1
-				|| achievement_xml_mgr.read_from_xml("./conf/achievement.xml") == -1
-				|| internal_affairs_xml_mgr.read_from_xml("./conf/affairs.xml") == -1
-				|| internal_affairs_reward_xml_mgr.read_from_xml("./conf/affairs_reward.xml") == -1
-				|| internal_affairs_level_xml_mgr.read_from_xml("./conf/affairs_level.xml") == -1
-				|| common_fight_xml_mgr.read_from_xml("./conf/common_fight.xml") == -1
-				|| common_fight_drop_xml_mgr.read_from_xml("./conf/common_fight_drop.xml") == -1
-				|| item_shop_xml_mgr.read_from_xml("./conf/item_shop.xml") == -1
-				|| role_skill_xml_mgr.read_from_xml("./conf/role_skill.xml") == -1
-				|| vip_xml_mgr.read_from_xml("./conf/vip.xml") == -1
-				|| trial_tower_reward_xml_mgr.read_from_xml("./conf/trial_tower_reward.xml") == -1
+		if (hero_xml_mgr->read_from_xml("./conf/hero.xml") == -1 
+				|| hero_rank_xml_mgr->read_from_xml("./conf/hero_rank_attr.xml") == -1
+				|| hero_rank_stuff_xml_mgr->read_from_xml("./conf/hero_rank_stuff.xml") == -1
+				|| items_xml_mgr->read_from_xml("./conf/item.xml") == -1
+				|| hero_rank_item_xml_mgr->read_from_xml("./conf/hero_rank_item.xml") == -1
+				|| item_piece_xml_mgr->read_from_xml("./conf/item_piece.xml") == -1
+				|| random_item_xml_mgr->read_from_xml("./conf/random_item.xml") == -1
+				|| equip_xml_mgr->read_from_xml("./conf/equipment.xml") == -1
+				|| equip_refining_xml_mgr->read_from_xml("./conf/equip_refining.xml") == -1
+				|| equip_compound_xml_mgr->read_from_xml("./conf/equip_compound.xml") == -1
+				|| equip_level_xml_mgr->read_from_xml("./conf/equip_level.xml") == -1
+				|| hero_talent_xml_mgr->read_from_xml("./conf/hero_talent.xml") == -1
+				|| soldier_talent_xml_mgr->read_from_xml("./conf/soldier_talent.xml") == -1
+				|| skill_xml_mgr->read_from_xml("./conf/skill.xml") == -1
+				|| skill_effect_xml_mgr->read_from_xml("./conf/skill_effect.xml") == -1
+				|| skill_levelup_golds_xml_mgr->read_from_xml("./conf/skill_levelup_golds.xml") == -1
+				|| soldier_xml_mgr->read_from_xml("./conf/soldier.xml") == -1
+				|| soldier_rank_xml_mgr->read_from_xml("./conf/soldier_rank.xml") == -1
+				|| soldier_star_xml_mgr->read_from_xml("./conf/soldier_star.xml") == -1
+				|| soldier_train_cost_xml_mgr->read_from_xml("./conf/soldier_train_cost.xml") == -1
+				|| soldier_level_attr_xml_mgr->read_from_xml("./conf/soldier_level_attr.xml") == -1
+				|| instance_xml_mgr->read_from_xml("./conf/instance.xml") == -1
+				|| instance_drop_xml_mgr->read_from_xml("./conf/drop.xml") == -1
+				|| instance_chapter_xml_mgr->read_from_xml("./conf/instance_chapter.xml") == -1
+				|| instance_bag_xml_mgr->read_from_xml("./conf/instance_bag.xml") == -1
+				|| level_xml_mgr->read_from_xml("./conf/level.xml") == -1
+				|| hero_level_attr_xml_mgr->read_from_xml("./conf/hero_level_attr.xml") == -1
+				|| btl_soul_xml_mgr->read_from_xml("./conf/btl_soul.xml") == -1
+				|| btl_soul_level_xml_mgr->read_from_xml("./conf/btl_soul_level.xml") == -1
+				|| divine_item_xml_mgr->read_from_xml("./conf/divine_item.xml") == -1
+				|| ten_even_draw_golds_xml_mgr->read_from_xml("./conf/ten_draw_100.xml") == -1
+				|| ten_even_draw_diamond_xml_mgr->read_from_xml("./conf/ten_draw_280.xml") == -1
+				|| ten_even_draw_diamond_special_xml_mgr->read_from_xml("./conf/ten_draw_special.xml") == -1
+				|| hero_honor_xml_mgr->read_from_xml("./conf/honor_attr.xml") == -1
+				|| hero_honor_exp_xml_mgr->read_from_xml("./conf/honor_exp.xml") == -1
+				|| horse_attr_xml_mgr->read_from_xml("./conf/horse_attr.xml") == -1
+				|| horse_exp_xml_mgr->read_from_xml("./conf/horse_exp.xml") == -1
+				|| horse_equip_xml_mgr->read_from_xml("./conf/horse_equip.xml") == -1
+				|| arena_attr_xml_mgr->read_from_xml("./conf/arena_attr.xml") == -1
+				|| arena_hero_xml_mgr->read_from_xml("./conf/arena_hero.xml") == -1
+				|| arena_bonus_xml_mgr->read_from_xml("./conf/arena_bonus.xml") == -1
+				|| arena_level_attr_xml_mgr->read_from_xml("./conf/arena_level_attr.xml") == -1
+				|| treasure_attr_xml_mgr->read_from_xml("./conf/treasure_attr.xml") == -1
+				|| treasure_hero_xml_mgr->read_from_xml("./conf/treasure_hero.xml") == -1
+				|| treasure_reward_xml_mgr->read_from_xml("./conf/treasure_reward.xml") == -1
+				|| task_xml_mgr->read_from_xml("./conf/task.xml") == -1
+				|| shop_xml_mgr->read_from_xml("./conf/shop.xml") == -1
+				|| hero_title_xml_mgr->read_from_xml("./conf/hero_title.xml") == -1
+				|| adventure_xml_mgr->read_from_xml("./conf/adventure.xml") == -1
+				|| adventure_select_xml_mgr->read_from_xml("./conf/adventure_select.xml") == -1
+				|| adventure_item_xml_mgr->read_from_xml("./conf/adventure_item.xml") == -1
+				|| nick_xml_mgr->read_from_xml("./conf/nick.xml") == -1
+				|| achievement_xml_mgr->read_from_xml("./conf/achievement.xml") == -1
+				|| internal_affairs_xml_mgr->read_from_xml("./conf/affairs.xml") == -1
+				|| internal_affairs_reward_xml_mgr->read_from_xml("./conf/affairs_reward.xml") == -1
+				|| internal_affairs_level_xml_mgr->read_from_xml("./conf/affairs_level.xml") == -1
+				|| common_fight_xml_mgr->read_from_xml("./conf/common_fight.xml") == -1
+				|| common_fight_drop_xml_mgr->read_from_xml("./conf/common_fight_drop.xml") == -1
+				|| item_shop_xml_mgr->read_from_xml("./conf/item_shop.xml") == -1
+				|| role_skill_xml_mgr->read_from_xml("./conf/role_skill.xml") == -1
+				|| vip_xml_mgr->read_from_xml("./conf/vip.xml") == -1
+				|| trial_tower_reward_xml_mgr->read_from_xml("./conf/trial_tower_reward.xml") == -1
 				) {
 			return -1;
 		}
@@ -170,16 +262,14 @@ extern "C" int init_service(int isparent)
 
 		//统计线程
 		init_stat_log_list();
-		pthread_t stat_tid;
 		pthread_create(&stat_tid, 0, &write_stat_log, 0);
 
 		//日志线程
 		init_log_thread_list();
-		pthread_t log_tid;
 		pthread_create(&log_tid, 0, &write_log_thread, 0);
 
 		//加载lua脚本
-		lua_script_mgr.LoadLuaFile("./lualib/");
+		lua_script_mgr->LoadLuaFile("./lualib/");
 	} else {
 	
 	}
@@ -205,7 +295,7 @@ extern "C" int fini_service(int isparent)
 extern "C" void proc_events()
 {
 	handle_timer();
-	wheel_update_timer();
+	//wheel_update_timer();
 	//ev_mgr.process_events();
 }
 
@@ -295,9 +385,9 @@ extern "C" void proc_pkg_from_serv(int fd, void* data, int len)
   */
 extern "C" void on_client_conn_closed(int fd)
 {
-	Player *p = g_player_mgr.get_player_by_fd(fd);
+	Player *p = g_player_mgr->get_player_by_fd(fd);
 	if (p && p->fdsess->fd == fd) {
-		g_player_mgr.del_player(p);
+		g_player_mgr->del_player(p);
 	}
 
 }
@@ -343,10 +433,34 @@ extern "C" void proc_mcast_pkg(const void* data, int len)
 extern "C" void proc_udp_pkg(int fd, const void* avail_data, int avail_len, struct sockaddr_in *from, socklen_t fromlen)
 {
 	const char *data_str = (char*)avail_data;
+	DEBUG_LOG("recv udp data addr[%d %d %d]", from->sin_family, from->sin_port, from->sin_addr.s_addr);
 	DEBUG_LOG("recv udp data len=%d str=%.*s", avail_len, avail_len, data_str);
 	sendto(fd, data_str, avail_len, 0, (struct sockaddr*)from, sizeof(*from));
 }
 
+extern "C" void before_global_reload()
+{
+	if (stat_tid && pthread_cancel(stat_tid) == 0) {
+		DEBUG_LOG("cancel stat log pthread!");
+	}
+	if (log_tid && pthread_cancel(log_tid) == 0) {
+		DEBUG_LOG("cancel log log pthread!");
+	}
+	DEBUG_LOG("before global reload");
+}
+
+extern "C" void reload_global_data()
+{
+	init_proto_handle_funs();
+
+	setup_timer(&timers_list, tcfs, 0);
+	init_timer_callback_type();
+	refresh_timers_callback();
+
+	pthread_create(&stat_tid, 0, &write_stat_log, 0);
+	pthread_create(&log_tid, 0, &write_log_thread, 0);
+	DEBUG_LOG("reload global data");
+}
 
 
 

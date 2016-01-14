@@ -18,6 +18,7 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "equipment.hpp"
 #include "player.hpp"
 #include "dbroute.hpp"
@@ -26,10 +27,10 @@
 using namespace project;
 using namespace std;
 
-EquipmentXmlManager equip_xml_mgr;
-EquipRefiningXmlManager equip_refining_xml_mgr;
-EquipCompoundXmlManager equip_compound_xml_mgr;
-EquipLevelXmlManager equip_level_xml_mgr;
+//EquipmentXmlManager equip_xml_mgr;
+//EquipRefiningXmlManager equip_refining_xml_mgr;
+//EquipCompoundXmlManager equip_compound_xml_mgr;
+//EquipLevelXmlManager equip_level_xml_mgr;
 
 /********************************************************************************/
 /*								Equipment Class									*/
@@ -53,7 +54,7 @@ Equipment::~Equipment()
 int
 Equipment::calc_equip_max_lv()
 {
-	const level_xml_info_t *p_info = level_xml_mgr.get_level_xml_info(owner->lv);
+	const level_xml_info_t *p_info = level_xml_mgr->get_level_xml_info(owner->lv);
 	if (p_info) {
 		return p_info->equip_max_lv;
 	}
@@ -127,7 +128,7 @@ Equipment::get_level_up_exp(uint32_t lv)
 	if (!base_info || !base_info->rank || base_info->rank > 5) {
 		return -1;
 	}
-	const equip_level_xml_info_t *p_xml_info = equip_level_xml_mgr.get_equip_level_xml_info(lv + 1);
+	const equip_level_xml_info_t *p_xml_info = equip_level_xml_mgr->get_equip_level_xml_info(lv + 1);
 	if (p_xml_info) {
 		return p_xml_info->rank_exp[base_info->rank - 1];
 	}
@@ -178,7 +179,7 @@ Equipment::calc_equip_total_exp()
 	}
 	uint32_t total_exp = 0;
 	for (uint32_t i = 0; i <= lv; i++) {
-		const equip_level_xml_info_t *p_xml_info = equip_level_xml_mgr.get_equip_level_xml_info(lv + 1);
+		const equip_level_xml_info_t *p_xml_info = equip_level_xml_mgr->get_equip_level_xml_info(lv + 1);
 		if (p_xml_info) {
 			total_exp += p_xml_info->rank_exp[base_info->rank - 1];
 		}
@@ -196,7 +197,7 @@ Equipment::strength_equipment(vector<cli_item_info_t>& irons, vector<uint32_t>& 
 	uint32_t add_exp = 0;
 	for (uint32_t i = 0; i < irons.size(); i++) {
 		cli_item_info_t *p_item_info = &(irons[i]);
-		const item_xml_info_t *p_info = items_xml_mgr.get_item_xml_info(p_item_info->item_id);
+		const item_xml_info_t *p_info = items_xml_mgr->get_item_xml_info(p_item_info->item_id);
 		if (!p_info) {
 			T_KWARN_LOG(owner->user_id, "invalid item id\t[item_id=%u]", p_item_info->item_id);
 			return cli_invalid_item_err;
@@ -275,7 +276,7 @@ Equipment::refining_equipment()
 	}
 
 	uint32_t item_cnt = owner->items_mgr->get_item_cnt(120000);
-	const equip_refining_sub_xml_info_t *p_info = equip_refining_xml_mgr.get_equip_refining_xml_info(this->id, this->refining_lv + 1);
+	const equip_refining_sub_xml_info_t *p_info = equip_refining_xml_mgr->get_equip_refining_xml_info(this->id, this->refining_lv + 1);
 	if (!p_info) {
 		T_KWARN_LOG(owner->user_id, "cannot refining equipment\t[equip_id=%u, refining_lv=%u]", this->id, this->refining_lv + 1);
 		return cli_equip_cannot_refining_err;
@@ -324,7 +325,7 @@ Equipment::check_is_have_same_type_gem(uint32_t type)
 {
 	for (int i = 0; i < 3; i++) {
 		if (gem[i]) {
-			const item_xml_info_t *p_xml_info = items_xml_mgr.get_item_xml_info(gem[i]);
+			const item_xml_info_t *p_xml_info = items_xml_mgr->get_item_xml_info(gem[i]);
 			if (p_xml_info && p_xml_info->type == type) {
 				return true;
 			}
@@ -351,7 +352,7 @@ Equipment::inlaid_gem(uint32_t gem_id, uint32_t pos)
 		return cli_equip_pos_already_inlaid_gem_err;
 	}
 
-	const item_xml_info_t *p_info = items_xml_mgr.get_item_xml_info(gem_id);
+	const item_xml_info_t *p_info = items_xml_mgr->get_item_xml_info(gem_id);
 	if (!p_info) {
 		T_KWARN_LOG(owner->user_id, "invalid gem id\t[gem_id=%u]", gem_id);
 		return cli_invalid_item_err;
@@ -440,7 +441,7 @@ Equipment::calc_equip_gem_attr(hero_attr_info_t &info)
 {
 	for (int i = 0; i < 3; i++) {
 		if (gem[i]) {
-			const item_xml_info_t *p_info = items_xml_mgr.get_item_xml_info(gem[i]);
+			const item_xml_info_t *p_info = items_xml_mgr->get_item_xml_info(gem[i]);
 			if (p_info) {
 				switch (p_info->type) {
 					case em_item_type_for_hero_maxhp:
@@ -490,7 +491,7 @@ EquipmentManager::init_equips_info(db_get_player_items_info_out *p_out)
 {
 	for (uint32_t i = 0; i < p_out->equips.size(); i++) {
 		db_equip_info_t *p_info = &(p_out->equips[i]);
-		const equip_xml_info_t *p_base_info = equip_xml_mgr.get_equip_xml_info(p_info->equip_id);
+		const equip_xml_info_t *p_base_info = equip_xml_mgr->get_equip_xml_info(p_info->equip_id);
 		if (p_base_info) {
 			Equipment *p_equip = new Equipment(owner, p_base_info->id);
 			p_equip->get_tm = p_info->get_tm;
@@ -549,7 +550,7 @@ EquipmentManager::init_heros_equip_info()
 int
 EquipmentManager::add_one_equip(uint32_t equip_id)
 {
-	const equip_xml_info_t *p_info = equip_xml_mgr.get_equip_xml_info(equip_id);
+	const equip_xml_info_t *p_info = equip_xml_mgr->get_equip_xml_info(equip_id);
 	if (!p_info) {
 		KERROR_LOG(owner->user_id, "invalid equip id\t[equip_id=%u]", equip_id);
 		return -1;
@@ -634,13 +635,13 @@ EquipmentManager::del_equip(uint32_t get_tm)
 int
 EquipmentManager::compound_equipment(uint32_t equip_id, vector<uint32_t> &pieces)
 {
-	const equip_xml_info_t *p_xml_info = equip_xml_mgr.get_equip_xml_info(equip_id);
+	const equip_xml_info_t *p_xml_info = equip_xml_mgr->get_equip_xml_info(equip_id);
 	if (!p_xml_info) {
 		T_KWARN_LOG(owner->user_id, "invalid equip id\t[equip_id=%u]", equip_id);
 		return cli_invalid_equip_err;
 	}
 
-	const equip_compound_xml_info_t *p_compound_xml_info = equip_compound_xml_mgr.get_equip_compound_xml_info(equip_id);
+	const equip_compound_xml_info_t *p_compound_xml_info = equip_compound_xml_mgr->get_equip_compound_xml_info(equip_id);
 	if (!p_compound_xml_info) {
 		T_KWARN_LOG(owner->user_id, "invalid compound equip id\t[equip_id=%u]", equip_id);
 		return cli_invalid_compound_equip_err;
@@ -683,7 +684,7 @@ EquipmentManager::compound_equipment(uint32_t equip_id, vector<uint32_t> &pieces
 bool 
 EquipmentManager::check_is_valid_gem(uint32_t gem_id)
 {
-	const item_xml_info_t *p_xml_info = items_xml_mgr.get_item_xml_info(gem_id);
+	const item_xml_info_t *p_xml_info = items_xml_mgr->get_item_xml_info(gem_id);
 	if (!p_xml_info) {
 		return false;
 	}
@@ -703,7 +704,7 @@ EquipmentManager::compound_gem(uint32_t gem_id, uint32_t gem_cnt, uint32_t &new_
 		return cli_compund_gem_cnt_err;
 	}
 
-	const item_xml_info_t *p_xml_info = items_xml_mgr.get_item_xml_info(gem_id);
+	const item_xml_info_t *p_xml_info = items_xml_mgr->get_item_xml_info(gem_id);
 	if (!p_xml_info) {
 		T_KWARN_LOG(owner->user_id, "compound gem invalid item\t[gem_id=%u]", gem_id);
 		return cli_invalid_item_err;

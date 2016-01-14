@@ -160,7 +160,7 @@ private:
 private:
 	InstanceXmlMap instance_xml_map;
 };
-extern InstanceXmlManager instance_xml_mgr;
+//extern InstanceXmlManager instance_xml_mgr;
 
 /********************************************************************************/
 /*							TroopXmlManager Class								*/
@@ -195,7 +195,7 @@ private:
 private:
 	TroopXmlMap troop_xml_map;
 };
-extern TroopXmlManager troop_xml_mgr;
+//extern TroopXmlManager troop_xml_mgr;
 
 /********************************************************************************/
 /*							MonsterXmlManager Class								*/
@@ -235,7 +235,7 @@ private:
 private:
 	MonsterXmlMap monster_xml_map;
 };
-extern MonsterXmlManager monster_xml_mgr;
+//extern MonsterXmlManager monster_xml_mgr;
 
 /********************************************************************************/
 /*							InstanceDropXmlManager Class						*/
@@ -278,7 +278,7 @@ private:
 private:
 	InstanceDropXmlMap instance_drop_xml_map;
 };
-extern InstanceDropXmlManager instance_drop_xml_mgr;
+//extern InstanceDropXmlManager instance_drop_xml_mgr;
 
 
 /********************************************************************************/
@@ -304,7 +304,7 @@ private:
 private:
 	InstanceChapterXmlMap instance_chapter_xml_map;
 };
-extern InstanceChapterXmlManager instance_chapter_xml_mgr;
+//extern InstanceChapterXmlManager instance_chapter_xml_mgr;
 
 
 /********************************************************************************/
@@ -333,7 +333,7 @@ private:
 private:
 	InstanceBagXmlMap instance_bag_xml_map;
 };
-extern InstanceBagXmlManager instance_bag_xml_mgr;
+//extern InstanceBagXmlManager instance_bag_xml_mgr;
 
 
 #endif //INSTANCE_HPP_

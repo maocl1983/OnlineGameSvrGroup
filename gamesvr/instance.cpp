@@ -19,6 +19,7 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "instance.hpp"
 #include "player.hpp"
 #include "dbroute.hpp"
@@ -26,11 +27,11 @@
 using namespace std;
 using namespace project;
 
-InstanceXmlManager instance_xml_mgr;
-MonsterXmlManager monster_xml_mgr;
-InstanceDropXmlManager instance_drop_xml_mgr;
-InstanceChapterXmlManager instance_chapter_xml_mgr;
-InstanceBagXmlManager instance_bag_xml_mgr;
+//InstanceXmlManager instance_xml_mgr;
+//MonsterXmlManager monster_xml_mgr;
+//InstanceDropXmlManager instance_drop_xml_mgr;
+//InstanceChapterXmlManager instance_chapter_xml_mgr;
+//InstanceBagXmlManager instance_bag_xml_mgr;
 
 /********************************************************************************/
 /*						InstanceManager Class									*/
@@ -151,12 +152,12 @@ InstanceManager::gen_first_rewards(uint32_t instance_id)
 		return -1;
 	}
 
-	const instance_xml_info_t *p_xml_info = instance_xml_mgr.get_instance_xml_info(instance_id);
+	const instance_xml_info_t *p_xml_info = instance_xml_mgr->get_instance_xml_info(instance_id);
 	if (!p_xml_info) {
 		return -1;
 	}
 
-	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr.get_instance_drop_xml_info(p_xml_info->drop_id);
+	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr->get_instance_drop_xml_info(p_xml_info->drop_id);
 	if (!p_drop_xml_info) {
 		return -1;
 	}
@@ -178,11 +179,11 @@ int
 InstanceManager::gen_random_rewards(uint32_t instance_id)
 {
 	random_rewards.clear();
-	const instance_xml_info_t *p_xml_info = instance_xml_mgr.get_instance_xml_info(instance_id);
+	const instance_xml_info_t *p_xml_info = instance_xml_mgr->get_instance_xml_info(instance_id);
 	if (!p_xml_info) {
 		return -1;
 	}
-	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr.get_instance_drop_xml_info(p_xml_info->drop_id);
+	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr->get_instance_drop_xml_info(p_xml_info->drop_id);
 	if (!p_drop_xml_info) {
 		return -1;
 	}
@@ -299,7 +300,7 @@ InstanceManager::get_chapter_info(uint32_t chapter_id)
 bool 
 InstanceManager::check_chapter_is_completed(uint32_t chapter_id)
 {
-	uint32_t last_instance_id = instance_xml_mgr.get_chapter_last_instance_id(chapter_id);
+	uint32_t last_instance_id = instance_xml_mgr->get_chapter_last_instance_id(chapter_id);
 	if (last_instance_id) {
 		const instance_cache_info_t *p_info = this->get_instance_cache_info(last_instance_id);
 		if (p_info) {
@@ -342,11 +343,11 @@ InstanceManager::update_instance_chapter_info(uint32_t instance_id)
 	cli_instance_chapter_info_change_noti_out noti_out;
 	noti_out.chapter_info.chapter_id = chapter_id;
 	noti_out.chapter_info.star = p_info->star;
-	const instance_chapter_xml_info_t *p_chapter_xml_info = instance_chapter_xml_mgr.get_instance_chapter_xml_info(chapter_id);
+	const instance_chapter_xml_info_t *p_chapter_xml_info = instance_chapter_xml_mgr->get_instance_chapter_xml_info(chapter_id);
 	if (p_chapter_xml_info) {
 		for (int i = 0 ; i < 3; i++) {
 			uint32_t bag_id = p_chapter_xml_info->bag[i];
-			const instance_bag_xml_info_t *p_bag_xml_info = instance_bag_xml_mgr.get_instance_bag_xml_info(bag_id);
+			const instance_bag_xml_info_t *p_bag_xml_info = instance_bag_xml_mgr->get_instance_bag_xml_info(bag_id);
 			if (p_bag_xml_info) {
 				cli_chapter_bag_info_t bag_info;
 				bag_info.bag_id = bag_id;
@@ -397,7 +398,7 @@ InstanceManager::get_chapter_bag_reward(uint32_t chapter_id, uint32_t bag_id)
 		return cli_instance_chapter_not_reach_err;
 	}
 
-	const instance_chapter_xml_info_t *p_chapter_xml_info = instance_chapter_xml_mgr.get_instance_chapter_xml_info(chapter_id);
+	const instance_chapter_xml_info_t *p_chapter_xml_info = instance_chapter_xml_mgr->get_instance_chapter_xml_info(chapter_id);
 	if (!p_chapter_xml_info) {
 		T_KWARN_LOG(owner->user_id, "get chapter bag reward err, chapter config not exists\t[chapter_id=%u]", chapter_id);
 		return cli_instance_chapter_config_not_exist_err;
@@ -414,7 +415,7 @@ InstanceManager::get_chapter_bag_reward(uint32_t chapter_id, uint32_t bag_id)
 		return cli_instance_chapter_bag_id_not_exist_err;
 	}
 
-	const instance_bag_xml_info_t *p_bag_xml_info = instance_bag_xml_mgr.get_instance_bag_xml_info(bag_id);
+	const instance_bag_xml_info_t *p_bag_xml_info = instance_bag_xml_mgr->get_instance_bag_xml_info(bag_id);
 	if (!p_bag_xml_info) {
 		T_KWARN_LOG(owner->user_id, "get chapter bag reward err, chapter bag id config not exists\t[chapter_id=%u, bag_id=%u]", chapter_id, bag_id);
 		return cli_instance_chapter_bag_id_config_not_exist_err;
@@ -462,7 +463,7 @@ InstanceManager::get_chapter_bag_reward(uint32_t chapter_id, uint32_t bag_id)
 int
 InstanceManager::get_instance_battle_left_tms(uint32_t instance_id)
 {
-	const instance_xml_info_t *p_xml_info = instance_xml_mgr.get_instance_xml_info(instance_id);
+	const instance_xml_info_t *p_xml_info = instance_xml_mgr->get_instance_xml_info(instance_id);
 	if (!p_xml_info) {
 		return 0;
 	}
@@ -494,7 +495,7 @@ InstanceManager::get_instance_battle_left_tms(uint32_t instance_id)
 int
 InstanceManager::check_instance_battle(uint32_t instance_id)
 {
-	const instance_xml_info_t *p_xml_info = instance_xml_mgr.get_instance_xml_info(instance_id);
+	const instance_xml_info_t *p_xml_info = instance_xml_mgr->get_instance_xml_info(instance_id);
 	if (!p_xml_info) {
 		T_KWARN_LOG(owner->user_id, "invalid instance id, id=%u", instance_id);
 		return cli_invalid_instance_id_err;
@@ -531,7 +532,7 @@ bool
 InstanceManager::check_instance_battle_is_win(uint32_t instance_id, uint32_t time, uint32_t win, uint32_t lose)
 {
 	return win ? true : false;
-	const instance_xml_info_t *p_xml_info = instance_xml_mgr.get_instance_xml_info(instance_id);
+	const instance_xml_info_t *p_xml_info = instance_xml_mgr->get_instance_xml_info(instance_id);
 	if (!p_xml_info) {
 		return false;
 	}
@@ -639,7 +640,7 @@ InstanceManager::pack_instance_rewards_info(std::vector<cli_item_info_t> &items)
 int
 InstanceManager::give_instance_battle_role_reward(uint32_t instance_id, cli_instance_battle_end_out& cli_out)
 {
-	const instance_xml_info_t *p_xml_info = instance_xml_mgr.get_instance_xml_info(instance_id);
+	const instance_xml_info_t *p_xml_info = instance_xml_mgr->get_instance_xml_info(instance_id);
 	if (!p_xml_info) {
 		return -1;
 	}
@@ -668,11 +669,11 @@ InstanceManager::give_instance_battle_role_reward(uint32_t instance_id, cli_inst
 int
 InstanceManager::give_instance_battle_heros_reward(uint32_t instance_id, uint32_t kill_hero_id, cli_instance_battle_end_out& cli_out)
 {
-	const instance_xml_info_t *p_xml_info = instance_xml_mgr.get_instance_xml_info(instance_id);
+	const instance_xml_info_t *p_xml_info = instance_xml_mgr->get_instance_xml_info(instance_id);
 	if (!p_xml_info) {
 		return -1;
 	}
-	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr.get_instance_drop_xml_info(p_xml_info->drop_id);
+	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr->get_instance_drop_xml_info(p_xml_info->drop_id);
 	if (!p_drop_xml_info) {
 		return -1;
 	}
@@ -727,11 +728,11 @@ InstanceManager::give_instance_battle_heros_reward(uint32_t instance_id, uint32_
 int
 InstanceManager::give_instance_battle_soldiers_reward(uint32_t instance_id, cli_instance_battle_end_out& cli_out)
 {
-	const instance_xml_info_t *p_xml_info = instance_xml_mgr.get_instance_xml_info(instance_id);
+	const instance_xml_info_t *p_xml_info = instance_xml_mgr->get_instance_xml_info(instance_id);
 	if (!p_xml_info) {
 		return -1;
 	}
-	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr.get_instance_drop_xml_info(p_xml_info->drop_id);
+	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr->get_instance_drop_xml_info(p_xml_info->drop_id);
 	if (!p_drop_xml_info) {
 		return -1;
 	}
@@ -776,12 +777,12 @@ InstanceManager::give_instance_battle_first_reward(uint32_t instance_id, cli_ins
 		return -1;
 	}
 
-	const instance_xml_info_t *p_xml_info = instance_xml_mgr.get_instance_xml_info(instance_id);
+	const instance_xml_info_t *p_xml_info = instance_xml_mgr->get_instance_xml_info(instance_id);
 	if (!p_xml_info) {
 		return -1;
 	}
 
-	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr.get_instance_drop_xml_info(p_xml_info->drop_id);
+	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr->get_instance_drop_xml_info(p_xml_info->drop_id);
 	if (!p_drop_xml_info) {
 		return -1;
 	}
@@ -814,7 +815,7 @@ InstanceManager::give_instance_battle_first_reward(uint32_t instance_id, cli_ins
 int
 InstanceManager::give_instance_battle_random_reward(uint32_t drop_id, cli_instance_battle_end_out& cli_out)
 {
-	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr.get_instance_drop_xml_info(drop_id);
+	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr->get_instance_drop_xml_info(drop_id);
 	if (!p_drop_xml_info) {
 		return -1;
 	}
@@ -839,7 +840,7 @@ InstanceManager::give_instance_battle_random_reward(uint32_t drop_id, cli_instan
 int
 InstanceManager::update_instance_db_info(uint32_t instance_id)
 {
-	const instance_xml_info_t *p_xml_info = instance_xml_mgr.get_instance_xml_info(instance_id);
+	const instance_xml_info_t *p_xml_info = instance_xml_mgr->get_instance_xml_info(instance_id);
 	if (!p_xml_info) {
 		return -1;
 	}
@@ -867,12 +868,12 @@ InstanceManager::update_instance_db_info(uint32_t instance_id)
 int
 InstanceManager::give_instance_battle_reward(uint32_t instance_id, uint32_t kill_hero_id, cli_instance_battle_end_out& cli_out)
 {
-	const instance_xml_info_t *p_xml_info = instance_xml_mgr.get_instance_xml_info(instance_id);
+	const instance_xml_info_t *p_xml_info = instance_xml_mgr->get_instance_xml_info(instance_id);
 	if (!p_xml_info) {
 		return -1;
 	}
 
-	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr.get_instance_drop_xml_info(p_xml_info->drop_id);
+	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr->get_instance_drop_xml_info(p_xml_info->drop_id);
 	if (!p_drop_xml_info) {
 		return -1;
 	}
@@ -910,11 +911,11 @@ InstanceManager::give_instance_battle_reward(uint32_t instance_id, uint32_t kill
 int
 InstanceManager::send_instance_clean_up_reward(uint32_t instance_id)
 {
-	const instance_xml_info_t *p_xml_info = instance_xml_mgr.get_instance_xml_info(instance_id);
+	const instance_xml_info_t *p_xml_info = instance_xml_mgr->get_instance_xml_info(instance_id);
 	if (!p_xml_info) {
 		return -1;
 	}
-	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr.get_instance_drop_xml_info(p_xml_info->drop_id);
+	const instance_drop_xml_info_t * p_drop_xml_info = instance_drop_xml_mgr->get_instance_drop_xml_info(p_xml_info->drop_id);
 	if (!p_drop_xml_info) {
 		return -1;
 	}
@@ -948,7 +949,7 @@ InstanceManager::instance_clean_up(uint32_t instance_id)
 	if (ret) {
 		return ret;
 	}
-	const instance_xml_info_t *p_xml_info = instance_xml_mgr.get_instance_xml_info(instance_id);
+	const instance_xml_info_t *p_xml_info = instance_xml_mgr->get_instance_xml_info(instance_id);
 	if (!p_xml_info) {
 		T_KWARN_LOG(owner->user_id, "invalid instance id, id=%u", instance_id);
 		return cli_invalid_instance_id_err;
@@ -992,7 +993,7 @@ InstanceManager::pack_instance_list_info(cli_get_instance_list_out &cli_out)
 		instance_cache_info_t *p_info = &(it->second);
 		cli_instance_info_t info;
 		info.instance_id = p_info->instance_id;
-		const instance_xml_info_t *p_xml_info = instance_xml_mgr.get_instance_xml_info(info.instance_id);
+		const instance_xml_info_t *p_xml_info = instance_xml_mgr->get_instance_xml_info(info.instance_id);
 		if (p_xml_info) {
 			info.daily_tms = p_info->daily_tms;
 		} else {
@@ -1011,12 +1012,12 @@ InstanceManager::pack_client_instance_chapter_list(cli_get_instance_chapter_list
 		cli_chapter_info_t info;
 		info.chapter_id = p_info->chapter_id;
 		info.star = p_info->star;
-		const instance_chapter_xml_info_t *p_xml_info = instance_chapter_xml_mgr.get_instance_chapter_xml_info(p_info->chapter_id);
+		const instance_chapter_xml_info_t *p_xml_info = instance_chapter_xml_mgr->get_instance_chapter_xml_info(p_info->chapter_id);
 		if (p_xml_info) {
 			for (int i = 0; i < 3; i++) {
 				uint32_t bag_id = p_xml_info->bag[i];
 				if (bag_id > 0) {
-					const instance_bag_xml_info_t *p_bag_xml_info = instance_bag_xml_mgr.get_instance_bag_xml_info(bag_id);
+					const instance_bag_xml_info_t *p_bag_xml_info = instance_bag_xml_mgr->get_instance_bag_xml_info(bag_id);
 					if (p_bag_xml_info) {
 						cli_chapter_bag_info_t bag_info;
 						bag_info.bag_id = bag_id;

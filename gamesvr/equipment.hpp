@@ -134,7 +134,7 @@ private:
 	EquipXmlMap equip_xml_map;
 
 };
-extern EquipmentXmlManager equip_xml_mgr;
+//extern EquipmentXmlManager equip_xml_mgr;
 
 /********************************************************************************/
 /*					EquipmentRefiningXmlManager Class							*/
@@ -177,7 +177,7 @@ private:
 private:
 	EquipRefiningXmlMap equip_refining_xml_map;
 };
-extern EquipRefiningXmlManager equip_refining_xml_mgr;
+//extern EquipRefiningXmlManager equip_refining_xml_mgr;
 
 /********************************************************************************/
 /*						EquipCompoundXmlManager Class							*/
@@ -203,7 +203,7 @@ private:
 private:
 	EquipCompoundXmlMap equip_compound_xml_map;
 };
-extern EquipCompoundXmlManager equip_compound_xml_mgr;
+//extern EquipCompoundXmlManager equip_compound_xml_mgr;
 
 /********************************************************************************/
 /*						EquipLevelXmlManager Class								*/
@@ -228,6 +228,6 @@ private:
 private:
 	EquipLevelXmlMap equip_level_xml_map;
 };
-extern EquipLevelXmlManager equip_level_xml_mgr;
+//extern EquipLevelXmlManager equip_level_xml_mgr;
 
 #endif //EQUIPMENT_HPP_

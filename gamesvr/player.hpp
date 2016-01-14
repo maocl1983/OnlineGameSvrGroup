@@ -255,7 +255,7 @@ private:
 	PlayerFdMap fd_map;
 	PlayerAcctMap acct_map;
 };
-extern PlayerManager g_player_mgr;
+//extern PlayerManager g_player_mgr;
 
 
 /********************************************************************************/
@@ -284,7 +284,7 @@ private:
 private:
 	RoleSkillXmlMap role_skill_xml_map;
 };
-extern RoleSkillXmlManager role_skill_xml_mgr;
+//extern RoleSkillXmlManager role_skill_xml_mgr;
 
 /********************************************************************************/
 /*								Lua Interface									*/

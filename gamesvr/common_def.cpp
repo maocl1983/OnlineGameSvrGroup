@@ -21,9 +21,9 @@
 
 using namespace project;
 
-uint32_t g_server_id = 0;
+//uint32_t g_server_id = 0;
 
-EventMgr ev_mgr;
+//EventMgr ev_mgr;
 
 
 //timer_head_t timer_events;

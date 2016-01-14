@@ -25,18 +25,19 @@ extern "C"{
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "common_def.hpp"
 #include "stat_log.hpp"
 
-char *stat_file;
-int stat_svr_fd = -1;
+//char *stat_file;
+//int stat_svr_fd = -1;
 
 #define MAX_STAT_LOG_LIST_COUNT 8192
 
 #define LOCK(q) while (__sync_lock_test_and_set(&(q)->lock,1)) {}
 #define UNLOCK(q) __sync_lock_release(&(q)->lock);
 
-stat_log_list_t g_stat_log_list;
+//stat_log_list_t g_stat_log_list;
 
 static inline 
 int add_to_msglog_list(uint32_t stat_id, const void *data, size_t len)
@@ -101,6 +102,11 @@ int make_sure_dir_exists(const char *pathname )
 	return 0;
 }
 
+
+void init_stat_log_list()
+{
+	INIT_LIST_HEAD(&(g_stat_log_list.list));
+}
 
 /* @brief 统计日志线程函数
  */

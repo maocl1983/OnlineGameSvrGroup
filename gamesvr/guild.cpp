@@ -19,6 +19,7 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "guild.hpp"
 #include "player.hpp"
 #include "dbroute.hpp"
@@ -26,7 +27,7 @@
 using namespace std;
 using namespace project;
 
-GuildManager guild_mgr;
+//GuildManager guild_mgr;
 
 /********************************************************************************/
 /*									GuildManager Class									*/
@@ -461,7 +462,7 @@ GuildManager::pack_player_guild_hire_heros_info(Player *p, cli_get_guild_hire_he
 int cli_get_guild_list(Player *p, Cmessage *c_in)
 {
 	cli_get_guild_list_out cli_out;
-	guild_mgr.pack_client_guild_list(cli_out);
+	guild_mgr->pack_client_guild_list(cli_out);
 
 	return p->send_to_self(p->wait_cmd, &cli_out, 1);
 }
@@ -472,7 +473,7 @@ int cli_join_guild_request(Player *p, Cmessage *c_in)
 {
 	cli_join_guild_request_in *p_in = P_IN;
 
-	int ret = guild_mgr.join_guild(p, p_in->guild_id);
+	int ret = guild_mgr->join_guild(p, p_in->guild_id);
 	if (ret) {
 		return p->send_to_self_error(p->wait_cmd, ret, 1);
 	}
@@ -490,7 +491,7 @@ int cli_join_guild_request(Player *p, Cmessage *c_in)
 int cli_get_player_guild_info(Player *p, Cmessage *c_in)
 {
 	cli_get_player_guild_info_out cli_out;
-	guild_mgr.pack_player_guild_info(p, cli_out);
+	guild_mgr->pack_player_guild_info(p, cli_out);
 
 	return p->send_to_self(p->wait_cmd, &cli_out, 1);
 }
@@ -500,7 +501,7 @@ int cli_get_player_guild_info(Player *p, Cmessage *c_in)
 int cli_get_guild_hire_heros_info(Player *p, Cmessage *c_in)
 {
 	cli_get_guild_hire_heros_info_out cli_out;
-	guild_mgr.pack_player_guild_hire_heros_info(p, cli_out);
+	guild_mgr->pack_player_guild_hire_heros_info(p, cli_out);
 
 	return p->send_to_self(p->wait_cmd, &cli_out, 1);
 }
@@ -511,7 +512,7 @@ int cli_set_guild_hire_hero(Player *p, Cmessage *c_in)
 {
 	cli_set_guild_hire_hero_in *p_in = P_IN;
 
-	int ret = guild_mgr.add_guild_hire_hero(p, p_in->id, p_in->hero_id);
+	int ret = guild_mgr->add_guild_hire_hero(p, p_in->id, p_in->hero_id);
 	if (ret) {
 		return p->send_to_self_error(p->wait_cmd, ret, 1);
 	}
@@ -532,7 +533,7 @@ int cli_revoke_guild_hire_hero(Player *p, Cmessage *c_in)
 	cli_revoke_guild_hire_hero_in *p_in = P_IN;
 
 	uint32_t golds = 0;
-	int ret = guild_mgr.revoke_guild_hire_hero(p, p_in->hero_id, golds);
+	int ret = guild_mgr->revoke_guild_hire_hero(p, p_in->hero_id, golds);
 	if (ret) {
 		return p->send_to_self_error(p->wait_cmd, ret, 1);
 	}
@@ -558,7 +559,7 @@ int db_get_guild_list(Player *p, Cmessage *c_in, uint32_t ret)
 	}
 	db_get_guild_list_out *p_in = P_IN;
 
-	guild_mgr.init_guild_list(p_in);
+	guild_mgr->init_guild_list(p_in);
 
 	return send_msg_to_dbroute(0, db_get_guild_member_list_cmd, 0, 0);
 }
@@ -573,7 +574,7 @@ int db_get_guild_member_list(Player *p, Cmessage *c_in, uint32_t ret)
 
 	db_get_guild_member_list_out *p_in = P_IN;
 
-	guild_mgr.init_guild_member_list(p_in);
+	guild_mgr->init_guild_member_list(p_in);
 
 	return 0;
 }
@@ -588,7 +589,7 @@ int db_get_guild_count(Player *p, Cmessage *c_in, uint32_t ret)
 
 	db_get_guild_count_out *p_in = P_IN;
 	if (p_in->count == 0) {
-		guild_mgr.first_init_guild();
+		guild_mgr->first_init_guild();
 	} else {
 		return send_msg_to_dbroute(0, db_get_guild_list_cmd, 0, 0);
 	}

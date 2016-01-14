@@ -21,10 +21,12 @@ extern "C"{
 #include <asyn_serv/net_if.hpp> 
 
 
+#include "global_data.hpp"
 #include "alarm.hpp"
 #include "common_def.hpp"
+#include "timer.hpp"
 
-int alarm_fd = -1;
+//int alarm_fd = -1;
 
 
 /* @brief 向alarm发送包
@@ -75,7 +77,7 @@ int connect_to_alarm_timely(void *owner, void *data)
 	if (alarm_fd == -1) {
 		connect_to_alarm();
 	}
-	add_timer_event(0, connect_to_alarm_timely, NULL, NULL, 2000);
+	add_timer_event(0, tm_connect_to_alarm_timely_index, NULL, NULL, 2000);
 
 	return 0;
 }

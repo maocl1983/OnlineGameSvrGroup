@@ -18,6 +18,7 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "player.hpp"
 #include "hero.hpp"
 #include "item.hpp"
@@ -28,9 +29,9 @@ using namespace std;
 using namespace project;
 
 
-HorseAttrXmlManager horse_attr_xml_mgr;
-HorseExpXmlManager horse_exp_xml_mgr;
-HorseEquipXmlManager horse_equip_xml_mgr;
+//HorseAttrXmlManager horse_attr_xml_mgr;
+//HorseExpXmlManager horse_exp_xml_mgr;
+//HorseEquipXmlManager horse_equip_xml_mgr;
 
 /********************************************************************************/
 /*							Horse Class											*/
@@ -74,7 +75,7 @@ Horse::init_horse_info_from_db(uint32_t horse_lv, uint32_t horse_exp)
 	lv = horse_lv;
 	exp = horse_exp;
 
-	base_info = horse_attr_xml_mgr.get_horse_attr_xml_info(lv);
+	base_info = horse_attr_xml_mgr->get_horse_attr_xml_info(lv);
 
 	calc_all();
 
@@ -85,7 +86,7 @@ Horse::init_horse_info_from_db(uint32_t horse_lv, uint32_t horse_exp)
 int
 Horse::calc_base_attr()
 {
-	const horse_attr_xml_info_t *p_attr_info = horse_attr_xml_mgr.get_horse_attr_xml_info(lv);
+	const horse_attr_xml_info_t *p_attr_info = horse_attr_xml_mgr->get_horse_attr_xml_info(lv);
 	if (!p_attr_info) {
 		return 0;
 	}
@@ -128,7 +129,7 @@ Horse::calc_equip_attr()
 int 
 Horse::calc_all()
 {
-	base_info = horse_attr_xml_mgr.get_horse_attr_xml_info(lv);
+	base_info = horse_attr_xml_mgr->get_horse_attr_xml_info(lv);
 	calc_base_attr();
 	calc_equip_attr();
 
@@ -153,7 +154,7 @@ Horse::get_levelup_exp(uint32_t lv)
 	if (lv > MAX_HORSE_LEVEL) {
 		return -1;
 	}
-	const horse_exp_xml_info_t *p_xml_info = horse_exp_xml_mgr.get_horse_exp_xml_info(lv);
+	const horse_exp_xml_info_t *p_xml_info = horse_exp_xml_mgr->get_horse_exp_xml_info(lv);
 	if (!p_xml_info) {
 		return -1;
 	}
@@ -274,7 +275,7 @@ Horse::horse_train(uint32_t type, uint32_t &cri_flag)
 		return cli_invalid_input_arg_err;
 	}
 
-	const horse_exp_xml_info_t *p_xml_info = horse_exp_xml_mgr.get_horse_exp_xml_info(this->lv);
+	const horse_exp_xml_info_t *p_xml_info = horse_exp_xml_mgr->get_horse_exp_xml_info(this->lv);
 	if (!p_xml_info) {
 		T_KWARN_LOG(owner->user_id, "horse exp xml info not found err, type=%u, lv=%u", type, lv);
 		return cli_invalid_horse_lv_err;
@@ -350,7 +351,7 @@ Horse::horse_use_exp_items(std::vector<cli_item_info_t> &items)
 
 	for (uint32_t i = 0; i < items.size(); i++) {
 		cli_item_info_t *p_info = &(items[i]);
-		const item_xml_info_t *p_xml_info = items_xml_mgr.get_item_xml_info(p_info->item_id);
+		const item_xml_info_t *p_xml_info = items_xml_mgr->get_item_xml_info(p_info->item_id);
 		if (!p_xml_info) {
 			return cli_invalid_item_err;
 		}
@@ -368,7 +369,7 @@ Horse::horse_use_exp_items(std::vector<cli_item_info_t> &items)
 	uint32_t add_exp = 0;
 	for (uint32_t i = 0; i < items.size(); i++) {
 		cli_item_info_t *p_info = &(items[i]);
-		const item_xml_info_t *p_xml_info = items_xml_mgr.get_item_xml_info(p_info->item_id);
+		const item_xml_info_t *p_xml_info = items_xml_mgr->get_item_xml_info(p_info->item_id);
 		if (p_xml_info) {
 			owner->items_mgr->del_item_without_callback(p_info->item_id, p_info->item_cnt);
 			add_exp += (p_xml_info->effect * p_info->item_cnt);
@@ -393,7 +394,7 @@ Horse::put_on_equip(uint32_t get_tm)
 		return cli_equip_not_exist_err;
 	}
 
-	const horse_equip_xml_info_t *p_xml_info = horse_equip_xml_mgr.get_horse_equip_xml_info(p_equip->id);
+	const horse_equip_xml_info_t *p_xml_info = horse_equip_xml_mgr->get_horse_equip_xml_info(p_equip->id);
 	if (!p_xml_info) {
 		T_KWARN_LOG(owner->user_id, "horse equip invalid\t[equip_id=%u]", p_equip->id);
 		return cli_invalid_equip_err;
@@ -433,7 +434,7 @@ Horse::put_off_equip(uint32_t get_tm)
 		return cli_equip_not_exist_err;
 	}
 
-	const horse_equip_xml_info_t *p_xml_info = horse_equip_xml_mgr.get_horse_equip_xml_info(p_equip->id);
+	const horse_equip_xml_info_t *p_xml_info = horse_equip_xml_mgr->get_horse_equip_xml_info(p_equip->id);
 	if (!p_xml_info) {
 		T_KWARN_LOG(owner->user_id, "horse equip invalid\t[equip_id=%u]", p_equip->id);
 		return cli_invalid_equip_err;
@@ -605,7 +606,7 @@ HorseEquipManager::init_horse_equips_info(db_get_player_items_info_out *p_out)
 {
 	for (uint32_t i = 0; i < p_out->equips.size(); i++) {
 		db_equip_info_t *p_info = &(p_out->equips[i]);
-		const horse_equip_xml_info_t *base_info = horse_equip_xml_mgr.get_horse_equip_xml_info(p_info->equip_id);
+		const horse_equip_xml_info_t *base_info = horse_equip_xml_mgr->get_horse_equip_xml_info(p_info->equip_id);
 		if (base_info) {
 			HorseEquip *p_equip = new HorseEquip(owner, p_info->equip_id);
 			p_equip->get_tm = p_info->get_tm;
@@ -640,7 +641,7 @@ HorseEquipManager::get_horse_equip(uint32_t get_tm)
 HorseEquip*
 HorseEquipManager::add_one_horse_equip(uint32_t id)
 {
-	const horse_equip_xml_info_t *p_xml_info = horse_equip_xml_mgr.get_horse_equip_xml_info(id);
+	const horse_equip_xml_info_t *p_xml_info = horse_equip_xml_mgr->get_horse_equip_xml_info(id);
 	if (!p_xml_info) {
 		return 0;
 	}

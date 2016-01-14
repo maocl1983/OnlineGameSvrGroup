@@ -18,14 +18,15 @@
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
+#include "global_data.hpp"
 #include "btl_soul.hpp"
 #include "player.hpp"
 #include "dbroute.hpp"
 #include "log_thread.hpp"
 
-BtlSoulXmlManager btl_soul_xml_mgr;
-BtlSoulLevelXmlManager btl_soul_level_xml_mgr;
-DivineItemXmlManager divine_item_xml_mgr;
+//BtlSoulXmlManager btl_soul_xml_mgr;
+//BtlSoulLevelXmlManager btl_soul_level_xml_mgr;
+//DivineItemXmlManager divine_item_xml_mgr;
 
 using namespace std;
 using namespace project;
@@ -39,7 +40,7 @@ BtlSoul::BtlSoul(Player *p, uint32_t btl_soul_id) : owner(p), id(btl_soul_id)
 	exp = 0;
 	hero_id = 0;
 	tmp = 0;
-	base_info = btl_soul_xml_mgr.get_btl_soul_xml_info(id);
+	base_info = btl_soul_xml_mgr->get_btl_soul_xml_info(id);
 }
 
 BtlSoul::~BtlSoul()
@@ -75,7 +76,7 @@ BtlSoulManager::init_btl_soul_list(db_get_player_btl_soul_list_out *p_out)
 {
 	for (uint32_t i = 0; i < p_out->btl_soul_list.size(); i++) {
 		db_btl_soul_info_t *p_info = &(p_out->btl_soul_list[i]);
-		const btl_soul_xml_info_t *base_info = btl_soul_xml_mgr.get_btl_soul_xml_info(p_info->id);
+		const btl_soul_xml_info_t *base_info = btl_soul_xml_mgr->get_btl_soul_xml_info(p_info->id);
 		if (base_info) {
 			BtlSoul *p_btl_soul = new BtlSoul(owner, base_info->id);
 			p_btl_soul->get_tm = p_info->get_tm;
@@ -83,7 +84,7 @@ BtlSoulManager::init_btl_soul_list(db_get_player_btl_soul_list_out *p_out)
 			p_btl_soul->lv = p_info->lv;
 			p_btl_soul->exp = p_info->exp;
 			p_btl_soul->tmp = p_info->tmp;
-			p_btl_soul->base_info = btl_soul_xml_mgr.get_btl_soul_xml_info(p_info->id);
+			p_btl_soul->base_info = btl_soul_xml_mgr->get_btl_soul_xml_info(p_info->id);
 			
 			btl_soul_map.insert(BtlSoulMap::value_type(p_btl_soul->get_tm, p_btl_soul));
 
@@ -159,7 +160,7 @@ BtlSoulManager::btl_soul_level_up(uint32_t get_tm)
 	}
 
 	//检查经验是否足够
-	uint32_t need_exp = btl_soul_level_xml_mgr.get_btl_soul_levelup_exp(p_btl_soul->base_info->rank, p_btl_soul->lv);
+	uint32_t need_exp = btl_soul_level_xml_mgr->get_btl_soul_levelup_exp(p_btl_soul->base_info->rank, p_btl_soul->lv);
 	if (owner->btl_soul_exp < need_exp) {
 		T_KWARN_LOG(owner->user_id, "btl soul level up need exp not enough\t[cur_exp=%u, need_exp=%u]", owner->btl_soul_exp, need_exp);
 		return cli_btl_soul_exp_not_enough_err;
@@ -193,7 +194,7 @@ BtlSoulManager::divine_exec(uint32_t divine_id, uint32_t &btl_soul_id)
 		return 0;
 	}
 
-	btl_soul_id = divine_item_xml_mgr.random_divine_item(divine_id);
+	btl_soul_id = divine_item_xml_mgr->random_divine_item(divine_id);
 
 	uint32_t next_divine_id = 1;
 	uint32_t next_prob[] = {50, 40, 30, 10, 0};
@@ -363,7 +364,7 @@ BtlSoulManager::add_btl_soul_from_tmp_to_bag_one_key()
 BtlSoul*
 BtlSoulManager::add_btl_soul(uint32_t id, uint32_t tmp)
 {
-	const btl_soul_xml_info_t *p_xml_info = btl_soul_xml_mgr.get_btl_soul_xml_info(id);
+	const btl_soul_xml_info_t *p_xml_info = btl_soul_xml_mgr->get_btl_soul_xml_info(id);
 	if (!p_xml_info) {
 		return 0;
 	}
@@ -404,7 +405,7 @@ BtlSoulManager::add_btl_soul(std::vector<uint32_t> &btl_soul_vec)
 	db_add_btl_soul_list_in db_in;
 	for (uint32_t i = 0; i < btl_soul_vec.size(); i++) {
 		uint32_t id = btl_soul_vec[i];
-		const btl_soul_xml_info_t *base_info = btl_soul_xml_mgr.get_btl_soul_xml_info(id);
+		const btl_soul_xml_info_t *base_info = btl_soul_xml_mgr->get_btl_soul_xml_info(id);
 		if (!base_info) {
 			continue;
 		}

@@ -76,17 +76,13 @@ typedef struct stat_log_list {
 	int lock;			//链表锁
 } stat_log_list_t;
 
-extern stat_log_list_t g_stat_log_list;
+//extern stat_log_list_t g_stat_log_list;
 
 /* 统计文件 */
-extern char *stat_file;
-extern int stat_svr_fd;
+//extern char *stat_file;
+//extern int stat_svr_fd;
 
-inline
-void init_stat_log_list()
-{
-	INIT_LIST_HEAD(&(g_stat_log_list.list));
-}
+void init_stat_log_list();
 
 void statistic_person_time(uint32_t stat_id, uint32_t user_id);
 

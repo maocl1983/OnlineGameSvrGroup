@@ -136,7 +136,7 @@ private:
 private:
 	BtlSoulXmlMap btl_soul_xml_map;
 };
-extern BtlSoulXmlManager btl_soul_xml_mgr;
+//extern BtlSoulXmlManager btl_soul_xml_mgr;
 
 /********************************************************************************/
 /*							BtlSoulLevelXmlManager Class						*/
@@ -167,7 +167,7 @@ private:
 private:
 	BtlSoulLevelXmlMap rank_map;
 };
-extern BtlSoulLevelXmlManager btl_soul_level_xml_mgr;
+//extern BtlSoulLevelXmlManager btl_soul_level_xml_mgr;
 
 /********************************************************************************/
 /*							DivineItemXmlManager Class							*/
@@ -201,6 +201,6 @@ private:
 private:
 	DivineItemXmlMap divine_item_xml_map;
 };
-extern DivineItemXmlManager divine_item_xml_mgr;
+//extern DivineItemXmlManager divine_item_xml_mgr;
 
 #endif // BTL_SOUL_HPP_

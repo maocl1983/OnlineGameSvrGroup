@@ -263,7 +263,7 @@ private:
 private:
 	HeroXmlMap hero_xml_map;
 };
-extern HeroXmlManager hero_xml_mgr;
+//extern HeroXmlManager hero_xml_mgr;
 
 /********************************************************************************/
 /*						HeroRankXmlManager Class						*/
@@ -296,7 +296,7 @@ private:
 private:
 	HeroRankXmlMap hero_map;
 };
-extern HeroRankXmlManager hero_rank_xml_mgr;
+//extern HeroRankXmlManager hero_rank_xml_mgr;
 
 /********************************************************************************/
 /*							HeroRankStuffXmlManager Class						*/
@@ -336,7 +336,7 @@ private:
 private:
 	HeroRankStuffXmlMap stuff_map;
 };
-extern HeroRankStuffXmlManager hero_rank_stuff_xml_mgr;
+//extern HeroRankStuffXmlManager hero_rank_stuff_xml_mgr;
 
 /********************************************************************************/
 /*							HeroLevelAttrXmlManager Class							*/
@@ -367,7 +367,7 @@ private:
 private:
 	HeroLevelAttrXmlMap hero_map;
 };
-extern HeroLevelAttrXmlManager hero_level_attr_xml_mgr;
+//extern HeroLevelAttrXmlManager hero_level_attr_xml_mgr;
 
 /********************************************************************************/
 /*							LevelXmlManager Class							*/
@@ -402,7 +402,7 @@ private:
 private:
 	LevelXmlMap level_map;
 };
-extern LevelXmlManager level_xml_mgr;
+//extern LevelXmlManager level_xml_mgr;
 
 /********************************************************************************/
 /*							HeroHonorXmlManager Class							*/
@@ -436,7 +436,7 @@ private:
 private:
 	HeroHonorXmlMap honor_map;
 };
-extern HeroHonorXmlManager hero_honor_xml_mgr;
+//extern HeroHonorXmlManager hero_honor_xml_mgr;
 
 
 /********************************************************************************/
@@ -464,7 +464,7 @@ private:
 private:
 	HeroHonorExpXmlMap honor_exp_map;
 };
-extern HeroHonorExpXmlManager hero_honor_exp_xml_mgr;
+//extern HeroHonorExpXmlManager hero_honor_exp_xml_mgr;
 
 /********************************************************************************/
 /*							HeroTitleXmlManager Class							*/
@@ -489,6 +489,6 @@ private:
 private:
 	HeroTitleXmlMap hero_title_xml_map;
 };
-extern HeroTitleXmlManager hero_title_xml_mgr;
+//extern HeroTitleXmlManager hero_title_xml_mgr;
 
 #endif //HERO_HPP_

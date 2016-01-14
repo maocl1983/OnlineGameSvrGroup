@@ -88,6 +88,6 @@ public:
 private:
 	GuildMap guild_map;
 };
-extern GuildManager guild_mgr;
+//extern GuildManager guild_mgr;
 
 #endif //GUILD_HPP_

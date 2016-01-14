@@ -272,7 +272,7 @@ private:
     ResXmlMap res_xml_map;
 };
 
-extern ResXmlManage res_xml_mgr;
+//extern ResXmlManage res_xml_mgr;
 
 /********************************************************************************/
 /*								Lua Interface 									*/

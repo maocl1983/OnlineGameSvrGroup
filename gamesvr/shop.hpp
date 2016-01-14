@@ -109,7 +109,7 @@ private:
 private:
 	ShopXmlMap shop_map;
 };
-extern ShopXmlManager shop_xml_mgr;
+//extern ShopXmlManager shop_xml_mgr;
 
 /********************************************************************************/
 /*								ItemShopXmlManager								*/
@@ -145,6 +145,6 @@ private:
 private:
 	ItemShopXmlMap item_shop_xml_map;
 };
-extern ItemShopXmlManager item_shop_xml_mgr;
+//extern ItemShopXmlManager item_shop_xml_mgr;
 
 #endif //SHOP_HPP_
