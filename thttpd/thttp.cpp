@@ -28,7 +28,13 @@ extern "C" {
 #include <asyn_serv/net_if.hpp>
 
 #include <libproject/utils/strings.hpp> //bin2hex
+#if 0
 #include <json/json.h> 
+#else
+#include <rapidjson/document.h>
+#include <rapidjson/writer.h>
+#include <rapidjson/stringbuffer.h>
+#endif
 
 const int min_len_req_line = 0;
 const int max_line_size = 2048 * 2;
@@ -226,6 +232,7 @@ extern "C" int proc_pkg_from_client(void* data, int len, fdsession_t* fdsess)
 		data[data_length] = '\0';
 		DEBUG_LOG("post data len=%d str=[%s]", data_length, data);
 
+#if 0
 		//json parse
 		Json::Reader Parser;
 		Json::Value root;
@@ -250,7 +257,58 @@ extern "C" int proc_pkg_from_client(void* data, int len, fdsession_t* fdsess)
 		sprintf(respond_str, "HTTP/1.1 200 OK\r\nContent-Length: %ld", strlen(outStr.c_str()));
 		strcat(respond_str, http_ok_header2);
 		strncat(respond_str, outStr.c_str(), strlen(outStr.c_str())+1);
-		return send_pkg_to_client(fdsess, respond_str, strlen(respond_str));  		
+        return send_pkg_to_client(fdsess, respond_str, strlen(respond_str));  		
+#else
+        //rapidjson parse
+        rapidjson::Document document;
+        if (document.ParseInsitu(data).HasParseError()) {
+            ERROR_LOG("docment parse json error!");
+            return -1;
+        }
+        int userid = 0;
+        std::string nick;
+        if (document["userid"].IsInt()) userid = document["userid"].GetInt();
+        if (document["nick"].IsString()) nick = document["nick"].GetString();
+		DEBUG_LOG("rapidjson data userid=%d nick=%s", userid, nick.c_str());
+        rapidjson::Value &items = document["iteminfo"];
+        if (items.IsArray()) {
+            for (rapidjson::SizeType i = 0; i < items.Size(); i++) {
+                int id = 0, cnt = 0;
+                rapidjson::Value &item = items[i];
+                if (item.IsObject()) {
+                    if (item["itemid"].IsInt()) id = item["itemid"].GetInt();
+                    if (item["itemcnt"].IsInt()) cnt = item["itemcnt"].GetInt();
+                }
+		        DEBUG_LOG("rapidjson item id=%d cnt=%d", id, cnt);
+            }
+        }
+
+        //rapidjson repond
+        rapidjson::StringBuffer sb;
+        rapidjson::Writer<rapidjson::StringBuffer> writer(sb);
+        writer.StartObject();
+        writer.String("userid");
+        writer.Uint(userid+100);
+        writer.String("nick");
+        writer.String(nick.c_str());
+        writer.String("iteminfo");
+        writer.StartArray();
+        for (uint i = 0; i < 2; i++) {
+            writer.StartObject();
+            writer.String("itemid");
+            writer.Uint(10001+i);
+            writer.String("itemcnt");
+            writer.Uint(10+i);
+            writer.EndObject();
+        }
+        writer.EndArray();
+        writer.EndObject();
+		char respond_str[2048];
+		sprintf(respond_str, "HTTP/1.1 200 OK\r\nContent-Length: %ld", sb.GetSize());
+		strcat(respond_str, http_ok_header2);
+		strncat(respond_str, sb.GetString(), sb.GetSize());
+        return send_pkg_to_client(fdsess, respond_str, strlen(respond_str));  		
+#endif
 	}
 			
 	send_pkg_to_client(fdsess, notfound_str, notfound_len);
