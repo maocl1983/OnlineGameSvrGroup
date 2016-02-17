@@ -914,6 +914,7 @@ Player::deal_something_when_login()
 	set_login_day();
 
 	//lua_script_mgr.DoTest(this);
+    //http_request->DoTest(user_id);
 	return 0;
 }
 

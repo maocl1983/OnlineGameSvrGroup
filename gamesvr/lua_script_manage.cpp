@@ -91,7 +91,7 @@ bool LuaScriptManage::LoadLuaFile(const char* path)
 	chdir("..");
 	closedir(pDir);
 
-	for (int i = 0; i < lua_file_vec.size(); i++) {
+	for (size_t i = 0; i < lua_file_vec.size(); i++) {
 		if (luaL_dofile(l_state, lua_file_vec[i].c_str())) {
 			ERROR_LOG("load lua file error![%s]", lua_file_vec[i].c_str());
 			return false;

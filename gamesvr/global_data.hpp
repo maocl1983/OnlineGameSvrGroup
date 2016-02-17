@@ -39,6 +39,7 @@ extern "C"{
 #include "trial_tower.hpp"
 #include "utils.hpp"
 #include "vip.hpp"
+#include "http_request.hpp"
 
 extern AchievementXmlManager* achievement_xml_mgr;
 extern AdventureXmlManager* adventure_xml_mgr;
@@ -114,6 +115,7 @@ extern TreasureRewardXmlManager* treasure_reward_xml_mgr;
 extern TrialTowerRewardXmlManager* trial_tower_reward_xml_mgr;
 extern Utils* utils_mgr; 
 extern VipXmlManager* vip_xml_mgr;
+extern HttpRequest* http_request;
 
 /*! 全局变量-服务器ID */
 extern uint32_t g_server_id;
@@ -130,5 +132,6 @@ extern callback_func_t tcfs[max_timer_type];
 
 extern pthread_t stat_tid;
 extern pthread_t log_tid;
+extern pthread_t http_tid;
 
 #endif

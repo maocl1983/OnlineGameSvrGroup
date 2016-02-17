@@ -419,7 +419,7 @@ GuildManager::pack_player_guild_hire_heros_info(Player *p, cli_get_guild_hire_he
 	if (!p_info) {
 		return;
 	}
-	uint32_t now_sec = get_now_tv()->tv_sec;
+	//uint32_t now_sec = get_now_tv()->tv_sec;
 	GuildMemberMap::const_iterator it = p_info->members.begin();
 	/*for (; it != p_info->members.end(); ++it) {
 		const guild_member_info_t *p_member_info = &(it->second);

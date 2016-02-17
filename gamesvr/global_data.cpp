@@ -80,6 +80,7 @@ TreasureRewardXmlManager* treasure_reward_xml_mgr;
 TrialTowerRewardXmlManager* trial_tower_reward_xml_mgr;
 Utils* utils_mgr; 
 VipXmlManager* vip_xml_mgr;
+HttpRequest* http_request;
 
 /*! 全局变量-服务器ID */
 uint32_t g_server_id = -1;
@@ -93,5 +94,6 @@ int switch_fd = -1;
 
 pthread_t stat_tid;
 pthread_t log_tid;
+pthread_t http_tid;
 
 

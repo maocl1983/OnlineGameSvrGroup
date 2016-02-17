@@ -138,6 +138,7 @@ static void init_global_members()
 	treasure_reward_xml_mgr = new TreasureRewardXmlManager();
 	trial_tower_reward_xml_mgr = new TrialTowerRewardXmlManager();
 	vip_xml_mgr = new VipXmlManager();
+    http_request = new HttpRequest();
 }
 
 static int init_proto_handle_funs()
@@ -267,6 +268,9 @@ extern "C" int init_service(int isparent)
 		//日志线程
 		init_log_thread_list();
 		pthread_create(&log_tid, 0, &write_log_thread, 0);
+
+        //curl线程
+        pthread_create(&http_tid, 0, &deal_request_thread, 0);
 
 		//加载lua脚本
 		lua_script_mgr->LoadLuaFile("./lualib/");
@@ -441,10 +445,13 @@ extern "C" void proc_udp_pkg(int fd, const void* avail_data, int avail_len, stru
 extern "C" void before_global_reload()
 {
 	if (stat_tid && pthread_cancel(stat_tid) == 0) {
-		DEBUG_LOG("cancel stat log pthread!");
+		DEBUG_LOG("cancel statlog pthread!");
 	}
 	if (log_tid && pthread_cancel(log_tid) == 0) {
-		DEBUG_LOG("cancel log log pthread!");
+		DEBUG_LOG("cancel log pthread!");
+	}
+	if (http_tid && pthread_cancel(http_tid) == 0) {
+		DEBUG_LOG("cancel http pthread!");
 	}
 	DEBUG_LOG("before global reload");
 }
@@ -459,6 +466,7 @@ extern "C" void reload_global_data()
 
 	pthread_create(&stat_tid, 0, &write_stat_log, 0);
 	pthread_create(&log_tid, 0, &write_log_thread, 0);
+    pthread_create(&http_tid, 0, &deal_request_thread, 0);
 	DEBUG_LOG("reload global data");
 }
 
