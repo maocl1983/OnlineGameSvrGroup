@@ -21,14 +21,17 @@ extern "C"{
 #include <sys/stat.h>
 }
 
-
+/*
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
 #include "global_data.hpp"
 #include "common_def.hpp"
 #include "stat_log.hpp"
+*/
 
+#include "common_def.hpp"
+#include "stdafx.hpp"
 //char *stat_file;
 //int stat_svr_fd = -1;
 

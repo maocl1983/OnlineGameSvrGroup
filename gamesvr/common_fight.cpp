@@ -13,7 +13,7 @@
  *
  * =====================================================================================
  */
-
+/*
 #include "./proto/xseer_db.hpp"
 #include "./proto/xseer_db_enum.hpp"
 #include "./proto/xseer_online.hpp"
@@ -22,7 +22,9 @@
 #include "global_data.hpp"
 #include "player.hpp"
 #include "restriction.hpp"
+*/
 
+#include "stdafx.hpp"
 using namespace std;
 using namespace project;
 

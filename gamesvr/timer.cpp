@@ -13,6 +13,7 @@
   *
   * ============================================================
   */
+/*
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 
@@ -23,7 +24,9 @@
 #include "wheel_timer.h"
 #include "arena.hpp"
 #include "guild.hpp"
+*/
 
+#include "stdafx.hpp"
 using namespace std;
 using namespace project;
 

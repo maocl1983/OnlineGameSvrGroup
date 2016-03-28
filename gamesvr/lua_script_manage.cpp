@@ -16,13 +16,17 @@
 #include <dirent.h>
 #include <vector>
 #include <unistd.h>
+
+/*
 #include "lua_script_manage.hpp"
 #include "lua_log.hpp"
 #include "restriction.hpp"
 #include "utils.hpp"
 #include "player.hpp"
 #include "global_data.hpp"
+*/
 
+#include "stdafx.hpp"
 using namespace std;
 #define pushuserdata(_p, lua_state, metaname) \
 	do { \

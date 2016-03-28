@@ -13,6 +13,7 @@
  *
  * =====================================================================================
  */
+/*
 #include "./proto/xseer_db.hpp"
 #include "./proto/xseer_db_enum.hpp"
 #include "./proto/xseer_online.hpp"
@@ -24,7 +25,9 @@
 #include "dbroute.hpp"
 #include "talent.hpp"
 #include "arena.hpp"
+*/
 
+#include "stdafx.hpp"
 using namespace project;
 using namespace std;
 

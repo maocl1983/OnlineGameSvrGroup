@@ -14,12 +14,12 @@
  * =====================================================================================
  */
 
-#include <libproject/conf_parser/xmlparser.hpp>
-#include "common_def.hpp"
-#include "xmlutils.hpp"
+//#include <libproject/conf_parser/xmlparser.hpp>
+//#include "common_def.hpp"
+//#include "xmlutils.hpp"
 //#include "utils.hpp"
 
-using namespace project;
+//using namespace project;
 
 //uint32_t g_server_id = 0;
 

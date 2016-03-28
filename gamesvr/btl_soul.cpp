@@ -13,6 +13,7 @@
  *
  * =====================================================================================
  */
+/*
 #include "./proto/xseer_db.hpp"
 #include "./proto/xseer_db_enum.hpp"
 #include "./proto/xseer_online.hpp"
@@ -23,7 +24,9 @@
 #include "player.hpp"
 #include "dbroute.hpp"
 #include "log_thread.hpp"
+*/
 
+#include "stdafx.hpp"
 //BtlSoulXmlManager btl_soul_xml_mgr;
 //BtlSoulLevelXmlManager btl_soul_level_xml_mgr;
 //DivineItemXmlManager divine_item_xml_mgr;

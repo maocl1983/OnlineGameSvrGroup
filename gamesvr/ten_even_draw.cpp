@@ -13,7 +13,7 @@
  *
  * =====================================================================================
 */
-
+/*
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 #include "./proto/xseer_db.hpp"
@@ -23,7 +23,9 @@
 #include "ten_even_draw.hpp"
 #include "player.hpp"
 #include "restriction.hpp"
+*/
 
+#include "stdafx.hpp"
 using namespace std;
 using namespace project;
 

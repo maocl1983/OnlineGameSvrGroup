@@ -13,10 +13,12 @@
  *
  * =====================================================================================
  */
-
+/*
 #include "global_data.hpp"
 #include "skill.hpp"
+*/
 
+#include "stdafx.hpp"
 
 using namespace std;
 using namespace project;

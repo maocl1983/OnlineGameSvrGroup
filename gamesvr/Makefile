@@ -26,14 +26,21 @@ SRCS 	= dll_interface.cpp cli_dispatch.cpp dbroute.cpp switch.cpp redis.cpp comm
 			soldier.cpp btl_soul.cpp ten_even_draw.cpp horse.cpp arena.cpp treasure_risk.cpp task.cpp shop.cpp adventure.cpp\
 			achievement.cpp common_fight.cpp internal_affairs.cpp vip.cpp guild.cpp astrology.cpp trial_tower.cpp\
 			general.cpp stat_log.cpp log_thread.cpp wheel_timer.cpp alarm.cpp lua_log.cpp lua_script_manage.cpp http_request.cpp \
-# ./proto/common.cpp ./proto/xseer_online.cpp ./proto/xseer_battle.cpp ./proto/xseer_db.cpp \
+# 		  ./proto/common.cpp ./proto/xseer_online.cpp ./proto/xseer_battle.cpp ./proto/xseer_db.cpp \
 #		  ./proto/xseer_switch.cpp ./proto/kings_home.cpp ./proto/xseer_btlswitch.cpp ./proto/account_db.cpp \
 #		  ./proto/kings_redis.cpp ./proto/pay_db.cpp 
 
+PCH_X_H = common_def.hpp stdafx.hpp
+PCH_X = $(patsubst %hpp,%hpp.gch,$(PCH_X_H))
+
+.PHONY : all
 all: $(BINS) $(DATA_BINS)
 	
 
 
+
+$(PCH_X): %.hpp.gch: %.hpp
+	$(CC) $(FLAGS) $(INCLUDE) $<
 
 $(BINS): $(SRCS:.cpp=.o)
 	$(CC)  $(FLAGS) $(SOFLAGS) -o $@ $^ $(LIBPATH) $(LIBS)
@@ -45,12 +52,12 @@ $(DATA_BINS): $(DATA_SRCS:.cpp=.o)
 	@-rm ./bin/$(BINS)
 	@-cp $(BINS) ./bin/
 
-%.o: %.cpp Makefile  
+%.o: %.cpp $(PCH_X)
 	$(CC) $(FLAGS) $(INCLUDE) -c -o $@ $<
 	@-mv -f $*.d .dep.$@
 
 clean:
-	@-rm -f *.o *.oxx *.po *.so *.d .dep.* $(BINS) $(E_BIN) 
+	@-rm -f *.o *.oxx *.po *.so *.d .dep.* $(BINS) $(E_BIN) $(PCH_X)
 	@-rm -f ./proto/*.o ./proto/*.d
 	@-rm ./bin/*.so
 

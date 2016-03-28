@@ -13,6 +13,7 @@
  *
  * =====================================================================================
  */
+/*
 #include "./proto/xseer_db.hpp"
 #include "./proto/xseer_db_enum.hpp"
 #include "./proto/xseer_online.hpp"
@@ -24,7 +25,9 @@
 #include "item.hpp"
 #include "dbroute.hpp"
 #include "horse.hpp"
+*/
 
+#include "stdafx.hpp"
 using namespace std;
 using namespace project;
 

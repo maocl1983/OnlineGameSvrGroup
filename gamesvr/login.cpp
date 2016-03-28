@@ -13,7 +13,7 @@
  *
  * =====================================================================================
  */
-
+/*
 #include "./proto/xseer_online.hpp"
 #include "./proto/xseer_online_enum.hpp"
 #include "./proto/xseer_db.hpp"
@@ -30,7 +30,11 @@
 #include "item.hpp"
 #include "hero.hpp"
 #include "instance.hpp"
+*/
 
+#include "./proto/account_db.hpp"
+#include "./proto/account_db_enum.hpp"
+#include "stdafx.hpp"
 /*
 static int
 send_login_info_step_by_step(Player *p)

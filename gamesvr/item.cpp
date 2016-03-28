@@ -13,7 +13,7 @@
  *
  * =====================================================================================
  */
-
+/*
 #include "./proto/xseer_db.hpp"
 #include "./proto/xseer_db_enum.hpp"
 #include "./proto/xseer_online.hpp"
@@ -24,7 +24,9 @@
 #include "player.hpp"
 #include "dbroute.hpp"
 #include "redis.hpp"
+*/
 
+#include "stdafx.hpp"
 //ItemsXmlManager items_xml_mgr;
 //HeroRankItemXmlManager hero_rank_item_xml_mgr;
 //ItemPieceXmlManager item_piece_xml_mgr;
